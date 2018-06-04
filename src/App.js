@@ -29,8 +29,8 @@ class App extends Component {
         />
         <main>
           <Switch>
-            <Route exact path='/' render={() => <Home data={state.homecta} />} />
-            <Route path='/home' render={() => <Home data={state.homecta} />} />
+            <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} cta={state.homecta} />} />
+            <Route path='/home' render={() => <Home newsFeed={state.newsFeed} cta={state.homecta} />} />
             <Route path='/characters' component={Characters}/>
             <Route path='/stories' component={Stories} />
             <Route path='/interactables' component={Interactables} />

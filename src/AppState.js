@@ -51,6 +51,20 @@ class AppState extends Component {
           subText: 'Rules',
           url: '/rules'
         }
+      ],
+      newsFeed: [
+        {
+          id: 1,
+          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          title: 'Foo',
+          text: 'Bar'
+        },
+        {
+          id: 2,
+          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          title: 'Foo',
+          text: 'Bar'
+        }
       ]
     };
     this.setAppState = this.setAppState.bind(this);

@@ -11,7 +11,7 @@ import NewsFeed from './NewsFeed';
 
 class Home extends Component {
   render() {
-    let ctaList = this.props.data.map((cta, index) => {
+    let ctaList = this.props.cta.map((cta, index) => {
       return (
         <ListItem key={index}>
           <Link exact to={cta.url}>
@@ -30,7 +30,7 @@ class Home extends Component {
             {ctaList}
           </List>
         </Paper>
-        <NewsFeed/>
+        <NewsFeed newsFeed={this.props.newsFeed}/>
       </div>
     );
   }
