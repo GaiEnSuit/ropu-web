@@ -29,36 +29,35 @@ class RopuAppBar extends Component {
   }
   
   render() {
-    const state = this.props.data;
     
     let drawerList = this.props.navLinks.map((navLink, index) => {
-      return <ListItem key={index}><Link exact to={navLink.url}>{navLink.text}</Link></ListItem>
+      return <ListItem key={index}><Typography variant="subheading"><Link to={navLink.url}>{navLink.text}</Link></Typography></ListItem>
     });
     
     return (
       <AppBar position="static" color="primary">
         <Toolbar>
-          <IconButton color="inherit" onClick={this.toggleDrawer(state, true)} aria-label="Menu" >
+          <IconButton color="inherit" onClick={this.toggleDrawer(this.props.ropuappbar, true)} aria-label="Menu" >
             <MenuIcon />
           </IconButton>
-          <Link exact to="/home">
+          <Link to="/">
             <Typography variant="title" color="inherit">{this.props.title}</Typography>
           </Link>
-          { !state.loggedIn &&
+          { !this.props.ropuappbar.loggedIn &&
             <Button disabled variant="raised">Login</Button>
           }
-          { state.loggedIn &&
+          { this.props.ropuappbar.loggedIn &&
             <IconButton>
               <AccountCircle />
             </IconButton>
           }
         </Toolbar>
-        <Drawer open={state.open} onClose={this.toggleDrawer(state, false)}>
+        <Drawer open={this.props.ropuappbar.open} onClose={this.toggleDrawer(this.props.ropuappbar, false)}>
           <div
             tabIndex={0}
             role="button"
-            onClick={this.toggleDrawer(state, false)}
-            onKeyDown={this.toggleDrawer(state, false)}
+            onClick={this.toggleDrawer(this.props.ropuappbar, false)}
+            onKeyDown={this.toggleDrawer(this.props.ropuappbar, false)}
           >
           <List disablePadding>{drawerList}</List>
           </div>

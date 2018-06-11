@@ -14,9 +14,9 @@ class Home extends Component {
     let ctaList = this.props.cta.map((cta, index) => {
       return (
         <ListItem key={index}>
-          <Link exact to={cta.url}>
+          <Link to={cta.url}>
             <ListItemText >
-              <Typography variant="display1">{cta.text}</Typography>
+              <Typography variant="title">{cta.text}</Typography>
             </ListItemText>
           </Link>
         </ListItem>

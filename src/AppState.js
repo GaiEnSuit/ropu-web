@@ -15,11 +15,7 @@ class AppState extends Component {
           url: '/stories'
         },
         {
-          text: 'Interactables',
-          url: '/interactables'
-        },
-        {
-          text: 'Rules',
+          text: 'How To Play',
           url: '/rules'
         },
         {
@@ -38,17 +34,14 @@ class AppState extends Component {
       homecta: [
         {
           text: 'Play',
-          subText: 'Characters',
           url: '/characters'
         },
         {
           text: 'Direct',
-          subText: 'Stories',
           url: '/Stories'
         },
         {
           text: 'How To Play',
-          subText: 'Rules',
           url: '/rules'
         }
       ],
@@ -65,11 +58,59 @@ class AppState extends Component {
           title: 'Foo',
           text: 'Bar'
         }
+      ],
+      characterList: [
+        {
+          id: 1,
+          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          name: 'Solaire',
+          description: 'A human male who loves to praise the sun',
+          story: 'Demon\'s Souls',
+          abilities: {
+            str: 0,
+            end: 0,
+            int: 0,
+            wil: 0,
+            dex: 0,
+            agi: 0
+          },
+          stats: {
+            hp: 0,
+            mp: 0,
+            sp: 0
+          },
+          interactables: []
+        },
+        {
+          id: 2,
+          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          name: 'Ken',
+          story: 'Himura Mansion',
+          abilities: {
+            str: 0,
+            end: 0,
+            int: 0,
+            wil: 0,
+            dex: 0,
+            agi: 0
+          },
+          stats: {
+            hp: 0,
+            mp: 0,
+            sp: 0
+          },
+          interactables: []
+        }
+      ],
+      storyList: [
+        {
+          title: 'Family Main Story'
+        }
       ]
     };
     this.setAppState = this.setAppState.bind(this);
   }
-
+  
   setAppState(updater, callback) {
     // newState can be object or function!
     this.setState(updater, () => {
