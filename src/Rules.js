@@ -5,13 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 
-import HowToPlayRulesDialog from './HowToPlayRulesDialog';
-import StoriesRulesDialog from './StoriesRulesDialog';
-import ActionsRulesDialog from './ActionsRulesDialog';
-import RollingRulesDialog from './RollingRulesDialog';
-import InteractablesRulesDialog from './InteractablesRulesDialog';
-import ConflictsRulesDialog from './ConflictsRulesDialog';
-
+import DynamicDialog from './DynamicDialog';
 
 class Rules extends Component {
   
@@ -22,17 +16,17 @@ class Rules extends Component {
         <Typography variant="display1">How To Play</Typography>
         <Typography variant="subheading">Role Playing Unlimited (RoPU) is a storytelling game where the Director controls the story and the Actors control the characters in the story.</Typography>
         <List>
-          <ListItem><HowToPlayRulesDialog /></ListItem>
+          <ListItem><DynamicDialog data='gameflow' /></ListItem>
           <Divider />
-          <ListItem><StoriesRulesDialog /></ListItem>
+          <ListItem><DynamicDialog data='stories' /></ListItem>
           <Divider />
-          <ListItem><ActionsRulesDialog /></ListItem>
+          <ListItem><DynamicDialog data='actions' /></ListItem>
           <Divider />
-          <ListItem><RollingRulesDialog /></ListItem>
+          <ListItem><DynamicDialog data='rolling' /></ListItem>
           <Divider />
-          <ListItem><InteractablesRulesDialog /></ListItem>
+          <ListItem><DynamicDialog data='interactables' /></ListItem>
           <Divider />
-          <ListItem><ConflictsRulesDialog /></ListItem>
+          <ListItem><DynamicDialog data='conflicts' /></ListItem>
           <Divider />
         </List>
       </div>
