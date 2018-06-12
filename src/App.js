@@ -37,7 +37,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} cta={state.homecta} />} />
             <Route exact path='/characters' render={() => <Characters characterList={state.characterList} />} />
-            <Route path='/characters/:id?' render={({match}) => <CharacterView match={match.params} characterList={state.characterList} /> } />
+            <Route path='/characters/:id?' render={({match}) => <CharacterView character={state.characterList.find(x => x.id === parseInt(match.params.id, 10))} /> } />
             <Route exact path='/characters/create' render={() => <CreateCharacter characterList={state.characterList} />} />
             <Route exact path='/stories' render={() => <Stories storyList={state.storyList} />} />
             <Route exact path='/rules' component={Rules} />

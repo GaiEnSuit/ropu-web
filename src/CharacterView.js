@@ -11,7 +11,7 @@ class CharacterView extends Component {
   
   render() {
     
-    let character = this.props.characterList.find(x => x.id === parseInt(this.props.match.id, 10));
+    let character = this.props.character;
     
     return (
       <div>
@@ -25,12 +25,12 @@ class CharacterView extends Component {
             <Typography>Description: {character.description}</Typography>
           </CardContent>
           <CardContent>
-            <Typography>STR: {character.abilities.str}</Typography>
-            <Typography>END: {character.abilities.end}</Typography>
-            <Typography>INT: {character.abilities.int}</Typography>
-            <Typography>WIL: {character.abilities.wil}</Typography>
-            <Typography>DEX: {character.abilities.dex}</Typography>
-            <Typography>AGI: {character.abilities.agi}</Typography>
+            <Typography>STR {character.abilities.str}</Typography>
+            <Typography>END {character.abilities.end}</Typography>
+            <Typography>INT {character.abilities.int}</Typography>
+            <Typography>WIL {character.abilities.wil}</Typography>
+            <Typography>DEX {character.abilities.dex}</Typography>
+            <Typography>AGI {character.abilities.agi}</Typography>
           </CardContent>
         </Card>
         <Roller />
