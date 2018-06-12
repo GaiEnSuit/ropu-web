@@ -48,21 +48,21 @@ class AppState extends Component {
       newsFeed: [
         {
           id: 1,
-          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          img: 'https://images.freeimages.com/images/large-previews/c89/newspapers-2-1315373.jpg',
           title: 'Foo',
-          text: 'Bar'
+          text: 'Foo'
         },
         {
           id: 2,
-          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
-          title: 'Foo',
+          img: 'https://images.freeimages.com/images/large-previews/c89/newspapers-2-1315373.jpg',
+          title: 'Bar',
           text: 'Bar'
         }
       ],
       characterList: [
         {
           id: 1,
-          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
           name: 'Solaire',
           description: 'A human male who loves to praise the sun',
           story: 'Demon\'s Souls',
@@ -83,7 +83,7 @@ class AppState extends Component {
         },
         {
           id: 2,
-          img: 'https://4vector.com/i/free-vector-rubik-s-cube-random-clip-art_106251_Rubiks_Cube_Random_clip_art_medium.png',
+          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
           name: 'Ken',
           story: 'Himura Mansion',
           abilities: {

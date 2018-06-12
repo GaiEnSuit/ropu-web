@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import CardMedia from '@material-ui/core/CardMedia';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 class NewsFeed extends Component {
   
@@ -9,8 +12,14 @@ class NewsFeed extends Component {
     let feedList = this.props.newsFeed.map((feedItem) => {
       return (
         <Grid item xs={12} key={feedItem.id}>
-          <img src={feedItem.img} alt="Smiley face"></img>
-          <Paper>{feedItem.title}</Paper>
+          <Card>
+            <CardMedia title="Portrait">
+              <img src={feedItem.img} alt="portrait"/>
+            </CardMedia>
+            <CardContent>
+              {feedItem.title}
+            </CardContent>
+          </Card>
         </Grid>
       )
     })
