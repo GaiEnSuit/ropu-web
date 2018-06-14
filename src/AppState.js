@@ -61,8 +61,8 @@ class AppState extends Component {
       ],
       characterList: [
         {
-          id: 1,
-          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
+          id: 0,
+          img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
           name: 'Solaire',
           description: 'A human male who loves to praise the sun',
           story: 'Demon\'s Souls',
@@ -82,7 +82,7 @@ class AppState extends Component {
           interactables: []
         },
         {
-          id: 2,
+          id: 1,
           img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
           name: 'Ken',
           story: 'Himura Mansion',
@@ -105,6 +105,20 @@ class AppState extends Component {
       storyList: [
         {
           title: 'Family Main Story'
+        }
+      ],
+      interactables: [
+        {
+          id: 1,
+          name: 'Shortword',
+          type: 'Equipment',
+          description: 'A sword...that is rather short'
+        },
+        {
+          id: 2,
+          name: 'Demon Fang',
+          type: 'Skill',
+          description: 'A wave of energy emits from your weapon and streaks across the ground'
         }
       ]
     };

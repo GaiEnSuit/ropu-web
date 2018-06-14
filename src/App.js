@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 
@@ -37,13 +37,20 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} cta={state.homecta} />} />
             <Route exact path='/characters' render={() => <Characters characterList={state.characterList} />} />
-            <Route path='/characters/:id?' render={({match}) => <CharacterView character={state.characterList.find(x => x.id === parseInt(match.params.id, 10))} /> } />
             <Route exact path='/characters/create' render={() => <CreateCharacter characterList={state.characterList} />} />
+            <Route path='/characters/:id?' render={({match}) => 
+              state.characterList.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+                (
+                  <Redirect to='/404' />
+                ) : ( 
+                  <CharacterView character={state.characterList.find(x => x.id === parseInt(match.params.id, 10))} />
+                )
+            } />
             <Route exact path='/stories' render={() => <Stories storyList={state.storyList} />} />
             <Route exact path='/rules' component={Rules} />
             <Route exact path='/market' component={Market} />
             <Route exact path='/forums' component={Forums} />
-            <Route component={NotFound404} />
+            <Route path='/404' component={NotFound404} />
           </Switch>
         </main>
       </div>
