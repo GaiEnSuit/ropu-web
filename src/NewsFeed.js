@@ -13,9 +13,7 @@ class NewsFeed extends Component {
       return (
         <Grid item xs={12} key={feedItem.id}>
           <Card>
-            <CardMedia title="Portrait">
-              <img src={feedItem.img} alt="portrait"/>
-            </CardMedia>
+            <CardMedia title="Portrait" image={feedItem.img} style={{height: '350px'}} />
             <CardContent>
               {feedItem.title}
             </CardContent>

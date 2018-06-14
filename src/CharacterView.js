@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
@@ -16,9 +16,7 @@ class CharacterView extends Component {
     return (
       <div>
         <Card>
-          <CardMedia title="Contemplative Reptile">
-            <img src={character.img} alt="portrait" />
-          </CardMedia>
+          <CardMedia title="portrait" image={character.img} style={{height: '350px'}} />
           <CardContent>
             <Typography>Name: {character.name}</Typography>
             <Typography>Story: {character.story}</Typography>
