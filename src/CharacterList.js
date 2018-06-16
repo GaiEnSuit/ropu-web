@@ -10,12 +10,19 @@ import CharacterListItem from './CharacterListItem';
 
 
 class CharacterList extends Component {
-  
+	
+	deleteCharacter = (id) => () => {
+		let newState = this.props.characterList.filter(x => x.id !== id);
+		this.props.update({
+			characterList: newState
+		})
+	}
+	
   render() {
     
     let characterList = this.props.characterList.map((character)=>{
       return(
-				<CharacterListItem characterListItem={character} key={character.id} />
+				<CharacterListItem characterListItem={character} update={this.props.update} deleteCharacter={this.deleteCharacter} key={character.id} />
       )
     });
     
@@ -23,8 +30,8 @@ class CharacterList extends Component {
       <div>
         <Typography variant="title">Characters</Typography>
         <Typography variant="subheading">Choose A Character to play or Create a New One</Typography>
-        <List>{characterList}</List>
-        <Link to="/characters/create"><Button variant="raised">Create a Character</Button></Link>
+				<List>{characterList}</List>
+				<Link to="/characters/create"><Button variant="raised">Create a Character</Button></Link>
       </div>
     );
   }

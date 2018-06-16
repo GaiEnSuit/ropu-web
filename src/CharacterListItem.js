@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 
 class CharacterListItem extends Component {
-  
+	
   render() {
 		return(
 			<ListItem>
@@ -17,7 +17,7 @@ class CharacterListItem extends Component {
 					<ListItemText>Name: {this.props.characterListItem.name}</ListItemText>
 					<ListItemText>Story: {this.props.characterListItem.story}</ListItemText>
 				</Link>
-				<Button>Delete</Button>
+				<Button onClick={this.props.deleteCharacter(this.props.characterListItem.id)}>Delete</Button>
 			</ListItem>
 		)
   }

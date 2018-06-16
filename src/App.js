@@ -37,8 +37,9 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} callToAction={state.callToAction} />} />
-            <Route exact path='/characters' render={() => <CharacterList characterList={state.characterList} />} />
+            <Route exact path='/characters' render={() => <CharacterList characterList={state.characterList} update={this.props.setAppState}/>} />
             <Route exact path='/characters/create' render={() => <CreateCharacter />} />
+            
             <Route path='/characters/:id?' render={({match}) => 
               state.characterList.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                 (
@@ -47,6 +48,7 @@ class App extends Component {
                   <CharacterView character={state.characterList.find(x => x.id === parseInt(match.params.id, 10))} />
                 )
             } />
+
             <Route exact path='/stories' render={() => <Stories storyList={state.storyList} />} />
             <Route exact path='/rules' component={Rules} />
             <Route exact path='/market' component={Market} />
