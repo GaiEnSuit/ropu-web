@@ -5,14 +5,15 @@ import './App.css';
 
 import RopuAppBar from './RopuAppBar';
 import Home from './Home';
-import Characters from './Characters';
+import CharacterList from './CharacterList';
 import Stories from './Stories';
 import Rules from './Rules';
 import Market from './Market';
 import Forums from './Forums';
 import CreateCharacter from './CreateCharacter';
 import CharacterView from './CharacterView';
-import NotFound404 from './NotFound404'
+import NotFound404 from './NotFound404';
+import Footer from './Footer';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -28,16 +29,16 @@ class App extends Component {
         <RopuAppBar 
           update={this.props.setAppState}
           navLinks={state.navLinks}
-          ropuappbar={state.ropuappbar}
+          ropuAppBar={state.ropuAppBar}
           title={state.title}
           className="AppBar"
           alt="logo"
         />
         <main>
           <Switch>
-            <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} cta={state.homecta} />} />
-            <Route exact path='/characters' render={() => <Characters characterList={state.characterList} />} />
-            <Route exact path='/characters/create' render={() => <CreateCharacter characterList={state.characterList} />} />
+            <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} callToAction={state.callToAction} />} />
+            <Route exact path='/characters' render={() => <CharacterList characterList={state.characterList} />} />
+            <Route exact path='/characters/create' render={() => <CreateCharacter />} />
             <Route path='/characters/:id?' render={({match}) => 
               state.characterList.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                 (
@@ -53,6 +54,9 @@ class App extends Component {
             <Route path='/404' component={NotFound404} />
           </Switch>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     );
   }

@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 
 import Grid from '@material-ui/core/Grid';
-import CardMedia from '@material-ui/core/CardMedia';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+
+import NewsFeedItem from './NewsFeedItem';
 
 class NewsFeed extends Component {
   
   render() {
     
-    let feedList = this.props.newsFeed.map((feedItem) => {
+    let newsFeedList = this.props.newsFeed.map((feedItem) => {
       return (
         <Grid item xs={12} key={feedItem.id}>
-          <Card>
-            <CardMedia title="Portrait" image={feedItem.img} style={{height: '350px'}} />
-            <CardContent>
-              {feedItem.title}
-            </CardContent>
-          </Card>
+          <NewsFeedItem newsFeedItem={feedItem}/>
         </Grid>
       )
     })
     
     return (
-      <Grid container>
-        {feedList}
-      </Grid>
+      <div>
+        <Typography variant='display1'>News</Typography>
+        <Grid container>
+          {newsFeedList}
+        </Grid>
+      </div>
     );
   }
 }

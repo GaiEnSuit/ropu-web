@@ -24,7 +24,7 @@ class RopuAppBar extends Component {
   //Update App State
   update = (currentState, newState) => {
     this.props.update({
-      ropuappbar: Object.assign({}, currentState, newState)
+      ropuAppBar: Object.assign({}, currentState, newState)
     });
   }
   
@@ -37,27 +37,27 @@ class RopuAppBar extends Component {
     return (
       <AppBar position="static" color="primary">
         <Toolbar>
-          <IconButton color="inherit" onClick={this.toggleDrawer(this.props.ropuappbar, true)} aria-label="Menu" >
+          <IconButton color="inherit" onClick={this.toggleDrawer(this.props.ropuAppBar, true)} aria-label="Menu" >
             <MenuIcon />
           </IconButton>
           <Link to="/">
             <Typography variant="title" color="inherit">{this.props.title}</Typography>
           </Link>
-          { !this.props.ropuappbar.loggedIn &&
+          { !this.props.ropuAppBar.loggedIn &&
             <Button disabled variant="raised">Login</Button>
           }
-          { this.props.ropuappbar.loggedIn &&
+          { this.props.ropuAppBar.loggedIn &&
             <IconButton>
               <AccountCircle />
             </IconButton>
           }
         </Toolbar>
-        <Drawer open={this.props.ropuappbar.open} onClose={this.toggleDrawer(this.props.ropuappbar, false)}>
+        <Drawer open={this.props.ropuAppBar.open} onClose={this.toggleDrawer(this.props.ropuAppBar, false)}>
           <div
             tabIndex={0}
             role="button"
-            onClick={this.toggleDrawer(this.props.ropuappbar, false)}
-            onKeyDown={this.toggleDrawer(this.props.ropuappbar, false)}
+            onClick={this.toggleDrawer(this.props.ropuAppBar, false)}
+            onKeyDown={this.toggleDrawer(this.props.ropuAppBar, false)}
           >
           <List disablePadding>{drawerList}</List>
           </div>
