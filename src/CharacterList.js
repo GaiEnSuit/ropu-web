@@ -8,7 +8,6 @@ import List from '@material-ui/core/List';
 
 import CharacterListItem from './CharacterListItem';
 
-
 class CharacterList extends Component {
 	
 	deleteCharacter = (id) => () => {
@@ -18,19 +17,18 @@ class CharacterList extends Component {
 		})
 	}
 	
+  characterList = this.props.characterList.map((character)=>{
+    return(
+      <CharacterListItem characterListItem={character} update={this.props.update} deleteCharacter={this.deleteCharacter} key={character.id} />
+    )
+  });
+  
   render() {
-    
-    let characterList = this.props.characterList.map((character)=>{
-      return(
-				<CharacterListItem characterListItem={character} update={this.props.update} deleteCharacter={this.deleteCharacter} key={character.id} />
-      )
-    });
-    
     return (
       <div>
         <Typography variant="title">Characters</Typography>
         <Typography variant="subheading">Choose A Character to play or Create a New One</Typography>
-				<List>{characterList}</List>
+				<List>{this.characterList}</List>
 				<Link to="/characters/create"><Button variant="raised">Create a Character</Button></Link>
       </div>
     );

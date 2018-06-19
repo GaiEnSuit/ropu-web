@@ -6,26 +6,22 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class CharacterCard extends Component {
-  
   render() {
-    
-    let character = this.props.character;
-    
     return (
       <Card>
-        <CardMedia title="portrait" image={character.img} style={{height: '350px'}} />
+        <CardMedia title="portrait" image={this.props.character.img} style={{height: '350px'}} />
         <CardContent>
-          <Typography>Name: {character.name}</Typography>
-          <Typography>Story: {character.story}</Typography>
-          <Typography>Description: {character.description}</Typography>
+          <Typography>Name: {this.props.character.name}</Typography>
+          <Typography>Story: {this.props.character.story}</Typography>
+          <Typography>Description: {this.props.character.description}</Typography>
         </CardContent>
         <CardContent>
-          <Typography>STR {character.abilities.str}</Typography>
-          <Typography>END {character.abilities.end}</Typography>
-          <Typography>INT {character.abilities.int}</Typography>
-          <Typography>WIL {character.abilities.wil}</Typography>
-          <Typography>DEX {character.abilities.dex}</Typography>
-          <Typography>AGI {character.abilities.agi}</Typography>
+          <Typography>STR {this.props.character.abilities.str}</Typography>
+          <Typography>END {this.props.character.abilities.end}</Typography>
+          <Typography>INT {this.props.character.abilities.int}</Typography>
+          <Typography>WIL {this.props.character.abilities.wil}</Typography>
+          <Typography>DEX {this.props.character.abilities.dex}</Typography>
+          <Typography>AGI {this.props.character.abilities.agi}</Typography>
         </CardContent>
       </Card>
     );

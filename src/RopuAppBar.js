@@ -28,12 +28,11 @@ class RopuAppBar extends Component {
     });
   }
   
+  drawerList = this.props.navLinks.map((navLink, index) => {
+    return <ListItem key={index}><Typography variant="subheading"><Link to={navLink.url}>{navLink.text}</Link></Typography></ListItem>
+  });
+  
   render() {
-    
-    let drawerList = this.props.navLinks.map((navLink, index) => {
-      return <ListItem key={index}><Typography variant="subheading"><Link to={navLink.url}>{navLink.text}</Link></Typography></ListItem>
-    });
-    
     return (
       <AppBar position="static" color="primary">
         <Toolbar>
@@ -59,7 +58,7 @@ class RopuAppBar extends Component {
             onClick={this.toggleDrawer(this.props.ropuAppBar, false)}
             onKeyDown={this.toggleDrawer(this.props.ropuAppBar, false)}
           >
-          <List disablePadding>{drawerList}</List>
+          <List disablePadding>{this.drawerList}</List>
           </div>
         </Drawer>
       </AppBar>

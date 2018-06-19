@@ -6,15 +6,11 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class InteractableCard extends Component {
-  
   render() {
-    
-		let interactable = this.props.interactable;
-		
     return (
       <div>
 				<Card>
-					<CardMedia image={interactable.image} style={{height:'30px'}}/>
+					<CardMedia image={this.props.interactable.image} style={{height:'30px'}}/>
 					<CardContent>
 						<Typography></Typography>
 					</CardContent>

@@ -8,9 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import DynamicDialog from './DynamicDialog';
 
 class Rules extends Component {
-  
   render() {
-    
     return (
       <div>
         <Typography variant="display1">How To Play</Typography>

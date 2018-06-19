@@ -7,7 +7,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 class CharacterListItem extends Component {
-	
   render() {
 		return(
 			<ListItem>

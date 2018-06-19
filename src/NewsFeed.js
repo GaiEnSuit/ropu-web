@@ -7,21 +7,20 @@ import NewsFeedItem from './NewsFeedItem';
 
 class NewsFeed extends Component {
   
+  newsFeedList = this.props.newsFeed.map((feedItem) => {
+    return (
+      <Grid item xs={12} key={feedItem.id}>
+        <NewsFeedItem newsFeedItem={feedItem}/>
+      </Grid>
+    )
+  })
+  
   render() {
-    
-    let newsFeedList = this.props.newsFeed.map((feedItem) => {
-      return (
-        <Grid item xs={12} key={feedItem.id}>
-          <NewsFeedItem newsFeedItem={feedItem}/>
-        </Grid>
-      )
-    })
-    
     return (
       <div>
         <Typography variant='display1'>News</Typography>
         <Grid container>
-          {newsFeedList}
+          {this.newsFeedList}
         </Grid>
       </div>
     );

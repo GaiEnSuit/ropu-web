@@ -3,17 +3,15 @@ import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
 
 import Roller from './Roller';
+import InventoryMenu from './InventoryMenu';
 
 class CharacterView extends Component {
-  
   render() {
-    
-    let character = this.props.character;
-    
     return (
       <div>
-        <CharacterCard character={character} />
+        <CharacterCard character={this.props.character} />
         <Roller />
+        <InventoryMenu />
       </div>
     );
   }

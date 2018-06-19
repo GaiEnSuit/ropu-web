@@ -8,23 +8,24 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 class CallToAction extends Component {
+  
+  callToActionList = this.props.callToAction.map((callToActionItem, index) => {
+    return (
+      <Link to={callToActionItem.url} key={index}>
+        <ListItem>
+          <ListItemText >
+            <Typography variant="title">{callToActionItem.text}</Typography>
+          </ListItemText>
+        </ListItem>
+      </Link>
+    )
+  });
+  
   render() {
-    let callToActionList = this.props.callToAction.map((callToActionItem, index) => {
-      return (
-				<Link to={callToActionItem.url} key={index}>
-        	<ListItem>
-            <ListItemText >
-              <Typography variant="title">{callToActionItem.text}</Typography>
-            </ListItemText>
-        	</ListItem>
-				</Link>
-      )
-    });
-    
     return (
 			<Paper>
 				<List>
-					{callToActionList}
+					{this.callToActionList}
 				</List>
 			</Paper>
     );

@@ -18,38 +18,34 @@ import Footer from './Footer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 class App extends Component {
-  
   render() {
-    
-    const state = this.props.appState;
-    
     return (
       <div className="App">
         <CssBaseline />
         <RopuAppBar 
           update={this.props.setAppState}
-          navLinks={state.navLinks}
-          ropuAppBar={state.ropuAppBar}
-          title={state.title}
+          navLinks={this.props.appState.navLinks}
+          ropuAppBar={this.props.appState.ropuAppBar}
+          title={this.props.appState.title}
           className="AppBar"
           alt="logo"
         />
         <main>
           <Switch>
-            <Route exact path='/' render={() => <Home newsFeed={state.newsFeed} callToAction={state.callToAction} />} />
-            <Route exact path='/characters' render={() => <CharacterList characterList={state.characterList} update={this.props.setAppState}/>} />
+            <Route exact path='/' render={() => <Home newsFeed={this.props.appState.newsFeed} callToAction={this.props.appState.callToAction} />} />
+            <Route exact path='/characters' render={() => <CharacterList characterList={this.props.appState.characterList} update={this.props.setAppState} />} />
             <Route exact path='/characters/create' render={() => <CreateCharacter />} />
             
             <Route path='/characters/:id?' render={({match}) => 
-              state.characterList.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+              this.props.appState.characterList.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                 (
                   <Redirect to='/404' />
                 ) : ( 
-                  <CharacterView character={state.characterList.find(x => x.id === parseInt(match.params.id, 10))} />
+                  <CharacterView character={this.props.appState.characterList.find(x => x.id === parseInt(match.params.id, 10))} />
                 )
             } />
 
-            <Route exact path='/stories' render={() => <Stories storyList={state.storyList} />} />
+            <Route exact path='/stories' render={() => <Stories storyList={this.props.appState.storyList} />} />
             <Route exact path='/rules' component={Rules} />
             <Route exact path='/market' component={Market} />
             <Route exact path='/forums' component={Forums} />

@@ -79,7 +79,29 @@ class AppState extends Component {
             mp: 0,
             sp: 0
           },
-          interactables: []
+          interactables: [
+            {
+              id: 1,
+              image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
+              name: 'Shortword',
+              type: 'Equipment',
+              description: 'A sword...that is rather short'
+            },
+            {
+              id: 2,
+              image: 'https://i.gifer.com/Kfc9.gif',
+              name: 'Demon Fang',
+              type: 'Skill',
+              description: 'A wave of energy emits from your weapon and streaks across the ground'
+            },
+            {
+              id: 3,
+              name: 'Potion',
+              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
+              type: 'Consumable',
+              description: 'A wave of energy emits from your weapon and streaks across the ground'
+            }
+          ]
         },
         {
           id: 1,
@@ -104,32 +126,34 @@ class AppState extends Component {
       ],
       storyList: [
         {
-          title: 'Family Main Story'
+          title: 'Family Main Story',
+          story: 'demon\'s souls',
+          interactableList: [
+            {
+              id: 1,
+              image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
+              name: 'Shortword',
+              type: 'Equipment',
+              description: 'A sword...that is rather short'
+            },
+            {
+              id: 2,
+              image: 'https://i.gifer.com/Kfc9.gif',
+              name: 'Demon Fang',
+              type: 'Skill',
+              description: 'A wave of energy emits from your weapon and streaks across the ground'
+            },
+            {
+              id: 3,
+              name: 'Potion',
+              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
+              type: 'Consumable',
+              description: 'A wave of energy emits from your weapon and streaks across the ground'
+            }
+          ]
         }
       ],
-      interactables: [
-        {
-          id: 1,
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
-          name: 'Shortword',
-          type: 'Equipment',
-          description: 'A sword...that is rather short'
-        },
-        {
-          id: 2,
-          image: 'https://i.gifer.com/Kfc9.gif',
-          name: 'Demon Fang',
-          type: 'Skill',
-          description: 'A wave of energy emits from your weapon and streaks across the ground'
-        },
-        {
-          id: 3,
-          name: 'Potion',
-          image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
-          type: 'Consumable',
-          description: 'A wave of energy emits from your weapon and streaks across the ground'
-        }
-      ]
+      
     };
     this.setAppState = this.setAppState.bind(this);
   }
