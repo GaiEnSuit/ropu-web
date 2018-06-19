@@ -13,7 +13,6 @@ import Forums from './Forums';
 import CreateCharacter from './CreateCharacter';
 import CharacterView from './CharacterView';
 import NotFound404 from './NotFound404';
-import Footer from './Footer';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -52,9 +51,6 @@ class App extends Component {
             <Route path='/404' component={NotFound404} />
           </Switch>
         </main>
-        <footer>
-          <Footer />
-        </footer>
       </div>
     );
   }

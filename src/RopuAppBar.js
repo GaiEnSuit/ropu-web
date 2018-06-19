@@ -12,6 +12,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
+import logo from './images/logo.svg';
 
 class RopuAppBar extends Component {
   
@@ -40,7 +41,9 @@ class RopuAppBar extends Component {
             <MenuIcon />
           </IconButton>
           <Link to="/">
-            <Typography variant="title" color="inherit">{this.props.title}</Typography>
+            <IconButton>
+              <img src={logo} width="100%" alt="logo" />
+            </IconButton>
           </Link>
           { !this.props.ropuAppBar.loggedIn &&
             <Button disabled variant="raised">Login</Button>
