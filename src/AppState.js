@@ -77,29 +77,38 @@ class AppState extends Component {
           stats: {
             hp: 0,
             mp: 0,
-            sp: 0
+            sp: 0,
+            maxhp: 5,
+            maxmp: 8,
+            maxsp: 10
           },
           interactables: [
             {
               id: 1,
               image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
+              active: true,
               name: 'Shortword',
-              type: 'Equipment',
-              description: 'A sword...that is rather short'
+              type: 'tangible',
+              description: 'A sword...that is rather short',
+              usage: ''
             },
             {
               id: 2,
               image: 'https://i.gifer.com/Kfc9.gif',
+              active: false,
               name: 'Demon Fang',
-              type: 'Skill',
-              description: 'A wave of energy emits from your weapon and streaks across the ground'
+              type: 'intangible',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: 'Reduces enemies HP by 3+ STR'
             },
             {
               id: 3,
               name: 'Potion',
+              active: false,
               image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
-              type: 'Consumable',
-              description: 'A wave of energy emits from your weapon and streaks across the ground'
+              type: 'tangible',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ''
             }
           ]
         },
@@ -119,7 +128,10 @@ class AppState extends Component {
           stats: {
             hp: 0,
             mp: 0,
-            sp: 0
+            sp: 0,
+            maxhp: 0,
+            maxmp: 0,
+            maxsp: 0
           },
           interactables: []
         }
@@ -133,22 +145,28 @@ class AppState extends Component {
               id: 1,
               image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
               name: 'Shortword',
+              active: 'yes',
               type: 'Equipment',
-              description: 'A sword...that is rather short'
+              description: 'A sword...that is rather short',
+              usage: ''
             },
             {
               id: 2,
               image: 'https://i.gifer.com/Kfc9.gif',
               name: 'Demon Fang',
+              active: 'yes',
               type: 'Skill',
-              description: 'A wave of energy emits from your weapon and streaks across the ground'
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ''
             },
             {
               id: 3,
               name: 'Potion',
+              active: 'yes',
               image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
               type: 'Consumable',
-              description: 'A wave of energy emits from your weapon and streaks across the ground'
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ''
             }
           ]
         }
