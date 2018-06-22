@@ -5,31 +5,34 @@ class AppState extends Component {
     super(props);
     this.state = {
       title: 'RoPU',
-      navLinks: [
-        {
-          text: 'Characters',
-          url: '/characters'
+      loggedIn: false,
+      menuDialog: false,
+      homeDialog: false,
+      homeDialogInfo: {
+        text: 'Do you want to go to the home screen?',
+        confirm: 'Yes',
+        cancel: 'No'
+      },
+      guideDialog: false,
+      guideDialogInfo: {
+      },
+      menuLinks: {
+        home: {
+          text: 'Home',
+          url: '/'
         },
-        {
-          text: 'Stories',
-          url: '/stories'
+        guide: {
+          text: 'Guide',
+          url: '/guide'
         },
-        {
-          text: 'How To Play',
-          url: '/rules'
-        },
-        {
+        market: {
           text: 'Market',
           url: '/market'
         },
-        {
-          text: 'Forums',
-          url: '/forums'
+        account: {
+          text: 'Account',
+          url: '/account'
         }
-      ],
-      ropuAppBar: {
-        open: false,
-        loggedIn: false
       },
       callToAction: [
         {
