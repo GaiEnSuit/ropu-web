@@ -20,6 +20,7 @@ import RopuAppBar from './appbar/RopuAppBar';
 // Dialogs
 import MenuDialog from './dialogs/MenuDialog';
 import HomeDialog from './dialogs/HomeDialog';
+import GuideDialog from './dialogs/GuideDialog';
 
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
             menuDrawer={this.props.appState.menuDrawer}
             ropuAppBar={this.props.appState.ropuAppBar}
             toggleDialog={this.toggleDialog}
+            domain={this.props.appState.domain}
           />
         </header>
         {/* Body */}
@@ -60,6 +62,7 @@ class App extends Component {
         {/* All Dialogs */}
         <MenuDialog menuLinks={this.props.appState.menuLinks} menuDialog={this.props.appState.menuDialog} update={this.props.setAppState} />
         <HomeDialog homeDialog={this.props.appState.homeDialog} homeDialogInfo={this.props.appState.homeDialogInfo} update={this.props.setAppState} />
+        <GuideDialog guideDialog={this.props.appState.guideDialog} guideDialogInfo={this.props.appState.guideDialogInfo} update={this.props.setAppState} />
       </div>
     );
   }

@@ -10,8 +10,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+
+// Icons
 import CloseIcon from '@material-ui/icons/Close';
 
 class MenuDialog extends Component {

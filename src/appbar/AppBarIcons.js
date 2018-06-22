@@ -19,8 +19,8 @@ class AppBarIcons extends Component {
   render() {
     return (
         <Toolbar>
-          <LogoButton update={this.props.update} />
-          <HomeButton update={this.props.update} />
+          <LogoButton update={this.props.update} domain={this.props.domain} />
+          <HomeButton update={this.props.update} domain={this.props.domain}/>
           <MarketButton />
           <GuideButton update={this.props.update} />
           {/* Account Navigation Button */}

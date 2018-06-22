@@ -13,6 +13,7 @@ class RopuAppBar extends Component {
         <AppBarIcons 
           loggedIn={this.props.loggedIn} 
           update={this.props.update}
+          domain={this.props.domain}
         />
       </AppBar>
     );

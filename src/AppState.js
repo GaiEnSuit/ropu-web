@@ -4,8 +4,8 @@ class AppState extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'RoPU',
       loggedIn: false,
+      domain: 'https://ropu-453a6.firebaseapp.com/',
       menuDialog: false,
       homeDialog: false,
       homeDialogInfo: {

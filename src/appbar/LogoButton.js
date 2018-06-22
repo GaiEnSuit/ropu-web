@@ -11,10 +11,10 @@ class AppBarIcons extends Component {
   render() {
     return (
       <IconButton 
-        disabled={window.location.href === 'http://ide-truongk77730732.codeanyapp.com:3000/'? true: false} 
+        disabled={window.location.href === this.props.domain? true : false} 
         onClick={() => this.props.update({homeDialog: true})}
       >
-        <img src={logo} style={{width: '100%'}}/>
+        <img src={logo} style={{width: '100%'}} alt="logo" />
       </IconButton>
     );
   }
