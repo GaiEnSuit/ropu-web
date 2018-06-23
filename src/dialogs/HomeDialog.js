@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+// CSS
+
+
+// Material-ui
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -19,7 +23,7 @@ class HomeDialog extends Component {
         aria-labelledby="dynamic dialog"
       >
         <DialogTitle>
-          {this.props.homeDialogInfo.text}
+          {this.props.homeDialogData.text}
         </DialogTitle>
         <DialogActions>
           {/* Confirm Button */}

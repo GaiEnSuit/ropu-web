@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
 class HomeButton extends Component {
-  
   render() {
     return (
       <IconButton 

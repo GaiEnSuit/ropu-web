@@ -21,7 +21,10 @@ import RopuAppBar from './appbar/RopuAppBar';
 import MenuDialog from './dialogs/MenuDialog';
 import HomeDialog from './dialogs/HomeDialog';
 import GuideDialog from './dialogs/GuideDialog';
+import LogInDialog from './dialogs/LogInDialog';
 
+// Menus
+import AccountMenu from './menus/AccountMenu';
 
 class App extends Component {
   render() {
@@ -38,6 +41,7 @@ class App extends Component {
             ropuAppBar={this.props.appState.ropuAppBar}
             toggleDialog={this.toggleDialog}
             domain={this.props.appState.domain}
+            loggedIn={this.props.appState.loggedIn}
           />
         </header>
         {/* Body */}
@@ -59,10 +63,34 @@ class App extends Component {
             <Route path='/404' component={NotFound404} />
           </Switch>
         </main>
-        {/* All Dialogs */}
-        <MenuDialog menuLinks={this.props.appState.menuLinks} menuDialog={this.props.appState.menuDialog} update={this.props.setAppState} />
-        <HomeDialog homeDialog={this.props.appState.homeDialog} homeDialogInfo={this.props.appState.homeDialogInfo} update={this.props.setAppState} />
-        <GuideDialog guideDialog={this.props.appState.guideDialog} guideDialogInfo={this.props.appState.guideDialogInfo} update={this.props.setAppState} />
+        {/* Dialogs */}
+        <MenuDialog 
+          menuDialogData={this.props.appState.menuDialogData}
+          menuDialog={this.props.appState.menuDialog}
+          menuDialogTitle={this.props.appState.menuDialogTitle}
+          update={this.props.setAppState}
+        />
+        <HomeDialog 
+          homeDialog={this.props.appState.homeDialog}
+          homeDialogData={this.props.appState.homeDialogData}
+          update={this.props.setAppState}
+        />
+        <GuideDialog
+          guideDialog={this.props.appState.guideDialog}
+          guideDialogData={this.props.appState.guideDialogData}
+          guideDialogTitle={this.props.appState.guideDialogTitle}
+          update={this.props.setAppState}
+        />
+        <LogInDialog 
+          logInDialog={this.props.appState.logInDialog}
+          logInDialogData={this.props.appState.logInDialogData}
+          update={this.props.setAppState}
+        />
+        {/* Menus */}
+        <AccountMenu 
+          anchor={this.props.appState.anchorEl} 
+          update={this.props.setAppState}
+        />
       </div>
     );
   }

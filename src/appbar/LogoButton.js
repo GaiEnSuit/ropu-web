@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import logo from '../images/logo.svg';
 
 class AppBarIcons extends Component {
-  
   render() {
     return (
       <IconButton 
