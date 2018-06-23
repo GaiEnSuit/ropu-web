@@ -68,6 +68,8 @@ class App extends Component {
           menuDialogData={this.props.appState.menuDialogData}
           menuDialog={this.props.appState.menuDialog}
           menuDialogTitle={this.props.appState.menuDialogTitle}
+          loggedIn={this.props.appState.loggedIn}
+          domain={this.props.appState.domain}
           update={this.props.setAppState}
         />
         <HomeDialog 

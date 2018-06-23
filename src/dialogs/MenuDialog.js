@@ -9,11 +9,16 @@ import ListItem from '@material-ui/core/ListItem';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
+import HelpIcon from '@material-ui/icons/Help';
+import HomeIcon from '@material-ui/icons/Home';
+import ShopIcon from '@material-ui/icons/Shop';
+import InputIcon from '@material-ui/icons/Input';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 class MenuDialog extends Component {
   render() {
@@ -34,52 +39,52 @@ class MenuDialog extends Component {
         <DialogContent>
           <List>
             {/* Home Link */}
-            <ListItem>
-              <Button 
-                onClick={() => {
-                  this.props.update({menuDialog: false});
-                  this.props.update({homeDialog: true});
-                }}
-                disabled={window.location.href === this.props.domain? true : false}
-              >
-                <Typography variant="display1">{this.props.menuDialogData.home.text}</Typography>
-              </Button>
+            <ListItem
+              onClick={window.location.href === this.props.domain? null : (() => {
+                        this.props.update({menuDialog: false});
+                        this.props.update({homeDialog: true});
+                      })
+              }
+            >
+              <HomeIcon />
+              <Typography variant="display1">{this.props.menuDialogData.home.text}</Typography>
             </ListItem>
             {/* Guide Link */}
-            <ListItem>
-              <Button 
-                onClick={() => this.props.update({guideDialog: true})}>
-                <Typography variant="display1">{this.props.menuDialogData.guide.text}</Typography>
-              </Button>
+            <ListItem onClick={() => this.props.update({guideDialog: true})}>
+              <HelpIcon />
+              <Typography variant="display1">{this.props.menuDialogData.guide.text}</Typography>
             </ListItem>
             {/* Market Link */}
-            <ListItem>
-              <Button onClick={() => this.props.update({menuDialog: false})}>
-                <Link to={this.props.menuDialogData.market.url} className='link'>
-                  <Typography variant="display1">{this.props.menuDialogData.market.text}</Typography>
-                </Link>
-              </Button>
+            <ListItem onClick={() => this.props.update({menuDialog: false})}>
+              <ShopIcon />
+              <Link to={this.props.menuDialogData.market.url} className='link'>
+                <Typography variant="display1">{this.props.menuDialogData.market.text}</Typography>
+              </Link>
             </ListItem>
-            {/* Account Link */}
-            <ListItem>
-              {
-                this.props.loggedIn? (
-                  <div>
-                    <Button onClick={() => this.props.update({logInDialog: true})}>
-                      <Typography variant="display1">{this.props.menuDialogData.account.text}</Typography>
-                    </Button>
-                    <Button onClick={() => this.props.update({menuDialog: false})}>
-                      <Typography variant="display1">{this.props.menuDialogData.account.logout}</Typography>
-                    </Button>
-                  </div>
-                ) : (
-                  <Button onClick={() => this.props.update({logInDialog: true})}>
+            {/* Account Links */}
+            {
+              this.props.loggedIn? (
+                <div>
+                  <ListItem 
+                    onClick={() => {
+                      this.props.update({accountDialog: true})
+                    }}
+                  >
+                    <AccountBoxIcon />
                     <Typography variant="display1">{this.props.menuDialogData.account.text}</Typography>
-                  </Button>
-                )
-              }
-              
-            </ListItem>
+                  </ListItem>
+                  <ListItem onClick={() => this.props.update({menuDialog: false})}>
+                    <ExitToAppIcon />
+                    <Typography variant="display1">{this.props.menuDialogData.account.logout}</Typography>
+                  </ListItem>
+                </div>
+              ) : (
+                <ListItem onClick={() => this.props.update({logInDialog: true})}>
+                  <InputIcon />
+                  <Typography variant="display1">{this.props.menuDialogData.account.login}</Typography>
+                </ListItem>
+              )
+            }
           </List>
         </DialogContent>
       </Dialog>

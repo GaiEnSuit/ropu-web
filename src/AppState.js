@@ -78,12 +78,10 @@ class AppState extends Component {
       menuDialogTitle: 'Menu',
       menuDialogData: {
         home: {
-          text: 'Home',
-          url: '/'
+          text: 'Home'
         },
         guide: {
-          text: 'Guide',
-          url: '/guide'
+          text: 'Guide'
         },
         market: {
           text: 'Market',
@@ -91,8 +89,8 @@ class AppState extends Component {
         },
         account: {
           text: 'Account',
-          logout: 'Log Out',
-          url: '/account'
+          login: 'Log In',
+          logout: 'Log Out'
         }
       },
       callToAction: [

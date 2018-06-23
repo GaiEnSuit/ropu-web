@@ -17,7 +17,7 @@ import CloseIcon from '@material-ui/icons/Close';
 class Rules extends Component {
   
   // Guide Expansion Panels
-  guideDialogData = this.props.guideDialogData.map((data, index)=> {
+  guideDialogList = this.props.guideDialogData.map((data, index)=> {
     return (
       <ExpansionPanel key={index}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -48,7 +48,7 @@ class Rules extends Component {
           {this.props.guideDialogTitle}
         </DialogTitle>
         {/* Guide Expansion Panels */}
-        {this.guideDialogData}
+        {this.guideDialogList}
       </Dialog>
     );
   }
