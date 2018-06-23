@@ -49,17 +49,17 @@ class MenuDialog extends Component {
               <HomeIcon />
               <Typography variant="display1">{this.props.menuDialogData.home.text}</Typography>
             </ListItem>
-            {/* Guide Link */}
-            <ListItem onClick={() => this.props.update({guideDialog: true})}>
-              <HelpIcon />
-              <Typography variant="display1">{this.props.menuDialogData.guide.text}</Typography>
-            </ListItem>
             {/* Market Link */}
             <ListItem onClick={() => this.props.update({menuDialog: false})}>
               <ShopIcon />
               <Link to={this.props.menuDialogData.market.url} className='link'>
                 <Typography variant="display1">{this.props.menuDialogData.market.text}</Typography>
               </Link>
+            </ListItem>
+            {/* Guide Link */}
+            <ListItem onClick={() => this.props.update({guideDialog: true})}>
+              <HelpIcon />
+              <Typography variant="display1">{this.props.menuDialogData.guide.text}</Typography>
             </ListItem>
             {/* Account Links */}
             {

@@ -74,6 +74,10 @@ class AppState extends Component {
       },
       anchorEl: null,
       accountMenu: false,
+      accountMenuData: {
+        account: 'account',
+        logout: 'logout'
+      },
       menuDialog: false,
       menuDialogTitle: 'Menu',
       menuDialogData: {
@@ -100,11 +104,11 @@ class AppState extends Component {
         },
         {
           text: 'Direct',
-          url: '/Stories'
+          url: '/stories'
         },
         {
-          text: 'How To Play',
-          url: '/rules'
+          text: 'Homebrew',
+          url: '/homebrew'
         }
       ],
       newsFeed: [

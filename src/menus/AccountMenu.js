@@ -17,8 +17,8 @@ class AccountButton extends Component {
         open={Boolean(this.props.anchor)}
         onClose={this.handleClose}
       >
-        <MenuItem onClick={this.handleClose}>Account</MenuItem>
-        <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+        <MenuItem onClick={this.handleClose}>{this.props.accountMenuData.account}</MenuItem>
+        <MenuItem onClick={this.handleClose}>{this.props.accountMenuData.logout}</MenuItem>
       </Menu>
     );
   }

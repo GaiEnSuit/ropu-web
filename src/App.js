@@ -6,12 +6,12 @@ import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Pages
-import Home from './Home';
+import Home from './home/Home';
 import CharacterList from './CharacterList';
-import Stories from './Stories';
-import MarketPage from './MarketPage';
+import StoryList from './StoryList';
 import CreateCharacter from './CreateCharacter';
 import CharacterView from './CharacterView';
+import HomeBrewList from './HomeBrewList';
 import NotFound404 from './NotFound404';
 
 // Custom Components
@@ -58,8 +58,8 @@ class App extends Component {
                   <CharacterView character={this.props.appState.characterList.find(x => x.id === parseInt(match.params.id, 10))} />
                 )
             } />
-            <Route exact path='/stories' render={() => <Stories storyList={this.props.appState.storyList} />} />
-            <Route exact path='/market' component={MarketPage} />
+            <Route exact path='/stories' render={() => <StoryList storyList={this.props.appState.storyList} />} />
+            <Route exact path='/homebrew' component={HomeBrewList} />
             <Route path='/404' component={NotFound404} />
           </Switch>
         </main>
@@ -90,7 +90,8 @@ class App extends Component {
         />
         {/* Menus */}
         <AccountMenu 
-          anchor={this.props.appState.anchorEl} 
+          anchor={this.props.appState.anchorEl}
+          accountMenuData={this.props.appState.accountMenuData}
           update={this.props.setAppState}
         />
       </div>

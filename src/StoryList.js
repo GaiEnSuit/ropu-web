@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 
 import { Link } from 'react-router-dom';
 
-class Stories extends Component {
+class StoryList extends Component {
   
   storyList = this.props.storyList.map((story, index) => {
     return (
@@ -34,4 +34,4 @@ class Stories extends Component {
   }
 }
 
-export default Stories;
+export default StoryList;
