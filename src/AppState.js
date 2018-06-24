@@ -97,20 +97,20 @@ class AppState extends Component {
           logout: 'Log Out'
         }
       },
-      callToAction: [
-        {
+      homePageIconsData: {
+        playIcon: {
           text: 'Play',
           url: '/characters'
         },
-        {
+        directIcon: {
           text: 'Direct',
           url: '/stories'
         },
-        {
+        homebrewIcon: {
           text: 'Homebrew',
           url: '/homebrew'
         }
-      ],
+      },
       newsFeed: [
         {
           id: 1,

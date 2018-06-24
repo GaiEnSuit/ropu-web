@@ -7,8 +7,23 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 class NewsFeed extends Component {
 
   componentDidMount() {
-    window.twttr.widgets.load()
-  }
+    this.loadTwitterWidgets(0);
+  };
+  
+  loadTwitterWidgets = (i) => () => {
+    let tries = i++;
+    try {
+      if (tries == 2){
+        return
+      } else {
+        window.twttr.widgets.load();
+      }
+    }
+    catch(err) {
+      console.log(err);
+      window.twttr.widgets.load(tries);
+    }
+  };
   
   render() {
     return (

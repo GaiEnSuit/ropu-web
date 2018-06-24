@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
-import CallToAction from './CallToAction';
+//Material-UI
+import HomePageIcons from './HomePageIcons';
 import NewsFeed from './NewsFeed';
 import Footer from './Footer';
 
 // Custom Components
 import Title from './Title';
 
-class Home extends Component {
+class HomePage extends Component {
   render() {
     return (
       <div>
         <Title />
-        <CallToAction callToAction={this.props.callToAction} />
+        <HomePageIcons homePageIconsData={this.props.homePageIconsData} />
         <NewsFeed newsFeed={this.props.newsFeed} />
         <footer>
           <Footer />
@@ -22,4 +23,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomePage;

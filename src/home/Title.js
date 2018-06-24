@@ -10,7 +10,7 @@ class Title extends Component {
   render() {
     return (
       <Paper>
-        <img src={Logo} className='responsive-image' alt='Title Ropu' />
+        <img src={Logo} className='responsive-image' alt='RoPU Logo' />
       </Paper>
     )
   }

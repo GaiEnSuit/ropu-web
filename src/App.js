@@ -6,7 +6,7 @@ import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Pages
-import Home from './home/Home';
+import HomePage from './home/HomePage';
 import CharacterList from './CharacterList';
 import StoryList from './StoryList';
 import CreateCharacter from './CreateCharacter';
@@ -47,7 +47,7 @@ class App extends Component {
         {/* Body */}
         <main>
           <Switch>
-            <Route exact path='/' render={() => <Home newsFeed={this.props.appState.newsFeed} callToAction={this.props.appState.callToAction} />} />
+            <Route exact path='/' render={() => <HomePage newsFeed={this.props.appState.newsFeed} homePageIconsData={this.props.appState.homePageIconsData} />} />
             <Route exact path='/characters' render={() => <CharacterList characterList={this.props.appState.characterList} update={this.props.setAppState} />} />
             <Route exact path='/characters/create' render={() => <CreateCharacter />} />
             <Route path='/characters/:id?' render={({match}) => 
