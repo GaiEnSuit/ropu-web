@@ -5,7 +5,7 @@ class AppState extends Component {
     super(props);
     this.state = {
       domain: 'https://ropu-453a6.firebaseapp.com/',
-      version: 'v0.1.23',
+      version: 'v0.1.24',
       homeDialog: false,
       homeDialogData: {
         text: 'Do you want to go to the home screen?'
@@ -107,7 +107,7 @@ class AppState extends Component {
           text: 'Direct',
           url: '/stories'
         },
-        homebrewIcon: {
+        homeBrewIcon: {
           text: 'Homebrew',
           url: '/homebrew'
         }

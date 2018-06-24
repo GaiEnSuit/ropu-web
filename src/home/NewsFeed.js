@@ -10,10 +10,12 @@ class NewsFeed extends Component {
     this.loadTwitterWidgets(0);
   };
   
+  failed = undefined;
+  
   loadTwitterWidgets = (i) => () => {
     let tries = i++;
     try {
-      if (tries == 2){
+      if (tries > 2){
         return
       } else {
         window.twttr.widgets.load();
@@ -38,6 +40,9 @@ class NewsFeed extends Component {
         >
           <CircularProgress />
         </a>
+        {
+          this.failed? <div>'Failed to Retrieve News'</div> : null
+        }
       </Paper>
     );
   }
