@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 
 // Material-UI
-import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class NewsFeed extends Component {
+
+  componentDidMount() {
+    window.twttr.widgets.load()
+  }
+  
   render() {
     return (
-      <div>
-        <Typography variant="display1">News Feed</Typography>
-        <a className="twitter-timeline" 
+      <Paper>
+        <a
+          className="twitter-timeline link" 
           data-partner="tweetdeck" 
-          data-theme="dark" 
+          data-theme="light" 
           data-link-color="#E81C4F" 
-          data-chrome="noheader nofooter noborders" 
-          href="https://twitter.com/RoPU85338305/timelines/1010648304001081344?ref_src=twsrc%5Etfw"
+          data-chrome="nofooter noscrollbar transparent"
+          href="https://twitter.com/RoPU_TEAM/timelines/1010648304001081344?ref_src=twsrc%5Etfw"
         >
-          RoPU Curated Timeline
+          <CircularProgress />
         </a>
-      </div>
+      </Paper>
     );
   }
 }
