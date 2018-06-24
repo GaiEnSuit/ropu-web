@@ -16,7 +16,7 @@ class HomePage extends Component {
         <HomePageIcons homePageIconsData={this.props.homePageIconsData} />
         <NewsFeed newsFeed={this.props.newsFeed} />
         <footer>
-          <Footer />
+          <Footer version={this.props.version} />
         </footer>
       </div>
     );

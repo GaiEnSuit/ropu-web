@@ -7,7 +7,7 @@ class Footer extends Component {
 	render() {
 		return(
 			<Paper>
-				<Typography variant='body2'>This is the footer</Typography>
+				<Typography variant='body2'>{this.props.version}</Typography>
 			</Paper>
 		)
 	}

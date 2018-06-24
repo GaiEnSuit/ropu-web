@@ -32,7 +32,7 @@ class App extends Component {
       <div className="App">
         {/* Css Baseline */}
         <CssBaseline />
-        {/* Header */}
+        {/* Header and App Bar */}
         <header>
           <RopuAppBar
             update={this.props.setAppState}
@@ -47,7 +47,18 @@ class App extends Component {
         {/* Body */}
         <main>
           <Switch>
-            <Route exact path='/' render={() => <HomePage newsFeed={this.props.appState.newsFeed} homePageIconsData={this.props.appState.homePageIconsData} />} />
+            {/* Home Page Route */}
+            <Route 
+              exact 
+              path='/' 
+              render={() =>
+                <HomePage 
+                  newsFeed={this.props.appState.newsFeed}
+                  homePageIconsData={this.props.appState.homePageIconsData}
+                  version={this.props.appState.version}
+                />
+              }
+            />
             <Route exact path='/characters' render={() => <CharacterList characterList={this.props.appState.characterList} update={this.props.setAppState} />} />
             <Route exact path='/characters/create' render={() => <CreateCharacter />} />
             <Route path='/characters/:id?' render={({match}) => 

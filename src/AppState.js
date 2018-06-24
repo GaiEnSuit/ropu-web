@@ -5,6 +5,7 @@ class AppState extends Component {
     super(props);
     this.state = {
       domain: 'https://ropu-453a6.firebaseapp.com/',
+      version: 'v0.1.23',
       homeDialog: false,
       homeDialogData: {
         text: 'Do you want to go to the home screen?'
