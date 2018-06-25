@@ -15,7 +15,6 @@ class HomePageIcons extends Component {
 			<Paper>
         <Grid
           container
-          spacing={16}
         >
           <PlayIcon playIconData={this.props.homePageIconsData.playIcon} />
           <DirectIcon directIconData={this.props.homePageIconsData.directIcon} />

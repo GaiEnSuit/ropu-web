@@ -3,46 +3,38 @@ import React, { Component } from 'react';
 // Material-UI
 import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Typography from '@material-ui/core/Typography';
 
 class NewsFeed extends Component {
-
+  
   componentDidMount() {
-    this.loadTwitterWidgets(0);
+    this.loadTwitterWidgets();
   };
   
-  failed = undefined;
-  
-  loadTwitterWidgets = (i) => () => {
-    let tries = i++;
+  loadTwitterWidgets = () => {
     try {
-      if (tries > 2){
-        return
-      } else {
-        window.twttr.widgets.load();
-      }
+      window.twttr.widgets.load();
     }
     catch(err) {
       console.log(err);
-      window.twttr.widgets.load(tries);
+      window.twttr.widgets.load();
     }
   };
   
   render() {
     return (
       <Paper>
+        <Typography variant="display1">{this.props.newsFeed.title}</Typography>
         <a
           className="twitter-timeline link" 
           data-partner="tweetdeck" 
           data-theme="light" 
           data-link-color="#E81C4F" 
-          data-chrome="nofooter noscrollbar transparent"
+          data-chrome="noheader nofooter noscrollbar"
           href="https://twitter.com/RoPU_TEAM/timelines/1010648304001081344?ref_src=twsrc%5Etfw"
         >
           <CircularProgress />
         </a>
-        {
-          this.failed? <div>'Failed to Retrieve News'</div> : null
-        }
       </Paper>
     );
   }

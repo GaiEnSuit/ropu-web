@@ -5,7 +5,7 @@ class AppState extends Component {
     super(props);
     this.state = {
       domain: 'https://ropu-453a6.firebaseapp.com/',
-      version: 'v0.1.24',
+      version: 'v0.1.25',
       homeDialog: false,
       homeDialogData: {
         text: 'Do you want to go to the home screen?'
@@ -112,20 +112,9 @@ class AppState extends Component {
           url: '/homebrew'
         }
       },
-      newsFeed: [
-        {
-          id: 1,
-          img: 'https://images.freeimages.com/images/large-previews/c89/newspapers-2-1315373.jpg',
-          title: 'Foo',
-          text: 'Foo'
-        },
-        {
-          id: 2,
-          img: 'https://images.freeimages.com/images/large-previews/c89/newspapers-2-1315373.jpg',
-          title: 'Bar',
-          text: 'Bar'
-        }
-      ],
+      newsFeed: {
+        title: 'News Feed'
+      },
       characterList: [
         {
           id: 0,
