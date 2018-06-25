@@ -22,6 +22,7 @@ import MenuDialog from './dialogs/MenuDialog';
 import HomeDialog from './dialogs/HomeDialog';
 import GuideDialog from './dialogs/GuideDialog';
 import LogInDialog from './dialogs/LogInDialog';
+import MarketDialog from './dialogs/MarketDialog';
 
 // Menus
 import AccountMenu from './menus/AccountMenu';
@@ -56,6 +57,7 @@ class App extends Component {
                   newsFeed={this.props.appState.newsFeed}
                   homePageIconsData={this.props.appState.homePageIconsData}
                   version={this.props.appState.version}
+                  footer={this.props.appState.footer}
                 />
               }
             />
@@ -97,6 +99,11 @@ class App extends Component {
         <LogInDialog 
           logInDialog={this.props.appState.logInDialog}
           logInDialogData={this.props.appState.logInDialogData}
+          update={this.props.setAppState}
+        />
+        <MarketDialog
+          marketDialog={this.props.appState.marketDialog}
+          marketDialogTitle={this.props.appState.marketDialogTitle}
           update={this.props.setAppState}
         />
         {/* Menus */}

@@ -5,7 +5,7 @@ class AppState extends Component {
     super(props);
     this.state = {
       domain: 'https://ropu-453a6.firebaseapp.com/',
-      version: 'v0.1.25',
+      version: 'v0.1.26',
       homeDialog: false,
       homeDialogData: {
         text: 'Do you want to go to the home screen?'
@@ -115,6 +115,22 @@ class AppState extends Component {
       newsFeed: {
         title: 'News Feed'
       },
+      footer: {
+        credits: {
+          text: 'Credits',
+          data: [
+            {
+              name: 'Kyrise',
+              profile: 'https://kyrise.itch.io/',
+              type: 'art',
+              license: 'Creative Commons Attribution 4.0 International (CC BY 4.0)',
+              licenseUrl: 'https://creativecommons.org/licenses/by/4.0/'
+            }
+          ]
+        }
+      },
+      marketDialog: false,
+      marketDialogTitle: 'Market',
       characterList: [
         {
           id: 0,

@@ -7,10 +7,10 @@ class Footer extends Component {
 	render() {
 		return(
 			<Paper>
-				<Typography variant='body2'>{this.props.version}</Typography>
-        <Typography variant='body2'>Credits</Typography>
-        <a href="https://kyrise.itch.io/">Kyrise</a>
-        <a href="https://creativecommons.org/licenses/by/4.0/">License Type: Creative Commons Attribution 4.0 International (CC BY 4.0) </a>
+				<Typography variant="body1">{this.props.version}</Typography>
+        <Typography variant="title">{this.props.footer.credits.text}</Typography>
+        <a className="link" href={this.props.footer.credits.data[0].profile}><Typography variant="body2">{this.props.footer.credits.data[0].name}</Typography></a>
+        <a className="link" href={this.props.footer.credits.data[0].licenseUrl}><Typography variant="body2">{this.props.footer.credits.data[0].license}</Typography></a>
 			</Paper>
 		)
 	}

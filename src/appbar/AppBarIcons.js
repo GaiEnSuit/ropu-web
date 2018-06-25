@@ -17,7 +17,7 @@ class AppBarIcons extends Component {
       <Toolbar>
         <LogoButton update={this.props.update} domain={this.props.domain} />
         <HomeButton update={this.props.update} domain={this.props.domain} />
-        <MarketButton />
+        <MarketButton update={this.props.update} />
         <GuideButton update={this.props.update} />
         <AccountButton update={this.props.update} loggedIn={this.props.loggedIn} />
         <MenuButton update={this.props.update} />
