@@ -14,7 +14,7 @@ class CharacterListItem extends Component {
 					<ListItemText>Name: {this.props.characterListItem.name}</ListItemText>
 					<ListItemText>Story: {this.props.characterListItem.story}</ListItemText>
 				</Link>
-				<Button onClick={this.props.deleteCharacter(this.props.characterListItem.id)}>Delete</Button>
+				<Button onClick={this.props.deleteCharacter(this.props.characterListItem)}>Delete</Button>
 			</ListItem>
 		)
   }

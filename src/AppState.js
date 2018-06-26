@@ -131,7 +131,11 @@ class AppState extends Component {
       },
       marketDialog: false,
       marketDialogTitle: 'Market',
-      characterList: [
+      characterList: {
+        title: 'Choose A Character',
+        create: 'Create A Character'
+      },
+      characterListData: [
         {
           id: 0,
           img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',

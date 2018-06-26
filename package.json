@@ -1,6 +1,6 @@
 {
   "name": "ropu",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.1.0",

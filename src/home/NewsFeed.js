@@ -8,17 +8,7 @@ import Typography from '@material-ui/core/Typography';
 class NewsFeed extends Component {
   
   componentDidMount() {
-    this.loadTwitterWidgets();
-  };
-  
-  loadTwitterWidgets = () => {
-    try {
-      window.twttr.widgets.load();
-    }
-    catch(err) {
-      console.log(err);
-      window.twttr.widgets.load();
-    }
+    window.twttr.widgets.load();
   };
   
   render() {

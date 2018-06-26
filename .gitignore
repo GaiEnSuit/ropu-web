@@ -10,7 +10,6 @@
 /build
 
 # firebase environment
-.firebaserc
 /functions
 
 # misc

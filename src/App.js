@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Pages
 import HomePage from './home/HomePage';
-import CharacterList from './CharacterList';
+import CharacterList from './characterlist/CharacterList';
 import StoryList from './StoryList';
 import CreateCharacter from './CreateCharacter';
 import CharacterView from './CharacterView';
@@ -53,7 +53,7 @@ class App extends Component {
               exact 
               path='/' 
               render={() =>
-                <HomePage 
+                <HomePage
                   newsFeed={this.props.appState.newsFeed}
                   homePageIconsData={this.props.appState.homePageIconsData}
                   version={this.props.appState.version}
@@ -61,14 +61,24 @@ class App extends Component {
                 />
               }
             />
-            <Route exact path='/characters' render={() => <CharacterList characterList={this.props.appState.characterList} update={this.props.setAppState} />} />
+            <Route 
+              exact
+              path='/characters' 
+              render={() =>
+                <CharacterList 
+                  characterList={this.props.appState.characterList}
+                  characterListData={this.props.appState.characterListData}
+                  update={this.props.setAppState}
+                />
+              }
+            />
             <Route exact path='/characters/create' render={() => <CreateCharacter />} />
             <Route path='/characters/:id?' render={({match}) => 
-              this.props.appState.characterList.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+              this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                 (
                   <Redirect to='/404' />
                 ) : (
-                  <CharacterView character={this.props.appState.characterList.find(x => x.id === parseInt(match.params.id, 10))} />
+                  <CharacterView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
                 )
             } />
             <Route exact path='/stories' render={() => <StoryList storyList={this.props.appState.storyList} />} />
