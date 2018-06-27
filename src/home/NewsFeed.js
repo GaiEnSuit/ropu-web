@@ -8,10 +8,20 @@ import Typography from '@material-ui/core/Typography';
 class NewsFeed extends Component {
   
   componentDidMount() {
-    window.twttr.widgets.load();
+    this.updateTwitterWidget();
   };
   
-  render() {
+  updateTwitterWidget = () => {
+    try {
+      window.twttr.widgets.load();
+    } 
+    catch (err) {
+      console.log(err)
+      window.twttr.widgets.load();
+    }
+  }
+  
+  render() {    
     return (
       <Paper>
         <Typography variant="display1">{this.props.newsFeed.title}</Typography>
