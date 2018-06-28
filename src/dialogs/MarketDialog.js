@@ -22,7 +22,7 @@ class MarketDialog extends Component {
       >
         <DialogActions>
           {/* Cancel Button */}
-          <IconButton aria-label="Close" color="primary" onClick={() => this.props.update({marketDialog: false})}>
+          <IconButton aria-label="Close" onClick={() => this.props.update({marketDialog: false})}>
             <CloseIcon />
           </IconButton>
         </DialogActions>

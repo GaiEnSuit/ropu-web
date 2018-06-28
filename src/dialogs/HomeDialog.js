@@ -25,12 +25,12 @@ class HomeDialog extends Component {
         <DialogActions>
           {/* Confirm Button */}
           <Link to='/' className="link" onClick={() => this.props.update({homeDialog: false})}>
-            <IconButton aria-label="Close" color="primary">
+            <IconButton aria-label="Close">
               <CheckIcon />
             </IconButton>
           </Link>
           {/* Cancel Button */}
-          <IconButton aria-label="Close" color="primary" onClick={() => this.props.update({homeDialog: false})}>
+          <IconButton aria-label="Close" onClick={() => this.props.update({homeDialog: false})}>
             <CloseIcon />
           </IconButton>
         </DialogActions>

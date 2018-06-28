@@ -17,14 +17,17 @@ class CharacterListItem extends Component {
 		return(
       <Paper>
         <ListItem>
+          {/* Character Portrait */}
           <ListItemIcon>
             <img src={this.props.characterListItem.img} alt="Character Portrait" style={{width: "64px", height: "64px"}} />
           </ListItemIcon>
+          {/* Character Summary */}
           <Link to={`/characters/${this.props.characterListItem.id}`} className="link">
             <Typography>{this.props.characterListItem.name}</Typography>
             <Typography>{this.props.characterListItem.game}</Typography>
             <Typography>{this.props.characterListItem.campaign}</Typography>
           </Link>
+          {/* Delete Button */}
           <ListItemIcon onClick={this.props.deleteCharacter(this.props.characterListItem)}>
             <CloseIcon />
           </ListItemIcon>

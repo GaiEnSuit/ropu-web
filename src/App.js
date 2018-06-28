@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Pages
 import HomePage from './home/HomePage';
-import CharacterList from './characterlist/CharacterList';
+import CharacterSelectionPage from './characterselection/CharacterSelectionPage';
 import StoryList from './StoryList';
 import CreateCharacter from './CreateCharacter';
 import CharacterView from './CharacterView';
@@ -66,8 +66,8 @@ class App extends Component {
               exact
               path='/characters' 
               render={() =>
-                <CharacterList 
-                  characterList={this.props.appState.characterList}
+                <CharacterSelectionPage 
+                  characterSelectionPage={this.props.appState.characterSelectionPage}
                   characterListData={this.props.appState.characterListData}
                   update={this.props.setAppState}
                 />

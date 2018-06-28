@@ -1,15 +1,17 @@
+// React
 import React, { Component } from 'react';
 
 // Material-Ui
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 
-// Custom Component
+// Custom Components
 import CharacterListItem from './CharacterListItem';
 import CreateCharacterItem from './CreateCharacterItem';
 
-class CharacterList extends Component {
+class CharacterSelectionPage extends Component {
   
+  // Delete Character from state
 	deleteCharacter = (char) => () => {
 		let newState = this.props.characterListData.filter(x => x !== char);
 		this.props.update({
@@ -19,7 +21,8 @@ class CharacterList extends Component {
   
   render() {
     
-    let characterListData = this.props.characterListData.map((character) => {    
+    // Generate List of Characters
+    let characterList = this.props.characterListData.map((character) => {    
       return(
         <CharacterListItem
           key={character.id}
@@ -29,16 +32,18 @@ class CharacterList extends Component {
       )
     });
     
+    // Layout
     return (
       <div>
-        <Typography variant="title">{this.props.characterList.title}</Typography>
-				<List>
-          {characterListData}
-        </List>
+        {/* Title */}
+        <Typography variant="title">{this.props.characterSelectionPage.title}</Typography>
+        {/* Render List of Characters */}
+				<List>{characterList}</List>
+        {/* List item that creates new character on click */}
 				<CreateCharacterItem update={this.props.update} />
       </div>
     );
   }
 }
 
-export default CharacterList;
+export default CharacterSelectionPage;

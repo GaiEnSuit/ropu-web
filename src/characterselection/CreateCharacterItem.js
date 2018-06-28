@@ -12,6 +12,7 @@ class CreateCharacterItem extends Component {
   render() {
 		return(
       <Paper onClick={()=>{this.props.update({createCharacterDialog: true})}}>
+        {/* Opens Create Character Dialog on Click */}
         <ListItem style={{display: "flex", justifyContent: "center"}}>
           <ListItemIcon>
             <AddCircleIcon style={{width: "64px", height: "64px"}} />

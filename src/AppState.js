@@ -131,12 +131,12 @@ class AppState extends Component {
       },
       marketDialog: false,
       marketDialogTitle: 'Market',
-      characterList: {
-        title: 'Select A Character'
-      },
       createCharacterDialog: false,
       createCharacterDialogData: {
         
+      },
+      characterSelectionPage: {
+        title: 'Select A Character'
       },
       characterListData: [
         {
