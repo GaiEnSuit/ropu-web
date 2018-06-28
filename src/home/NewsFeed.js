@@ -18,8 +18,7 @@ class NewsFeed extends Component {
           id="1010648304001081344"
           options={
             {
-              chrome: "noheader nofooter noborders noscrollbar",
-              height: "auto"
+              chrome: "noheader nofooter noborders noscrollbar"
             }
           }
         >
