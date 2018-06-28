@@ -5,10 +5,10 @@ class AppState extends Component {
     super(props);
     this.state = {
       domain: 'https://ropu-453a6.firebaseapp.com/',
-      version: 'v0.1.26',
+      version: 'v0.1.28',
       homeDialog: false,
       homeDialogData: {
-        text: 'Do you want to go to the home screen?'
+        text: 'Exit to the home screen?'
       },
       guideDialog: false,
       guideDialogTitle: 'Guide',
@@ -132,8 +132,11 @@ class AppState extends Component {
       marketDialog: false,
       marketDialogTitle: 'Market',
       characterList: {
-        title: 'Choose A Character',
-        create: 'Create A Character'
+        title: 'Select A Character'
+      },
+      createCharacterDialog: false,
+      createCharacterDialogData: {
+        
       },
       characterListData: [
         {
@@ -141,7 +144,8 @@ class AppState extends Component {
           img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
           name: 'Solaire',
           description: 'A human male who loves to praise the sun',
-          story: 'Demon\'s Souls',
+          game: 'Demon\'s Souls',
+          campaign: 'My Solo Campaign',
           abilities: {
             str: 0,
             end: 0,
@@ -184,7 +188,7 @@ class AppState extends Component {
               image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
               type: 'tangible',
               description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: ''
+              usage: null
             }
           ]
         },
@@ -192,7 +196,8 @@ class AppState extends Component {
           id: 1,
           img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
           name: 'Ken',
-          story: 'Himura Mansion',
+          game: 'Himura Mansion',
+          campaign: 'Weekly Saturday Meetings',
           abilities: {
             str: 0,
             end: 0,
@@ -224,7 +229,7 @@ class AppState extends Component {
               active: 'yes',
               type: 'Equipment',
               description: 'A sword...that is rather short',
-              usage: ''
+              usage: null
             },
             {
               id: 2,
@@ -233,7 +238,7 @@ class AppState extends Component {
               active: 'yes',
               type: 'Skill',
               description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: ''
+              usage: null
             },
             {
               id: 3,
@@ -242,7 +247,7 @@ class AppState extends Component {
               image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
               type: 'Consumable',
               description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: ''
+              usage: null
             }
           ]
         }

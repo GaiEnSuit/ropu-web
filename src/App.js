@@ -23,6 +23,7 @@ import HomeDialog from './dialogs/HomeDialog';
 import GuideDialog from './dialogs/GuideDialog';
 import LogInDialog from './dialogs/LogInDialog';
 import MarketDialog from './dialogs/MarketDialog';
+import CreateCharacterDialog from './dialogs/CreateCharacterDialog';
 
 // Menus
 import AccountMenu from './menus/AccountMenu';
@@ -121,6 +122,11 @@ class App extends Component {
           anchor={this.props.appState.anchorEl}
           accountMenuData={this.props.appState.accountMenuData}
           update={this.props.setAppState}
+        />
+        <CreateCharacterDialog
+          update={this.props.setAppState}
+          createCharacterDialog={this.props.appState.createCharacterDialog}
+          createCharacterDialogData={this.props.appState.createCharacterDialogData}
         />
       </div>
     );
