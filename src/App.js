@@ -9,7 +9,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import HomePage from './home/HomePage';
 import CharacterSelectionPage from './characterselection/CharacterSelectionPage';
 import StoryList from './StoryList';
-import CreateCharacter from './CreateCharacter';
 import CharacterView from './CharacterView';
 import HomeBrewList from './HomeBrewList';
 import NotFound404 from './NotFound404';
@@ -23,7 +22,7 @@ import HomeDialog from './dialogs/HomeDialog';
 import GuideDialog from './dialogs/GuideDialog';
 import LogInDialog from './dialogs/LogInDialog';
 import MarketDialog from './dialogs/MarketDialog';
-import CreateCharacterDialog from './dialogs/CreateCharacterDialog';
+import CreateCharacterDialog from './dialogs/createcharacterdialog/CreateCharacterDialog';
 
 // Menus
 import AccountMenu from './menus/AccountMenu';
@@ -62,18 +61,18 @@ class App extends Component {
                 />
               }
             />
+            {/* Character Selection Route */}
             <Route 
               exact
               path='/characters' 
               render={() =>
-                <CharacterSelectionPage 
+                <CharacterSelectionPage
                   characterSelectionPage={this.props.appState.characterSelectionPage}
                   characterListData={this.props.appState.characterListData}
                   update={this.props.setAppState}
                 />
               }
             />
-            <Route exact path='/characters/create' render={() => <CreateCharacter />} />
             <Route path='/characters/:id?' render={({match}) => 
               this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                 (
@@ -82,7 +81,7 @@ class App extends Component {
                   <CharacterView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
                 )
             } />
-            <Route exact path='/stories' render={() => <StoryList storyList={this.props.appState.storyList} />} />
+            <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
             <Route exact path='/homebrew' component={HomeBrewList} />
             <Route path='/404' component={NotFound404} />
           </Switch>
@@ -126,7 +125,11 @@ class App extends Component {
         <CreateCharacterDialog
           update={this.props.setAppState}
           createCharacterDialog={this.props.appState.createCharacterDialog}
-          createCharacterDialogData={this.props.appState.createCharacterDialogData}
+          createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
+          createCharacterDialogText={this.props.appState.createCharacterDialogText}
+          createCharacterData={this.props.appState.createCharacterData}
+          characterListData={this.props.appState.characterListData}
+          gameListData={this.props.appState.gameListData}
         />
       </div>
     );

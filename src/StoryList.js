@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 
 class StoryList extends Component {
   
-  storyList = this.props.storyList.map((story, index) => {
+  gameList = this.props.gameListData.map((game, index) => {
     return (
       <div key={index}>
         <Link to="/">
           <ListItem button>
-            <Typography >{story.title}</Typography>
+            <Typography >{game.title}</Typography>
           </ListItem>
         </Link>
         <Divider />
@@ -27,7 +27,7 @@ class StoryList extends Component {
       <div>
         <Typography variant="display1">Stories</Typography>
         <List>
-          {this.storyList}
+          {this.gameList}
         </List>
       </div>
     );

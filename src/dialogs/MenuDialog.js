@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 // Material-ui
 import Typography from '@material-ui/core/Typography';
@@ -50,11 +49,9 @@ class MenuDialog extends Component {
               <Typography variant="display1">{this.props.menuDialogData.home.text}</Typography>
             </ListItem>
             {/* Market Link */}
-            <ListItem onClick={() => this.props.update({menuDialog: false})}>
+            <ListItem onClick={() => this.props.update({marketDialog: true})}>
               <ShopIcon />
-              <Link to={this.props.menuDialogData.market.url} className='link'>
-                <Typography variant="display1">{this.props.menuDialogData.market.text}</Typography>
-              </Link>
+              <Typography variant="display1">{this.props.menuDialogData.market.text}</Typography>
             </ListItem>
             {/* Guide Link */}
             <ListItem onClick={() => this.props.update({guideDialog: true})}>

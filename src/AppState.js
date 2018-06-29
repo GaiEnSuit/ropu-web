@@ -132,8 +132,40 @@ class AppState extends Component {
       marketDialog: false,
       marketDialogTitle: 'Market',
       createCharacterDialog: false,
-      createCharacterDialogData: {
-        
+      createCharacterDialogTab: 0,
+      createCharacterDialogText: {
+        title: 'Character Creator',
+        game: 'Game',
+        description: 'Description',
+        abilities: 'Abilities',
+        interactables: 'Interactables',
+        summary: 'Summary'
+      },
+      createCharacterData: {
+        id: null,
+        img: null,
+        name: null,
+        description: null,
+        game: null,
+        campaign: null,
+        abilities: {
+          str: 0,
+          end: 0,
+          int: 0,
+          wil: 0,
+          dex: 0,
+          agi: 0
+        },
+        stats: {
+          hp: 0,
+          mp: 0,
+          sp: 0,
+          maxhp: 0,
+          maxmp: 0,
+          maxsp: 0
+        },
+        interactables: [
+        ]
       },
       characterSelectionPage: {
         title: 'Select A Character'
@@ -217,11 +249,21 @@ class AppState extends Component {
           interactables: []
         }
       ],
-      storyList: [
+      storyListData: [
+      ],
+      gameListData: [
         {
-          title: 'Family Main Story',
-          story: 'demon\'s souls',
-          interactableList: [
+          name: 'demon\'s souls',
+          image: '',
+          description: '',
+          locations: [
+            {
+              name: 'Boletaria',
+              description: `The game is set in the fictional kingdom of Boletaria, ruled by the aging King Allant XII. Because of his greed, the king searched for power and prosperity through a dark ritual of channeling the power of souls that brought unprecedented prosperity to Boletaria, until the "Deep Fog" covered the land's outskirts, cutting off the kingdom from the outside world. Neighboring kingdoms sent scouts to investigate but none returned after entering the fog. It was only after Vallarfax of the royal Twin Fangs broke free from the fog that the rest of the world could be told of Boletaria's plight. By channeling souls, King Allant had awakened the Old One, a great demon residing below the Nexus. With the Old One's awakening, a dark fog had swept in, that within it unleashed demons who feasted on the souls of mankind, where those left alive without a soul became insane and violent. Without resistance, the fog slowly begins to spread beyond Boletaria.`,
+              image: ''
+            }
+          ],
+          interactables: [
             {
               id: 1,
               image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',

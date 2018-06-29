@@ -9,7 +9,10 @@ import AppBarIcons from './AppBarIcons';
 class RopuAppBar extends Component {
   render() {
     return (
-      <AppBar position="static">
+      <AppBar 
+        position="static"
+        color="default"
+      >
         <AppBarIcons 
           loggedIn={this.props.loggedIn} 
           update={this.props.update}
