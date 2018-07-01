@@ -9,6 +9,10 @@ import CloseIcon from '@material-ui/icons/Close';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
+// Higher Order Components
+import withTabControl from '../../hoc/withTabControl';
+import withDialogControl from '../../hoc/withDialogControl';
+
 class CreateCharacterDialogActions extends Component {
   
   render() {
@@ -16,17 +20,17 @@ class CreateCharacterDialogActions extends Component {
       <DialogActions>
         <IconButton 
           disabled={this.props.createCharacterDialogTab <= 0 && true}
-          onClick={()=>{this.props.update({createCharacterDialogTab: this.props.createCharacterDialogTab - 1})}}
+          onClick={this.props.backCreateCharacterDialogTab}
         >
           <ArrowBackIcon />
         </IconButton>
         <IconButton 
           disabled={this.props.createCharacterDialogTab >= 4 && true}
-          onClick={()=>{this.props.update({createCharacterDialogTab: this.props.createCharacterDialogTab + 1})}}
+          onClick={this.props.nextCreateCharacterDialogTab}
         >
           <ArrowForwardIcon />
         </IconButton>
-        <IconButton onClick={()=>{this.props.update({createCharacterDialog: false})}}>
+        <IconButton onClick={this.props.openCancelCreateCharacterDialog}>
           <CloseIcon />
         </IconButton>
       </DialogActions>
@@ -34,4 +38,4 @@ class CreateCharacterDialogActions extends Component {
   }
 }
 
-export default CreateCharacterDialogActions;
+export default withTabControl(withDialogControl(CreateCharacterDialogActions));

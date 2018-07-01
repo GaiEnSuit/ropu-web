@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-UI Components
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-class AccountButton extends Component {
-  
-  handleClose = () => {
-    this.props.update({anchorEl: null});
-  }
-  
-  render() {
-    return (
-      <Menu
-        anchorEl={this.props.anchor}
-        open={Boolean(this.props.anchor)}
-        onClose={this.handleClose}
-      >
-        <MenuItem onClick={this.handleClose}>{this.props.accountMenuData.account}</MenuItem>
-        <MenuItem onClick={this.handleClose}>{this.props.accountMenuData.logout}</MenuItem>
-      </Menu>
-    );
-  }
+// Higher Order Components
+import withMenuControl from '../hoc/withMenuControl';
+
+const AccountButton = (props) => {
+  return (
+    <Menu
+      anchorEl={props.anchor}
+      open={Boolean(props.anchor)}
+      onClose={props.closeMenu}
+    >
+      <MenuItem onClick={props.closeMenu}>{props.accountMenuText.account}</MenuItem>
+      <MenuItem onClick={props.closeMenu}>{props.accountMenuText.logout}</MenuItem>
+    </Menu>
+  )
 }
 
-export default AccountButton;
+export default withMenuControl(AccountButton);

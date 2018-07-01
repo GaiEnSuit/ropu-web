@@ -5,13 +5,15 @@ class AppState extends Component {
     super(props);
     this.state = {
       domain: 'https://ropu-453a6.firebaseapp.com/',
-      version: 'v0.1.28',
+      version: 'v0.1.30',
       homeDialog: false,
-      homeDialogData: {
+      homeDialogText: {
         text: 'Exit to the home screen?'
       },
       guideDialog: false,
-      guideDialogTitle: 'Guide',
+      guideDialogText: {
+        title: 'Guide'
+      },
       guideDialogData: [
         {
           title: 'How To Play',
@@ -19,7 +21,7 @@ class AppState extends Component {
         },
         {
           title: 'Game Flow',
-          text: 'The Director describes the Story, The Actors then decide how their Character\'s take action, Actors Roll to determine the outcome of the Action, Resolve Conflicts if any'
+          text: `The Director describes the Story, The Actors then decide how their Character's take action, Actors Roll to determine the outcome of the Action, Resolve Conflicts if any`
         },
         {
           title: 'Actions',
@@ -51,15 +53,15 @@ class AppState extends Component {
         },
         {
           title: 'Turn Order',
-          text: ' Turn order is determined by the Characters\' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first'
+          text: `Turn order is determined by the Characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
         },
         {
           title: 'On Your Turn',
           text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
         },
         {
-          title: 'On Other Player\'s Turns\'',
-          text: 'Actions can be made on other characters\' turns in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.'
+          title: `On Other Player's Turns`,
+          text: `Actions can be made on other characters' turns in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
         },
         {
           title: 'Social Conflicts',
@@ -68,20 +70,20 @@ class AppState extends Component {
       ],
       loggedIn: false,
       logInDialog: false,
-      logInDialogData: {
+      logInDialogText: {
         logInTitle: 'LOG IN',
         createAccountTitle: 'CREATE ACCOUNT',
         submitText: 'Submit'
       },
       anchorEl: null,
       accountMenu: false,
-      accountMenuData: {
+      accountMenuText: {
         account: 'account',
         logout: 'logout'
       },
       menuDialog: false,
-      menuDialogTitle: 'Menu',
-      menuDialogData: {
+      menuDialogText: {
+        title: 'Menu',
         home: {
           text: 'Home'
         },
@@ -112,7 +114,7 @@ class AppState extends Component {
           url: '/homebrew'
         }
       },
-      newsFeed: {
+      newsFeedText: {
         title: 'News Feed'
       },
       footer: {
@@ -130,8 +132,12 @@ class AppState extends Component {
         }
       },
       marketDialog: false,
-      marketDialogTitle: 'Market',
+      marketDialogText: {
+        title: 'Market'
+      },
       createCharacterDialog: false,
+      cancelCreateCharacterDialog: false,
+      cancelCreateCharacterDialogText: 'Cancel Character Creation?',
       createCharacterDialogTab: 0,
       createCharacterDialogText: {
         title: 'Character Creator',
@@ -139,7 +145,11 @@ class AppState extends Component {
         description: 'Description',
         abilities: 'Abilities',
         interactables: 'Interactables',
-        summary: 'Summary'
+        summary: 'Summary',
+        selectGame: 'Select A Game',
+        selectedGame: 'Selected Game',
+        changeGame: 'Change Game',
+        continue: 'Continue'
       },
       createCharacterData: {
         id: null,
@@ -147,6 +157,7 @@ class AppState extends Component {
         name: null,
         description: null,
         game: null,
+        gameID: null,
         campaign: null,
         abilities: {
           str: 0,
@@ -167,7 +178,7 @@ class AppState extends Component {
         interactables: [
         ]
       },
-      characterSelectionPage: {
+      characterSelectionPageText: {
         title: 'Select A Character'
       },
       characterListData: [
@@ -176,7 +187,7 @@ class AppState extends Component {
           img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
           name: 'Solaire',
           description: 'A human male who loves to praise the sun',
-          game: 'Demon\'s Souls',
+          game: `Demon's Souls`,
           campaign: 'My Solo Campaign',
           abilities: {
             str: 0,
@@ -253,8 +264,9 @@ class AppState extends Component {
       ],
       gameListData: [
         {
-          name: 'demon\'s souls',
-          image: '',
+          id: 0,
+          name: `demon's souls`,
+          image: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
           description: '',
           locations: [
             {
@@ -291,6 +303,9 @@ class AppState extends Component {
               description: 'A wave of energy emits from your weapon and streaks across the ground',
               usage: null
             }
+          ],
+          characterTemplates: [
+            
           ]
         }
       ],

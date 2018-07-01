@@ -19,10 +19,11 @@ import RopuAppBar from './appbar/RopuAppBar';
 // Dialogs
 import MenuDialog from './dialogs/MenuDialog';
 import HomeDialog from './dialogs/HomeDialog';
-import GuideDialog from './dialogs/GuideDialog';
+import GuideDialog from './dialogs/guidedialog/GuideDialog';
 import LogInDialog from './dialogs/LogInDialog';
 import MarketDialog from './dialogs/MarketDialog';
 import CreateCharacterDialog from './dialogs/createcharacterdialog/CreateCharacterDialog';
+import CancelCreateCharacterDialog from './dialogs/createcharacterdialog/CancelCreateCharacterDialog';
 
 // Menus
 import AccountMenu from './menus/AccountMenu';
@@ -37,10 +38,6 @@ class App extends Component {
         <header>
           <RopuAppBar
             update={this.props.setAppState}
-            menuLinks={this.props.appState.menuLinks}
-            menuDrawer={this.props.appState.menuDrawer}
-            ropuAppBar={this.props.appState.ropuAppBar}
-            toggleDialog={this.toggleDialog}
             domain={this.props.appState.domain}
             loggedIn={this.props.appState.loggedIn}
           />
@@ -54,8 +51,8 @@ class App extends Component {
               path='/' 
               render={() =>
                 <HomePage
-                  newsFeed={this.props.appState.newsFeed}
                   homePageIconsData={this.props.appState.homePageIconsData}
+                  newsFeedText={this.props.appState.newsFeedText}
                   version={this.props.appState.version}
                   footer={this.props.appState.footer}
                 />
@@ -67,12 +64,13 @@ class App extends Component {
               path='/characters' 
               render={() =>
                 <CharacterSelectionPage
-                  characterSelectionPage={this.props.appState.characterSelectionPage}
+                  characterSelectionPageText={this.props.appState.characterSelectionPageText}
                   characterListData={this.props.appState.characterListData}
                   update={this.props.setAppState}
                 />
               }
             />
+            {/* Player View */}
             <Route path='/characters/:id?' render={({match}) => 
               this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                 (
@@ -81,45 +79,47 @@ class App extends Component {
                   <CharacterView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
                 )
             } />
+            {/* Story List */}
             <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
+            {/* Home Brew List */}
             <Route exact path='/homebrew' component={HomeBrewList} />
-            <Route path='/404' component={NotFound404} />
+            {/* Page Not Found */}
+            <Route component={NotFound404} />
           </Switch>
         </main>
         {/* Dialogs */}
         <MenuDialog 
-          menuDialogData={this.props.appState.menuDialogData}
+          menuDialogText={this.props.appState.menuDialogText}
           menuDialog={this.props.appState.menuDialog}
-          menuDialogTitle={this.props.appState.menuDialogTitle}
           loggedIn={this.props.appState.loggedIn}
           domain={this.props.appState.domain}
           update={this.props.setAppState}
         />
         <HomeDialog 
           homeDialog={this.props.appState.homeDialog}
-          homeDialogData={this.props.appState.homeDialogData}
+          homeDialogText={this.props.appState.homeDialogText}
           update={this.props.setAppState}
         />
         <GuideDialog
           guideDialog={this.props.appState.guideDialog}
           guideDialogData={this.props.appState.guideDialogData}
-          guideDialogTitle={this.props.appState.guideDialogTitle}
+          guideDialogText={this.props.appState.guideDialogText}
           update={this.props.setAppState}
         />
         <LogInDialog 
           logInDialog={this.props.appState.logInDialog}
-          logInDialogData={this.props.appState.logInDialogData}
+          logInDialogText={this.props.appState.logInDialogText}
           update={this.props.setAppState}
         />
         <MarketDialog
           marketDialog={this.props.appState.marketDialog}
-          marketDialogTitle={this.props.appState.marketDialogTitle}
+          marketDialogText={this.props.appState.marketDialogText}
           update={this.props.setAppState}
         />
         {/* Menus */}
         <AccountMenu 
           anchor={this.props.appState.anchorEl}
-          accountMenuData={this.props.appState.accountMenuData}
+          accountMenuText={this.props.appState.accountMenuText}
           update={this.props.setAppState}
         />
         <CreateCharacterDialog
@@ -130,6 +130,12 @@ class App extends Component {
           createCharacterData={this.props.appState.createCharacterData}
           characterListData={this.props.appState.characterListData}
           gameListData={this.props.appState.gameListData}
+        />
+        <CancelCreateCharacterDialog
+          createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
+          cancelCreateCharacterDialog={this.props.appState.cancelCreateCharacterDialog}
+          cancelCreateCharacterDialogText={this.props.appState.cancelCreateCharacterDialogText}
+          update={this.props.setAppState}
         />
       </div>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-UI Components
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,19 +11,17 @@ import GuideButton from './GuideButton';
 import LogoButton from './LogoButton';
 import AccountButton from './AccountButton';
 
-class AppBarIcons extends Component {
-  render() {
-    return (
-      <Toolbar>
-        <LogoButton update={this.props.update} domain={this.props.domain} />
-        <HomeButton update={this.props.update} domain={this.props.domain} />
-        <MarketButton update={this.props.update} />
-        <GuideButton update={this.props.update} />
-        <AccountButton update={this.props.update} loggedIn={this.props.loggedIn} />
-        <MenuButton update={this.props.update} />
-      </Toolbar>
-    );
-  }
+const AppBarIcons = (props) => {
+  return (
+    <Toolbar>
+      <LogoButton update={props.update} domain={props.domain} />
+      <HomeButton update={props.update} domain={props.domain} />
+      <MarketButton update={props.update} />
+      <GuideButton update={props.update} />
+      <AccountButton update={props.update} loggedIn={props.loggedIn} />
+      <MenuButton update={props.update} />
+    </Toolbar>
+  )
 }
 
 export default AppBarIcons;

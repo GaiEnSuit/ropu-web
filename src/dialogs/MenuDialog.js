@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-ui
 import Typography from '@material-ui/core/Typography';
@@ -19,74 +19,67 @@ import InputIcon from '@material-ui/icons/Input';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
-class MenuDialog extends Component {
-  render() {
-    return (
-      <Dialog
-        open={this.props.menuDialog}
-        aria-labelledby="dynamic dialog"
-        fullScreen
-      >
-        <DialogActions>
-          <IconButton aria-label="Close" color="primary" onClick={() => this.props.update({menuDialog: false})}>
-            <CloseIcon />
-          </IconButton>
-        </DialogActions>
-        <DialogTitle>
-          {this.props.menuDialogTitle}
-        </DialogTitle>
-        <DialogContent>
-          <List>
-            {/* Home Link */}
-            <ListItem
-              onClick={window.location.href === this.props.domain? null : (() => {
-                        this.props.update({menuDialog: false});
-                        this.props.update({homeDialog: true});
-                      })
-              }
-            >
-              <HomeIcon />
-              <Typography variant="display1">{this.props.menuDialogData.home.text}</Typography>
-            </ListItem>
-            {/* Market Link */}
-            <ListItem onClick={() => this.props.update({marketDialog: true})}>
-              <ShopIcon />
-              <Typography variant="display1">{this.props.menuDialogData.market.text}</Typography>
-            </ListItem>
-            {/* Guide Link */}
-            <ListItem onClick={() => this.props.update({guideDialog: true})}>
-              <HelpIcon />
-              <Typography variant="display1">{this.props.menuDialogData.guide.text}</Typography>
-            </ListItem>
-            {/* Account Links */}
-            {
-              this.props.loggedIn? (
-                <div>
-                  <ListItem 
-                    onClick={() => {
-                      this.props.update({accountDialog: true})
-                    }}
-                  >
-                    <AccountBoxIcon />
-                    <Typography variant="display1">{this.props.menuDialogData.account.text}</Typography>
-                  </ListItem>
-                  <ListItem onClick={() => this.props.update({menuDialog: false})}>
-                    <ExitToAppIcon />
-                    <Typography variant="display1">{this.props.menuDialogData.account.logout}</Typography>
-                  </ListItem>
-                </div>
-              ) : (
-                <ListItem onClick={() => this.props.update({logInDialog: true})}>
-                  <InputIcon />
-                  <Typography variant="display1">{this.props.menuDialogData.account.login}</Typography>
+// Higher Order Components
+import withDialogControl from '../hoc/withDialogControl';
+
+const MenuDialog = (props) => {
+  return (
+    <Dialog
+      open={props.menuDialog}
+      aria-labelledby="dynamic dialog"
+      fullScreen
+    >
+      <DialogActions>
+        <IconButton aria-label="Close" onClick={props.closeMenuDialog}>
+          <CloseIcon />
+        </IconButton>
+      </DialogActions>
+      <DialogTitle>
+        {props.menuDialogText.title}
+      </DialogTitle>
+      <DialogContent>
+        <List>
+          {/* Home Link */}
+          <ListItem
+            onClick={window.location.href === props.domain? null : props.openHomeDialog}
+          >
+            <HomeIcon />
+            <Typography variant="display1">{props.menuDialogText.home.text}</Typography>
+          </ListItem>
+          {/* Market Link */}
+          <ListItem onClick={props.openMarketDialog}>
+            <ShopIcon />
+            <Typography variant="display1">{props.menuDialogText.market.text}</Typography>
+          </ListItem>
+          {/* Guide Link */}
+          <ListItem onClick={props.openGuideDialog}>
+            <HelpIcon />
+            <Typography variant="display1">{props.menuDialogText.guide.text}</Typography>
+          </ListItem>
+          {/* Account Links */}
+          {
+            props.loggedIn? (
+              <div>
+                <ListItem onClick={props.openAccountDialog}>
+                  <AccountBoxIcon />
+                  <Typography variant="display1">{props.menuDialogText.account.text}</Typography>
                 </ListItem>
-              )
-            }
-          </List>
-        </DialogContent>
-      </Dialog>
-    )
-  }
+                <ListItem onClick={props.closeMenuDialog}>
+                  <ExitToAppIcon />
+                  <Typography variant="display1">{props.menuDialogText.account.logout}</Typography>
+                </ListItem>
+              </div>
+            ) : (
+              <ListItem onClick={props.openLogInDialog}>
+                <InputIcon />
+                <Typography variant="display1">{props.menuDialogText.account.login}</Typography>
+              </ListItem>
+            )
+          }
+        </List>
+      </DialogContent>
+    </Dialog>
+  )
 }
 
-export default MenuDialog;
+export default withDialogControl(MenuDialog);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-UI Components
 import IconButton from '@material-ui/core/IconButton';
@@ -6,14 +6,15 @@ import IconButton from '@material-ui/core/IconButton';
 //Icons
 import HelpIcon from '@material-ui/icons/Help';
 
-class GuideButton extends Component {
-  render() {
-    return (
-      <IconButton onClick={() => this.props.update({guideDialog: true})}>
-        <HelpIcon />
-      </IconButton>
-    );
-  }
+// Higher Order Components
+import withDialogControl from '../hoc/withDialogControl';
+
+const GuideButton = (props) => {
+  return (
+    <IconButton onClick={props.openGuideDialog}>
+      <HelpIcon />
+    </IconButton>
+  )
 }
 
-export default GuideButton;
+export default withDialogControl(GuideButton);

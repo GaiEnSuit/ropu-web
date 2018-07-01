@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-UI Components
 import IconButton from '@material-ui/core/IconButton';
@@ -6,14 +6,15 @@ import IconButton from '@material-ui/core/IconButton';
 // Icons
 import ShopIcon from '@material-ui/icons/Shop';
 
-class MarketButton extends Component {
-  render() {
-    return (
-      <IconButton onClick={() => this.props.update({marketDialog: true})} >
-        <ShopIcon />
-      </IconButton>
-    );
-  }
+// Higher Order Components
+import withDialogControl from '../hoc/withDialogControl';
+
+const MarketButton = (props) => {
+  return (
+    <IconButton onClick={props.openMarketDialog} >
+      <ShopIcon />
+    </IconButton>
+  )
 }
 
-export default MarketButton;
+export default withDialogControl(MarketButton);

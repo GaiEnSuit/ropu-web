@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 //Material-Ui
 import Paper from '@material-ui/core/Paper';
 
 //Images
-import Logo from '../images/logo.svg';
+import Banner from '../images/banner.png';
 
-class Title extends Component {
-  render() {
-    return (
-      <Paper>
-        <img src={Logo} className='responsive-image' alt='RoPU Logo' />
-      </Paper>
-    )
-  }
+const Title = (props) => {
+  return (
+    <Paper>
+      <img src={Banner} className='responsive-image' alt='RoPU Logo' />
+    </Paper>
+  )
 }
 
 export default Title;

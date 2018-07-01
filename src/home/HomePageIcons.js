@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-UI
 import Paper from '@material-ui/core/Paper';
@@ -9,20 +9,18 @@ import PlayIcon from './PlayIcon';
 import DirectIcon from './DirectIcon';
 import HomeBrewIcon from './HomeBrewIcon';
 
-class HomePageIcons extends Component {
-  render() {
-    return (
-			<Paper>
-        <Grid
-          container
-        >
-          <PlayIcon playIconData={this.props.homePageIconsData.playIcon} />
-          <DirectIcon directIconData={this.props.homePageIconsData.directIcon} />
-          <HomeBrewIcon homeBrewIconData={this.props.homePageIconsData.homeBrewIcon} />
-        </Grid>
-			</Paper>
-    );
-  }
+const HomePageIcons = (props) => {
+  return (
+    <Paper>
+      <Grid
+        container
+      >
+        <PlayIcon playIconData={props.homePageIconsData.playIcon} />
+        <DirectIcon directIconData={props.homePageIconsData.directIcon} />
+        <HomeBrewIcon homeBrewIconData={props.homePageIconsData.homeBrewIcon} />
+      </Grid>
+    </Paper>
+  )
 }
 
 export default HomePageIcons;
