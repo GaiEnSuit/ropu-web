@@ -15,6 +15,8 @@ const CharacterList = (props) => {
           <CharacterListItem
             key={character.id}
             characterListItem={character}
+            characterListData={props.characterListData}
+            update={props.update}
           />
         )
       })}

@@ -24,6 +24,7 @@ import LogInDialog from './dialogs/LogInDialog';
 import MarketDialog from './dialogs/MarketDialog';
 import CreateCharacterDialog from './dialogs/createcharacterdialog/CreateCharacterDialog';
 import CancelCreateCharacterDialog from './dialogs/createcharacterdialog/CancelCreateCharacterDialog';
+import InteractableCardDialog from './dialogs/InteractableCardDialog';
 
 // Menus
 import AccountMenu from './menus/AccountMenu';
@@ -130,11 +131,18 @@ class App extends Component {
           createCharacterData={this.props.appState.createCharacterData}
           characterListData={this.props.appState.characterListData}
           gameListData={this.props.appState.gameListData}
+          selectedGame={this.props.appState.selectedGame}
+          selectedTemplate={this.props.appState.selectedTemplate}
         />
         <CancelCreateCharacterDialog
           createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
           cancelCreateCharacterDialog={this.props.appState.cancelCreateCharacterDialog}
           cancelCreateCharacterDialogText={this.props.appState.cancelCreateCharacterDialogText}
+          update={this.props.setAppState}
+        />
+        <InteractableCardDialog
+          interactableCardDialog={this.props.appState.interactableCardDialog}
+          selectedInteractable={this.props.appState.selectedInteractable}
           update={this.props.setAppState}
         />
       </div>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 const withDialogControl = (WrappedComponent) => class extends Component {
-
+  
+  // Create Character Dialog Functions
   openCreateCharacterDialog = () => {
     this.props.update({createCharacterDialog: true})
   }
@@ -9,6 +10,8 @@ const withDialogControl = (WrappedComponent) => class extends Component {
   closeCreateCharacterDialog = () => {
     this.props.update({createCharacterDialog: false})
   }
+  
+  // Cancel Create Character Dialog Functions
   
   openCancelCreateCharacterDialog = () => {
     this.props.update({cancelCreateCharacterDialog: true})
@@ -18,6 +21,8 @@ const withDialogControl = (WrappedComponent) => class extends Component {
     this.props.update({cancelCreateCharacterDialog: false})
   }
   
+  // Home Dialog Functions
+  
   openHomeDialog = () => {
     this.props.update({homeDialog: true})
   }
@@ -25,6 +30,8 @@ const withDialogControl = (WrappedComponent) => class extends Component {
   closeHomeDialog = () => {
     this.props.update({homeDialog: false})
   }
+  
+  // Market Dialog Functions
   
   openMarketDialog = () => {
     this.props.update({marketDialog: true})
@@ -34,6 +41,8 @@ const withDialogControl = (WrappedComponent) => class extends Component {
     this.props.update({marketDialog: false})
   }
   
+  // Guide Dialog Functions
+  
   openGuideDialog = () => {
     this.props.update({guideDialog: true})
   }
@@ -41,6 +50,8 @@ const withDialogControl = (WrappedComponent) => class extends Component {
   closeGuideDialog = () => {
     this.props.update({guideDialog: false})
   }
+  
+  // Log In Dialog Functions
   
   openLogInDialog = () => {
     this.props.update({logInDialog: true})
@@ -50,12 +61,26 @@ const withDialogControl = (WrappedComponent) => class extends Component {
     this.props.update({logInDialog: false})
   }
   
+  // Menu Dialog Functions
+  
   openMenuDialog = () => {
     this.props.update({menuDialog: true})
   }
   
   closeMenuDialog = () => {
     this.props.update({menuDialog: false})
+  }
+  
+  // Interactable Card Dialog Functions
+  
+  openInteractableCardDialog = (item) => {
+    this.props.update({selectedInteractable: item})
+    this.props.update({interactableCardDialog: true})
+  }
+  
+  closeInteractableCardDialog = () => {
+    this.props.update({selectedInteractable: null})
+    this.props.update({interactableCardDialog: false})
   }
   
   render(){
@@ -75,6 +100,8 @@ const withDialogControl = (WrappedComponent) => class extends Component {
         closeLogInDialog={this.closeLogInDialog}
         openMenuDialog={this.openMenuDialog}
         closeMenuDialog={this.closeMenuDialog}
+        openInteractableCardDialog={this.openInteractableCardDialog}
+        closeInteractableCardDialog={this.closeInteractableCardDialog}
         {...this.props}
       />
     )

@@ -14,6 +14,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import withDialogControl from '../../hoc/withDialogControl';
 import withTabControl  from '../../hoc/withTabControl';
 import withCreateCharacterDataControl  from '../../hoc/withCharacterDataControl';
+import withGameDataControl  from '../../hoc/withGameDataControl';
 
 const CancelCreateCharacterDialog = (props) => {
   return (
@@ -30,10 +31,12 @@ const CancelCreateCharacterDialog = (props) => {
           <IconButton 
             aria-label="Confirm"
             onClick={() => {
-              props.resetCharacter();
               props.closeCreateCharacterDialog();
               props.closeCancelCreateCharacterDialog();
+              props.resetCreateCharacter();
               props.resetCreateCharacterDialogTab();
+              props.resetGameSelect();
+              props.resetSelectedTemplate();
             }}
           >
             <CheckIcon />
@@ -47,4 +50,4 @@ const CancelCreateCharacterDialog = (props) => {
   )
 }
 
-export default withCreateCharacterDataControl(withTabControl(withDialogControl(CancelCreateCharacterDialog)));
+export default withGameDataControl(withCreateCharacterDataControl(withTabControl(withDialogControl(CancelCreateCharacterDialog))));

@@ -17,15 +17,14 @@ class InventoryMenu extends Component {
   };
 
   handleChange = (event, value) => {
-    
-    this.setState({ value });
+    this.setState({ value: value });
   };
 
-  tangiblesArray = this.props.interactables.filter(interactable => interactable.type === 'tangible');
+  tangiblesArray = this.props.interactableListData.filter(interactable => interactable.type === 'tangible');
   activeTangiblesArray = this.tangiblesArray.filter(interactable => interactable.active === true);
   inactiveTangiblesArray = this.tangiblesArray.filter(interactable => interactable.active === false);
 
-  intangiblesArray = this.props.interactables.filter(interactable => interactable.type === 'intangible');
+  intangiblesArray = this.props.interactableListData.filter(interactable => interactable.type === 'intangible');
   activeIntangiblesArray = this.intangiblesArray.filter(interactable => interactable.active === true);
   inactiveIntangiblesArray = this.intangiblesArray.filter(interactable => interactable.active === false);
 

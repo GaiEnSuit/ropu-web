@@ -22,11 +22,11 @@ const CreateCharacterDialogTabToolbar = (props) => {
         scrollable
         scrollButtons="auto"
       >
-        <Tab label={props.createCharacterDialogText.game} />
-        <Tab label={props.createCharacterDialogText.description} />
-        <Tab label={props.createCharacterDialogText.abilities} />
-        <Tab label={props.createCharacterDialogText.interactables} />
-        <Tab label={props.createCharacterDialogText.summary} />
+        <Tab value={0} label={props.createCharacterDialogText.game} />
+        <Tab value={1} label={props.createCharacterDialogText.interactables} />
+        <Tab value={2} label={props.createCharacterDialogText.description} />
+        <Tab value={3} label={props.createCharacterDialogText.abilities} />
+        <Tab value={4} label={props.createCharacterDialogText.summary} />
       </Tabs>
     </Toolbar>
   )

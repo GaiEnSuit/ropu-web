@@ -11,7 +11,7 @@ class CharacterView extends Component {
       <div>
         <CharacterCard character={this.props.character} />
         <Roller />
-        <InventoryMenu interactables={this.props.character.interactables} />
+        <InventoryMenu interactableListData={this.props.character.interactableListData} />
       </div>
     );
   }

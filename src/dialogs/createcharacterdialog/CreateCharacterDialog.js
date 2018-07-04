@@ -13,15 +13,18 @@ import CreateCharacterDialogTabToolbar from './CreateCharacterDialogTabToolbar';
 import withTabControl from '../../hoc/withTabControl';
 import withDialogControl from '../../hoc/withDialogControl';
 import withCharacterDataControl from '../../hoc/withCharacterDataControl';
+import withGameDataControl from '../../hoc/withGameDataControl';
 
 const CreateCharacterDialog = (props) => {
   return(
     <Dialog
       open={props.createCharacterDialog}
       onClose={()=>{
-        props.resetCharacter();
-        props.resetCreateCharacterDialogTab();
         props.closeCreateCharacterDialog();
+        props.resetCreateCharacter();
+        props.resetCreateCharacterDialogTab();
+        props.resetGameSelect();
+        props.resetSelectedTemplate();
       }}
       fullScreen
     >
@@ -31,14 +34,19 @@ const CreateCharacterDialog = (props) => {
       </DialogTitle>
       {/* Tab Navigation */}
       <CreateCharacterDialogTabToolbar
-        {...props}
+        createCharacterDialogText={props.createCharacterDialogText}
+        createCharacterDialogTab={props.createCharacterDialogTab}
+        update={props.update}
       />
       {/* Tabbed Dialog Content */}
       <CreateCharacterDialogContent
         createCharacterData={props.createCharacterData}
         createCharacterDialogTab={props.createCharacterDialogTab}
         createCharacterDialogText={props.createCharacterDialogText}
+        characterListData={props.characterListData}
         gameListData={props.gameListData}
+        selectedGame={props.selectedGame}
+        selectedTemplate={props.selectedTemplate}
         update={props.update}
       />
       {/* Dialog Actions and Navigation */}
@@ -51,4 +59,4 @@ const CreateCharacterDialog = (props) => {
   )
 }
 
-export default withCharacterDataControl(withDialogControl(withTabControl(CreateCharacterDialog)));
+export default withGameDataControl(withCharacterDataControl(withDialogControl(withTabControl(CreateCharacterDialog))));

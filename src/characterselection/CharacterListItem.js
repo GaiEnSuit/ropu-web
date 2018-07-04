@@ -30,7 +30,10 @@ const CharacterListItem = (props) => {
           <Typography>{props.characterListItem.campaign}</Typography>
         </Link>
         {/* Delete Button */}
-        <ListItemIcon onClick={props.deleteCharacter(props.characterListItem)}>
+        <ListItemIcon
+          onClick={()=>{
+            props.deleteCharacter(props.characterListItem);
+          }}>
           <CloseIcon />
         </ListItemIcon>
       </ListItem>

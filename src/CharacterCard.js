@@ -5,11 +5,22 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+
 class CharacterCard extends Component {
   render() {
     return (
       <Card>
-        <CardMedia title="portrait" image={this.props.character.img} style={{height: '350px'}} />
+        {
+          this.props.character.img !== null?
+          (
+            <CardMedia title="portrait" image={this.props.character.img} style={{height: '350px'}} />
+          ) :
+          (
+            <AccountBoxIcon style={{width: "100%", height: "auto"}} />
+          )
+        }
+                                                                             
         <CardContent>
           <Typography>Name: {this.props.character.name}</Typography>
           <Typography>Story: {this.props.character.story}</Typography>

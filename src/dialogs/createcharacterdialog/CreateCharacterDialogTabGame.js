@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-ui
 import Typography from '@material-ui/core/Typography';
@@ -9,17 +9,20 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 
-class CreateCharacterDialogTabGame extends Component {
-  
-  render() {
-    let gameList = this.props.gameListData.map((game, index)=>{
+// Higher Order Components
+import withTabControl from '../../hoc/withTabControl';
+import withCharacterDataControl from '../../hoc/withCharacterDataControl';
+import withGameDataControl from '../../hoc/withGameDataControl';
+
+const GameList = (props) => {
+  return (
+    props.gameListData.map((game, index)=>{
       return(
         <Paper key={game.id}>
-          <ListItem 
+          <ListItem
             onClick={()=>{
-              this.props.update({
-                createCharacterData: Object.assign({}, this.props.createCharacterData, {game: game.name, gameID: game.id})
-              })
+              props.updateCreateCharacterGame(game)
+              props.selectGame(game)
             }}
           >
             <ListItemIcon>
@@ -31,26 +34,49 @@ class CreateCharacterDialogTabGame extends Component {
           </ListItem>
         </Paper>
       )
-    });
-    
-    return(
-      <div>
-        {this.props.createCharacterData.game &&
-          <div>
-            <Typography>{this.props.createCharacterDialogText.selectedGame}</Typography>
-            <div>{this.props.createCharacterData.game.toUpperCase()}</div>
-            <Button onClick={()=>this.props.update({createCharacterDialogTab: this.props.createCharacterDialogTab + 1})}>{this.props.createCharacterDialogText.continue}</Button>
-          </div>
-        }
-        {this.props.createCharacterData.game? ( <Typography>{this.props.createCharacterDialogText.changeGame}</Typography> ) : (
-          <Typography>{this.props.createCharacterDialogText.selectGame}</Typography>
-        )}
-        <List>
-          {gameList}
-        </List>
-      </div>
-    )
-  }
+    })
+  )
 }
 
-export default CreateCharacterDialogTabGame;
+const SelectedGame = (props) => {
+  if (props.createCharacterData.game) {
+    return (
+      <div>
+        <Typography>{props.createCharacterDialogText.selectedGame}</Typography>
+        <Typography>{props.selectedGame.name.toUpperCase()}</Typography>
+        <Typography>{props.createCharacterDialogText.setting}</Typography>
+        <Typography>{props.selectedGame.setting}</Typography>
+        <Typography>{props.createCharacterDialogText.description}</Typography>
+        <Typography>{props.selectedGame.description}</Typography>
+        <Button 
+          onClick={()=>{
+            props.nextCreateCharacterDialogTab();
+          }}
+        >
+          {props.createCharacterDialogText.continue}
+        </Button>
+      </div>
+    )
+  } else return null
+}
+
+const CreateCharacterDialogTabGame = (props) => {
+  return(
+    <div>
+      <SelectedGame {...props} />
+      {
+        props.createCharacterData.game?
+        (
+          <Typography>{props.createCharacterDialogText.changeGame}</Typography>
+        ) : (
+          <Typography>{props.createCharacterDialogText.selectGame}</Typography>
+        )
+      }
+      <List>
+        <GameList {...props} />
+      </List>
+    </div>
+  )
+}
+
+export default withGameDataControl(withCharacterDataControl(withTabControl(CreateCharacterDialogTabGame)));

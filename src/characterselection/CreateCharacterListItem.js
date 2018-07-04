@@ -16,7 +16,7 @@ const CreateCharacterListItem = (props) => {
     <Paper onClick={props.openCreateCharacterDialog}>
       <ListItem style={{display: "flex", justifyContent: "center"}}>
         <ListItemIcon>
-          <AddCircleIcon style={{width: "64px", height: "64px"}} />
+          <AddCircleIcon className="icon-64px" style={{width: "64px", height: "64px"}} />
         </ListItemIcon>
       </ListItem>
     </Paper>

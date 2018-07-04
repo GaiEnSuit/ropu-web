@@ -4,17 +4,252 @@ class AppState extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // App Information
       domain: 'https://ropu-453a6.firebaseapp.com/',
       version: 'v0.1.30',
+      loggedIn: false,
+      
+      // Dialog Control
       homeDialog: false,
+      guideDialog: false,
+      logInDialog: false,
+      accountMenu: false,
+      menuDialog: false,
+      interactableCardDialog: false,
+      marketDialog: false,
+      createCharacterDialog: false,
+      cancelCreateCharacterDialog: false,
+      
+      // Function Control
+      anchorEl: null,
+      createCharacterDialogTab: 0,
+      
+      // Temporary Data
+      selectedInteractable: null,
+      createCharacterData: {
+        id: null,
+        img: null,
+        name: '',
+        description: '',
+        gameID: null,
+        story: null,
+        abilities: {
+          str: 0,
+          end: 0,
+          int: 0,
+          wil: 0,
+          dex: 0,
+          agi: 0
+        },
+        stats: {
+          hp: 0,
+          mp: 0,
+          sp: 0,
+          maxhp: 0,
+          maxmp: 0,
+          maxsp: 0
+        },
+        interactableListData: [
+        ]
+      },
+      selectedGame: null,
+      selectedTemplate: null,
+      
+      // Database Data
+      characterListData: [
+        {
+          id: 1,
+          img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
+          name: 'Solaire',
+          description: 'A human male who loves to praise the sun',
+          game: `Demon's Souls`,
+          campaign: 'My Solo Campaign',
+          abilities: {
+            str: 0,
+            end: 0,
+            int: 0,
+            wil: 0,
+            dex: 0,
+            agi: 0
+          },
+          stats: {
+            hp: 0,
+            mp: 0,
+            sp: 0,
+            maxhp: 5,
+            maxmp: 8,
+            maxsp: 10
+          },
+          interactableListData: [
+            {
+              id: 1,
+              image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
+              active: true,
+              name: 'Shortword',
+              type: 'tangible',
+              description: 'A sword...that is rather short',
+              usage: ''
+            },
+            {
+              id: 2,
+              image: 'https://i.pinimg.com/originals/29/a7/b7/29a7b78e9f06f5cfbb8543423765e133.gif',
+              active: false,
+              name: 'FireBall',
+              type: 'intangible',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: 'Reduces enemies HP by 3+ STR'
+            },
+            {
+              id: 3,
+              name: 'Potion',
+              active: false,
+              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
+              type: 'tangible',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: null
+            }
+          ]
+        },
+        {
+          id: 2,
+          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
+          name: 'Ken',
+          game: 'Himura Mansion',
+          campaign: 'Weekly Saturday Meetings',
+          abilities: {
+            str: 0,
+            end: 0,
+            int: 0,
+            wil: 0,
+            dex: 0,
+            agi: 0
+          },
+          stats: {
+            hp: 0,
+            mp: 0,
+            sp: 0,
+            maxhp: 0,
+            maxmp: 0,
+            maxsp: 0
+          },
+          interactableListData: []
+        }
+      ],
+      storyListData: [
+      ],
+      gameListData: [
+        {
+          id: 0,
+          name: `demon's souls`,
+          image: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
+          setting: `Medieval Fantasy`,
+          description: `The game is set in the fictional kingdom of Boletaria, ruled by the aging King Allant XII. Because of his greed, the king searched for power and prosperity through a dark ritual of channeling the power of souls that brought unprecedented prosperity to Boletaria, until the "Deep Fog" covered the land's outskirts, cutting off the kingdom from the outside world. Neighboring kingdoms sent scouts to investigate but none returned after entering the fog. It was only after Vallarfax of the royal Twin Fangs broke free from the fog that the rest of the world could be told of Boletaria's plight. By channeling souls, King Allant had awakened the Old One, a great demon residing below the Nexus. With the Old One's awakening, a dark fog had swept in, that within it unleashed demons who feasted on the souls of mankind, where those left alive without a soul became insane and violent. Without resistance, the fog slowly begins to spread beyond Boletaria.`,
+          locations: [
+            {
+              name: 'Boletaria',
+              description: `The game is set in the fictional kingdom of Boletaria, ruled by the aging King Allant XII. Because of his greed, the king searched for power and prosperity through a dark ritual of channeling the power of souls that brought unprecedented prosperity to Boletaria, until the "Deep Fog" covered the land's outskirts, cutting off the kingdom from the outside world. Neighboring kingdoms sent scouts to investigate but none returned after entering the fog. It was only after Vallarfax of the royal Twin Fangs broke free from the fog that the rest of the world could be told of Boletaria's plight. By channeling souls, King Allant had awakened the Old One, a great demon residing below the Nexus. With the Old One's awakening, a dark fog had swept in, that within it unleashed demons who feasted on the souls of mankind, where those left alive without a soul became insane and violent. Without resistance, the fog slowly begins to spread beyond Boletaria.`,
+              image: ''
+            }
+          ],
+          templateInteractableListData: [
+            {
+              name: 'Warrior',
+              description: `Heavy Tank Type Character`,
+              interactableListData: [
+                {
+                  id: 1,
+                  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
+                  name: 'Shortword',
+                  type: 'Equipment',
+                  description: 'A sword...that is rather short',
+                  usage: ``
+                },
+                {
+                  id: 3,
+                  name: 'Potion',
+                  image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
+                  type: 'Consumable',
+                  description: 'A wave of energy emits from your weapon and streaks across the ground',
+                  usage: ``
+                }
+              ]
+            },
+            {
+              name: 'Mage',
+              description: `The Glass Canon Type Character`,
+              interactableListData: [
+                {
+                  id: 2,
+                  image: 'https://i.pinimg.com/originals/29/a7/b7/29a7b78e9f06f5cfbb8543423765e133.gif',
+                  name: 'Fire Ball',
+                  type: 'Skill',
+                  description: 'Hurl a ball of fire',
+                  usage: ``
+                },
+                {
+                  id: 4,
+                  name: 'Mental Potion',
+                  image: 'http://i665.photobucket.com/albums/vv15/Glass-Sneakers/Gifs%20and%20Tiny%20Things/MetterschlingelBlueBottle.gif',
+                  type: 'Consumable',
+                  description: 'A wave of energy emits from your weapon and streaks across the ground',
+                  usage: ``
+                }
+              ]
+            }
+          ],
+          interactableListData: [
+            {
+              id: 1,
+              image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
+              name: 'Shortword',
+              type: 'Equipment',
+              description: 'A sword...that is rather short',
+              usage: ``
+            },
+            {
+              id: 2,
+              image: 'https://i.pinimg.com/originals/29/a7/b7/29a7b78e9f06f5cfbb8543423765e133.gif',
+              name: 'Fire Ball',
+              type: 'Skill',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ``
+            },
+            {
+              id: 3,
+              name: 'Potion',
+              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
+              type: 'Consumable',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ``
+            },
+            {
+              id: 4,
+              name: 'Mental Potion',
+              image: 'http://i665.photobucket.com/albums/vv15/Glass-Sneakers/Gifs%20and%20Tiny%20Things/MetterschlingelBlueBottle.gif',
+              type: 'Consumable',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ``
+            },
+            {
+              id: 5,
+              name: 'Fire Bolt',
+              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
+              type: 'Consumable',
+              description: 'A wave of energy emits from your weapon and streaks across the ground',
+              usage: ``
+            }
+          ]
+        }
+      ],
+      
+      // Text Data
       homeDialogText: {
         text: 'Exit to the home screen?'
       },
-      guideDialog: false,
       guideDialogText: {
         title: 'Guide'
       },
-      guideDialogData: [
+            guideDialogData: [
         {
           title: 'How To Play',
           text: 'Role Playing Unlimited (RoPU) is a storytelling game where the Director controls the story and the Actors control the characters in the story.'
@@ -68,20 +303,15 @@ class AppState extends Component {
           text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
         }
       ],
-      loggedIn: false,
-      logInDialog: false,
       logInDialogText: {
         logInTitle: 'LOG IN',
         createAccountTitle: 'CREATE ACCOUNT',
         submitText: 'Submit'
       },
-      anchorEl: null,
-      accountMenu: false,
       accountMenuText: {
         account: 'account',
         logout: 'logout'
       },
-      menuDialog: false,
       menuDialogText: {
         title: 'Menu',
         home: {
@@ -131,14 +361,10 @@ class AppState extends Component {
           ]
         }
       },
-      marketDialog: false,
       marketDialogText: {
         title: 'Market'
       },
-      createCharacterDialog: false,
-      cancelCreateCharacterDialog: false,
       cancelCreateCharacterDialogText: 'Cancel Character Creation?',
-      createCharacterDialogTab: 0,
       createCharacterDialogText: {
         title: 'Character Creator',
         game: 'Game',
@@ -149,167 +375,25 @@ class AppState extends Component {
         selectGame: 'Select A Game',
         selectedGame: 'Selected Game',
         changeGame: 'Change Game',
-        continue: 'Continue'
-      },
-      createCharacterData: {
-        id: null,
-        img: null,
-        name: null,
-        description: null,
-        game: null,
-        gameID: null,
-        campaign: null,
-        abilities: {
-          str: 0,
-          end: 0,
-          int: 0,
-          wil: 0,
-          dex: 0,
-          agi: 0
-        },
-        stats: {
-          hp: 0,
-          mp: 0,
-          sp: 0,
-          maxhp: 0,
-          maxmp: 0,
-          maxsp: 0
-        },
-        interactables: [
-        ]
+        continue: 'Continue',
+        placeholderName: `My Character's Name`,
+        name: 'Name',
+        decription: 'Description',
+        placeholderDescription: 'Input Description Here! (Age, Race, Sex, Quirks etc.)',
+        abilitiesInstructions: 'Increase and decrease the values of the abilities, the total value should equal the recommended value for your game',
+        selectTemplate: `Select A Character Template (Interactables)`,
+        gameNotSelected: `You must select a game before continuing`,
+        setting: 'Setting',
+        selectedTemplate: 'Selected Template',
+        changeTemplate: 'Change Template',
+        add: `Add Interactable(s)`,
+        startingInteractbles: 'Starting Interactables',
+        selectImage: 'Select or upload an image',
+        complete: 'Complete Character Creation'
       },
       characterSelectionPageText: {
         title: 'Select A Character'
-      },
-      characterListData: [
-        {
-          id: 0,
-          img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
-          name: 'Solaire',
-          description: 'A human male who loves to praise the sun',
-          game: `Demon's Souls`,
-          campaign: 'My Solo Campaign',
-          abilities: {
-            str: 0,
-            end: 0,
-            int: 0,
-            wil: 0,
-            dex: 0,
-            agi: 0
-          },
-          stats: {
-            hp: 0,
-            mp: 0,
-            sp: 0,
-            maxhp: 5,
-            maxmp: 8,
-            maxsp: 10
-          },
-          interactables: [
-            {
-              id: 1,
-              image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
-              active: true,
-              name: 'Shortword',
-              type: 'tangible',
-              description: 'A sword...that is rather short',
-              usage: ''
-            },
-            {
-              id: 2,
-              image: 'https://i.gifer.com/Kfc9.gif',
-              active: false,
-              name: 'Demon Fang',
-              type: 'intangible',
-              description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: 'Reduces enemies HP by 3+ STR'
-            },
-            {
-              id: 3,
-              name: 'Potion',
-              active: false,
-              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
-              type: 'tangible',
-              description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: null
-            }
-          ]
-        },
-        {
-          id: 1,
-          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
-          name: 'Ken',
-          game: 'Himura Mansion',
-          campaign: 'Weekly Saturday Meetings',
-          abilities: {
-            str: 0,
-            end: 0,
-            int: 0,
-            wil: 0,
-            dex: 0,
-            agi: 0
-          },
-          stats: {
-            hp: 0,
-            mp: 0,
-            sp: 0,
-            maxhp: 0,
-            maxmp: 0,
-            maxsp: 0
-          },
-          interactables: []
-        }
-      ],
-      storyListData: [
-      ],
-      gameListData: [
-        {
-          id: 0,
-          name: `demon's souls`,
-          image: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
-          description: '',
-          locations: [
-            {
-              name: 'Boletaria',
-              description: `The game is set in the fictional kingdom of Boletaria, ruled by the aging King Allant XII. Because of his greed, the king searched for power and prosperity through a dark ritual of channeling the power of souls that brought unprecedented prosperity to Boletaria, until the "Deep Fog" covered the land's outskirts, cutting off the kingdom from the outside world. Neighboring kingdoms sent scouts to investigate but none returned after entering the fog. It was only after Vallarfax of the royal Twin Fangs broke free from the fog that the rest of the world could be told of Boletaria's plight. By channeling souls, King Allant had awakened the Old One, a great demon residing below the Nexus. With the Old One's awakening, a dark fog had swept in, that within it unleashed demons who feasted on the souls of mankind, where those left alive without a soul became insane and violent. Without resistance, the fog slowly begins to spread beyond Boletaria.`,
-              image: ''
-            }
-          ],
-          interactables: [
-            {
-              id: 1,
-              image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Trp-Sword-14226124129-v06.png/250px-Trp-Sword-14226124129-v06.png',
-              name: 'Shortword',
-              active: 'yes',
-              type: 'Equipment',
-              description: 'A sword...that is rather short',
-              usage: null
-            },
-            {
-              id: 2,
-              image: 'https://i.gifer.com/Kfc9.gif',
-              name: 'Demon Fang',
-              active: 'yes',
-              type: 'Skill',
-              description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: null
-            },
-            {
-              id: 3,
-              name: 'Potion',
-              active: 'yes',
-              image: 'https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif',
-              type: 'Consumable',
-              description: 'A wave of energy emits from your weapon and streaks across the ground',
-              usage: null
-            }
-          ],
-          characterTemplates: [
-            
-          ]
-        }
-      ],
-      
+      }
     };
     this.setAppState = this.setAppState.bind(this);
   }

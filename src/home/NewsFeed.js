@@ -17,7 +17,7 @@ const NewsFeed = (props) => {
         id="1010648304001081344"
         options={
           {
-            chrome: "noheader nofooter noborders noscrollbar"
+            chrome: "noheader nofooter noscrollbar"
           }
         }
       >
