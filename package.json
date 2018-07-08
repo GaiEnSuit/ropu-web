@@ -1,15 +1,15 @@
 {
   "name": "ropu",
-  "version": "0.2.00",
+  "version": "0.2.01",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.1.0",
+    "@material-ui/core": "^1.3.1",
     "@material-ui/icons": "^1.1.0",
-    "firebase": "^5.0.4",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
+    "firebase": "^5.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "react-twitter-embed": "^1.1.3",
     "typeface-roboto": "0.0.54"

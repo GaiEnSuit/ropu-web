@@ -12,10 +12,59 @@
   height: 64px
 }
 
-.display-flex {
+.justify-space-around {
+  display: flex;
+  justify-content: space-around
+}
+
+.d-flex {
   display: flex
 }
 
 .justify-center {
   justify-content: center
+}
+
+.justify-flex-end {
+  justify-content: flex-end
+}
+
+.margin-right-auto {
+  margin-right: auto
+}
+
+.margin-auto {
+  margin: auto
+}
+
+.bg-color-red {
+  background-color: #ff5c5c
+}
+
+.color-red {
+  color: #ff5c5c
+}
+
+.bg-color-black {
+  background-color: black
+}
+
+.position-fixed {
+  position: fixed
+}
+
+.text-center {
+  text-align: center
+}
+
+.align-items-center {
+  align-items: center
+}
+
+.flex-d-column {
+  flex-direction: column
+}
+
+.min-height {
+  min-height: 100vh
 }

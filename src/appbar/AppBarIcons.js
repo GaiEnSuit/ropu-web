@@ -8,17 +8,20 @@ import MenuButton from './MenuButton';
 import HomeButton from './HomeButton';
 import MarketButton from './MarketButton';
 import GuideButton from './GuideButton';
-import LogoButton from './LogoButton';
 import AccountButton from './AccountButton';
+import LogoButton from './LogoButton';
+import LogInButton from './LogInButton';
 
 const AppBarIcons = (props) => {
   return (
-    <Toolbar>
-      <LogoButton update={props.update} domain={props.domain} />
-      <HomeButton update={props.update} domain={props.domain} />
+    <Toolbar
+      className="justify-flex-end"
+    >
+      {window.location.pathname !== "/" && <LogoButton update={props.update} />}
+      {window.location.pathname !== "/" && <HomeButton update={props.update} />}
       <MarketButton update={props.update} />
       <GuideButton update={props.update} />
-      <AccountButton update={props.update} loggedIn={props.loggedIn} />
+      {props.loggedIn? <AccountButton update={props.update} /> : <LogInButton update={props.update} />}
       <MenuButton update={props.update} />
     </Toolbar>
   )

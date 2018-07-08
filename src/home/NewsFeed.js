@@ -1,30 +1,53 @@
 import React from 'react';
 
 // Material-UI
-import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 // React-Twitter-Embed
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
+// Style Classes
+import styles from '../styles';
+
+// Material-UI Styles
+import { withStyles } from '@material-ui/core/styles';
+
 const NewsFeed = (props) => {
+  
+  const { classes } = props;
+  
   return (
-    <Paper>
-      <Typography variant="display1">{props.newsFeedText.title}</Typography>
-      <TwitterTimelineEmbed
-        sourceType="collection"
-        id="1010648304001081344"
-        options={
-          {
-            chrome: "noheader nofooter noscrollbar"
-          }
-        }
+    <Grid
+      container
+      justify="space-around"
+      style={styles.gridContainer}
+    >
+      <Grid
+        item
+        xs={11}
+        lg={8}
       >
-        <CircularProgress />
-      </TwitterTimelineEmbed>
-    </Paper>
+        <Paper>
+          <Typography classes={{root: classes.root}}variant="display1" color="default" className="text-center">{props.newsFeedText}</Typography>
+        </Paper>
+        <TwitterTimelineEmbed
+          style={{margin: "auto"}}
+          sourceType="collection"
+          id="1010648304001081344"
+          options={
+            {
+              chrome: "noheader nofooter"
+            }
+          }
+        >
+          <CircularProgress />
+        </TwitterTimelineEmbed>
+      </Grid>
+    </Grid>
   )
 }
 
-export default NewsFeed;
+export default withStyles(styles)(NewsFeed);

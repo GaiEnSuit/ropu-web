@@ -1,25 +1,43 @@
 import React from 'react';
 
 // Material-UI
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-//Custom Component
+// Custom Component
 import PlayIcon from './PlayIcon';
 import DirectIcon from './DirectIcon';
 import HomeBrewIcon from './HomeBrewIcon';
 
+// Style Classes
+import styles from '../styles';
+
 const HomePageIcons = (props) => {
   return (
-    <Paper>
+    <Grid
+      container
+      justify="space-between"
+      spacing={24}
+      style={styles.homePageIcons}
+    >
       <Grid
-        container
+        item
+        xs={4}
       >
-        <PlayIcon playIconData={props.homePageIconsData.playIcon} />
-        <DirectIcon directIconData={props.homePageIconsData.directIcon} />
-        <HomeBrewIcon homeBrewIconData={props.homePageIconsData.homeBrewIcon} />
+        <PlayIcon play={props.homePageText.play} paths={props.paths} />
       </Grid>
-    </Paper>
+      <Grid
+        item
+        xs={4}
+      >
+        <DirectIcon direct={props.homePageText.direct} paths={props.paths} />
+      </Grid>
+      <Grid
+        item
+        xs={4}
+      >
+        <HomeBrewIcon homebrew={props.homePageText.homebrew} paths={props.paths} />
+      </Grid>
+    </Grid>
   )
 }
 

@@ -1,23 +1,28 @@
 import React from 'react';
 
 //Material-UI
-import HomePageIcons from './HomePageIcons';
-import NewsFeed from './NewsFeed';
-import Footer from './Footer';
+import Toolbar from '@material-ui/core/Toolbar';
 
 // Custom Components
 import Title from './Title';
+import Footer from '../footer/Footer';
+import HomePageIcons from './HomePageIcons';
+import NewsFeed from './NewsFeed';
+
+// Style Classes
+import styles from '../styles';
 
 const HomePage = (props) => {
   return (
-    <div>
-      <Title />
-      <HomePageIcons homePageIconsData={props.homePageIconsData} />
-      <NewsFeed newsFeedText={props.newsFeedText} />
-      <footer>
-        <Footer version={props.version} footer={props.footer} />
-      </footer>
-    </div>
+    <main className="d-flex flex-d-column min-height">
+      <section style={styles.content}>
+        <Toolbar />
+        <Title />
+        <HomePageIcons homePageText={props.homePageText} paths={props.paths} />
+        <NewsFeed newsFeedText={props.newsFeedText} />
+      </section>
+      <Footer footerText={props.footerText} />
+    </main>
   )
 }
 

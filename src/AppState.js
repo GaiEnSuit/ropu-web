@@ -4,10 +4,17 @@ class AppState extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // App Information
-      domain: 'https://ropu-453a6.firebaseapp.com/',
-      version: 'v0.1.30',
+
+      // Account Control
       loggedIn: false,
+
+      // Paths
+      paths: {
+        home: '/',
+        characterList: '/characters',
+        storyList: '/stories',
+        homebrew: '/homebrew'
+      },
       
       // Dialog Control
       homeDialog: false,
@@ -19,13 +26,15 @@ class AppState extends Component {
       marketDialog: false,
       createCharacterDialog: false,
       cancelCreateCharacterDialog: false,
-      
+
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
-      
+
       // Temporary Data
       selectedInteractable: null,
+      selectedGame: null,
+      selectedTemplate: null,
       createCharacterData: {
         id: null,
         img: null,
@@ -33,28 +42,22 @@ class AppState extends Component {
         description: '',
         gameID: null,
         story: null,
-        abilities: {
-          str: 0,
-          end: 0,
-          int: 0,
-          wil: 0,
-          dex: 0,
-          agi: 0
-        },
-        stats: {
-          hp: 0,
-          mp: 0,
-          sp: 0,
-          maxhp: 0,
-          maxmp: 0,
-          maxsp: 0
-        },
+        str: 0,
+        end: 0,
+        int: 0,
+        wil: 0,
+        dex: 0,
+        agi: 0,
+        hp: 0,
+        mp: 0,
+        sp: 0,
+        maxhp: 5,
+        maxmp: 5,
+        maxsp: 5,
         interactableListData: [
         ]
       },
-      selectedGame: null,
-      selectedTemplate: null,
-      
+
       // Database Data
       characterListData: [
         {
@@ -64,22 +67,18 @@ class AppState extends Component {
           description: 'A human male who loves to praise the sun',
           game: `Demon's Souls`,
           campaign: 'My Solo Campaign',
-          abilities: {
-            str: 0,
-            end: 0,
-            int: 0,
-            wil: 0,
-            dex: 0,
-            agi: 0
-          },
-          stats: {
-            hp: 0,
-            mp: 0,
-            sp: 0,
-            maxhp: 5,
-            maxmp: 8,
-            maxsp: 10
-          },
+          str: 0,
+          end: 0,
+          int: 0,
+          wil: 0,
+          dex: 0,
+          agi: 0,
+          hp: 0,
+          mp: 0,
+          sp: 0,
+          maxhp: 5,
+          maxmp: 8,
+          maxsp: 10,
           interactableListData: [
             {
               id: 1,
@@ -116,22 +115,18 @@ class AppState extends Component {
           name: 'Ken',
           game: 'Himura Mansion',
           campaign: 'Weekly Saturday Meetings',
-          abilities: {
-            str: 0,
-            end: 0,
-            int: 0,
-            wil: 0,
-            dex: 0,
-            agi: 0
-          },
-          stats: {
-            hp: 0,
-            mp: 0,
-            sp: 0,
-            maxhp: 0,
-            maxmp: 0,
-            maxsp: 0
-          },
+          str: 0,
+          end: 0,
+          int: 0,
+          wil: 0,
+          dex: 0,
+          agi: 0,
+          hp: 0,
+          mp: 0,
+          sp: 0,
+          maxhp: 0,
+          maxmp: 0,
+          maxsp: 0,
           interactableListData: []
         }
       ],
@@ -241,7 +236,7 @@ class AppState extends Component {
           ]
         }
       ],
-      
+
       // Text Data
       homeDialogText: {
         text: 'Exit to the home screen?'
@@ -249,7 +244,7 @@ class AppState extends Component {
       guideDialogText: {
         title: 'Guide'
       },
-            guideDialogData: [
+      guideDialogData: [
         {
           title: 'How To Play',
           text: 'Role Playing Unlimited (RoPU) is a storytelling game where the Director controls the story and the Actors control the characters in the story.'
@@ -306,7 +301,7 @@ class AppState extends Component {
       logInDialogText: {
         logInTitle: 'LOG IN',
         createAccountTitle: 'CREATE ACCOUNT',
-        submitText: 'Submit'
+        submitText: 'SUBMIT'
       },
       accountMenuText: {
         account: 'account',
@@ -330,36 +325,35 @@ class AppState extends Component {
           logout: 'Log Out'
         }
       },
-      homePageIconsData: {
-        playIcon: {
-          text: 'Play',
-          url: '/characters'
-        },
-        directIcon: {
-          text: 'Direct',
-          url: '/stories'
-        },
-        homeBrewIcon: {
-          text: 'Homebrew',
-          url: '/homebrew'
-        }
+      homePageText: {
+        play: 'Play',
+        direct: 'Direct',
+        homebrew: 'Homebrew',
       },
-      newsFeedText: {
-        title: 'News Feed'
-      },
-      footer: {
-        credits: {
-          text: 'Credits',
-          data: [
-            {
-              name: 'Kyrise',
-              profile: 'https://kyrise.itch.io/',
-              type: 'art',
-              license: 'Creative Commons Attribution 4.0 International (CC BY 4.0)',
-              licenseUrl: 'https://creativecommons.org/licenses/by/4.0/'
-            }
-          ]
-        }
+      newsFeedText: 'News Feed',
+      footerText: {
+        credits: 'Credits',
+        by: ' by ',
+        license: ' is licensed under ',
+        version: 'Version',
+        licenseListData: [
+          {
+            title: 'Artwork',
+            sourceUrl: 'https://opengameart.org/content/kyrises-free-16x16-rpg-icon-pack',
+            author: 'Kyrise',
+            authorUrl: 'https://kyrise.itch.io/',
+            license: 'Creative Commons Attribution 4.0 International (CC BY 4.0)',
+            licenseUrl: 'https://creativecommons.org/licenses/by/4.0/'
+          },
+          {
+            title: 'Game Icons',
+            sourceUrl: 'https://game-icons.net/',
+            author: 'Lorc, Delapouite & contributors',
+            authorUrl: 'https://game-icons.net/about.html#authors',
+            license: 'Creative Commons Attribution 3.0 International (CC BY 3.0)',
+            licenseUrl: 'https://creativecommons.org/licenses/by/3.0/'
+          }
+        ],
       },
       marketDialogText: {
         title: 'Market'
@@ -389,7 +383,15 @@ class AppState extends Component {
         add: `Add Interactable(s)`,
         startingInteractbles: 'Starting Interactables',
         selectImage: 'Select or upload an image',
-        complete: 'Complete Character Creation'
+        complete: 'Complete Character Creation',
+        strength: 'Strength',
+        endurance: 'Endurance',
+        intelligence: 'Intelligence',
+        will: 'Will',
+        dexterity: 'Dexterity',
+        agility: 'Agility',
+        abilitiesTotal: 'Total Combined Score',
+        abilitiesTotalInstructions: 'Total combined score should equal to 0'
       },
       characterSelectionPageText: {
         title: 'Select A Character'
@@ -397,7 +399,7 @@ class AppState extends Component {
     };
     this.setAppState = this.setAppState.bind(this);
   }
-  
+
   setAppState(updater, callback) {
     // newState can be object or function!
     this.setState(updater, () => {

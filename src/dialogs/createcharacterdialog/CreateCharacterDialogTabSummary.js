@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 // Higher Order Components
 import withCharacterDataControl from '../../hoc/withCharacterDataControl';
 import withDialogControl from '../../hoc/withDialogControl';
+import withTabControl from '../../hoc/withTabControl';
 
 // Icons
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
@@ -33,17 +34,17 @@ const CreateCharacterDialogTabSummary = (props) => {
           <Typography>Description: {props.createCharacterData.description}</Typography>
         </CardContent>
         <CardContent>
-          <Typography>Maximum Health Points: {props.createCharacterData.stats.maxhp}</Typography>
-          <Typography>Maximum Mental Points: {props.createCharacterData.stats.maxmp} </Typography>
-          <Typography>Maximum Stamina Points: {props.createCharacterData.stats.maxsp} </Typography>
+          <Typography>Maximum Health Points: {props.createCharacterData.maxhp}</Typography>
+          <Typography>Maximum Mental Points: {props.createCharacterData.maxmp} </Typography>
+          <Typography>Maximum Stamina Points: {props.createCharacterData.maxsp} </Typography>
         </CardContent>
         <CardContent>
-          <Typography>Strength (STR) {props.createCharacterData.abilities.str}</Typography>
-          <Typography>Endurance (END) {props.createCharacterData.abilities.end}</Typography>
-          <Typography>Intelligence (INT) {props.createCharacterData.abilities.int}</Typography>
-          <Typography>Will (WIL) {props.createCharacterData.abilities.wil}</Typography>
-          <Typography>Dexterity (DEX) {props.createCharacterData.abilities.dex}</Typography>
-          <Typography>Agility (AGI) {props.createCharacterData.abilities.agi}</Typography>
+          <Typography>Strength (STR) {props.createCharacterData.str}</Typography>
+          <Typography>Endurance (END) {props.createCharacterData.end}</Typography>
+          <Typography>Intelligence (INT) {props.createCharacterData.int}</Typography>
+          <Typography>Will (WIL) {props.createCharacterData.wil}</Typography>
+          <Typography>Dexterity (DEX) {props.createCharacterData.dex}</Typography>
+          <Typography>Agility (AGI) {props.createCharacterData.agi}</Typography>
         </CardContent>
       </Card>
       <Button 
@@ -52,6 +53,7 @@ const CreateCharacterDialogTabSummary = (props) => {
         }
         onClick={()=>{
           props.closeCreateCharacterDialog();
+          props.resetCreateCharacterDialogTab();
           props.setCreateCharacterID();
           props.addNewCharacter();
           props.resetCreateCharacter();
@@ -63,4 +65,4 @@ const CreateCharacterDialogTabSummary = (props) => {
   )
 }
 
-export default withDialogControl(withCharacterDataControl(CreateCharacterDialogTabSummary));
+export default withTabControl(withDialogControl(withCharacterDataControl(CreateCharacterDialogTabSummary)));

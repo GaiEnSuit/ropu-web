@@ -27,17 +27,17 @@ class CharacterCard extends Component {
           <Typography>Description: {this.props.character.description}</Typography>
         </CardContent>
         <CardContent>
-          <Typography>HP {this.props.character.stats.hp} / {this.props.character.stats.maxhp} </Typography>
-          <Typography>MP {this.props.character.stats.mp} / {this.props.character.stats.maxmp} </Typography>
-          <Typography>SP {this.props.character.stats.sp} / {this.props.character.stats.maxsp} </Typography>
+          <Typography>HP {this.props.character.hp} / {this.props.character.maxhp} </Typography>
+          <Typography>MP {this.props.character.mp} / {this.props.character.maxmp} </Typography>
+          <Typography>SP {this.props.character.sp} / {this.props.character.maxsp} </Typography>
         </CardContent>
         <CardContent>
-          <Typography>STR {this.props.character.abilities.str}</Typography>
-          <Typography>END {this.props.character.abilities.end}</Typography>
-          <Typography>INT {this.props.character.abilities.int}</Typography>
-          <Typography>WIL {this.props.character.abilities.wil}</Typography>
-          <Typography>DEX {this.props.character.abilities.dex}</Typography>
-          <Typography>AGI {this.props.character.abilities.agi}</Typography>
+          <Typography>STR {this.props.character.str}</Typography>
+          <Typography>END {this.props.character.end}</Typography>
+          <Typography>INT {this.props.character.int}</Typography>
+          <Typography>WIL {this.props.character.wil}</Typography>
+          <Typography>DEX {this.props.character.dex}</Typography>
+          <Typography>AGI {this.props.character.agi}</Typography>
         </CardContent>
       </Card>
     );

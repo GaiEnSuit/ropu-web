@@ -11,7 +11,10 @@ import withDialogControl from '../hoc/withDialogControl';
 
 const MarketButton = (props) => {
   return (
-    <IconButton onClick={props.openMarketDialog} >
+    <IconButton
+      onClick={props.openMarketDialog}
+      color="inherit"
+    >
       <ShopIcon />
     </IconButton>
   )

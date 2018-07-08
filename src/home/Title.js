@@ -9,7 +9,7 @@ import Banner from '../images/banner.png';
 const Title = (props) => {
   return (
     <Paper>
-      <img src={Banner} className='responsive-image' alt='RoPU Logo' />
+      <img src={Banner} className='responsive-image' alt='Title Banner' />
     </Paper>
   )
 }

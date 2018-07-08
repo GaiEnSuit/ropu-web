@@ -33,61 +33,56 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* Css Baseline */}
+        {/* Material-UI CSS */}
         <CssBaseline />
         {/* Header and App Bar */}
-        <header>
-          <RopuAppBar
-            update={this.props.setAppState}
-            domain={this.props.appState.domain}
-            loggedIn={this.props.appState.loggedIn}
-          />
-        </header>
+        <RopuAppBar
+          update={this.props.setAppState}
+          loggedIn={this.props.appState.loggedIn}
+        />
         {/* Body */}
-        <main>
-          <Switch>
-            {/* Home Page Route */}
-            <Route 
-              exact 
-              path='/' 
-              render={() =>
-                <HomePage
-                  homePageIconsData={this.props.appState.homePageIconsData}
-                  newsFeedText={this.props.appState.newsFeedText}
-                  version={this.props.appState.version}
-                  footer={this.props.appState.footer}
-                />
-              }
-            />
-            {/* Character Selection Route */}
-            <Route 
-              exact
-              path='/characters' 
-              render={() =>
-                <CharacterSelectionPage
-                  characterSelectionPageText={this.props.appState.characterSelectionPageText}
-                  characterListData={this.props.appState.characterListData}
-                  update={this.props.setAppState}
-                />
-              }
-            />
-            {/* Player View */}
-            <Route path='/characters/:id?' render={({match}) => 
-              this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
-                (
-                  <Redirect to='/404' />
-                ) : (
-                  <CharacterView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
-                )
-            } />
-            {/* Story List */}
-            <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
-            {/* Home Brew List */}
-            <Route exact path='/homebrew' component={HomeBrewList} />
-            {/* Page Not Found */}
-            <Route component={NotFound404} />
-          </Switch>
-        </main>
+        <Switch>
+          {/* Home Page Route */}
+          <Route 
+            exact 
+            path='/' 
+            render={() =>
+              <HomePage
+                paths={this.props.appState.paths}
+                homePageText={this.props.appState.homePageText}
+                newsFeedText={this.props.appState.newsFeedText}
+                footerText={this.props.appState.footerText}
+              />
+            }
+          />
+          {/* Character Selection Route */}
+          <Route 
+            exact
+            path='/characters' 
+            render={() =>
+              <CharacterSelectionPage
+                characterSelectionPageText={this.props.appState.characterSelectionPageText}
+                characterListData={this.props.appState.characterListData}
+                update={this.props.setAppState}
+              />
+            }
+          />
+          {/* Player View */}
+          <Route path='/characters/:id?' render={({match}) => 
+            this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+              (
+                <Redirect to='/404' />
+              ) : (
+                <CharacterView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
+              )
+          } />
+          {/* Story List */}
+          <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
+          {/* Home Brew List */}
+          <Route exact path='/homebrew' component={HomeBrewList} />
+          {/* Page Not Found */}
+          <Route component={NotFound404} />
+        </Switch>
         {/* Dialogs */}
         <MenuDialog 
           menuDialogText={this.props.appState.menuDialogText}

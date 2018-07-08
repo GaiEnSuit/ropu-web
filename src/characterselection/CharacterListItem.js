@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 // Higher Order Components
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
@@ -20,9 +21,20 @@ const CharacterListItem = (props) => {
     <Paper>
       <ListItem>
         {/* Character Portrait */}
-        <ListItemIcon>
-          <img className="icon-64px" src={props.characterListItem.img} alt="Character Portrait" />
-        </ListItemIcon>
+        {
+          props.characterListItem.img === null?
+            (
+              <ListItemIcon>
+                <AccountBoxIcon className="icon-64px" />
+              </ListItemIcon>
+            ) :
+            (
+              <ListItemIcon>
+                <img className="icon-64px" src={props.characterListItem.img} alt="Character Portrait" />
+              </ListItemIcon>
+            )
+        }
+        
         {/* Character Summary */}
         <Link to={`/characters/${props.characterListItem.id}`} className="link">
           <Typography>{props.characterListItem.name}</Typography>

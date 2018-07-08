@@ -1,22 +1,33 @@
 import React from 'react';
 
-// Materil-Ui Components
+// Material-UI Components
 import AppBar from '@material-ui/core/AppBar';
+
+// Material-UI Styles
+import { withStyles } from '@material-ui/core/styles';
 
 // Custom Components
 import AppBarIcons from './AppBarIcons';
 
+// Style Classes
+import styles from '../styles';
+
+//App Bar Layout
 const RopuAppBar = (props) => {
+  
+  const { classes } = props;
+  
   return (
-    <AppBar 
-      position="static"
-      color="default"
+    <AppBar
+      classes={{
+        root: classes.root,
+      }}
     >
-      <AppBarIcons 
+      <AppBarIcons
         {...props}
       />
     </AppBar>
   )
 }
 
-export default RopuAppBar;
+export default withStyles(styles)(RopuAppBar);

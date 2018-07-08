@@ -6,13 +6,27 @@ import IconButton from '@material-ui/core/IconButton';
 // Images
 import logo from '../images/logo.svg';
 
+// Material-UI Styles
+import { withStyles } from '@material-ui/core/styles';
+
 // Higher Order Component
 import withDialogControl from '../hoc/withDialogControl';
 
-const AppBarIcons = (props) => {
+const styles = {
+  root: {
+    marginRight: 'auto'
+  }
+};
+
+const LogoButton = (props) => {
+  
+  const { classes } = props;
+  
   return (
-    <IconButton 
-      style={window.location.href === props.domain? {display: 'none'} : {display: 'block'}}
+    <IconButton
+      classes={{
+        root: classes.root
+      }}
       onClick={props.openHomeDialog}
     >
       <img  className="responsive-image" src={logo} alt="logo" />
@@ -20,4 +34,4 @@ const AppBarIcons = (props) => {
   )
 }
 
-export default withDialogControl(AppBarIcons);
+export default withDialogControl(withStyles(styles)(LogoButton));

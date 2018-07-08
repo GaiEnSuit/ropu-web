@@ -10,22 +10,18 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
     description: '',
     gameID: null,
     story: null,
-    abilities: {
-      str: 0,
-      end: 0,
-      int: 0,
-      wil: 0,
-      dex: 0,
-      agi: 0
-    },
-    stats: {
-      hp: 0,
-      mp: 0,
-      sp: 0,
-      maxhp: 0,
-      maxmp: 0,
-      maxsp: 0
-    },
+    str: 0,
+    end: 0,
+    int: 0,
+    wil: 0,
+    dex: 0,
+    agi: 0,
+    hp: 0,
+    mp: 0,
+    sp: 0,
+    maxhp: 5,
+    maxmp: 5,
+    maxsp: 5,
     interactableListData: [
     ]
   }
@@ -77,10 +73,85 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
     this.props.update({createCharacterData: Object.assign({}, this.props.createCharacterData, {description: event.target.value})})
   }
   
+  updateCreateCharacterAbility = (ability, direction, value) => {
+    
+    let newAbilityValue;
+    let newStatValue;
+    let stat;
+    
+    // If ability is increasing
+    if (direction === "increase") {
+      newAbilityValue = this.props.createCharacterData[ability] + 1;
+      
+      // increase corresponding stat value
+      switch (ability) {
+        case "end":
+            stat = "maxhp";
+            newStatValue = this.props.createCharacterData.maxhp + 1;
+            break;
+        case "wil":
+            stat = "maxmp";
+            newStatValue = this.props.createCharacterData.maxmp + 1;
+            break;
+        case "agi":
+            stat = "maxsp";
+            newStatValue = this.props.createCharacterData.maxsp + 1;
+            break;
+        default: 
+            break;
+      };
+    // if ability is decreasing
+    } else if (direction === "decrease") {
+      newAbilityValue = this.props.createCharacterData[ability] - 1;
+      
+      // decrease corresponding stat value
+      switch (ability) {
+        case "end":
+            stat = "maxhp";
+            newStatValue = this.props.createCharacterData.maxhp - 1;
+            break;
+        case "wil":
+            stat = "maxmp";
+            newStatValue = this.props.createCharacterData.maxmp - 1;
+            break;
+        case "agi":
+            stat = "maxsp";
+            newStatValue = this.props.createCharacterData.maxsp - 1;
+            break;
+        default: 
+            break;
+      };
+      
+    // If ability is being edited directly
+    } else {
+      newAbilityValue = value;
+      
+      // Update the characters stat with based on the ability
+      switch (ability) {
+        case "end":
+            stat = "maxhp";
+            newStatValue = newAbilityValue + 5;
+            break;
+        case "wil":
+            stat = "maxmp";
+            newStatValue = newAbilityValue + 5;
+            break;
+        case "agi":
+            stat = "maxsp";
+            newStatValue = newAbilityValue + 5;
+            break;
+        default: 
+            break;
+      };
+      
+    }
+    
+    this.props.update({createCharacterData: Object.assign({}, this.props.createCharacterData, {[ability]: newAbilityValue, [stat]: newStatValue})});
+  }
+  
   // Existing Character Data Functions
   
   deleteCharacter = (char) => {
-    console.log(this.props.characterListData);
     let newState = this.props.characterListData.filter(x => x !== char);
 		this.props.update({
 			characterListData: newState
@@ -108,6 +179,7 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
         setCreateCharacterTemplate={this.setCreateCharacterTemplate}
         addNewCharacter={this.addNewCharacter}
         setCreateCharacterID={this.setCreateCharacterID}
+        updateCreateCharacterAbility={this.updateCreateCharacterAbility}
         {...this.props}
       />
     )

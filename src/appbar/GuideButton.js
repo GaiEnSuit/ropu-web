@@ -11,7 +11,10 @@ import withDialogControl from '../hoc/withDialogControl';
 
 const GuideButton = (props) => {
   return (
-    <IconButton onClick={props.openGuideDialog}>
+    <IconButton
+      onClick={props.openGuideDialog}
+      color="inherit"
+    >
       <HelpIcon />
     </IconButton>
   )
