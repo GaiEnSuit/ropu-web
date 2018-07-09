@@ -6,10 +6,10 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 // Images
-import potion from '../images/potion_03g.png';
+import potion from '../../images/potion_03g.png';
 
 // Style Classes
-import styles from '../styles';
+import styles from '../../styles';
 
 const HomeBrewIcon = (props) => {
   return (

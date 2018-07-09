@@ -28,7 +28,11 @@ const CreateCharacterDialogActions = (props) => {
       >
         <ArrowForwardIcon />
       </IconButton>
-      <IconButton onClick={props.openCancelCreateCharacterDialog}>
+      <IconButton
+        onClick={()=>{
+          props.updateDialog(true, 'cancelCreateCharacterDialog')
+        }}
+      >
         <CloseIcon />
       </IconButton>
     </DialogActions>

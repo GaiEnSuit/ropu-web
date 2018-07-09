@@ -20,7 +20,7 @@ const CancelCreateCharacterDialog = (props) => {
   return (
     <Dialog
       open={props.cancelCreateCharacterDialog}
-      onClose={props.closeCancelCreateCharacterDialog}
+      onClose={()=>{props.updateDialog(false, "cancelCreateCharacterDialog")}}
       aria-labelledby="Cancel Create Character Dialog"
     >
       <DialogTitle>
@@ -31,8 +31,8 @@ const CancelCreateCharacterDialog = (props) => {
           <IconButton 
             aria-label="Confirm"
             onClick={() => {
-              props.closeCreateCharacterDialog();
-              props.closeCancelCreateCharacterDialog();
+              props.updateDialog(false, "createCharacterDialog")
+              props.updateDialog(false, "cancelCreateCharacterDialog")
               props.resetCreateCharacter();
               props.resetCreateCharacterDialogTab();
               props.resetGameSelect();
@@ -42,7 +42,12 @@ const CancelCreateCharacterDialog = (props) => {
             <CheckIcon />
           </IconButton>
         {/* Cancel Button */}
-        <IconButton aria-label="Cancel" onClick={props.closeCancelCreateCharacterDialog}>
+        <IconButton
+          aria-label="Cancel"
+          onClick={()=>{
+            props.updateDialog(false, "cancelCreateCharacterDialog")
+          }}
+        >
           <CloseIcon />
         </IconButton>
       </DialogActions>

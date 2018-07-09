@@ -26,11 +26,19 @@ const MenuDialog = (props) => {
   return (
     <Dialog
       open={props.menuDialog}
+      onClose={()=>{
+        props.updateDialog(false, "menuDialog")
+      }}
       aria-labelledby="dynamic dialog"
       fullScreen
     >
       <DialogActions>
-        <IconButton aria-label="Close" onClick={props.closeMenuDialog}>
+        <IconButton
+          aria-label="Close"
+          onClick={()=>{
+            props.updateDialog(false, "menuDialog")
+          }}
+        >
           <CloseIcon />
         </IconButton>
       </DialogActions>
@@ -41,18 +49,26 @@ const MenuDialog = (props) => {
         <List>
           {/* Home Link */}
           <ListItem
-            onClick={window.location.href === props.domain? null : props.openHomeDialog}
+            onClick={window.location.href === props.domain? null : ()=>{props.updateDialog(true, "homeDialog")}}
           >
             <HomeIcon />
             <Typography variant="display1">{props.menuDialogText.home.text}</Typography>
           </ListItem>
           {/* Market Link */}
-          <ListItem onClick={props.openMarketDialog}>
+          <ListItem
+            onClick={()=>{
+             props.updateDialog(true, "marketDialog")
+            }}
+          >
             <ShopIcon />
             <Typography variant="display1">{props.menuDialogText.market.text}</Typography>
           </ListItem>
           {/* Guide Link */}
-          <ListItem onClick={props.openGuideDialog}>
+          <ListItem
+            onClick={()=>{
+             props.updateDialog(true, "guideDialog")
+            }}
+          >
             <HelpIcon />
             <Typography variant="display1">{props.menuDialogText.guide.text}</Typography>
           </ListItem>
@@ -60,17 +76,29 @@ const MenuDialog = (props) => {
           {
             props.loggedIn? (
               <div>
-                <ListItem onClick={props.openAccountDialog}>
+                <ListItem 
+                  onClick={()=>{
+                    props.updateDialog(true, "accountDialog")
+                  }}
+                >
                   <AccountBoxIcon />
                   <Typography variant="display1">{props.menuDialogText.account.text}</Typography>
                 </ListItem>
-                <ListItem onClick={props.closeMenuDialog}>
+                <ListItem
+                  onClick={()=>{
+                    props.updateDialog(false, 'menuDialog')
+                  }}
+                >
                   <ExitToAppIcon />
                   <Typography variant="display1">{props.menuDialogText.account.logout}</Typography>
                 </ListItem>
               </div>
             ) : (
-              <ListItem onClick={props.openLogInDialog}>
+              <ListItem
+                onClick={()=>{
+                  props.updateDialog(true, "logInDialog")
+                }}
+              >
                 <InputIcon />
                 <Typography variant="display1">{props.menuDialogText.account.login}</Typography>
               </ListItem>

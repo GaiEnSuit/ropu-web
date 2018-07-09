@@ -7,11 +7,17 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 // Higher Order Components
-import withDialogControl from '../hoc/withDialogControl';
+import withDialogControl from '../../hoc/withDialogControl';
 
 const MenuButton = (props) => {
   return (
-    <IconButton color="inherit" aria-label="MenuButton" onClick={props.openMenuDialog}>
+    <IconButton
+      color="inherit"
+      aria-label="MenuButton"
+      onClick={()=>{
+         props.updateDialog(true, 'menuDialog')
+      }}
+    >
       <MenuIcon />
     </IconButton>
   )

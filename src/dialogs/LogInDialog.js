@@ -22,13 +22,19 @@ const LogInDialog = (props) => {
   return (
     <Dialog
       open={props.logInDialog}
-      onClose={props.closeLogInDialog}
+      onClose={()=>{
+        props.updateDialog(false, "logInDialog")
+      }}
       aria-labelledby="Log In Dialog"
       fullScreen
     >
       <DialogActions>
         <IconButton>
-          <CloseIcon onClick={props.closeLogInDialog} />
+          <CloseIcon
+            onClick={()=>{
+              props.updateDialog(false, "logInDialog")
+            }}
+          />
         </IconButton>
       </DialogActions>
       {/* Log In Section */}

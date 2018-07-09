@@ -20,7 +20,7 @@ const CreateCharacterDialog = (props) => {
     <Dialog
       open={props.createCharacterDialog}
       onClose={()=>{
-        props.closeCreateCharacterDialog();
+        props.updateDialog(false, "createCharacterDialog");
         props.resetCreateCharacter();
         props.resetCreateCharacterDialogTab();
         props.resetGameSelect();

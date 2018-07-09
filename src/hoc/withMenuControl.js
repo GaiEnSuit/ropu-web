@@ -14,6 +14,7 @@ const withMenuControl = (WrappedComponent) => class extends Component {
     return (
       <WrappedComponent
         setAnchor={this.setAnchor}
+        closeMenu={this.closeMenu}
         {...this.props}
       />
     )

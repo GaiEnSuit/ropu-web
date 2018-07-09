@@ -52,7 +52,7 @@ const CreateCharacterDialogTabSummary = (props) => {
           props.createCharacterData.gameID === null? true: false
         }
         onClick={()=>{
-          props.closeCreateCharacterDialog();
+          props.updateDialog(false, "createCharacterDialog");
           props.resetCreateCharacterDialogTab();
           props.setCreateCharacterID();
           props.addNewCharacter();

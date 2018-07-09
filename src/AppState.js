@@ -26,12 +26,14 @@ class AppState extends Component {
       marketDialog: false,
       createCharacterDialog: false,
       cancelCreateCharacterDialog: false,
+      deleteDialog: false,
 
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
 
       // Temporary Data
+      selectedCharacter: null,
       selectedInteractable: null,
       selectedGame: null,
       selectedTemplate: null,
@@ -57,16 +59,36 @@ class AppState extends Component {
         interactableListData: [
         ]
       },
-
-      // Database Data
+      
+      // Static Data
+      licenseData: [
+        {
+          title: 'Artwork',
+          sourceUrl: 'https://opengameart.org/content/kyrises-free-16x16-rpg-icon-pack',
+          author: 'Kyrise',
+          authorUrl: 'https://kyrise.itch.io/',
+          license: 'Creative Commons Attribution 4.0 International (CC BY 4.0)',
+          licenseUrl: 'https://creativecommons.org/licenses/by/4.0/'
+        },
+        {
+          title: 'Game Icons',
+          sourceUrl: 'https://game-icons.net/',
+          author: 'Lorc, Delapouite & contributors',
+          authorUrl: 'https://game-icons.net/about.html#authors',
+          license: 'Creative Commons Attribution 3.0 International (CC BY 3.0)',
+          licenseUrl: 'https://creativecommons.org/licenses/by/3.0/'
+        }
+      ],
+      
+      // Dynamic Data
       characterListData: [
         {
           id: 1,
           img: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
-          name: 'Solaire',
+          name: 'Solaire Longest Name in The Universe',
           description: 'A human male who loves to praise the sun',
           game: `Demon's Souls`,
-          campaign: 'My Solo Campaign',
+          story: 'My Solo Campaign',
           str: 0,
           end: 0,
           int: 0,
@@ -114,7 +136,7 @@ class AppState extends Component {
           img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
           name: 'Ken',
           game: 'Himura Mansion',
-          campaign: 'Weekly Saturday Meetings',
+          story: 'Weekly Saturday Meetings',
           str: 0,
           end: 0,
           int: 0,
@@ -241,6 +263,9 @@ class AppState extends Component {
       homeDialogText: {
         text: 'Exit to the home screen?'
       },
+      deleteDialogText: {
+        delete: 'Delete Character?'
+      },
       guideDialogText: {
         title: 'Guide'
       },
@@ -329,31 +354,11 @@ class AppState extends Component {
         play: 'Play',
         direct: 'Direct',
         homebrew: 'Homebrew',
-      },
-      newsFeedText: 'News Feed',
-      footerText: {
+        newsFeed: 'News Feed',
         credits: 'Credits',
         by: ' by ',
         license: ' is licensed under ',
-        version: 'Version',
-        licenseListData: [
-          {
-            title: 'Artwork',
-            sourceUrl: 'https://opengameart.org/content/kyrises-free-16x16-rpg-icon-pack',
-            author: 'Kyrise',
-            authorUrl: 'https://kyrise.itch.io/',
-            license: 'Creative Commons Attribution 4.0 International (CC BY 4.0)',
-            licenseUrl: 'https://creativecommons.org/licenses/by/4.0/'
-          },
-          {
-            title: 'Game Icons',
-            sourceUrl: 'https://game-icons.net/',
-            author: 'Lorc, Delapouite & contributors',
-            authorUrl: 'https://game-icons.net/about.html#authors',
-            license: 'Creative Commons Attribution 3.0 International (CC BY 3.0)',
-            licenseUrl: 'https://creativecommons.org/licenses/by/3.0/'
-          }
-        ],
+        version: 'Version'
       },
       marketDialogText: {
         title: 'Market'
@@ -394,7 +399,11 @@ class AppState extends Component {
         abilitiesTotalInstructions: 'Total combined score should equal to 0'
       },
       characterSelectionPageText: {
-        title: 'Select A Character'
+        title: 'Select A Character',
+        noCharacters: 'You have no characters, create a new character',
+        newCharacter: 'New Character',
+        noStory: 'No Story',
+        noName: 'No Name'
       }
     };
     this.setAppState = this.setAppState.bind(this);

@@ -6,10 +6,10 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 // Images
-import book from '../images/book_05g.png';
+import book from '../../images/book_05g.png';
 
 // Style Classes
-import styles from '../styles';
+import styles from '../../styles';
 
 const DirectIcon = (props) => {
   return (

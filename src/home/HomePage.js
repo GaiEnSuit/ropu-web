@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 // Custom Components
 import Title from './Title';
 import Footer from '../footer/Footer';
-import HomePageIcons from './HomePageIcons';
+import HomePageIcons from './homepageicons/HomePageIcons';
 import NewsFeed from './NewsFeed';
 
 // Style Classes
@@ -18,10 +18,10 @@ const HomePage = (props) => {
       <section style={styles.content}>
         <Toolbar />
         <Title />
-        <HomePageIcons homePageText={props.homePageText} paths={props.paths} />
-        <NewsFeed newsFeedText={props.newsFeedText} />
+        <HomePageIcons paths={props.paths} homePageText={props.homePageText} />
+        <NewsFeed homePageText={props.homePageText} />
       </section>
-      <Footer footerText={props.footerText} />
+      <Footer homePageText={props.homePageText} licenseData={props.licenseData} />
     </main>
   )
 }

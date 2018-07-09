@@ -7,7 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import { withStyles } from '@material-ui/core/styles';
 
 // Custom Components
-import AppBarIcons from './AppBarIcons';
+import AppBarIcons from './appbaricons/AppBarIcons';
 
 // Style Classes
 import styles from '../styles';

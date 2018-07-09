@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // Material-ui
 import Dialog from '@material-ui/core/Dialog';
@@ -13,38 +12,37 @@ import CheckIcon from '@material-ui/icons/Check';
 
 // Higher Order Components
 import withDialogControl from '../hoc/withDialogControl';
+import withCharacterDataControl from '../hoc/withCharacterDataControl';
 
-const HomeDialog = (props) => {
+const DeleteDialog = (props) => {
   return (
     <Dialog
-      open={props.homeDialog}
-      onClose={()=>{
-        props.updateDialog(false, "homeDialog")
+      open={props.deleteDialog}
+      onClose={() => {
+        props.updateDialog(false, 'deleteDialog')
       }}
       aria-labelledby="dynamic dialog"
     >
       <DialogTitle>
-        {props.homeDialogText.text}
+        {props.deleteDialogText.delete}
       </DialogTitle>
       <DialogActions>
         {/* Confirm Button */}
-        <Link 
-          to='/'
-          className="link"
-          onClick={()=>{
-            props.updateDialog(false, "menuDialog")
-            props.updateDialog(false, "homeDialog")
+        <IconButton
+          aria-label="Close"
+          onClick={() => {
+            props.updateDialog(false, 'deleteDialog');
+            props.deleteCharacter(props.selectedCharacter);
           }}
-          >
-          <IconButton aria-label="Close">
-            <CheckIcon />
-          </IconButton>
-        </Link>
+        >
+          <CheckIcon />
+        </IconButton>
         {/* Cancel Button */}
         <IconButton
           aria-label="Close"
           onClick={()=>{
-            props.updateDialog(false, "homeDialog")
+            props.updateDialog(false, 'deleteDialog');
+            props.selectCharacter(null);
           }}
         >
           <CloseIcon />
@@ -54,4 +52,4 @@ const HomeDialog = (props) => {
   )
 }
 
-export default withDialogControl(HomeDialog);
+export default withCharacterDataControl(withDialogControl(DeleteDialog));

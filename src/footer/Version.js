@@ -17,7 +17,7 @@ const Version = (props) => {
         style={styles.colorRed}
         className="text-center"
       >
-        {props.footerText.version}
+        {props.homePageText.version}
       </Typography>
       <Typography variant="body1" style={styles.footerText}>
        {packageJSON.version}

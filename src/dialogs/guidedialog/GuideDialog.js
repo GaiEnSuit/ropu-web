@@ -23,7 +23,11 @@ const GuideDialog = (props) => {
       aria-labelledby="dynamic dialog"
     >
       <DialogActions>
-        <IconButton onClick={props.closeGuideDialog}>
+        <IconButton
+          onClick={()=>{
+            props.updateDialog(false, 'guideDialog')
+          }}
+        >
           <CloseIcon />
         </IconButton>
       </DialogActions>

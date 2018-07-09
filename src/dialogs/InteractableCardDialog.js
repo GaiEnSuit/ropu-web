@@ -15,7 +15,9 @@ const InteractableCardDialog = (props) => {
   return (
     <Dialog
       open={props.interactableCardDialog}
-      onClose={props.closeInteractableCardDialog}
+      onClose={()=>{
+        props.updateDialog(false, "interactableCardDialog")
+      }}
     >
       {props.selectedInteractable !== null &&
         <Card

@@ -4,13 +4,13 @@ import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 
 // Images
-import logo from '../images/logo.svg';
+import logo from '../../images/logo.svg';
 
 // Material-UI Styles
 import { withStyles } from '@material-ui/core/styles';
 
 // Higher Order Component
-import withDialogControl from '../hoc/withDialogControl';
+import withDialogControl from '../../hoc/withDialogControl';
 
 const styles = {
   root: {
@@ -27,7 +27,9 @@ const LogoButton = (props) => {
       classes={{
         root: classes.root
       }}
-      onClick={props.openHomeDialog}
+      onClick={()=>{
+        props.updateDialog(true, "homeDialog")
+      }}
     >
       <img  className="responsive-image" src={logo} alt="logo" />
     </IconButton>

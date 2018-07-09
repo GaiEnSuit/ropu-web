@@ -6,10 +6,10 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 // Images
-import sword from '../images/sword_01b.png';
+import sword from '../../images/sword_01b.png';
 
 // Style Classes
-import styles from '../styles';
+import styles from '../../styles';
 
 const PlayIcon = (props) => {
   return (

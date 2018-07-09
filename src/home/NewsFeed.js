@@ -30,21 +30,30 @@ const NewsFeed = (props) => {
         xs={11}
         lg={8}
       >
-        <Paper>
-          <Typography classes={{root: classes.root}}variant="display1" color="default" className="text-center">{props.newsFeedText}</Typography>
-        </Paper>
-        <TwitterTimelineEmbed
-          style={{margin: "auto"}}
-          sourceType="collection"
-          id="1010648304001081344"
-          options={
-            {
-              chrome: "noheader nofooter"
-            }
-          }
+        <Paper
+          raised={24}
         >
-          <CircularProgress />
-        </TwitterTimelineEmbed>
+          <Typography
+            classes={{root: classes.root}}
+            variant="display1"
+            color="default"
+            className="text-center"
+          >
+            {props.homePageText.newsFeed}
+          </Typography>
+        </Paper>
+        <Paper
+          raised={24}
+        >
+          <TwitterTimelineEmbed
+            style={{margin: "auto"}}
+            sourceType="collection"
+            id="1010648304001081344"
+            options={{chrome: "noheader nofooter"}}
+          >
+            <CircularProgress />
+          </TwitterTimelineEmbed>
+        </Paper>
       </Grid>
     </Grid>
   )

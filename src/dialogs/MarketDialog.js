@@ -18,13 +18,20 @@ const MarketDialog = (props) => {
   return (
     <Dialog
       open={props.marketDialog}
-      onClose={props.closeMarketDialog}
+      onClose={()=>{
+        props.updateDialog(false, "marketDialog")
+      }}
       aria-labelledby="Market Dialog"
       fullScreen
     >
       <DialogActions>
         {/* Cancel Button */}
-        <IconButton aria-label="Close" onClick={props.closeMarketDialog}>
+        <IconButton
+          aria-label="Close"
+          onClick={()=>{
+            props.updateDialog(false, "marketDialog")
+          }}
+        >
           <CloseIcon />
         </IconButton>
       </DialogActions>

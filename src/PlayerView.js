@@ -5,7 +5,7 @@ import CharacterCard from './CharacterCard';
 import Roller from './Roller';
 import InventoryMenu from './InventoryMenu';
 
-class CharacterView extends Component {
+class PlayerView extends Component {
   render() {
     return (
       <div>
@@ -17,4 +17,4 @@ class CharacterView extends Component {
   }
 }
 
-export default CharacterView;
+export default PlayerView;

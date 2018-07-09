@@ -151,6 +151,10 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
   
   // Existing Character Data Functions
   
+  selectCharacter = (char) => {
+    this.props.update({selectedCharacter: char})
+  }
+  
   deleteCharacter = (char) => {
     let newState = this.props.characterListData.filter(x => x !== char);
 		this.props.update({
@@ -180,6 +184,7 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
         addNewCharacter={this.addNewCharacter}
         setCreateCharacterID={this.setCreateCharacterID}
         updateCreateCharacterAbility={this.updateCreateCharacterAbility}
+        selectCharacter={this.selectCharacter}
         {...this.props}
       />
     )

@@ -9,7 +9,7 @@ import DirectIcon from './DirectIcon';
 import HomeBrewIcon from './HomeBrewIcon';
 
 // Style Classes
-import styles from '../styles';
+import styles from '../../styles';
 
 const HomePageIcons = (props) => {
   return (
@@ -17,7 +17,7 @@ const HomePageIcons = (props) => {
       container
       justify="space-between"
       spacing={24}
-      style={styles.homePageIcons}
+      style={styles.gridContainer}
     >
       <Grid
         item

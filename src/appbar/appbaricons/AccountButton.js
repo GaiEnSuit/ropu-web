@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 // Higher Order Components
-import withMenuControl from '../hoc/withMenuControl';
+import withMenuControl from '../../hoc/withMenuControl';
 
 const AccountButton = (props) => {
   return (

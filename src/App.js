@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import HomePage from './home/HomePage';
 import CharacterSelectionPage from './characterselection/CharacterSelectionPage';
 import StoryList from './StoryList';
-import CharacterView from './CharacterView';
+import PlayerView from './PlayerView';
 import HomeBrewList from './HomeBrewList';
 import NotFound404 from './NotFound404';
 
@@ -25,6 +25,7 @@ import MarketDialog from './dialogs/MarketDialog';
 import CreateCharacterDialog from './dialogs/createcharacterdialog/CreateCharacterDialog';
 import CancelCreateCharacterDialog from './dialogs/createcharacterdialog/CancelCreateCharacterDialog';
 import InteractableCardDialog from './dialogs/InteractableCardDialog';
+import DeleteDialog from './dialogs/DeleteDialog';
 
 // Menus
 import AccountMenu from './menus/AccountMenu';
@@ -50,8 +51,7 @@ class App extends Component {
               <HomePage
                 paths={this.props.appState.paths}
                 homePageText={this.props.appState.homePageText}
-                newsFeedText={this.props.appState.newsFeedText}
-                footerText={this.props.appState.footerText}
+                licenseData={this.props.appState.licenseData}
               />
             }
           />
@@ -68,12 +68,12 @@ class App extends Component {
             }
           />
           {/* Player View */}
-          <Route path='/characters/:id?' render={({match}) => 
+          <Route path='/playerview/:id?' render={({match}) => 
             this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
               (
                 <Redirect to='/404' />
               ) : (
-                <CharacterView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
+                <PlayerView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
               )
           } />
           {/* Story List */}
@@ -139,6 +139,13 @@ class App extends Component {
           interactableCardDialog={this.props.appState.interactableCardDialog}
           selectedInteractable={this.props.appState.selectedInteractable}
           update={this.props.setAppState}
+        />
+        <DeleteDialog
+          selectedCharacter={this.props.appState.selectedCharacter}
+          deleteDialog={this.props.appState.deleteDialog}
+          deleteDialogText={this.props.appState.deleteDialogText}
+          update={this.props.setAppState}
+          characterListData={this.props.appState.characterListData}
         />
       </div>
     );

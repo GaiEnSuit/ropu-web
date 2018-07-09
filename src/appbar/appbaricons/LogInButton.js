@@ -7,12 +7,14 @@ import IconButton from '@material-ui/core/IconButton';
 import InputIcon from '@material-ui/icons/Input';
 
 // Higher Order Components
-import withDialogControl from '../hoc/withDialogControl';
+import withDialogControl from '../../hoc/withDialogControl';
 
 const LogInButton = (props) => {
   return (
     <IconButton
-      onClick={props.openLogInDialog}
+      onClick={()=>{
+        props.updateDialog(true, 'logInDialog')
+      }}
       color="inherit"
     >
       <InputIcon />

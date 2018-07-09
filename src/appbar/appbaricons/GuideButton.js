@@ -7,12 +7,14 @@ import IconButton from '@material-ui/core/IconButton';
 import HelpIcon from '@material-ui/icons/Help';
 
 // Higher Order Components
-import withDialogControl from '../hoc/withDialogControl';
+import withDialogControl from '../../hoc/withDialogControl';
 
 const GuideButton = (props) => {
   return (
     <IconButton
-      onClick={props.openGuideDialog}
+      onClick={()=>{
+        props.updateDialog(true, 'guideDialog')
+      }}
       color="inherit"
     >
       <HelpIcon />
