@@ -64,6 +64,7 @@ const CharacterSelectionPage = (props) => {
       <CreateCharacterButton
         update={props.update}
         gameListData={props.gameListData}
+        createCharacterData={props.createCharacterData}
         characterSelectionPageText={props.characterSelectionPageText}
       />
     </section>

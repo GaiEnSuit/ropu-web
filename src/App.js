@@ -87,6 +87,7 @@ class App extends Component {
                   <CharacterSelectionPage
                     characterSelectionPageText={this.props.appState.characterSelectionPageText}
                     characterListData={this.props.appState.characterListData}
+                    createCharacterData={this.props.appState.createCharacterData}
                     gameListData={this.props.appState.gameListData}
                     update={this.props.setAppState}
                   />

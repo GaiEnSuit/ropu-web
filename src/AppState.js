@@ -24,7 +24,7 @@ class AppState extends Component {
       menuDialog: false,
       interactableCardDialog: false,
       marketDialog: false,
-      createCharacterDialog: true,
+      createCharacterDialog: false,
       cancelCreateCharacterDialog: false,
       deleteDialog: false,
 
