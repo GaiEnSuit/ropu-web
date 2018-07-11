@@ -24,7 +24,7 @@ class AppState extends Component {
       menuDialog: false,
       interactableCardDialog: false,
       marketDialog: false,
-      createCharacterDialog: false,
+      createCharacterDialog: true,
       cancelCreateCharacterDialog: false,
       deleteDialog: false,
 
@@ -157,9 +157,9 @@ class AppState extends Component {
       gameListData: [
         {
           id: 0,
-          name: `demon's souls`,
-          image: 'https://pbs.twimg.com/profile_images/817396686955888640/i-N1s3sl_400x400.jpg',
-          setting: `Medieval Fantasy`,
+          name: `SoulsBorne`,
+          image: 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/Bonfire_Header_2.jpg',
+          tags: [`Medieval Fantasy`, 'Dungeon Crawler', 'Brutal'],
           description: `The game is set in the fictional kingdom of Boletaria, ruled by the aging King Allant XII. Because of his greed, the king searched for power and prosperity through a dark ritual of channeling the power of souls that brought unprecedented prosperity to Boletaria, until the "Deep Fog" covered the land's outskirts, cutting off the kingdom from the outside world. Neighboring kingdoms sent scouts to investigate but none returned after entering the fog. It was only after Vallarfax of the royal Twin Fangs broke free from the fog that the rest of the world could be told of Boletaria's plight. By channeling souls, King Allant had awakened the Old One, a great demon residing below the Nexus. With the Old One's awakening, a dark fog had swept in, that within it unleashed demons who feasted on the souls of mankind, where those left alive without a soul became insane and violent. Without resistance, the fog slowly begins to spread beyond Boletaria.`,
           locations: [
             {
@@ -358,14 +358,15 @@ class AppState extends Component {
         credits: 'Credits',
         by: ' by ',
         license: ' is licensed under ',
-        version: 'Version'
+        version: 'Version',
+        offline: 'Unable to Retrieve Data'
       },
       marketDialogText: {
         title: 'Market'
       },
       cancelCreateCharacterDialogText: 'Cancel Character Creation?',
       createCharacterDialogText: {
-        title: 'Character Creator',
+        title: 'New Character',
         game: 'Game',
         description: 'Description',
         abilities: 'Abilities',
@@ -373,7 +374,6 @@ class AppState extends Component {
         summary: 'Summary',
         selectGame: 'Select A Game',
         selectedGame: 'Selected Game',
-        changeGame: 'Change Game',
         continue: 'Continue',
         placeholderName: `My Character's Name`,
         name: 'Name',
@@ -382,7 +382,7 @@ class AppState extends Component {
         abilitiesInstructions: 'Increase and decrease the values of the abilities, the total value should equal the recommended value for your game',
         selectTemplate: `Select A Character Template (Interactables)`,
         gameNotSelected: `You must select a game before continuing`,
-        setting: 'Setting',
+        tags: 'Tags',
         selectedTemplate: 'Selected Template',
         changeTemplate: 'Change Template',
         add: `Add Interactable(s)`,
@@ -396,7 +396,11 @@ class AppState extends Component {
         dexterity: 'Dexterity',
         agility: 'Agility',
         abilitiesTotal: 'Total Combined Score',
-        abilitiesTotalInstructions: 'Total combined score should equal to 0'
+        abilitiesTotalInstructions: 'Total combined score should equal to 0',
+        next: 'Next',
+        back: 'Back',
+        cancel: 'Cancel',
+        expand: 'Description'
       },
       characterSelectionPageText: {
         title: 'Select A Character',

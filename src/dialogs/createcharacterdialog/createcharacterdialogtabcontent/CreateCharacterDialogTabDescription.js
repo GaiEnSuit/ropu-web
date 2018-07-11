@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 // Higher Order Components
-import withCharacterDataControl from '../../hoc/withCharacterDataControl';
-import withTabControl from '../../hoc/withTabControl';
+import withCharacterDataControl from '../../../hoc/withCharacterDataControl';
+import withTabControl from '../../../hoc/withTabControl';
 
 const CreateCharacterDialogTabDescription = (props) => {
   return(

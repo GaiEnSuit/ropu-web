@@ -10,10 +10,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Button from '@material-ui/core/Button';
 
 // Higher Order Components
-import withCharacterDataControl from '../../hoc/withCharacterDataControl';
-import withGameDataControl from '../../hoc/withGameDataControl';
-import withDialogControl from '../../hoc/withDialogControl';
-import withTabControl from '../../hoc/withTabControl';
+import withCharacterDataControl from '../../../hoc/withCharacterDataControl';
+import withGameDataControl from '../../../hoc/withGameDataControl';
+import withDialogControl from '../../../hoc/withDialogControl';
+import withTabControl from '../../../hoc/withTabControl';
 
 const SelectedTemplateInteractableListItem = (props) => {
   return (

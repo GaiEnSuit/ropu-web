@@ -23,6 +23,7 @@ const CharacterList = (props) => {
               item
               xs={12}
               sm={6}
+              lg={4}
               key={character.id}
             >
               <CharacterListItem

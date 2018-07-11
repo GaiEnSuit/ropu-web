@@ -4,6 +4,15 @@ const styles = {
     color: '#ff5c5c',
     backgroundColor: 'black'
   },
+  colorPrimary: {
+    color: '#ff5c5c',
+  },
+  colorSecondary: {
+    color: 'black'
+  },
+  logoButton: {
+    marginRight: 'auto'
+  },
   icon: {
     width: '64px',
     height: '64px'
@@ -24,32 +33,38 @@ const styles = {
   },
   gridContainer: {
     width: '100%',
-    margin: '0'
+    margin: '0',
+    height: '100%'
   },
-  colorRed: {
-    color: '#ff5c5c'
-  },
-  footer: {
-    backgroundColor: 'black',
-    width: '100%'
+  footerLink: {
+    color: '#ff5c5c',
   },
   footerText: {
     color: 'white'
   },
-  content: {
-    flex: '1',
-    backgroundColor: '#fff0f0',
-    paddingBottom: '20px'
-  },
   title: {
     color: '#ff5c5c',
-    margin: 'auto'
-  },
-  toolBar: {
-    position: 'fixed'
+    textAlign: 'center'
   },
   cardActions: {
     marginLeft: 'auto'
+  },
+  tabs: {
+    color: '#ff5c5c'
+  },
+  main: {
+    flex: '1'
+  },
+  createCharacterDialogActions: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  fab: {
+    position: 'fixed',
+    bottom: '20px',
+    left: '20px',
+    color: '#ff5c5c',
+    backgroundColor: 'black'
   }
 };
 

@@ -4,7 +4,7 @@ import React from 'react';
 import DialogContent from '@material-ui/core/DialogContent';
 
 // Customer Components
-import CreateCharacterDialogTabGame from './CreateCharacterDialogTabGame';
+import CreateCharacterDialogTabGame from './createcharacterdialogtabgame/CreateCharacterDialogTabGame';
 import CreateCharacterDialogTabDescription from './CreateCharacterDialogTabDescription';
 import CreateCharacterDialogTabAbilities from './CreateCharacterDialogTabAbilities';
 import CreateCharacterDialogTabInteractables from './CreateCharacterDialogTabInteractables';

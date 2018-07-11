@@ -11,21 +11,21 @@ const Credits = (props) => {
     <div id="credits" className="text-center">
       <Typography
         variant="title"
-        style={styles.colorRed}
+        style={styles.title}
         className="text-center"
       >
         {props.homePageText.credits}
       </Typography>
       <Typography variant="body1" style={styles.footerText}>
-        <a href={props.licenseData[0].sourceUrl} className="link" style={styles.colorRed}>
+        <a href={props.licenseData[0].sourceUrl} className="link" style={styles.footerLink}>
           {props.licenseData[0].title}
         </a>
         {props.homePageText.by}
-        <a href={props.licenseData[0].authorUrl} className="link" style={styles.colorRed}>
+        <a href={props.licenseData[0].authorUrl} className="link" style={styles.footerLink}>
           {props.licenseData[0].author}
         </a>
         {props.homePageText.license}
-        <a href={props.licenseData[0].licenseUrl} className="link" style={styles.colorRed}>
+        <a href={props.licenseData[0].licenseUrl} className="link" style={styles.footerLink}>
           {props.licenseData[0].license}
         </a>
       </Typography>

@@ -15,7 +15,6 @@ const HomePageIcons = (props) => {
   return (
     <Grid
       container
-      justify="space-between"
       spacing={24}
       style={styles.gridContainer}
     >

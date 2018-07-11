@@ -13,8 +13,16 @@ import PlayerView from './PlayerView';
 import HomeBrewList from './HomeBrewList';
 import NotFound404 from './NotFound404';
 
+// Material-ui
+import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
+
+// Styles Overrides
+import styles from './styles';
+
 // Custom Components
 import RopuAppBar from './appbar/RopuAppBar';
+import Footer from './footer/Footer';
 
 // Dialogs
 import MenuDialog from './dialogs/MenuDialog';
@@ -23,7 +31,7 @@ import GuideDialog from './dialogs/guidedialog/GuideDialog';
 import LogInDialog from './dialogs/LogInDialog';
 import MarketDialog from './dialogs/MarketDialog';
 import CreateCharacterDialog from './dialogs/createcharacterdialog/CreateCharacterDialog';
-import CancelCreateCharacterDialog from './dialogs/createcharacterdialog/CancelCreateCharacterDialog';
+import CancelCreateCharacterDialog from './dialogs/CancelCreateCharacterDialog';
 import InteractableCardDialog from './dialogs/InteractableCardDialog';
 import DeleteDialog from './dialogs/DeleteDialog';
 
@@ -36,59 +44,91 @@ class App extends Component {
       <div className="App">
         {/* Material-UI CSS */}
         <CssBaseline />
-        {/* Header and App Bar */}
-        <RopuAppBar
-          update={this.props.setAppState}
-          loggedIn={this.props.appState.loggedIn}
-        />
-        {/* Body */}
-        <Switch>
-          {/* Home Page Route */}
-          <Route 
-            exact 
-            path='/' 
-            render={() =>
-              <HomePage
-                paths={this.props.appState.paths}
+        <Grid
+          container
+          direction="column"
+          className="min-height bg-color-light-red"
+          styles={styles.gridContainer}
+        >
+          {/* Appbar Toolbar is to prevent content from starting underneath */}
+          <Grid
+            item
+            xs={12}
+          >
+            <RopuAppBar
+              update={this.props.setAppState}
+              loggedIn={this.props.appState.loggedIn}
+            />
+            <Toolbar />
+          </Grid>
+          {/* Main */}
+          <Grid
+            item
+            style={styles.main}
+          >
+            <Switch>
+              {/* Home Page Route */}
+              <Route 
+                exact 
+                path='/'
+                render={() =>
+                  <HomePage
+                    paths={this.props.appState.paths}
+                    homePageText={this.props.appState.homePageText}
+                    licenseData={this.props.appState.licenseData}
+                  />
+                }
+              />
+              {/* Character Selection Route */}
+              <Route 
+                exact
+                path='/characters' 
+                render={() =>
+                  <CharacterSelectionPage
+                    characterSelectionPageText={this.props.appState.characterSelectionPageText}
+                    characterListData={this.props.appState.characterListData}
+                    gameListData={this.props.appState.gameListData}
+                    update={this.props.setAppState}
+                  />
+                }
+              />
+              {/* Player View */}
+              <Route path='/playerview/:id?' render={({match}) => 
+                this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+                  (
+                    <Redirect to='/404' />
+                  ) : (
+                    <PlayerView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
+                  )
+              } />
+              {/* Story List */}
+              <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
+              {/* Home Brew List */}
+              <Route exact path='/homebrew' render={() => <HomeBrewList homebrewListData={this.props.appState.homebrewListData} />} />
+              {/* Page Not Found */}
+              <Route component={NotFound404} />
+            </Switch>
+          </Grid>
+          {/* Footer */}
+          {window.location.pathname === "/" &&
+            <Grid
+              item
+              xs={12}
+              className="footer"
+            >
+              <Footer
                 homePageText={this.props.appState.homePageText}
                 licenseData={this.props.appState.licenseData}
               />
-            }
-          />
-          {/* Character Selection Route */}
-          <Route 
-            exact
-            path='/characters' 
-            render={() =>
-              <CharacterSelectionPage
-                characterSelectionPageText={this.props.appState.characterSelectionPageText}
-                characterListData={this.props.appState.characterListData}
-                update={this.props.setAppState}
-              />
-            }
-          />
-          {/* Player View */}
-          <Route path='/playerview/:id?' render={({match}) => 
-            this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
-              (
-                <Redirect to='/404' />
-              ) : (
-                <PlayerView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
-              )
-          } />
-          {/* Story List */}
-          <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
-          {/* Home Brew List */}
-          <Route exact path='/homebrew' component={HomeBrewList} />
-          {/* Page Not Found */}
-          <Route component={NotFound404} />
-        </Switch>
+            </Grid>
+          }
+
+        </Grid>
         {/* Dialogs */}
         <MenuDialog 
           menuDialogText={this.props.appState.menuDialogText}
           menuDialog={this.props.appState.menuDialog}
           loggedIn={this.props.appState.loggedIn}
-          domain={this.props.appState.domain}
           update={this.props.setAppState}
         />
         <HomeDialog 
@@ -130,7 +170,6 @@ class App extends Component {
           selectedTemplate={this.props.appState.selectedTemplate}
         />
         <CancelCreateCharacterDialog
-          createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
           cancelCreateCharacterDialog={this.props.appState.cancelCreateCharacterDialog}
           cancelCreateCharacterDialogText={this.props.appState.cancelCreateCharacterDialogText}
           update={this.props.setAppState}

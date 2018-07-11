@@ -1,31 +1,33 @@
 import React from 'react';
 
 // Material-ui
-import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 // Icons
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import AddIcon from '@material-ui/icons/Add';
 
 // Higher Order Components 
 import withDialogControl from '../hoc/withDialogControl';
+import withGameDataControl from '../hoc/withGameDataControl';
+import withCharacterDataControl from '../hoc/withCharacterDataControl';
 
 // Styles Classes
 import styles from '../styles';
 
 const CreateCharacterButton = (props) => {
   return(
-    <Paper
+    <Button
       onClick={()=>{
+        props.setDefaultGame(props.gameListData)
         props.updateDialog(true, 'createCharacterDialog')
       }}
       className="d-flex justify-center color-red bg-color-black"
-      elevation={12}
+      variant="fab"
+      style={styles.fab}
     >
-      <AddCircleIcon
-        style={styles.icon}
-      />
-    </Paper>
+      <AddIcon style={styles.image} />
+    </Button>
   )
 }
 
-export default withDialogControl(CreateCharacterButton);
+export default withCharacterDataControl(withGameDataControl(withDialogControl(CreateCharacterButton)));

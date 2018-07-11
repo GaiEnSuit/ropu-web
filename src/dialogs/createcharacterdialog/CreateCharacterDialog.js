@@ -2,12 +2,12 @@ import React from 'react';
 
 // Material-ui
 import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 // Custom Components
 import CreateCharacterDialogActions from './CreateCharacterDialogActions';
-import CreateCharacterDialogContent from './CreateCharacterDialogContent';
+import CreateCharacterDialogContent from './createcharacterdialogtabcontent/CreateCharacterDialogContent';
 import CreateCharacterDialogTabToolbar from './CreateCharacterDialogTabToolbar';
+import CreateCharacterDialogTitle from './CreateCharacterDialogTitle';
 
 // Higher Order Components
 import withTabControl from '../../hoc/withTabControl';
@@ -29,9 +29,9 @@ const CreateCharacterDialog = (props) => {
       fullScreen
     >
       {/* Title */}
-      <DialogTitle>
-        {props.createCharacterDialogText.title}
-      </DialogTitle>
+      <CreateCharacterDialogTitle
+        createCharacterDialogText={props.createCharacterDialogText}
+      />
       {/* Tab Navigation */}
       <CreateCharacterDialogTabToolbar
         createCharacterDialogText={props.createCharacterDialogText}
@@ -53,6 +53,7 @@ const CreateCharacterDialog = (props) => {
       <CreateCharacterDialogActions
         createCharacterData={props.createCharacterData}
         createCharacterDialogTab={props.createCharacterDialogTab}
+        createCharacterDialogText={props.createCharacterDialogText}
         update={props.update}
       />
     </Dialog>

@@ -17,6 +17,7 @@ const HomeBrewIcon = (props) => {
       <Paper
         style={styles.homebrewIcon}
         className="d-flex justify-center flex-d-column align-items-center"
+        elevation={10}
       >
         <img src={potion} alt="Book" style={styles.icon} />
         <Typography variant="button" className="text-center">{props.homebrew}</Typography>

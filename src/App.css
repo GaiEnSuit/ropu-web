@@ -1,3 +1,8 @@
+html, body {
+  width: 100%;
+  height: 100%
+}
+
 /* Typography */
 
 .link {
@@ -17,31 +22,31 @@
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 600px) {
-  .responsive-portrait {
-    width: 100%;
-    height: 175px;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 920px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .responsive-portrait {
     width: 100%;
     height: 130px;
   }
 }
 
-@media only screen and (min-width: 920px) and (max-width: 1280px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .responsive-portrait {
     width: 100%;
-    height: 200px;
+    height: 150px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+  .responsive-portrait {
+    width: 100%;
+    height: 170px;
   }
 }
 
 @media only screen and (min-width: 1281px) {
   .responsive-portrait {
     width: 100%;
-    height: 250px;
+    height: 190px;
   }
 }
 
@@ -52,6 +57,10 @@
 
 .min-height {
   min-height: 100vh
+}
+
+.max-height {
+  height: 100%
 }
 
 /* colors */
@@ -111,4 +120,17 @@
 
 .margin-top {
   margin-top: 150px
+}
+
+/* Custom  */
+
+.footer {
+  background-color: black;
+  width: 100%;
+  height: 100%
+}
+
+.main {
+  background-color: #fff0f0;
+  height: 100%
 }

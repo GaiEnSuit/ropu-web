@@ -17,6 +17,7 @@ const PlayIcon = (props) => {
       <Paper
         style={styles.playIcon}
         className="d-flex justify-center flex-d-column align-items-center"
+        elevation={10}
       >
           <img src={sword} alt="sword" style={styles.icon} />
           <Typography variant="button" className="text-center" >{props.play}</Typography>

@@ -14,7 +14,7 @@ const Version = (props) => {
     <div id="credits" className="text-center">
       <Typography
         variant="title"
-        style={styles.colorRed}
+        style={styles.title}
         className="text-center"
       >
         {props.homePageText.version}

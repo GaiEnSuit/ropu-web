@@ -11,10 +11,10 @@ import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 
 // Higher Order Components
-import withDialogControl from '../../hoc/withDialogControl';
-import withTabControl  from '../../hoc/withTabControl';
-import withCreateCharacterDataControl  from '../../hoc/withCharacterDataControl';
-import withGameDataControl  from '../../hoc/withGameDataControl';
+import withDialogControl from '../hoc/withDialogControl';
+import withTabControl  from '../hoc/withTabControl';
+import withCreateCharacterDataControl  from '../hoc/withCharacterDataControl';
+import withGameDataControl  from '../hoc/withGameDataControl';
 
 const CancelCreateCharacterDialog = (props) => {
   return (

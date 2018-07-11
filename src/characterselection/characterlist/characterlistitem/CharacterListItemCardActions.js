@@ -26,7 +26,7 @@ const CharacterListItemCardActions = (props) => {
           props.updateDialog(true, "deleteDialog");
           props.selectCharacter(props.character);
         }}
-        style={styles.colorRed}
+        style={styles.colorPrimary}
       >
         Delete
       </Button>

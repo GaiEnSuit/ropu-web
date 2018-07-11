@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 const withGameDataControl = (WrappedComponent) => class extends Component {
   
   // Select Game Functions
+  setDefaultGame = (gameListData) => {
+    let list = gameListData.filter(x => x.id === 0)
+    let game = list[0]
+    this.props.update({selectedGame: game, createCharacterData: Object.assign({}, this.props.createCharacterData, {game: game.name, gameID: game.id})})
+  }
   
   selectGame = (game) => {
     this.props.update({selectedGame: game});
@@ -38,6 +43,7 @@ const withGameDataControl = (WrappedComponent) => class extends Component {
         resetSelectedTemplate = {this.resetSelectedTemplate}
         resetGameSelect = {this.resetGameSelect}
         findInteractable = {this.findInteractable}
+        setDefaultGame = {this.setDefaultGame}
         {...this.props}
       />
     )

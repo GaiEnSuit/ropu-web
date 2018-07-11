@@ -1,11 +1,10 @@
 import React from 'react';
 
 //Material-UI
-import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
 
 // Custom Components
 import Title from './Title';
-import Footer from '../footer/Footer';
 import HomePageIcons from './homepageicons/HomePageIcons';
 import NewsFeed from './NewsFeed';
 
@@ -14,15 +13,49 @@ import styles from '../styles';
 
 const HomePage = (props) => {
   return (
-    <main className="d-flex flex-d-column min-height">
-      <section style={styles.content}>
-        <Toolbar />
-        <Title />
-        <HomePageIcons paths={props.paths} homePageText={props.homePageText} />
-        <NewsFeed homePageText={props.homePageText} />
-      </section>
-      <Footer homePageText={props.homePageText} licenseData={props.licenseData} />
-    </main>
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      direction="column"
+      style={styles.gridContainer}
+    >
+      <Grid
+        container
+        item
+        style={styles.gridContainer}
+        xs={12}
+        sm={8}
+      >
+        <Grid
+          item
+          xs={12}
+        >
+          <Title />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+        >
+          <HomePageIcons paths={props.paths} homePageText={props.homePageText} />
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        spacing={24}
+        item
+        xs={12}
+        sm={8}
+        lg={4}
+      >
+        <Grid
+          item
+          xs={12}
+        >
+          <NewsFeed homePageText={props.homePageText} />
+        </Grid>
+      </Grid>
+    </Grid>
   )
 }
 

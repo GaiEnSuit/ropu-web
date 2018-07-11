@@ -15,11 +15,14 @@ import styles from '../styles';
 
 const CharacterSelectionPage = (props) => {
   return (
-    <section>
-      {/* Toolbar Offset */}
-      <Toolbar />
+    <section
+      className="min-height"
+    >
       {/* Title */}
-      <Toolbar>
+      <Toolbar
+        className="bg-color-black justify-center"
+        style={{position: 'fixed', width: '100%'}}
+      >
         <Typography
           variant="display1"
           style={styles.title}
@@ -27,6 +30,8 @@ const CharacterSelectionPage = (props) => {
           {props.characterSelectionPageText.title}
         </Typography>
       </Toolbar>
+      {/* Toolbar Offset */}
+      <Toolbar />
       {/* List of Characters */}
       <Grid
         justify="space-around"
@@ -55,25 +60,12 @@ const CharacterSelectionPage = (props) => {
           }
         </Grid>
       </Grid>
-      {/* Create Character Button */}
-      <Grid
-        justify="space-around"
-        spacing={24}
-        container
-        style={styles.gridContainer}
-      >
-        <Grid
-          item
-          xs={8}
-          sm={6}
-          lg={4}
-        >
-          <CreateCharacterButton
-            update={props.update}
-            characterSelectionPageText={props.characterSelectionPageText}
-          />
-        </Grid>
-      </Grid>
+      {/* Create Character FAB */}
+      <CreateCharacterButton
+        update={props.update}
+        gameListData={props.gameListData}
+        characterSelectionPageText={props.characterSelectionPageText}
+      />
     </section>
   )
 }

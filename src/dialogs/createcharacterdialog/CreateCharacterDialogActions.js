@@ -2,12 +2,12 @@ import React from 'react';
 
 //Material-ui
 import DialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 
 //Icons
 import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // Higher Order Components
 import withTabControl from '../../hoc/withTabControl';
@@ -16,25 +16,27 @@ import withDialogControl from '../../hoc/withDialogControl';
 const CreateCharacterDialogActions = (props) => {
   return(
     <DialogActions>
-      <IconButton 
+      <Button 
         disabled={props.createCharacterDialogTab <= 0 && true}
         onClick={props.backCreateCharacterDialogTab}
       >
-        <ArrowBackIcon />
-      </IconButton>
-      <IconButton 
+        <ChevronLeftIcon />
+        {props.createCharacterDialogText.back}
+      </Button>
+      <Button 
         disabled={props.createCharacterDialogTab >= 4 && true}
         onClick={props.nextCreateCharacterDialogTab}
       >
-        <ArrowForwardIcon />
-      </IconButton>
-      <IconButton
+        {props.createCharacterDialogText.next}
+        <ChevronRightIcon />
+      </Button>
+      <Button
         onClick={()=>{
           props.updateDialog(true, 'cancelCreateCharacterDialog')
         }}
       >
         <CloseIcon />
-      </IconButton>
+      </Button>
     </DialogActions>
   )
 }

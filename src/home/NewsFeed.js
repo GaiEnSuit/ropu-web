@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Material-UI
-import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -15,6 +14,9 @@ import styles from '../styles';
 // Material-UI Styles
 import { withStyles } from '@material-ui/core/styles';
 
+// Iamges
+import spinner from '../images/spinner-loop.gif';
+
 const NewsFeed = (props) => {
   
   const { classes } = props;
@@ -22,17 +24,15 @@ const NewsFeed = (props) => {
   return (
     <Grid
       container
-      justify="space-around"
+      justify="center"
       style={styles.gridContainer}
+      spacing={24}
     >
       <Grid
         item
-        xs={11}
-        lg={8}
+        xs={12}
       >
-        <Paper
-          raised={24}
-        >
+        <Paper>
           <Typography
             classes={{root: classes.root}}
             variant="display1"
@@ -42,18 +42,31 @@ const NewsFeed = (props) => {
             {props.homePageText.newsFeed}
           </Typography>
         </Paper>
-        <Paper
-          raised={24}
-        >
-          <TwitterTimelineEmbed
-            style={{margin: "auto"}}
-            sourceType="collection"
-            id="1010648304001081344"
-            options={{chrome: "noheader nofooter"}}
-          >
-            <CircularProgress />
-          </TwitterTimelineEmbed>
-        </Paper>
+        {!navigator.onLine?
+          (
+            <Typography
+              className="text-center"
+              variant="headline"
+            >
+              {props.homePageText.offline}
+            </Typography>
+          ) : 
+          (
+            <Paper
+              style={{
+                minHeight: '200px',
+                background: `#ffffff url(${spinner}) no-repeat center`,
+                backgroundSize: 'contain'
+              }}
+            >
+              <TwitterTimelineEmbed
+                sourceType="collection"
+                id="1010648304001081344"
+                options={{chrome: "noheader nofooter", height: "500"}}
+              />
+            </Paper>
+          )
+        }
       </Grid>
     </Grid>
   )

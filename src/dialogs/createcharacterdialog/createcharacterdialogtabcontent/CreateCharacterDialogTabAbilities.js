@@ -7,15 +7,15 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 // Higher Order Components
-import withCharacterDataControl from '../../hoc/withCharacterDataControl';
+import withCharacterDataControl from '../../../hoc/withCharacterDataControl';
 
 // Icons
-import strengthIcon from '../../images/strength.svg';
-import enduranceIcon from '../../images/endurance.svg';
-import intelligenceIcon from '../../images/intelligence.svg';
-import willIcon from '../../images/will.svg';
-import dexterityIcon from '../../images/dexterity.svg';
-import agilityIcon from '../../images/agility.svg';
+import strengthIcon from '../../../images/strength.svg';
+import enduranceIcon from '../../../images/endurance.svg';
+import intelligenceIcon from '../../../images/intelligence.svg';
+import willIcon from '../../../images/will.svg';
+import dexterityIcon from '../../../images/dexterity.svg';
+import agilityIcon from '../../../images/agility.svg';
 
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';

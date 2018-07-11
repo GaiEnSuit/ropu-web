@@ -8,9 +8,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
 // Higher Order Components
-import withCharacterDataControl from '../../hoc/withCharacterDataControl';
-import withDialogControl from '../../hoc/withDialogControl';
-import withTabControl from '../../hoc/withTabControl';
+import withCharacterDataControl from '../../../hoc/withCharacterDataControl';
+import withDialogControl from '../../../hoc/withDialogControl';
+import withTabControl from '../../../hoc/withTabControl';
 
 // Icons
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
