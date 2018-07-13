@@ -13,12 +13,9 @@ import withDialogControl from '../../../hoc/withDialogControl';
 import styles from '../../../styles';
 
 const CharacterListItemCardActions = (props) => {
-  
-  const { classes } = props;
-  
   return(
     <CardActions
-      classes={{action: classes.cardActions}}
+      className="display-flex justify-flex-end"
     >
       {/* Delete Button */}
       <Button
@@ -26,9 +23,9 @@ const CharacterListItemCardActions = (props) => {
           props.updateDialog(true, "deleteDialog");
           props.selectCharacter(props.character);
         }}
-        style={styles.colorPrimary}
+        className={props.classes.cardActions}
       >
-        Delete
+        {props.characterSelectionPageText.delete}
       </Button>
     </CardActions>
   )

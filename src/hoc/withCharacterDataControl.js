@@ -27,7 +27,7 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
   }
   
   // Create Character Data Functions
-  
+
   setCreateCharacterID = () => {
     let usedIDs = [];
     this.props.characterListData.forEach((char)=>{
@@ -185,6 +185,7 @@ const withCharacterDataControl = (WrappedComponent) => class extends Component {
         setCreateCharacterID={this.setCreateCharacterID}
         updateCreateCharacterAbility={this.updateCreateCharacterAbility}
         selectCharacter={this.selectCharacter}
+        updateCreateCharacter={this.updateCreateCharacter}
         {...this.props}
       />
     )

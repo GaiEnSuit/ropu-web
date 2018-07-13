@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // Material-UI
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 // Images
 import sword from '../../images/sword_01b.png';
@@ -15,15 +16,14 @@ const PlayIcon = (props) => {
   return (
     <Link to={props.paths.characterList} className="link">
       <Paper
-        style={styles.playIcon}
-        className="d-flex justify-center flex-d-column align-items-center"
-        elevation={10}
+        className={props.classes.playIcon}
+        elevation={5}
       >
-          <img src={sword} alt="sword" style={styles.icon} />
-          <Typography variant="button" className="text-center" >{props.play}</Typography>
+          <img src={sword} alt="sword" className={props.classes.icon} />
+          <Typography variant="button" >{props.play}</Typography>
       </Paper>
     </Link>
   )
 }
 
-export default PlayIcon;
+export default withStyles(styles)(PlayIcon);

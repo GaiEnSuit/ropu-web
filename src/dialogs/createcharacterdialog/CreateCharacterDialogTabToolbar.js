@@ -3,7 +3,7 @@ import React from 'react';
 // Material-ui
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
 
 // Higher Order Component
 import withTabControl from '../../hoc/withTabControl';
@@ -15,20 +15,14 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from '../../styles';
 
 const CreateCharacterDialogTabToolbar = (props) => {
-  
-  const { classes } = props;
-  
   return(
-    <AppBar
-      position="static"
-      color="default"
-    >
+    <Paper>
       <Tabs
         value={props.createCharacterDialogTab}
         onChange={props.setCreateCharacterDialogTab}
         scrollable
         scrollButtons="off"
-        classes={{root: classes.tabs}}
+        className={props.classes.tabs}
       >
         <Tab value={0} label={props.createCharacterDialogText.game} />
         <Tab value={1} label={props.createCharacterDialogText.interactables} />
@@ -36,7 +30,7 @@ const CreateCharacterDialogTabToolbar = (props) => {
         <Tab value={3} label={props.createCharacterDialogText.abilities} />
         <Tab value={4} label={props.createCharacterDialogText.summary} />
       </Tabs>
-    </AppBar>
+    </Paper>
   )
 }
 

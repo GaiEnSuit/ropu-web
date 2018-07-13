@@ -2,6 +2,7 @@ import React from 'react';
 
 // Material-UI
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 
 // Custom Component
 import PlayIcon from './PlayIcon';
@@ -16,7 +17,7 @@ const HomePageIcons = (props) => {
     <Grid
       container
       spacing={24}
-      style={styles.gridContainer}
+      className={props.classes.gridContainer}
     >
       <Grid
         item
@@ -40,4 +41,4 @@ const HomePageIcons = (props) => {
   )
 }
 
-export default HomePageIcons;
+export default withStyles(styles)(HomePageIcons);

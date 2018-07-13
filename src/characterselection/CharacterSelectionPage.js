@@ -4,7 +4,7 @@ import React from 'react';
 // Material-Ui
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 
 // Custom Components
 import CreateCharacterButton from './CreateCharacterButton';
@@ -16,16 +16,15 @@ import styles from '../styles';
 const CharacterSelectionPage = (props) => {
   return (
     <section
-      className="min-height"
+      className="max-height"
     >
       {/* Title */}
       <Toolbar
-        className="bg-color-black justify-center"
-        style={{position: 'fixed', width: '100%'}}
+        className={props.classes.toolbar}
       >
         <Typography
           variant="display1"
-          style={styles.title}
+          className={props.classes.title}
         >
           {props.characterSelectionPageText.title}
         </Typography>
@@ -33,33 +32,21 @@ const CharacterSelectionPage = (props) => {
       {/* Toolbar Offset */}
       <Toolbar />
       {/* List of Characters */}
-      <Grid
-        justify="space-around"
-        spacing={24}
-        container
-        style={styles.gridContainer}
-      >
-        <Grid
-          item
-          xs={12}
-        >
-          {props.characterListData.length === 0?
-            (
-              <Typography
-                variant="subheading"
-                className="text-center"
-              >
-                {props.characterSelectionPageText.noCharacters}
-              </Typography>
-            ) :
-            (
-              <CharacterList
-                {...props}
-              />
-            )
-          }
-        </Grid>
-      </Grid>
+      {props.characterListData.length === 0?
+        (
+          <Typography
+            variant="subheading"
+            className="text-center"
+          >
+            {props.characterSelectionPageText.noCharacters}
+          </Typography>
+        ) :
+        (
+          <CharacterList
+            {...props}
+          />
+        )
+      }
       {/* Create Character FAB */}
       <CreateCharacterButton
         update={props.update}
@@ -71,4 +58,4 @@ const CharacterSelectionPage = (props) => {
   )
 }
 
-export default CharacterSelectionPage;
+export default withStyles(styles)(CharacterSelectionPage);

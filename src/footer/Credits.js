@@ -2,30 +2,30 @@ import React from 'react';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 // Style Classes
 import styles from '../styles';
 
 const Credits = (props) => {
   return (
-    <div id="credits" className="text-center">
+    <div id="credits" className="display-flex justify-center direction-column">
       <Typography
         variant="title"
-        style={styles.title}
-        className="text-center"
+        className={props.classes.title}
       >
-        {props.homePageText.credits}
+        {props.footerText.credits}
       </Typography>
-      <Typography variant="body1" style={styles.footerText}>
-        <a href={props.licenseData[0].sourceUrl} className="link" style={styles.footerLink}>
+      <Typography variant="body1" className={props.classes.footerText}>
+        <a href={props.licenseData[0].sourceUrl} className={props.classes.footerLink}>
           {props.licenseData[0].title}
         </a>
-        {props.homePageText.by}
-        <a href={props.licenseData[0].authorUrl} className="link" style={styles.footerLink}>
+        {props.footerText.by}
+        <a href={props.licenseData[0].authorUrl} className={props.classes.footerLink}>
           {props.licenseData[0].author}
         </a>
-        {props.homePageText.license}
-        <a href={props.licenseData[0].licenseUrl} className="link" style={styles.footerLink}>
+        {props.footerText.license}
+        <a href={props.licenseData[0].licenseUrl} className={props.classes.footerLink}>
           {props.licenseData[0].license}
         </a>
       </Typography>
@@ -33,4 +33,4 @@ const Credits = (props) => {
   )
 }
 
-export default Credits;
+export default withStyles(styles)(Credits);

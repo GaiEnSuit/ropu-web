@@ -7,7 +7,6 @@ const withGameDataControl = (WrappedComponent) => class extends Component {
     let list = gameListData.filter(x => x.id === 0)
     let game = list[0]
     this.props.update({selectedGame: game, createCharacterData: Object.assign({}, this.props.createCharacterData, {game: game.name, gameID: game.id})})
-    console.log(this.props.createCharacterData)
   }
   
   selectGame = (game) => {

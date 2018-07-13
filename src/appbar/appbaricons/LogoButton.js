@@ -15,9 +15,7 @@ import styles from '../../styles';
 const LogoButton = (props) => {
   return (
     <IconButton
-      style={
-        styles.logoButton
-      }
+      style={styles.logoButton}
       onClick={()=>{
         props.updateDialog(true, "homeDialog")
       }}

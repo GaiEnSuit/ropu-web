@@ -2,6 +2,7 @@ import React from 'react';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 // Style Classes
 import styles from '../styles';
@@ -11,19 +12,18 @@ import packageJSON from '../package.json';
 
 const Version = (props) => {
   return (
-    <div id="credits" className="text-center">
+    <div id="version" className="display-flex justify-center direction-column text-center">
       <Typography
         variant="title"
-        style={styles.title}
-        className="text-center"
+        className={props.classes.title}
       >
-        {props.homePageText.version}
+        {props.footerText.version}
       </Typography>
-      <Typography variant="body1" style={styles.footerText}>
+      <Typography variant="body1" className={props.classes.footerText}>
        {packageJSON.version}
       </Typography>
     </div>
   )
 }
 
-export default Version;
+export default withStyles(styles)(Version);

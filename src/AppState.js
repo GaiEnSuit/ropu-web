@@ -355,11 +355,13 @@ class AppState extends Component {
         direct: 'Direct',
         homebrew: 'Homebrew',
         newsFeed: 'News Feed',
+        offline: 'Unable to Retrieve Data'
+      },
+      footerText: {
         credits: 'Credits',
         by: ' by ',
         license: ' is licensed under ',
-        version: 'Version',
-        offline: 'Unable to Retrieve Data'
+        version: 'Version'
       },
       marketDialogText: {
         title: 'Market'
@@ -407,7 +409,8 @@ class AppState extends Component {
         noCharacters: 'You have no characters, create a new character',
         newCharacter: 'New Character',
         noStory: 'No Story',
-        noName: 'No Name'
+        noName: 'No Name',
+        delete: 'Delete'
       }
     };
     this.setAppState = this.setAppState.bind(this);

@@ -14,9 +14,7 @@ import LogInButton from './LogInButton';
 
 const AppBarIcons = (props) => {
   return (
-    <Toolbar
-      className="justify-flex-end"
-    >
+    <Toolbar className="justify-flex-end" >
       {window.location.pathname !== "/" && <LogoButton update={props.update} />}
       {window.location.pathname !== "/" && <HomeButton update={props.update} />}
       <MarketButton update={props.update} />

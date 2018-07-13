@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // Material-UI
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 // Images
 import potion from '../../images/potion_03g.png';
@@ -15,15 +16,14 @@ const HomeBrewIcon = (props) => {
   return (
     <Link to={props.paths.homebrew} className="link">
       <Paper
-        style={styles.homebrewIcon}
-        className="d-flex justify-center flex-d-column align-items-center"
-        elevation={10}
+        className={props.classes.homebrewIcon}
+        elevation={5}
       >
-        <img src={potion} alt="Book" style={styles.icon} />
-        <Typography variant="button" className="text-center">{props.homebrew}</Typography>
+        <img src={potion} alt="Book" className={props.classes.icon} />
+        <Typography variant="button">{props.homebrew}</Typography>
       </Paper>
     </Link>
   )
 }
 
-export default HomeBrewIcon;
+export default withStyles(styles)(HomeBrewIcon);

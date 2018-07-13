@@ -15,10 +15,6 @@ import NotFound404 from './NotFound404';
 
 // Material-ui
 import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
-
-// Styles Overrides
-import styles from './styles';
 
 // Custom Components
 import RopuAppBar from './appbar/RopuAppBar';
@@ -41,90 +37,67 @@ import AccountMenu from './menus/AccountMenu';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        {/* Material-UI CSS */}
+      <div className="App display-flex direction-column bg-color-light-red min-height">
+        {/* Material-Ui CSS Baseline */}
         <CssBaseline />
-        <Grid
-          container
-          direction="column"
-          className="min-height bg-color-light-red"
-          styles={styles.gridContainer}
-        >
-          {/* Appbar Toolbar is to prevent content from starting underneath */}
-          <Grid
-            item
-            xs={12}
-          >
-            <RopuAppBar
-              update={this.props.setAppState}
-              loggedIn={this.props.appState.loggedIn}
+        {/* Header */}
+        <RopuAppBar
+          update={this.props.setAppState}
+          loggedIn={this.props.appState.loggedIn}
+        />
+        <Toolbar />
+        {/* Main Section */}
+        <main className="flex">
+          <Switch>
+            {/* Home Page*/}
+            <Route 
+              exact 
+              path='/'
+              render={() =>
+                <HomePage
+                  paths={this.props.appState.paths}
+                  homePageText={this.props.appState.homePageText}
+                />
+              }
             />
-            <Toolbar />
-          </Grid>
-          {/* Main */}
-          <Grid
-            item
-            style={styles.main}
-          >
-            <Switch>
-              {/* Home Page Route */}
-              <Route 
-                exact 
-                path='/'
-                render={() =>
-                  <HomePage
-                    paths={this.props.appState.paths}
-                    homePageText={this.props.appState.homePageText}
-                    licenseData={this.props.appState.licenseData}
-                  />
-                }
-              />
-              {/* Character Selection Route */}
-              <Route 
-                exact
-                path='/characters' 
-                render={() =>
-                  <CharacterSelectionPage
-                    characterSelectionPageText={this.props.appState.characterSelectionPageText}
-                    characterListData={this.props.appState.characterListData}
-                    createCharacterData={this.props.appState.createCharacterData}
-                    gameListData={this.props.appState.gameListData}
-                    update={this.props.setAppState}
-                  />
-                }
-              />
-              {/* Player View */}
-              <Route path='/playerview/:id?' render={({match}) => 
-                this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
-                  (
-                    <Redirect to='/404' />
-                  ) : (
-                    <PlayerView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
-                  )
-              } />
-              {/* Story List */}
-              <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
-              {/* Home Brew List */}
-              <Route exact path='/homebrew' render={() => <HomeBrewList homebrewListData={this.props.appState.homebrewListData} />} />
-              {/* Page Not Found */}
-              <Route component={NotFound404} />
-            </Switch>
-          </Grid>
-          {/* Footer */}
-          {window.location.pathname === "/" &&
-            <Grid
-              item
-              xs={12}
-              className="footer"
-            >
-              <Footer
-                homePageText={this.props.appState.homePageText}
-                licenseData={this.props.appState.licenseData}
-              />
-            </Grid>
-          }
-
-        </Grid>
+            {/* Character Selection Page */}
+            <Route 
+              exact
+              path='/characters' 
+              render={() =>
+                <CharacterSelectionPage
+                  characterSelectionPageText={this.props.appState.characterSelectionPageText}
+                  characterListData={this.props.appState.characterListData}
+                  createCharacterData={this.props.appState.createCharacterData}
+                  gameListData={this.props.appState.gameListData}
+                  update={this.props.setAppState}
+                />
+              }
+            />
+            {/* Player View Page */}
+            <Route path='/playerview/:id?' render={({match}) => 
+              this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+                (
+                  <Redirect to='/404' />
+                ) : (
+                  <PlayerView character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
+                )
+            } />
+            {/* Story Page */}
+            <Route exact path='/stories' render={() => <StoryList gameListData={this.props.appState.gameListData} />} />
+            {/* Home Brew Page */}
+            <Route exact path='/homebrew' render={() => <HomeBrewList homebrewListData={this.props.appState.homebrewListData} />} />
+            {/* Page Not Found */}
+            <Route component={NotFound404} />
+          </Switch>
+        </main>
+        {/* Footer */}
+        {window.location.pathname === "/" &&
+          <Footer
+            footerText={this.props.appState.footerText}
+            licenseData={this.props.appState.licenseData}
+          />
+        }
         {/* Dialogs */}
         <MenuDialog 
           menuDialogText={this.props.appState.menuDialogText}
