@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 
 const withGameDataControl = (WrappedComponent) => class extends Component {
   
+  // Interactable Card Dialog Functions
+  openInteractableCardDialog = (item) => {
+    this.props.update({selectedInteractable: item})
+    this.props.update({interactableCardDialog: true})
+  }
+  
+  closeInteractableCardDialog = () => {
+    this.props.update({selectedInteractable: null})
+    this.props.update({interactableCardDialog: false})
+  }
+  
   // Select Game Functions
   setDefaultGame = (gameListData) => {
     let list = gameListData.filter(x => x.id === 0)

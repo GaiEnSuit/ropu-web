@@ -11,8 +11,9 @@ class AppState extends Component {
       // Paths
       paths: {
         home: '/',
-        characterList: '/characters',
-        storyList: '/stories',
+        characterSelection: '/characterselection',
+        characterCreation: '/charactercreation',
+        storySelection: '/storyselection',
         homebrew: '/homebrew'
       },
       
@@ -27,7 +28,7 @@ class AppState extends Component {
       createCharacterDialog: false,
       cancelCreateCharacterDialog: false,
       deleteDialog: false,
-
+      
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
@@ -353,22 +354,21 @@ class AppState extends Component {
       homePageText: {
         play: 'Play',
         direct: 'Direct',
-        homebrew: 'Homebrew',
+        homebrew: 'Create',
         newsFeed: 'News Feed',
-        offline: 'Unable to Retrieve Data'
-      },
-      footerText: {
+        offline: 'Unable to Retrieve Data',
         credits: 'Credits',
         by: ' by ',
         license: ' is licensed under ',
-        version: 'Version'
+        version: 'Version',
+        copyright: '',
       },
       marketDialogText: {
         title: 'Market'
       },
       cancelCreateCharacterDialogText: 'Cancel Character Creation?',
-      createCharacterDialogText: {
-        title: 'New Character',
+      characterCreationPageText: {
+        title: 'Create Character',
         game: 'Game',
         description: 'Description',
         abilities: 'Abilities',
@@ -406,11 +406,17 @@ class AppState extends Component {
       },
       characterSelectionPageText: {
         title: 'Select A Character',
-        noCharacters: 'You have no characters, create a new character',
+        noCharacters: 'No Characters',
         newCharacter: 'New Character',
         noStory: 'No Story',
         noName: 'No Name',
-        delete: 'Delete'
+        delete: 'Delete',
+        confirmDelete: 'Delete this character?',
+        confirm: 'Confirm',
+        cancel: 'Cancel',
+        createCharacter: 'Create Character',
+        back: 'back',
+        confirmHome: 'Return to Title Screen?'
       }
     };
     this.setAppState = this.setAppState.bind(this);
