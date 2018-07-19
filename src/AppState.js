@@ -151,6 +151,46 @@ class AppState extends Component {
           maxmp: 0,
           maxsp: 0,
           interactableListData: []
+        },
+        {
+          id: 3,
+          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
+          name: 'Ken',
+          game: 'Himura Mansion',
+          story: 'Weekly Saturday Meetings',
+          str: 0,
+          end: 0,
+          int: 0,
+          wil: 0,
+          dex: 0,
+          agi: 0,
+          hp: 0,
+          mp: 0,
+          sp: 0,
+          maxhp: 0,
+          maxmp: 0,
+          maxsp: 0,
+          interactableListData: []
+        },
+        {
+          id: 4,
+          img: 'https://78.media.tumblr.com/d1eb4b3eebb39ac624c7be375d644909/tumblr_ou4loyzT8f1r7pa53o1_500.jpg',
+          name: 'Ken',
+          game: 'Himura Mansion',
+          story: 'Weekly Saturday Meetings',
+          str: 0,
+          end: 0,
+          int: 0,
+          wil: 0,
+          dex: 0,
+          agi: 0,
+          hp: 0,
+          mp: 0,
+          sp: 0,
+          maxhp: 0,
+          maxmp: 0,
+          maxsp: 0,
+          interactableListData: []
         }
       ],
       storyListData: [
@@ -259,14 +299,7 @@ class AppState extends Component {
           ]
         }
       ],
-
       // Text Data
-      homeDialogText: {
-        text: 'Exit to the home screen?'
-      },
-      deleteDialogText: {
-        delete: 'Delete Character?'
-      },
       guideDialogText: {
         title: 'Guide'
       },
@@ -363,12 +396,9 @@ class AppState extends Component {
         version: 'Version',
         copyright: '',
       },
-      marketDialogText: {
-        title: 'Market'
-      },
-      cancelCreateCharacterDialogText: 'Cancel Character Creation?',
       characterCreationPageText: {
-        title: 'Create Character',
+        cancelCreateCharacter: 'Cancel Character Creation?',
+        title: 'Character Creation',
         game: 'Game',
         description: 'Description',
         abilities: 'Abilities',
@@ -404,19 +434,22 @@ class AppState extends Component {
         cancel: 'Cancel',
         expand: 'Description'
       },
+      storySelectionPageText: {
+        title: 'Select A Story',
+        confirmHome: 'Return Home?'
+      },
+      homebrewPageText: {
+        title: 'Homebrew',
+        confirmHome: 'Return Home?'
+      },
       characterSelectionPageText: {
         title: 'Select A Character',
         noCharacters: 'No Characters',
-        newCharacter: 'New Character',
         noStory: 'No Story',
         noName: 'No Name',
         delete: 'Delete',
-        confirmDelete: 'Delete this character?',
-        confirm: 'Confirm',
-        cancel: 'Cancel',
-        createCharacter: 'Create Character',
-        back: 'back',
-        confirmHome: 'Return to Title Screen?'
+        confirmDelete: 'Delete Character?',
+        confirmHome: 'Return Home?'
       }
     };
     this.setAppState = this.setAppState.bind(this);

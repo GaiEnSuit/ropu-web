@@ -18,7 +18,7 @@ const Version = (props) => {
         variant="body1"
         style={styles.colorWhite}
       >
-        {props.homePageText.version} {packageJSON.version}
+        {props.text.version} {packageJSON.version}
       </Typography>
     </div>
   )

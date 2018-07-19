@@ -7,14 +7,14 @@ import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
 // Higher Order Components
-import withDialogControl from '../hoc/withDialogControl';
+import withDialog from '../hoc/withDialog';
 
 const HomeButton = (props) => {
   return (
     <IconButton
       color="inherit"
       onClick={()=>{
-        props.updateDialog(true, "homeDialog")
+        props.updateDialog(true)
       }}
     >
       <HomeIcon />
@@ -22,4 +22,4 @@ const HomeButton = (props) => {
   )
 }
 
-export default withDialogControl(HomeButton);
+export default HomeButton;

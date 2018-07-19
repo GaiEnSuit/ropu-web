@@ -40,7 +40,7 @@ const CreateCharacterDialogTitle = (props) => {
         variant="display1"
         style={styles.title}
       >
-        {props.createCharacterDialogText.title}
+        {props.text.title}
       </Typography>
     </Toolbar>
   )
@@ -70,11 +70,11 @@ const CreateCharacterDialogTabToolbar = (props) => {
         scrollable
         scrollButtons="off"
       >
-        <Tab value={0} label={props.createCharacterDialogText.game} />
-        <Tab value={1} label={props.createCharacterDialogText.interactables} />
-        <Tab value={2} label={props.createCharacterDialogText.description} />
-        <Tab value={3} label={props.createCharacterDialogText.abilities} />
-        <Tab value={4} label={props.createCharacterDialogText.summary} />
+        <Tab value={0} label={props.text.game} />
+        <Tab value={1} label={props.text.interactables} />
+        <Tab value={2} label={props.text.description} />
+        <Tab value={3} label={props.text.abilities} />
+        <Tab value={4} label={props.text.summary} />
       </Tabs>
     </Paper>
   )
@@ -92,14 +92,14 @@ const CreateCharacterDialogActions = (props) => {
           color='inherit'
         >
           <ChevronLeftIcon />
-          {props.createCharacterDialogText.back}
+          {props.text.back}
         </Button>
         <Button 
           disabled={props.createCharacterDialogTab >= 4 && true}
           onClick={props.nextCreateCharacterDialogTab}
           color='inherit'
         >
-          {props.createCharacterDialogText.next}
+          {props.text.next}
           <ChevronRightIcon />
         </Button>
         <Button
@@ -124,9 +124,9 @@ const CreateCharacterPage = (props) => {
       id="charactercreation"
       style={{...styles.vp100, ...props.style}}
     >
-      <TitleBar title={props.characterCreationPageText.title}/>
+      <TitleBar {...props} />
     </main>
   )
 }
 
-export default withTransitions(CreateCharacterPage, 'fade', true, 500);
+export default withTransitions(CreateCharacterPage, 'fade', 500);

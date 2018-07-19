@@ -8,7 +8,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import styles from '../styles/styles';
 import Typography from '@material-ui/core/Typography';
 
-
 const TitleBar = (props) => {
   return (
     <AppBar
@@ -22,7 +21,7 @@ const TitleBar = (props) => {
           variant="display1"
           color="inherit"
         >
-          {props.title}
+          {props.text.title}
         </Typography>
       </Toolbar>
     </AppBar>

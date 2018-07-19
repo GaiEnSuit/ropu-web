@@ -17,13 +17,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-// HOC
-import withDialog from '../hoc/withDialog';
-import withCharacterDataControl from '../hoc/withCharacterDataControl';
-
-// Dialogs
-import DeleteCharacter from '../dialogs/DeleteCharacter'
-
 // Style Classes
 import styles from '../styles/styles';
 
@@ -33,7 +26,7 @@ const CharacterListItemCardMedia = (props) => {
     <Link to={`/playerview/${props.character.id}`}>
       <CardMedia
         image={props.character.img}
-        title="Character Portrait"
+        title={props.character.img}
         style={{...styles.dim100, ...styles.bgColorTransparentBlack}}
       >
         {!props.character.img &&
@@ -59,7 +52,7 @@ const CharacterListItemCardContent = (props) => {
       >
         {props.character.name === ''?
           (
-            <Typography variant="headline" noWrap color="inherit">{props.characterSelectionPageText.noName}</Typography>
+            <Typography variant="headline" noWrap color="inherit">{props.text.noName}</Typography>
           ) :
           (
             <Typography variant="headline" noWrap color="inherit">{props.character.name}</Typography>
@@ -68,7 +61,7 @@ const CharacterListItemCardContent = (props) => {
         <Typography variant="body1" noWrap color="inherit">{props.character.game}</Typography>
         {props.character.story === null?
           (
-            <Typography variant="body1" noWrap color="inherit">{props.characterSelectionPageText.noStory}</Typography>
+            <Typography variant="body1" noWrap color="inherit">{props.text.noStory}</Typography>
           ) :
           (
             <Typography variant="body1" noWrap color="inherit">{props.character.story}</Typography>
@@ -85,7 +78,7 @@ const CharacterListItemCardActions = (props) => {
     <CardActions
       style={{...styles.bgColorRed, ...styles.displayFlex, ...styles.justifyCenter}}
       onClick={()=>{
-        props.updateDialog(true, "deleteDialog", "fullWidth");
+        props.updateDialog(true, "deleteDialog");
         props.selectCharacter(props.character);
       }}
     >
@@ -93,13 +86,11 @@ const CharacterListItemCardActions = (props) => {
         style={styles.colorWhite}
       >
         <DeleteIcon />
-        {props.characterSelectionPageText.delete}
+        {props.text.delete}
       </Button>
     </CardActions>
   )
 }
-
-const EnhancedCharacterListItemCardActions = withCharacterDataControl(withDialog(CharacterListItemCardActions, DeleteCharacter));
 
 const CharacterSelectionCard = (props) => {
   return(
@@ -107,7 +98,8 @@ const CharacterSelectionCard = (props) => {
       raised={true}
       style={{
         ...styles.bgColorTransparentMediumRed,
-        ...styles.dim100
+        ...styles.dim100,
+        ...props.style
       }}
     >
       <Grid
@@ -130,11 +122,11 @@ const CharacterSelectionCard = (props) => {
         >
           <CharacterListItemCardContent {...props} />
           <Divider />
-          <EnhancedCharacterListItemCardActions {...props} />
+          <CharacterListItemCardActions {...props} />
         </Grid>
       </Grid>
     </Card>
   )
 }
 
-export default CharacterSelectionCard ;
+export default CharacterSelectionCard;

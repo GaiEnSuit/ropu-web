@@ -16,7 +16,7 @@ import withCharacterDataControl from '../hoc/withCharacterDataControl';
 import styles from '../styles/styles';
 import Typography from '@material-ui/core/Typography';
 
-const DeleteCharacter = (props) => {
+const DeleteCharacterDialog = (props) => {
   return (
     <div
       style={{
@@ -38,7 +38,7 @@ const DeleteCharacter = (props) => {
           ...styles.colorWhite
         }}
         >
-          {props.characterSelectionPageText.confirmDelete}
+          {props.text.confirmDelete}
         </Typography>
       </DialogTitle>
       <CardActions
@@ -51,14 +51,13 @@ const DeleteCharacter = (props) => {
         {/* Confirm Button */}
         <Button
           style={{...styles.colorWhite, ...styles.bgColorRed}}
-          aria-label="Close"
+          aria-label="Delete"
           onClick={() => {
             props.updateDialog(false, 'deleteDialog');
             props.deleteCharacter(props.selectedCharacter);
           }}
         >
           <CheckIcon />
-          {props.characterSelectionPageText.confirm}
         </Button>
         {/* Cancel Button */}
         <Button
@@ -70,11 +69,10 @@ const DeleteCharacter = (props) => {
           style={{...styles.colorWhite, ...styles.bgColorTransparentRed}}
         >
           <CloseIcon />
-          {props.characterSelectionPageText.cancel}
         </Button>
       </CardActions>
     </div>
   )
 }
 
-export default withCharacterDataControl(DeleteCharacter);
+export default withCharacterDataControl(DeleteCharacterDialog);

@@ -4,32 +4,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material-ui
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 // Icons
 import AddIcon from '@material-ui/icons/Add';
 
-// Higher Order Components 
-import withDialog from '../hoc/withDialog';
-
-// Dialogs
-import HomeDialog from '../dialogs/HomeDialog';
-
 // Styles Classes
 import styles from '../styles/styles';
 
-const CreateCharacterButton = (props) => {
+const CreatePlayerCharacterButton = (props) => {
   return(
     <Link to="/charactercreation">
-      <Button
+      <IconButton
         variant="extendedFab"
         style={{...styles.colorWhite, ...styles.bgColorRed}}
       >
         <AddIcon />
-        {props.text}
-      </Button>
+      </IconButton>
     </Link>
   )
 }
 
-export default withDialog(CreateCharacterButton, HomeDialog);
+export default CreatePlayerCharacterButton;

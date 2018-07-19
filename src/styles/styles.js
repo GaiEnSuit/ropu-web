@@ -87,6 +87,10 @@ const styles = {
   flex2: {
     flex: "2",
   },
+// Overflow
+  overflowScroll: {
+    overflow: 'scroll'
+  },
 // Sizing
   responsiveImage: {
     width: '100%',

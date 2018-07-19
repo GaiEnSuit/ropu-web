@@ -22,20 +22,22 @@ import Typography from '@material-ui/core/Typography';
 // Main Menu
 const MainMenu = (props) => {
   return (
-    <List>
+    <List
+      style={props.style}
+    >
       <Play
         play={props.play}
         paths={props.paths}
       />
       <Divider
-        style={styles.bgColorWhite}
+        style={styles.bgColorRed}
       />
       <Direct
         direct={props.direct}
         paths={props.paths}
       />
       <Divider
-        style={styles.bgColorWhite}
+        style={styles.bgColorRed}
       />
       <Create
         homebrew={props.homebrew}

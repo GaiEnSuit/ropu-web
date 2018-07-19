@@ -1,33 +1,25 @@
 import React from 'react';
 
 // Material-UI Components
-import Button from '@material-ui/core/Button';
-
-// Dialog
-import HomeDialog from '../dialogs/HomeDialog';
+import IconButton from '@material-ui/core/IconButton';
 
 // Icons
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
-// Higher Order Components
-import withDialog from '../hoc/withDialog';
 
 // styles
 import styles from '../styles/styles'
 
 const BackButton = (props) => {
   return (
-    <Button
-      variant="extendedFab"
+    <IconButton
       onClick={()=>{
-        props.updateDialog(true, props.dialog, 'fullWidth')
+        props.updateDialog(true)
       }}
       style={{...styles.colorWhite, ...styles.bgColorRed}}
     >
       <ArrowBackIcon />
-      {props.text}
-    </Button>
+    </IconButton>
   )
 }
 
-export default withDialog(BackButton, HomeDialog);
+export default BackButton;

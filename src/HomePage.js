@@ -19,12 +19,16 @@ import withTransitions from './hoc/withTransitions';
 // Sections
 import Banner from './sections/Banner';
 
+// Components with Fade
+const MainMenuWithZoom = withTransitions(MainMenu, 'zoom', 1000);
+const BannerWithFade = withTransitions(Banner, 'fade', 1000);
+
 // Layout
 const HomePage = (props) => {
   return (
     <main
       id="home"
-      style={{...styles.vh100, ...props.style, ...styles.bgColorMediumRed, ...styles.overflowHidden}}
+      style={{...styles.vh100, ...props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
     >
       <Version {...props} />
       <Grid
@@ -54,7 +58,7 @@ const HomePage = (props) => {
               ...styles.dim100
             }}
           >
-            <Banner />
+            <BannerWithFade {...props} />
           </div>
         </Grid>
         <Grid
@@ -75,20 +79,20 @@ const HomePage = (props) => {
               ...styles.height100
             }}
           >
-            <MainMenu
-              play={props.homePageText.play}
-              direct={props.homePageText.direct}
-              homebrew={props.homePageText.homebrew}
+            <MainMenuWithZoom
+              play={props.text.play}
+              direct={props.text.direct}
+              homebrew={props.text.homebrew}
               paths={props.paths}
             />
           </div>
         </Grid>
       </Grid>
       <Copyright
-        copyright={props.homePageText.copyRight}
+        copyright={props.text.copyRight}
       />
     </main>
   )
 }
 
-export default withTransitions(HomePage, 'fade', true, 3000);
+export default withTransitions(HomePage, 'fade', 500);

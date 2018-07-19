@@ -11,7 +11,7 @@ const Copyright = (props) => {
     <img
       src={banner}
       alt='logo'
-      style={styles.responsiveImage}
+      style={{...styles.responsiveImage, ...props.style}}
     />
   )
 }

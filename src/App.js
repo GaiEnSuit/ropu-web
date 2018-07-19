@@ -30,7 +30,7 @@ class App extends Component {
             render={() =>
               <HomePage
                 paths={this.props.appState.paths}
-                homePageText={this.props.appState.homePageText}
+                text={this.props.appState.homePageText}
                 update={this.props.setAppState}
               />
             }
@@ -41,7 +41,7 @@ class App extends Component {
             path='/characterselection' 
             render={() =>
               <CharacterSelectionPage
-                characterSelectionPageText={this.props.appState.characterSelectionPageText}
+                text={this.props.appState.characterSelectionPageText}
                 characterListData={this.props.appState.characterListData}
                 createCharacterData={this.props.appState.createCharacterData}
                 selectedCharacter={this.props.appState.selectedCharacter}
@@ -56,26 +56,51 @@ class App extends Component {
             path='/charactercreation' 
             render={() =>
               <CharacterCreationPage
-                characterCreationPageText={this.props.appState.characterCreationPageText}
+                text={this.props.appState.characterCreationPageText}
                 update={this.props.setAppState}
               />
             }
           />
           {/* Player View Page */}
-          <Route path='/playerview/:id?' render={({match}) => 
-            this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
-              (
-                <Redirect to='/404' />
-              ) : (
-                <PlayerViewPage character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))} />
-              )
-          } />
+          <Route
+            path='/playerview/:id?'
+            render={({match}) => 
+              this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+                (
+                  <Redirect to='/404' />
+                ) : (
+                  <PlayerViewPage
+                    character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))}
+                  />
+                )
+            }
+          />
           {/* Story Page */}
-          <Route exact path='/storyselection' render={() => <StorySelectionPage gameListData={this.props.appState.gameListData} />} />
+          <Route
+            exact
+            path='/storyselection' 
+            render={() =>
+              <StorySelectionPage
+                text={this.props.appState.storySelectionPageText}
+                gameListData={this.props.appState.gameListData}
+              />
+            }
+          />
           {/* Home Brew Page */}
-          <Route exact path='/homebrew' render={() => <HomebrewPage homebrewListData={this.props.appState.homebrewListData} />} />
+          <Route
+            exact
+            path='/homebrew'
+            render={() =>
+              <HomebrewPage
+                homebrewListData={this.props.appState.homebrewListData}
+                text={this.props.appState.homebrewPageText}
+              />
+            }
+          />
           {/* Page Not Found */}
-          <Route component={ErrorPage} />
+          <Route 
+            component={ErrorPage}
+          />
         </Switch>
       </div>
     );

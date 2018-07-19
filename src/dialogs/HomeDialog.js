@@ -3,41 +3,74 @@ import { Link } from 'react-router-dom';
 
 // Material-ui
 import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 
+// styles
+import styles from '../styles/styles';
+import Typography from '@material-ui/core/Typography';
+
 const HomeDialog = (props) => {
   return (
-    <div>
-      <DialogTitle>
-        {props.characterSelectionPageText.confirmHome}
+    <div
+      style={{
+        ...styles.bgColorTransparentMediumRed
+      }}
+    >
+      <DialogTitle
+        disableTypography
+        style={{
+          ...styles.displayFlex,
+          ...styles.justifyCenter,
+          ...styles.bgColorTransparentMediumRed,
+          ...styles.colorWhite
+        }}
+      >
+        <Typography
+          variant="headline"
+          style={{
+            ...styles.colorWhite
+          }}
+        >
+          {props.text.confirmHome}
+        </Typography>
       </DialogTitle>
-      <DialogActions>
+      <CardActions
+        style={{
+          ...styles.displayFlex,
+          ...styles.justifyCenter,
+          ...styles.bgColorTransparentMediumRed
+        }}
+      >
         {/* Confirm Button */}
         <Link 
           to='/'
           onClick={()=>{
             props.updateDialog(false)
           }}
+        >
+          <Button
+            style={{...styles.colorWhite, ...styles.bgColorRed}}
+            aria-label="Close"
           >
-          <IconButton aria-label="Close">
             <CheckIcon />
-          </IconButton>
+          </Button>
         </Link>
         {/* Cancel Button */}
-        <IconButton
+        <Button
           aria-label="Close"
           onClick={()=>{
             props.updateDialog(false)
           }}
+          style={{...styles.colorWhite, ...styles.bgColorTransparentRed}}
         >
           <CloseIcon />
-        </IconButton>
-      </DialogActions>
+        </Button>
+      </CardActions>
     </div>
   )
 }
