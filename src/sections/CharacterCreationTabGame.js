@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 // Higher Order Components
-import withTabControl from '../hoc/withTabControl';
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
 import withGameDataControl from '../hoc/withGameDataControl';
 

@@ -60,6 +60,11 @@ const styles = {
   positionAbsolute: {
     position: 'absolute'
   },
+  absoluteTopRight: {
+    position: 'absolute',
+    top: '0px',
+    right: '0px'
+  },
   displayFlex: {
     display: 'flex'
   },
