@@ -12,7 +12,13 @@
 html, body, .app {
   width: 100%;
   min-height: 100%;
-  margin: 0
+  margin: 0;
+  /* Disables pull-to-refresh but allows overscroll glow effects. */
+  overscroll-behavior-y: contain;
+  /* Disables pull-to-refresh and overscroll glow effect.
+   Still keeps swipe navigations. */
+  overscroll-behavior-y: none;
+  background-color: black
 }
 
 a {

@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Material-ui
-import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -16,12 +15,16 @@ import withTabControl from './hoc/withTabControl';
 import withCharacterDataControl from './hoc/withCharacterDataControl';
 import withGameDataControl from './hoc/withGameDataControl';
 import withTransitions from './hoc/withTransitions';
+import withDialog from './hoc/withDialog';
 
 // Headers
 import TitleBar from './headers/TitleBar';
 
 // Lists
 import GameList from './lists/GameList';
+
+// Button
+import BackButton from './buttons/BackButton';
 
 //Icons
 import CloseIcon from '@material-ui/icons/Close';
@@ -117,6 +120,20 @@ const CreateCharacterDialogActions = (props) => {
 
 const CreateCharacterDialogActionsEnhanced = withTabControl(CreateCharacterDialogActions);
 
+const BackButtonWithDialog = withDialog(BackButton, 'homeDialog');
+
+const CharacterCreationPageActionBar = (props) => {
+  return (
+    <Toolbar
+      style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
+    >
+      <BackButtonWithDialog
+        {...props}
+      />
+    </Toolbar>
+  )
+}
+
 // Layout
 const CreateCharacterPage = (props) => {
   return(
@@ -125,6 +142,12 @@ const CreateCharacterPage = (props) => {
       style={{...styles.vp100, ...props.style}}
     >
       <TitleBar {...props} />
+      <div>
+        <Toolbar />
+        <Typography variant="display1">This Feature is Currently Unavailable</Typography>
+        <Toolbar />
+      </div>
+      <CharacterCreationPageActionBar {...props} />
     </main>
   )
 }

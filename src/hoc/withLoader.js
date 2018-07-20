@@ -5,36 +5,35 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 // Material-UI
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+
+// styles
+import styles from '../styles/styles';
 
 const withLoader = (WrappedComponent) => class extends Component {
   render(){
-    return (
-      <div>
-      {!navigator.onLine?
-          (
-            <Paper
-              className={this.props.classes.newsFeedEmpty}
-            >
-              <ErrorOutlineIcon
-                className={this.props.classes.icon}
-              />
-              <Typography
-                className="text-center"
-                variant="headline"
-              >
-                {this.props.homePageText.offline}
-              </Typography>
-            </Paper>
-          ) : 
-          (
-            <WrappedComponent
-              {...this.props}
-            />
-          )
-        }
-      </div>
-    )
+    if (navigator.onLine) {
+      return (
+        <WrappedComponent
+          {...this.props}
+        />
+      )
+    } else {
+      return(
+        <div
+          style={{...styles.dim100, ...styles.displayFlex, ...styles.justifyCenter, ...styles.alignCenter, ...styles.directionColumn}}
+        >
+          <ErrorOutlineIcon
+            style={styles.icon64}
+          />
+          <Typography
+            className="text-center"
+            variant="headline"
+          >
+            {this.props.offline}
+          </Typography>
+        </div>
+      )
+    }
   }
 }
 

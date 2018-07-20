@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material-ui
-import DialogTitle from '@material-ui/core/DialogTitle';
-import CardActions from '@material-ui/core/CardActions';
+import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 
 // Icons
@@ -12,7 +11,9 @@ import CheckIcon from '@material-ui/icons/Check';
 
 // styles
 import styles from '../styles/styles';
-import Typography from '@material-ui/core/Typography';
+
+// Headers
+import RopuDialogTitle from '../headers/RopuDialogTitle';
 
 const HomeDialog = (props) => {
   return (
@@ -21,29 +22,16 @@ const HomeDialog = (props) => {
         ...styles.bgColorTransparentMediumRed
       }}
     >
-      <DialogTitle
-        disableTypography
+      <RopuDialogTitle
+        {...props}
+        title={props.text.homeDialogTitle}
+      />
+      <DialogActions
         style={{
           ...styles.displayFlex,
           ...styles.justifyCenter,
           ...styles.bgColorTransparentMediumRed,
-          ...styles.colorWhite
-        }}
-      >
-        <Typography
-          variant="headline"
-          style={{
-            ...styles.colorWhite
-          }}
-        >
-          {props.text.confirmHome}
-        </Typography>
-      </DialogTitle>
-      <CardActions
-        style={{
-          ...styles.displayFlex,
-          ...styles.justifyCenter,
-          ...styles.bgColorTransparentMediumRed
+          ...styles.margin0
         }}
       >
         {/* Confirm Button */}
@@ -70,7 +58,7 @@ const HomeDialog = (props) => {
         >
           <CloseIcon />
         </Button>
-      </CardActions>
+      </DialogActions>
     </div>
   )
 }

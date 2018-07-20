@@ -17,18 +17,6 @@ class AppState extends Component {
         homebrew: '/homebrew'
       },
       
-      // Dialog Control
-      homeDialog: false,
-      guideDialog: false,
-      logInDialog: false,
-      accountMenu: false,
-      menuDialog: false,
-      interactableCardDialog: false,
-      marketDialog: false,
-      createCharacterDialog: false,
-      cancelCreateCharacterDialog: false,
-      deleteDialog: false,
-      
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
@@ -388,7 +376,7 @@ class AppState extends Component {
         play: 'Play',
         direct: 'Direct',
         homebrew: 'Create',
-        newsFeed: 'News Feed',
+        guide: 'Guide',
         offline: 'Unable to Retrieve Data',
         credits: 'Credits',
         by: ' by ',
@@ -432,15 +420,16 @@ class AppState extends Component {
         next: 'Next',
         back: 'Back',
         cancel: 'Cancel',
-        expand: 'Description'
+        expand: 'Description',
+        confirmHome: 'Return Home?'
       },
       storySelectionPageText: {
         title: 'Select A Story',
-        confirmHome: 'Return Home?'
+        confirmHome: 'Return Home?',
       },
       homebrewPageText: {
         title: 'Homebrew',
-        confirmHome: 'Return Home?'
+        homeDialogTitle: 'Return Home?'
       },
       characterSelectionPageText: {
         title: 'Select A Character',
@@ -449,7 +438,9 @@ class AppState extends Component {
         noName: 'No Name',
         delete: 'Delete',
         confirmDelete: 'Delete Character?',
-        confirmHome: 'Return Home?'
+        homeDialogTitle: 'Return Home?',
+        newsFeedDialogTitle: 'News Feed',
+        offline: 'Error Unable to Retrieve Data'
       }
     };
     this.setAppState = this.setAppState.bind(this);

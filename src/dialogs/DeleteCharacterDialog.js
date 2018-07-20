@@ -53,7 +53,7 @@ const DeleteCharacterDialog = (props) => {
           style={{...styles.colorWhite, ...styles.bgColorRed}}
           aria-label="Delete"
           onClick={() => {
-            props.updateDialog(false, 'deleteDialog');
+            props.updateDialog(false);
             props.deleteCharacter(props.selectedCharacter);
           }}
         >
@@ -63,7 +63,7 @@ const DeleteCharacterDialog = (props) => {
         <Button
           aria-label="Close"
           onClick={()=>{
-            props.updateDialog(false, 'deleteDialog');
+            props.updateDialog(false);
             props.selectCharacter(null);
           }}
           style={{...styles.colorWhite, ...styles.bgColorTransparentRed}}

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import sword from '../images/sword_01b.png';
 import book from '../images/book_05g.png';
 import potion from '../images/potion_03g.png';
+import tome from '../images/book_05f.png';
 
 // Material-UI
 import List from '@material-ui/core/List';
@@ -19,33 +20,8 @@ import Divider from '@material-ui/core/Divider';
 import styles from '../styles/styles';
 import Typography from '@material-ui/core/Typography';
 
-// Main Menu
-const MainMenu = (props) => {
-  return (
-    <List
-      style={props.style}
-    >
-      <Play
-        play={props.play}
-        paths={props.paths}
-      />
-      <Divider
-        style={styles.bgColorRed}
-      />
-      <Direct
-        direct={props.direct}
-        paths={props.paths}
-      />
-      <Divider
-        style={styles.bgColorRed}
-      />
-      <Create
-        homebrew={props.homebrew}
-        paths={props.paths}
-      />
-    </List>
-  )
-}
+// HOC
+import withDialog from '../hoc/withDialog';
 
 // Play
 const Play = (props) => {
@@ -65,7 +41,7 @@ const Play = (props) => {
             style={styles.colorWhite}
             variant="button"
           >
-            {props.play}
+            {props.text.play}
           </Typography>
         </ListItemText>
       </ListItem>
@@ -91,7 +67,7 @@ const Direct = (props) => {
             style={styles.colorWhite}
             variant="button"
           >
-            {props.direct}
+            {props.text.direct}
           </Typography>
         </ListItemText>
       </ListItem>
@@ -117,11 +93,70 @@ const Create = (props) => {
             style={styles.colorWhite}
             variant="button"
           >
-            {props.homebrew}
+            {props.text.homebrew}
           </Typography>
         </ListItemText>
       </ListItem>
     </Link>
+  )
+}
+
+// Create
+const Guide = (props) => {
+  return (
+    <ListItem
+      onClick={()=>{
+        props.updateDialog(true);
+      }}
+    >
+      <ListItemIcon>
+        <img
+          src={tome}
+          alt="Book" />
+      </ListItemIcon>
+      <ListItemText>
+        <Typography
+          style={styles.colorWhite}
+          variant="button"
+        >
+          {props.text.guide}
+        </Typography>
+      </ListItemText>
+    </ListItem>
+  )
+}
+
+// Guide with Guide Dialog
+const GuideWithDialog = withDialog(Guide, 'guideDialog')
+
+// Main Menu
+const MainMenu = (props) => {
+  return (
+    <List
+      style={props.style}
+    >
+      <Play
+        {...props}
+      />
+      <Divider
+        style={styles.bgColorRed}
+      />
+      <Direct
+        {...props}
+      />
+      <Divider
+        style={styles.bgColorRed}
+      />
+      <Create
+        {...props}
+      />
+      <Divider
+        style={styles.bgColorRed}
+      />
+      <GuideWithDialog
+        {...props}
+      />
+    </List>
   )
 }
 

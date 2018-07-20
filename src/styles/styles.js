@@ -43,7 +43,7 @@ const styles = {
   bgColorWhite: {
     backgroundColor: 'white'
   },
-// Margin
+// Margin and Padding
   margin0: {
     margin: '0'
   },
@@ -140,15 +140,7 @@ const styles = {
     left: '50%',
     transform: 'translateX(-50%)',
   },
-  newsFeedEmpty: {
-    minHeight: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'height'
-  },
-  newsFeedContent: {
-    minHeight: '100%',
+  spinnerBackground: {
     backgroundColor: '#ffffff',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -170,6 +162,9 @@ const styles = {
   },
   overflowHidden: {
     overflow: 'hidden'
+  },
+    dialogContent: {
+    paddingTop: '24px'
   }
 };
 

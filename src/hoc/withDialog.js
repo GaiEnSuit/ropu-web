@@ -6,19 +6,22 @@ import Dialog from '@material-ui/core/Dialog';
 // Dialogs
 import DeleteCharacterDialog from '../dialogs/DeleteCharacterDialog';
 import HomeDialog from '../dialogs/HomeDialog';
+import GuideDialog from '../dialogs/GuideDialog';
+import NewsFeedDialog from '../dialogs/NewsFeedDialog';
+
+// Styles
+import styles from '../styles/styles';
 
 const withDialog = (WrappedComponent, selectedDialog) => class extends Component {
   
   state = {
     open: false,
-    dialog: null,
-    fullScreen: false,
-    fullWidth: false
+    dialog: selectedDialog
   }
   
   // DialogControl
-  updateDialog = (value, dialog, size) => {
-    this.setState({open: value, dialog: dialog, [size]: true})
+  updateDialog = (value) => {
+    this.setState({open: value})
   }
   
   render () {
@@ -33,11 +36,9 @@ const withDialog = (WrappedComponent, selectedDialog) => class extends Component
             <Dialog
               open={this.state.open}
               onClose={()=>{
-                this.updateDialog(false, null)
+                this.updateDialog(false)
               }}
-              disableBackdropClick={this.state.fullScreen}
-              fullWidth={this.state.fullWidth}
-              fullScreen={this.state.fullScreen}
+              style={styles.overflowHidden}
             >
               <DeleteCharacterDialog updateDialog={this.updateDialog} {...this.props} />
             </Dialog>
@@ -54,13 +55,51 @@ const withDialog = (WrappedComponent, selectedDialog) => class extends Component
             <Dialog
               open={this.state.open}
               onClose={()=>{
-                this.updateDialog(false, null)
+                this.updateDialog(false)
               }}
-              disableBackdropClick={this.state.fullScreen}
-              fullWidth={this.state.fullWidth}
-              fullScreen={this.state.fullScreen}
+              style={styles.overflowHidden}
             >
               <HomeDialog updateDialog={this.updateDialog} {...this.props} />
+            </Dialog>
+          </div>
+        )
+        break;
+      case 'guideDialog':
+        return (
+          <div>
+            <WrappedComponent
+              updateDialog={this.updateDialog}
+              {...this.props}
+            />
+            <Dialog
+              open={this.state.open}
+              onClose={()=>{
+                this.updateDialog(false)
+              }}
+              fullScreen
+            >
+              <GuideDialog updateDialog={this.updateDialog} {...this.props} />
+            </Dialog>
+          </div>
+        )
+        break;
+     case 'newsFeedDialog':
+        return (
+          <div>
+            <WrappedComponent
+              updateDialog={this.updateDialog}
+              {...this.props}
+            />
+            <Dialog
+              open={this.state.open}
+              onClose={()=>{
+                this.updateDialog(false)
+              }}
+            >
+              <NewsFeedDialog
+                updateDialog={this.updateDialog}
+                {...this.props}
+              />
             </Dialog>
           </div>
         )

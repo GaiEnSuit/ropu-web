@@ -1,31 +1,39 @@
 import React from 'react';
 
 // Material-Ui
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import DialogContent from '@material-ui/core/DialogContent';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
+// Headers
+import RopuDialogTitle from '../headers/RopuDialogTitle';
+
+// Footers
+import DialogCardActions from '../footers/DialogCardActions';
+
 // Icons
-import CloseIcon from '@material-ui/icons/Close';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-// Higher Order Components
-import withDialogControl from '../../hoc/withDialogControl';
+// styles
+import styles from '../styles/styles';
+import Typography from '@material-ui/core/Typography';
 
 // Guide Dialog List
-const GuideDialogList = (props) => {
+const GuideDialogContent = (props) => {
   return(
-    <div>
+    <DialogContent
+      style={{...styles.dialogContent, ...styles.dim100}}
+    >
       {props.guideDialogData.map((data, index)=> {
         return(
           <ExpansionPanel key={index}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>{data.title}</Typography>
+              <Typography
+                variant="subheading"
+              >
+                {data.title}
+              </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography>
@@ -35,38 +43,21 @@ const GuideDialogList = (props) => {
           </ExpansionPanel>
         )
       })}
-    </div>
+    </DialogContent>
   )
 }
 
 // Layout
-
 const GuideDialog = (props) => {
   return (
-    <Dialog
-      open={props.guideDialog}
-      fullScreen
-      aria-labelledby="dynamic dialog"
+    <div
+      style={{...styles.displayFlex, ...styles.directionColumn}}
     >
-      <DialogActions>
-        <IconButton
-          onClick={()=>{
-            props.updateDialog(false, 'guideDialog')
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogActions>
-      <DialogTitle>
-        {props.guideDialogText.title}
-      </DialogTitle>
-      {/* Guide Expansion Panels */}
-      <GuideDialogList
-        guideDialogData={props.guideDialogData}
-        update={props.update}
-      />
-    </Dialog>
+      <RopuDialogTitle {...props} title={props.text.guide} />
+      <GuideDialogContent {...props} />
+      <DialogCardActions {...props} />
+    </div>
   )
 }
 
-export default withDialogControl(GuideDialog);
+export default GuideDialog;

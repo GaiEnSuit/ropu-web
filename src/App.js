@@ -32,6 +32,7 @@ class App extends Component {
                 paths={this.props.appState.paths}
                 text={this.props.appState.homePageText}
                 update={this.props.setAppState}
+                guideDialogData={this.props.appState.guideDialogData}
               />
             }
           />

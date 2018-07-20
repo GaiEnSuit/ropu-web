@@ -80,10 +80,7 @@ const HomePage = (props) => {
             }}
           >
             <MainMenuWithZoom
-              play={props.text.play}
-              direct={props.text.direct}
-              homebrew={props.text.homebrew}
-              paths={props.paths}
+              {...props}
             />
           </div>
         </Grid>

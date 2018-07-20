@@ -6,7 +6,7 @@ import styles from './styles/styles';
 
 // Material-Ui
 import Toolbar from '@material-ui/core/Toolbar';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 
 // Button
 import BackButton from './buttons/BackButton';
@@ -20,29 +20,29 @@ import TitleBar from './headers/TitleBar';
 const BackButtonWithDialog = withDialog(BackButton, 'homeDialog')
 
 // Story List
-const StorySelectionList = (props) => {
-  console.log(props.gameListData)
-  return (
-    <div
-      style={{...styles.vp100}}
-    >
-      <Toolbar />
-        {props.gameListData.map((game, index) => {
-          return (
-            <Card
-              key={index}
-              style={{...styles.vp100}}
-            >
-              <Typography variant="display1" >{game.name}</Typography>
-            </Card>
-          )
-          })
-        }
-      <Toolbar />
-      <Toolbar />
-    </div>
-  )
-}
+// const StorySelectionList = (props) => {
+//   console.log(props.gameListData)
+//   return (
+//     <div
+//       style={{...styles.vp100}}
+//     >
+//       <Toolbar />
+//         {props.gameListData.map((game, index) => {
+//           return (
+//             <Card
+//               key={index}
+//               style={{...styles.vp100}}
+//             >
+//               <Typography variant="display1" >{game.name}</Typography>
+//             </Card>
+//           )
+//           })
+//         }
+//       <Toolbar />
+//       <Toolbar />
+//     </div>
+//   )
+// }
 
 // Footer
 const StorySelectionActionBar = (props) => {
