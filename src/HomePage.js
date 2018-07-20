@@ -20,8 +20,8 @@ import withTransitions from './hoc/withTransitions';
 import Banner from './sections/Banner';
 
 // Components with Fade
-const MainMenuWithZoom = withTransitions(MainMenu, 'zoom', 1000);
-const BannerWithFade = withTransitions(Banner, 'fade', 1000);
+const MainMenuWithZoom = withTransitions(MainMenu, 'fade', 1000, 1000);
+const BannerWithFade = withTransitions(Banner, 'fade', 1000, 500);
 
 // Layout
 const HomePage = (props) => {

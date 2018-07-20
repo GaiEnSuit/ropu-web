@@ -85,41 +85,30 @@ const CreateCharacterDialogTabToolbar = (props) => {
 }
 
 // Dialog Actions
-const CreateCharacterDialogActions = (props) => {
-  return(
-    <Paper
-    >
-      <DialogActions>
-        <Button 
-          disabled={props.createCharacterDialogTab <= 0 && true}
-          onClick={props.backCreateCharacterDialogTab}
-          color='inherit'
-        >
-          <ChevronLeftIcon />
-          {props.text.back}
-        </Button>
-        <Button 
-          disabled={props.createCharacterDialogTab >= 4 && true}
-          onClick={props.nextCreateCharacterDialogTab}
-          color='inherit'
-        >
-          {props.text.next}
-          <ChevronRightIcon />
-        </Button>
-        <Button
-          onClick={()=>{
-            props.updateDialog(true, 'cancelCreateCharacterDialog')
-          }}
-          color='inherit'
-        >
-          <CloseIcon />
-        </Button>
-      </DialogActions>
-    </Paper>
-  )
-}
-
-const CreateCharacterDialogActionsEnhanced = withTabControl(CreateCharacterDialogActions);
+//         <Button 
+//           disabled={props.createCharacterDialogTab <= 0 && true}
+//           onClick={props.backCreateCharacterDialogTab}
+//           color='inherit'
+//         >
+//           <ChevronLeftIcon />
+//           {props.text.back}
+//         </Button>
+//         <Button 
+//           disabled={props.createCharacterDialogTab >= 4 && true}
+//           onClick={props.nextCreateCharacterDialogTab}
+//           color='inherit'
+//         >
+//           {props.text.next}
+//           <ChevronRightIcon />
+//         </Button>
+//         <Button
+//           onClick={()=>{
+//             props.updateDialog(true, 'cancelCreateCharacterDialog')
+//           }}
+//           color='inherit'
+//         >
+//           <CloseIcon />
+//         </Button>
 
 const BackButtonWithDialog = withDialog(BackButton, 'characterSelectionDialog');
 
@@ -137,10 +126,6 @@ const CharacterCreationPageActionBar = (props) => {
 
 // Layout
 class CreateCharacterPage extends Component {
-  
-  componentWillMount () {
-    
-  }
   
   componentWillUnmount () {
     this.props.resetCreateCharacter();

@@ -422,7 +422,7 @@ class AppState extends Component {
         cancel: 'Cancel',
         expand: 'Description',
         homeDialogTitle: 'Return Home?',
-        characterSelectionPageDialogTitle: 'Return to Character Selection?'
+        characterSelectionPageDialogTitle: 'All Unsaved Data Will Be Lost'
       },
       storySelectionPageText: {
         title: 'Select A Story',

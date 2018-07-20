@@ -25,7 +25,7 @@ import CreatePlayerCharacterButton from './buttons/CreatePlayerCharacterButton';
 import BackButton from './buttons/BackButton';
 
 //Character Selection Cards Slide
-const CharacterSelectionCardSlide = withCharacterDataControl(withDialog(withTransitions(CharacterSelectionCard, 'slide', 1000, 'up'), 'deleteCharacterDialog'));
+const CharacterSelectionCardSlide = withCharacterDataControl(withDialog(withTransitions(CharacterSelectionCard, 'slide', 500, 500, 'up'), 'deleteCharacterDialog'));
 const BackButtonWithDialog = withDialog(BackButton, 'homeDialog');
 
 // Character Selection List

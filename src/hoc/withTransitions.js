@@ -7,36 +7,36 @@ import Collapse from '@material-ui/core/Collapse';
 import Slide from '@material-ui/core/Slide';
 import Zoom from '@material-ui/core/Zoom';
 
-const withTransitions = (WrappedComponent, animation, timeout, direction) => class extends Component {
+const withTransitions = (WrappedComponent, animation, timeout, delay, direction) => class extends Component {
   
   state = {
-    fade: false,
-    grow: false,
-    collapse: false,
-    zoom: false,
-    timeout: 0,
-    direction: null
+    in: false,
+    timeout: null
   }
   
   // On Mount Hook
-  componentWillMount() {
-    this.updateTransition(animation, true, timeout)
+  componentDidMount() {
+    this.updateTransition(true)
   }
 
   componentWillUnmount() {
-    this.updateTransition(animation, false, timeout)
+    this.updateTransition(false)
   }
   
   // The style property must be applied to the DOM for animation to work
-  updateTransition = (animation, boolean, timeout) => {
-    this.setState({[animation]: boolean, timeout: timeout, direction: direction})
+  updateTransition = (boolean, timeout) => {
+    this.setState({in: boolean, timeout: timeout? timeout : 0})
   }
                
   render(){
     switch (animation) {
       case 'fade': 
         return (
-          <Fade in={this.state.fade} timeout={this.state.timeout} >
+          <Fade
+            in={this.state.in}
+            timeout={timeout}
+            style={{transitionDelay: delay? delay : 0}}
+          >
             <WrappedComponent
               updateTransition={this.updateTransition}
               {...this.props}
@@ -46,7 +46,11 @@ const withTransitions = (WrappedComponent, animation, timeout, direction) => cla
         break;
       case 'grow':
         return (
-          <Grow in={this.state.grow} timeout={this.state.timeout} >
+          <Grow
+            in={this.state.in}
+            timeout={timeout}
+            style={{transitionDelay: delay? delay : 0}}
+          >
             <WrappedComponent
               updateTransition={this.updateTransition}
               {...this.props}
@@ -56,7 +60,12 @@ const withTransitions = (WrappedComponent, animation, timeout, direction) => cla
         break;
       case 'collapse':
         return (
-          <Collapse in={this.state.collapse} timeout={this.state.timeout} collapsedHeight="0px" >
+          <Collapse
+            in={this.state.in}
+            timeout={timeout}
+            style={{transitionDelay: delay? delay : 0}}
+            collapsedHeight="0px"
+          >
             <WrappedComponent
               updateTransition={this.updateTransition}
               {...this.props}
@@ -66,7 +75,12 @@ const withTransitions = (WrappedComponent, animation, timeout, direction) => cla
         break;
       case 'slide':
         return (
-          <Slide in={this.state.slide} timeout={this.state.timeout} direction={this.state.direction} style={{transitionDelay: this.state.zoom ? 500 : 0}} >
+          <Slide
+            in={this.state.in}
+            timeout={timeout}
+            style={{transitionDelay: delay? delay : 0}}
+            direction={direction? direction : 'up'} 
+          >
             <WrappedComponent
               updateTransition={this.updateTransition}
               {...this.props}
@@ -76,7 +90,11 @@ const withTransitions = (WrappedComponent, animation, timeout, direction) => cla
         break;
       case 'zoom':
         return (
-          <Zoom in={this.state.zoom} timeout={this.state.timeout} style={{transitionDelay: this.state.zoom ? 500 : 0}} >
+          <Zoom
+            in={this.state.in}
+            timeout={timeout}
+            style={{transitionDelay: delay? delay : 0}}
+          >
             <WrappedComponent
               updateTransition={this.updateTransition}
               {...this.props}
