@@ -119,7 +119,7 @@ const CharacterSelectionPage = (props) => {
   return (
     <main
       id="characterselection"
-      style={{...styles.vp100, ...props.style, ...styles.bgColorWhite, ...styles.displayFlex, ...styles.directionColumn}}
+      style={{...styles.vw100, ...props.style, ...styles.bgColorWhite, ...styles.displayFlex, ...styles.directionColumn, ...styles.minHeight}}
     >
       <NewsFeedWithDialog {...props} offline={props.text.offline}/>
       <TitleBar

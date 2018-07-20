@@ -93,14 +93,17 @@ class App extends Component {
             path='/homebrew'
             render={() =>
               <HomebrewPage
-                homebrewListData={this.props.appState.homebrewListData}
                 text={this.props.appState.homebrewPageText}
               />
             }
           />
           {/* Page Not Found */}
           <Route 
-            component={ErrorPage}
+            render={() =>
+              <ErrorPage
+                text={this.props.appState.errorPageText}
+              />
+            }
           />
         </Switch>
       </div>

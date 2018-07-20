@@ -8,6 +8,7 @@ import DeleteCharacterDialog from '../dialogs/DeleteCharacterDialog';
 import HomeDialog from '../dialogs/HomeDialog';
 import GuideDialog from '../dialogs/GuideDialog';
 import NewsFeedDialog from '../dialogs/NewsFeedDialog';
+import CharacterSelectionDialog from '../dialogs/CharacterSelectionDialog';
 
 // Styles
 import styles from '../styles/styles';
@@ -100,6 +101,25 @@ const withDialog = (WrappedComponent, selectedDialog) => class extends Component
                 updateDialog={this.updateDialog}
                 {...this.props}
               />
+            </Dialog>
+          </div>
+        )
+        break;
+      case 'characterSelectionDialog':
+        return (
+          <div>
+            <WrappedComponent
+              updateDialog={this.updateDialog}
+              {...this.props}
+            />
+            <Dialog
+              open={this.state.open}
+              onClose={()=>{
+                this.updateDialog(false)
+              }}
+              style={styles.overflowHidden}
+            >
+              <CharacterSelectionDialog updateDialog={this.updateDialog} {...this.props} />
             </Dialog>
           </div>
         )

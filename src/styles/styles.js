@@ -66,6 +66,9 @@ const styles = {
   justifyCenter: {
     justifyContent: 'center'
   },
+  justifyAround: {
+    justifyContent: 'space-around'
+  },
   justifyBetween: {
     justifyContent: 'space-between'
   },
@@ -101,6 +104,9 @@ const styles = {
   },
   height100: {
     height: '100%'
+  },
+  minHeight: {
+    minHeight: '100vh'
   },
   vw100: {
     width: '100vw'

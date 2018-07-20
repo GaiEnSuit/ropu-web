@@ -1,13 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ErrorPage extends Component {
-  render() {
-    return (
-      <div>
-        Oops! Error 404 The Page Could Not Be Found
-      </div>
-    );
-  }
+// Material-ui
+import Toolbar from '@material-ui/core/Toolbar';
+
+// Icons
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+
+// styles
+import styles from './styles/styles';
+import Typography from '@material-ui/core/Typography';
+
+// headers
+import TitleBar from './headers/TitleBar';
+
+const ErrorPage = (props) => {
+  return (
+    <main
+      id="error"
+      style={{...styles.minHeight, ...styles.displayFlex, ...styles.justifyCenter, ...styles.alignCenter, ...styles.directionColumn}}
+    >
+      <Toolbar />
+      <TitleBar {...props} />
+      <ErrorOutlineIcon
+        style={styles.icon64}
+      />
+      <Typography
+        variant="display1"
+        style={styles.textCenter}
+      >
+        {props.text.text}
+      </Typography>
+    </main>
+  )
 }
 
 export default ErrorPage;

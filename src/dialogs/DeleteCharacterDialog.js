@@ -3,7 +3,7 @@ import React from 'react';
 // Material-ui
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
@@ -44,13 +44,13 @@ const DeleteCharacterDialog = (props) => {
       <CardActions
         style={{
           ...styles.displayFlex,
-          ...styles.justifyCenter,
+          ...styles.justifyAround,
           ...styles.bgColorTransparentMediumRed
         }}
       >
         {/* Confirm Button */}
-        <Button
-          style={{...styles.colorWhite, ...styles.bgColorRed}}
+        <IconButton
+          style={{...styles.colorWhite}}
           aria-label="Delete"
           onClick={() => {
             props.updateDialog(false);
@@ -58,18 +58,18 @@ const DeleteCharacterDialog = (props) => {
           }}
         >
           <CheckIcon />
-        </Button>
+        </IconButton>
         {/* Cancel Button */}
-        <Button
+        <IconButton
           aria-label="Close"
           onClick={()=>{
             props.updateDialog(false);
             props.selectCharacter(null);
           }}
-          style={{...styles.colorWhite, ...styles.bgColorTransparentRed}}
+          style={{...styles.colorWhite}}
         >
           <CloseIcon />
-        </Button>
+        </IconButton>
       </CardActions>
     </div>
   )

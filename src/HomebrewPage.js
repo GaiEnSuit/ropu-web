@@ -34,7 +34,10 @@ const HomebrewPageActionBar = (props) => {
 // Layout
 const HomebrewPage = (props) => {
   return (
-    <div>
+    <main
+      id="homebrew"
+      style={{...styles.minHeight}}
+    >
       <TitleBar {...props} />
       <div>
         <Toolbar />
@@ -42,7 +45,7 @@ const HomebrewPage = (props) => {
         <Toolbar />
       </div>
       <HomebrewPageActionBar {...props} />
-    </div>
+    </main>
   )
 }
 

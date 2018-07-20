@@ -1,21 +1,26 @@
 import React from 'react';
+
+// React Router DOm
 import { Link } from 'react-router-dom';
 
 // Material-ui
 import DialogActions from '@material-ui/core/DialogActions';
+
+// Buttons
 import IconButton from '@material-ui/core/IconButton';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 
-// styles
-import styles from '../styles/styles';
-
 // Headers
 import RopuDialogTitle from '../headers/RopuDialogTitle';
 
-const HomeDialog = (props) => {
+// Styles
+import styles from '../styles/styles';
+
+// Layout
+const CancelCreateCharacterDialog = (props) => {
   return (
     <div
       style={{
@@ -24,7 +29,7 @@ const HomeDialog = (props) => {
     >
       <RopuDialogTitle
         {...props}
-        title={props.text.homeDialogTitle}
+        title={props.text.characterSelectionPageDialogTitle}
       />
       <DialogActions
         style={{
@@ -36,7 +41,7 @@ const HomeDialog = (props) => {
       >
         {/* Confirm Button */}
         <Link 
-          to='/'
+          to='/characterselection'
           onClick={()=>{
             props.updateDialog(false)
           }}
@@ -63,4 +68,4 @@ const HomeDialog = (props) => {
   )
 }
 
-export default HomeDialog;
+export default CancelCreateCharacterDialog;

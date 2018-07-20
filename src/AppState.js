@@ -421,11 +421,12 @@ class AppState extends Component {
         back: 'Back',
         cancel: 'Cancel',
         expand: 'Description',
-        confirmHome: 'Return Home?'
+        homeDialogTitle: 'Return Home?',
+        characterSelectionPageDialogTitle: 'Return to Character Selection?'
       },
       storySelectionPageText: {
         title: 'Select A Story',
-        confirmHome: 'Return Home?',
+        homeDialogTitle: 'Return Home?',
       },
       homebrewPageText: {
         title: 'Homebrew',
@@ -441,6 +442,10 @@ class AppState extends Component {
         homeDialogTitle: 'Return Home?',
         newsFeedDialogTitle: 'News Feed',
         offline: 'Error Unable to Retrieve Data'
+      },
+      errorPageText: {
+        title: 'ERROR 404',
+        text: 'Oops! Something Went Wrong'
       }
     };
     this.setAppState = this.setAppState.bind(this);

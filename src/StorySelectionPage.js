@@ -62,6 +62,7 @@ const StorySelectionPage = (props) => {
   return (
     <main
       id="storySelection"
+      style={{...styles.minHeight}}
     >
       <TitleBar {...props} />
       <div>

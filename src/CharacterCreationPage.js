@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 // Material-ui
 import DialogActions from '@material-ui/core/DialogActions';
@@ -16,6 +16,7 @@ import withCharacterDataControl from './hoc/withCharacterDataControl';
 import withGameDataControl from './hoc/withGameDataControl';
 import withTransitions from './hoc/withTransitions';
 import withDialog from './hoc/withDialog';
+import withCreateCharacterDataControl  from './hoc/withCharacterDataControl';
 
 // Headers
 import TitleBar from './headers/TitleBar';
@@ -120,7 +121,7 @@ const CreateCharacterDialogActions = (props) => {
 
 const CreateCharacterDialogActionsEnhanced = withTabControl(CreateCharacterDialogActions);
 
-const BackButtonWithDialog = withDialog(BackButton, 'homeDialog');
+const BackButtonWithDialog = withDialog(BackButton, 'characterSelectionDialog');
 
 const CharacterCreationPageActionBar = (props) => {
   return (
@@ -135,21 +136,35 @@ const CharacterCreationPageActionBar = (props) => {
 }
 
 // Layout
-const CreateCharacterPage = (props) => {
-  return(
-    <main
-      id="charactercreation"
-      style={{...styles.vp100, ...props.style}}
-    >
-      <TitleBar {...props} />
-      <div>
-        <Toolbar />
-        <Typography variant="display1">This Feature is Currently Unavailable</Typography>
-        <Toolbar />
-      </div>
-      <CharacterCreationPageActionBar {...props} />
-    </main>
-  )
+class CreateCharacterPage extends Component {
+  
+  componentWillMount () {
+    
+  }
+  
+  componentWillUnmount () {
+    this.props.resetCreateCharacter();
+    this.props.resetCreateCharacterDialogTab();
+    this.props.resetGameSelect();
+    this.props.resetSelectedTemplate();
+  }
+  
+  render() {
+    return(
+      <main
+        id="charactercreation"
+        style={{...styles.vp100, ...this.props.style}}
+      >
+        <TitleBar {...this.props} />
+        <div>
+          <Toolbar />
+          <Typography variant="display1">This Feature is Currently Unavailable</Typography>
+          <Toolbar />
+        </div>
+        <CharacterCreationPageActionBar {...this.props} />
+      </main>
+    )
+  }
 }
 
-export default withTransitions(CreateCharacterPage, 'fade', 500);
+export default withGameDataControl(withCreateCharacterDataControl(withCharacterDataControl(withTabControl(withTransitions(CreateCharacterPage, 'fade', 500)))));
