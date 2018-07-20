@@ -40,7 +40,7 @@ const NewsFeedDialog = (props) => {
     >
         <RopuDialogTitle {...props} title={props.text.newsFeedDialogTitle} />
         <DialogContent
-          style={{...styles.displayFlex, ...styles.spinnerBackground, ...styles.vh100}}
+          style={{...styles.displayFlex}}
         >
           <TwitterWidgetWithLoader
             offline={props.offline}

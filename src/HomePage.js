@@ -20,8 +20,8 @@ import withTransitions from './hoc/withTransitions';
 import Banner from './sections/Banner';
 
 // Components with Fade
-const MainMenuWithZoom = withTransitions(MainMenu, 'fade', 1000, 1000);
-const BannerWithFade = withTransitions(Banner, 'fade', 1000, 500);
+const MainMenuWithAnimation = withTransitions(MainMenu, 'fade', 1000, 1000);
+const BannerWithAnimation = withTransitions(Banner, 'fade', 1000, 500);
 
 // Layout
 const HomePage = (props) => {
@@ -58,7 +58,7 @@ const HomePage = (props) => {
               ...styles.dim100
             }}
           >
-            <BannerWithFade {...props} />
+            <BannerWithAnimation {...props} />
           </div>
         </Grid>
         <Grid
@@ -79,7 +79,7 @@ const HomePage = (props) => {
               ...styles.height100
             }}
           >
-            <MainMenuWithZoom
+            <MainMenuWithAnimation
               {...props}
             />
           </div>

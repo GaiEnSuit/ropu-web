@@ -50,33 +50,34 @@ const CharacterSelectionList = (props) => {
     )
   } else {
     return (
-      <div>
-        <Toolbar />
-          <Grid
-            container
-            spacing={16}
-            style={{
-              ...styles.width100,
-              ...styles.margin0
-            }}
-          >
-            {props.characterListData.map((character) => {    
-              return(
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  key={character.id}
-                >
-                  <CharacterSelectionCardSlide
-                    character={character}
-                    {...props}
-                  />
-                </Grid>
-              )
-            })}
-          </Grid>
+      <div
+        style={{...styles.appBarOffset}}
+      >
+        <Grid
+          container
+          spacing={16}
+          style={{
+            ...styles.width100,
+            ...styles.margin0
+          }}
+        >
+          {props.characterListData.map((character) => {    
+            return(
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                key={character.id}
+              >
+                <CharacterSelectionCardSlide
+                  character={character}
+                  {...props}
+                />
+              </Grid>
+            )
+          })}
+        </Grid>
         <Toolbar />
         <Toolbar />
       </div>
@@ -119,7 +120,7 @@ const CharacterSelectionPage = (props) => {
   return (
     <main
       id="characterselection"
-      style={{...styles.vw100, ...props.style, ...styles.bgColorWhite, ...styles.displayFlex, ...styles.directionColumn, ...styles.minHeight}}
+      style={{...props.style, ...styles.bgColorWhite, ...styles.displayFlex, ...styles.directionColumn, ...styles.minHeight}}
     >
       <NewsFeedWithDialog {...props} offline={props.text.offline}/>
       <TitleBar

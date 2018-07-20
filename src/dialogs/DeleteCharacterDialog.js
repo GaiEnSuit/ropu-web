@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Material-ui
-import DialogTitle from '@material-ui/core/DialogTitle';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 
@@ -9,12 +8,14 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 
+// Headers
+import RopuDialogTitle from '../headers/RopuDialogTitle';
+
 // Higher Order Components
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
 
 // styles
 import styles from '../styles/styles';
-import Typography from '@material-ui/core/Typography';
 
 const DeleteCharacterDialog = (props) => {
   return (
@@ -23,24 +24,7 @@ const DeleteCharacterDialog = (props) => {
         ...styles.bgColorTransparentMediumRed
       }}
     >
-      <DialogTitle
-        disableTypography
-        style={{
-          ...styles.displayFlex,
-          ...styles.justifyCenter,
-          ...styles.bgColorTransparentMediumRed,
-          ...styles.colorWhite
-        }}
-      >
-        <Typography
-          variant="headline"
-          style={{
-          ...styles.colorWhite
-        }}
-        >
-          {props.text.confirmDelete}
-        </Typography>
-      </DialogTitle>
+      <RopuDialogTitle {...props} title={props.text.confirmDelete} />
       <CardActions
         style={{
           ...styles.displayFlex,

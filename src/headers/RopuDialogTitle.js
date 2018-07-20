@@ -7,7 +7,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 // Style Classes
 import styles from '../styles/styles';
 
-const NewsFeedTitle = (props) => {
+const RopuDialogTitle = (props) => {
   return (
     <DialogTitle
       style={{...styles.displayFlex, ...styles.justifyCenter, ...styles.bgColorTransparentMediumRed}}
@@ -23,4 +23,4 @@ const NewsFeedTitle = (props) => {
   )
 }
 
-export default NewsFeedTitle;
+export default RopuDialogTitle;

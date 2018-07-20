@@ -58,7 +58,12 @@ class App extends Component {
             render={() =>
               <CharacterCreationPage
                 text={this.props.appState.characterCreationPageText}
+                createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
+                selectedGame={this.props.appState.selectedGame}
                 update={this.props.setAppState}
+                createCharacterData={this.props.appState.createCharacterData}
+                gameListData={this.props.appState.gameListData}
+                selectedTemplate={this.props.appState.selectedTemplate}
               />
             }
           />

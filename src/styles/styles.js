@@ -57,6 +57,9 @@ const styles = {
   positionFixed: {
     position: 'fixed'
   },
+  positionAbsolute: {
+    position: 'absolute'
+  },
   displayFlex: {
     display: 'flex'
   },
@@ -171,6 +174,22 @@ const styles = {
   },
     dialogContent: {
     paddingTop: '24px'
+  },
+  appBarOffset: {
+    paddingTop: '40.8px'
+  },
+  carouselContainer: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    overflowX: 'auto'
+  },
+  carouselItem: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+    flexGrow: '0',
+    flexShrink: '0',
+    flexBasis: 'auto'
   }
 };
 

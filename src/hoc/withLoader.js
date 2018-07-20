@@ -13,9 +13,13 @@ const withLoader = (WrappedComponent) => class extends Component {
   render(){
     if (navigator.onLine) {
       return (
-        <WrappedComponent
-          {...this.props}
-        />
+        <div
+          style={{...styles.vp100, ...styles.spinnerBackground}}
+        >
+          <WrappedComponent
+            {...this.props}
+          />
+        </div>
       )
     } else {
       return(
