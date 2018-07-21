@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import Collapse from '@material-ui/core/Collapse';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
@@ -20,61 +19,44 @@ import styles from '../styles/styles';
 
 const CharacterCreationGameCard = (props) => {
   return (
-    <Grid
-      container
-      style={styles.gridContainer}
+    <Card
+      style={{...styles.dim100}}
     >
-      <Grid
-        item
-        xs={12}
+      {
+        props.game.image === null?
+        (
+          <CardMedia
+            image={props.game.image}
+            title={props.game.name}
+            style={{height: '30vh'}}
+          />
+        ) :
+        (
+          <CardMedia
+            component={ImageIcon}
+            title={props.game.name}
+            style={{height: '30vh'}}
+          />
+        )
+      }
+      <CardContent
+        style={{...styles.overflowHidden}}
       >
-        <Card
-          style={{width: '100%'}}
-        >
-          {
-            props.game.image !== null?
-            (
-              <CardMedia
-                image={props.game.image}
-                title={props.game.name}
-                style={{height: '150px'}}
-              />
-            ) :
-            (
-              <ImageIcon style={{width: "100%", height: "auto"}} />
-            )
-          }
-          <CardContent
-          >
-            <Typography variant="title" className="text-center">{props.game.name.toUpperCase()}</Typography>
-            <Typography variant="subheading" className="text-center">{props.text.tags}</Typography>
-            {props.game.tags.map((tag, index)=>{
-              return(
-                <Chip label={tag} key={index} />
-              )
-            })}
-          </CardContent>
-          <CardActions
-            style={{display: "flex", justifyContent: "center"}}
-          >
-            <Button
-            >
-              {props.text.expand}
-              <ExpandMoreIcon />
-            </Button>
-          </CardActions>
-          <Collapse
-            timeout="auto"
-            unmountOnExit
-          >
-            <CardContent>
-              <Typography variant="subheading">{props.text.description}</Typography>
-              <Typography variant="body1">{props.game.description}</Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
-      </Grid>
-    </Grid>
+        <Typography variant="title" className="text-center">{props.game.name.toUpperCase()}</Typography>
+        <Typography variant="subheading" className="text-center">{props.text.tags}</Typography>
+        {props.game.tags.map((tag, index)=>{
+          return(
+            <Chip label={tag} key={index} />
+          )
+        })}
+      </CardContent>
+      <CardContent
+        style={{...styles.overflowHidden}}
+      >
+        <Typography variant="subheading">{props.text.description}</Typography>
+        <Typography variant="body1">{props.game.description}</Typography>
+      </CardContent>
+    </Card>
   )
 }
 

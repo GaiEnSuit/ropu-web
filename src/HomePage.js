@@ -3,9 +3,6 @@ import React from 'react';
 // Layout
 import Grid from '@material-ui/core/Grid';
 
-// Menus
-import MainMenu from './menus/MainMenu';
-
 // Sections
 import Version from './sections/Version';
 import Copyright from './sections/Copyright';
@@ -15,32 +12,34 @@ import styles from './styles/styles';
 
 // Buttons
 import A2HSButton from './buttons/A2HSButton';
+import StartButton from './buttons/StartButton';
 
 // HOC
 import withTransitions from './hoc/withTransitions';
+import withDialog from './hoc/withDialog';
 
 // Sections
 import Banner from './sections/Banner';
 
 // Components with Fade
-const MainMenuWithAnimation = withTransitions(MainMenu, 'fade', 1000, 1000);
 const BannerWithAnimation = withTransitions(Banner, 'fade', 1000, 500);
+
+// Open News Feed on Start Press
+const StartButtonWithNewsFeedDialog = withDialog(StartButton, 'newsFeedDialog');
 
 // Layout
 const HomePage = (props) => {
   return (
     <main
       id="home"
-      style={{...styles.vh100, ...props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
+      style={{...styles.vp100, ...props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
     >
       <Version {...props} />
       <A2HSButton />
       <Grid
         container
-        justify="center"
         direction="column"
         alignItems="center"
-        spacing={24}
         style={{
           ...styles.dim100,
           ...styles.margin0
@@ -83,7 +82,7 @@ const HomePage = (props) => {
               ...styles.height100
             }}
           >
-            <MainMenuWithAnimation
+            <StartButtonWithNewsFeedDialog
               {...props}
             />
           </div>

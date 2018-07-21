@@ -18,7 +18,7 @@ const withTransitions = (WrappedComponent, animation, timeout, delay, direction)
   componentDidMount() {
     this.updateTransition(true)
   }
-
+  
   componentWillUnmount() {
     this.updateTransition(false)
   }

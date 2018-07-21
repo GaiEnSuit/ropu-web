@@ -1,5 +1,5 @@
 // React
-import React, { Component } from 'react';
+import React from 'react';
 
 // Material-Ui
 import Toolbar from '@material-ui/core/Toolbar';
@@ -99,22 +99,6 @@ const CharacterSelectionActionBar = (props) => {
   )
 }
 
-// News Feed Dialog
-class NewsFeedPlaceHolder extends Component {
-  
-  componentDidMount () {
-    this.props.updateDialog(true)
-  }
-  
-  render () {
-    return (
-      <div />
-    )
-  }
-}
-
-const NewsFeedWithDialog = withDialog(NewsFeedPlaceHolder, 'newsFeedDialog')
-
 // Layout
 const CharacterSelectionPage = (props) => {
   return (
@@ -122,7 +106,6 @@ const CharacterSelectionPage = (props) => {
       id="characterselection"
       style={{...props.style, ...styles.bgColorWhite, ...styles.displayFlex, ...styles.directionColumn, ...styles.minHeight}}
     >
-      <NewsFeedWithDialog {...props} offline={props.text.offline}/>
       <TitleBar
         {...props}
       />

@@ -14,7 +14,7 @@ const RopuDialogTitle = (props) => {
       disableTypography
     >
       <Typography
-        style={styles.colorWhite}
+        style={{...styles.colorWhite}}
         variant="title"
       >
         {props.title}

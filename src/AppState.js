@@ -690,6 +690,7 @@ class AppState extends Component {
         license: ' is licensed under ',
         version: 'Version',
         copyright: '',
+        newsFeedDialogTitle: 'News Feed'
       },
       characterCreationPageText: {
         title: 'Character Creation',
@@ -746,7 +747,6 @@ class AppState extends Component {
         delete: 'Delete',
         confirmDelete: 'Delete Character?',
         homeDialogTitle: 'Return Home?',
-        newsFeedDialogTitle: 'News Feed',
         offline: 'Error Unable to Retrieve Data'
       },
       errorPageText: {

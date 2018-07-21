@@ -4,10 +4,7 @@ import React from 'react';
 import DialogContent from '@material-ui/core/DialogContent';
 
 // headers
-import RopuDialogTitle from '../headers/RopuDialogTitle';
-
-// footers
-import DialogCardActions from '../footers/DialogCardActions';
+import RopuDialogTitleResponsive from '../headers/RopuDialogTitleResponsive';
 
 // Style Classes
 import styles from '../styles/styles';
@@ -38,16 +35,15 @@ const NewsFeedDialog = (props) => {
     <div
       style={{...styles.displayFlex, ...styles.directionColumn}}
     >
-        <RopuDialogTitle {...props} title={props.text.newsFeedDialogTitle} />
-        <DialogContent
-          style={{...styles.displayFlex}}
-        >
-          <TwitterWidgetWithLoader
-            offline={props.offline}
-            {...props}
-          />
-        </DialogContent>
-        <DialogCardActions {...props} />
+      <RopuDialogTitleResponsive {...props} title={props.text.newsFeedDialogTitle} />
+      <DialogContent
+        style={{...styles.displayFlex}}
+      >
+        <TwitterWidgetWithLoader
+          offline={props.offline}
+          {...props}
+        />
+      </DialogContent>
     </div>
   )
 }

@@ -37,7 +37,9 @@ import CharacterCreationTabSummary from './sections/CharacterCreationTabSummary'
 // Content
 const CharacterCreationTab = (props) => {
   return(
-    <div>
+    <div
+      style={{...styles.flex1}}
+    >
       {props.createCharacterDialogTab === 0 && <CharacterCreationTabGame {...props} />}
       {props.createCharacterDialogTab === 1 && <CharacterCreationTabInteractables {...props} />}
       {props.createCharacterDialogTab === 2 && <CharacterCreationTabDescription {...props} />}
@@ -50,9 +52,7 @@ const CharacterCreationTab = (props) => {
 // Toolbar
 const CharacterCreationTabs = (props) => {
   return(
-    <Paper
-      style={{...styles.appBarOffset}}
-    >
+    <Paper>
       <Tabs
         value={props.createCharacterDialogTab}
         onChange={props.setCreateCharacterDialogTab}
@@ -123,7 +123,6 @@ const CharacterCreationPageActionBar = (props) => {
             />
           </Button>
         }
-        
       </div>
     </Toolbar>
   )
@@ -149,9 +148,13 @@ class CreateCharacterPage extends Component {
         id="charactercreation"
         style={{...styles.minHeight, ...this.props.style, ...styles.displayFlex, ...styles.directionColumn}}
       >
+        <div
+          style={{...styles.appBarOffset, ...styles.vh100}}
+        >
         <TitleBar {...this.props} />
-        <CharacterCreationTabs {...this.props} />
-        <CharacterCreationTab {...this.props} />
+          <CharacterCreationTabs {...this.props} />
+          <CharacterCreationTab {...this.props} />
+        </div>
         <CharacterCreationPageActionBar {...this.props} />
       </main>
     )

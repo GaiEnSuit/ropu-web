@@ -53,6 +53,9 @@ const styles = {
   marginLA: {
     marginLeft: 'auto'
   },
+  padding0: {
+    padding: '0'
+  },
 // Positioning
   positionFixed: {
     position: 'fixed'
@@ -64,6 +67,14 @@ const styles = {
     position: 'absolute',
     top: '0px',
     right: '0px'
+  },
+  absoluteBottomRight: {
+    position: 'absolute',
+    bottom: '0px',
+    right: '0px'
+  },
+  positionTop: {
+    top: '0px'
   },
   displayFlex: {
     display: 'flex'
@@ -195,7 +206,10 @@ const styles = {
     flexGrow: '0',
     flexShrink: '0',
     flexBasis: 'auto'
-  }
+  },
+  ropuDialogTitle: {
+    paddingLeft: '16px'
+  },
 };
 
 export default styles;

@@ -41,7 +41,9 @@ const EnhancedGameList = withGameDataControl(withCharacterDataControl(GameList))
 
 const CharacterCreationTabGame = (props) => {
   return(
-    <div>
+    <div
+      style={{...styles.dim100}}
+    >
       <Typography
         variant="title"
         style={{...styles.colorRed, ...styles.textCenter}}
