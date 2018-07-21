@@ -13,21 +13,18 @@ import Copyright from './sections/Copyright';
 // Styles
 import styles from './styles/styles';
 
+// Buttons
+import A2HSButton from './buttons/A2HSButton';
+
 // HOC
 import withTransitions from './hoc/withTransitions';
-import withA2HS from './hoc/withA2HS';
 
 // Sections
 import Banner from './sections/Banner';
 
-// Icons
-import PlayForWorkIcon from '@material-ui/icons/PlayForWork';
-
 // Components with Fade
 const MainMenuWithAnimation = withTransitions(MainMenu, 'fade', 1000, 1000);
 const BannerWithAnimation = withTransitions(Banner, 'fade', 1000, 500);
-
-const IconWithA2HS = withA2HS(PlayForWorkIcon);
 
 // Layout
 const HomePage = (props) => {
@@ -37,7 +34,7 @@ const HomePage = (props) => {
       style={{...styles.vh100, ...props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
     >
       <Version {...props} />
-      <IconWithA2HS {...props} />
+      <A2HSButton />
       <Grid
         container
         justify="center"
