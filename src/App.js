@@ -33,6 +33,7 @@ class App extends Component {
                 text={this.props.appState.homePageText}
                 update={this.props.setAppState}
                 guideDialogData={this.props.appState.guideDialogData}
+                start={this.props.appState.start}
               />
             }
           />
@@ -42,6 +43,7 @@ class App extends Component {
             path='/characterselection' 
             render={() =>
               <CharacterSelectionPage
+                paths={this.props.appState.paths}
                 text={this.props.appState.characterSelectionPageText}
                 characterListData={this.props.appState.characterListData}
                 createCharacterData={this.props.appState.createCharacterData}
@@ -57,6 +59,7 @@ class App extends Component {
             path='/charactercreation' 
             render={() =>
               <CharacterCreationPage
+                paths={this.props.appState.paths}
                 text={this.props.appState.characterCreationPageText}
                 createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
                 selectedGame={this.props.appState.selectedGame}
@@ -76,6 +79,8 @@ class App extends Component {
                   <Redirect to='/404' />
                 ) : (
                   <PlayerViewPage
+                    update={this.props.setAppState}
+                    paths={this.props.appState.paths}
                     character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))}
                   />
                 )
@@ -87,6 +92,8 @@ class App extends Component {
             path='/storyselection' 
             render={() =>
               <StorySelectionPage
+                update={this.props.setAppState}
+                paths={this.props.appState.paths}
                 text={this.props.appState.storySelectionPageText}
                 gameListData={this.props.appState.gameListData}
               />
@@ -98,6 +105,8 @@ class App extends Component {
             path='/homebrew'
             render={() =>
               <HomebrewPage
+                update={this.props.setAppState}
+                paths={this.props.appState.paths}
                 text={this.props.appState.homebrewPageText}
               />
             }
@@ -106,6 +115,8 @@ class App extends Component {
           <Route 
             render={() =>
               <ErrorPage
+                update={this.props.setAppState}
+                paths={this.props.appState.paths}
                 text={this.props.appState.errorPageText}
               />
             }

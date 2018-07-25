@@ -27,7 +27,7 @@ const MenuDialog = (props) => {
     <Dialog
       open={props.menuDialog}
       onClose={()=>{
-        props.updateDialog(false, "menuDialog")
+        props.updateDialog(false)
       }}
       aria-labelledby="dynamic dialog"
       fullScreen
@@ -36,7 +36,7 @@ const MenuDialog = (props) => {
         <IconButton
           aria-label="Close"
           onClick={()=>{
-            props.updateDialog(false, "menuDialog")
+            props.updateDialog(false)
           }}
         >
           <CloseIcon />

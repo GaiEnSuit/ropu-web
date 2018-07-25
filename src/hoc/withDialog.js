@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 // Material-Ui Components
 import Dialog from '@material-ui/core/Dialog';
 
+// BUtton
+import Button from '@material-ui/core/Button';
+
 // Dialogs
 import DeleteCharacterDialog from '../dialogs/DeleteCharacterDialog';
 import HomeDialog from '../dialogs/HomeDialog';
@@ -107,11 +110,15 @@ const withDialog = (WrappedComponent, selectedDialog) => class extends Component
         break;
       case 'characterSelectionDialog':
         return (
-          <div>
+          <div
+            onClick={()=>{
+              this.updateDialog(true)
+            }}
+          >
             <WrappedComponent
-              updateDialog={this.updateDialog}
-              {...this.props}
-            />
+                updateDialog={this.updateDialog}
+                {...this.props}
+              />
             <Dialog
               open={this.state.open}
               onClose={()=>{

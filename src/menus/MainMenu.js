@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 //Routing
 import { Link } from 'react-router-dom';
@@ -23,6 +23,22 @@ import Typography from '@material-ui/core/Typography';
 // HOC
 import withDialog from '../hoc/withDialog';
 
+// News Feed opens on render
+class NewsFeedPlaceholder extends Component {
+  
+  componentDidMount () {
+    this.props.updateDialog(true);
+  }
+  
+  render() {
+    return (
+      <div />
+    )
+  }
+}
+const EnhancedNewsFeedPlaceholder = withDialog(NewsFeedPlaceholder, 'newsFeedDialog');
+      
+      
 // Play
 const Play = (props) => {
   return (
@@ -156,6 +172,7 @@ const MainMenu = (props) => {
       <GuideWithDialog
         {...props}
       />
+      <EnhancedNewsFeedPlaceholder {...props} />
     </List>
   )
 }

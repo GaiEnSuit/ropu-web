@@ -12,9 +12,6 @@ import styles from '../styles/styles'
 const BackButton = (props) => {
   return (
     <IconButton
-      onClick={()=>{
-        props.updateDialog(true)
-      }}
       style={{...styles.colorWhite, ...styles.bgColorRed}}
     >
       <ArrowBackIcon />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 // Layout
 import Grid from '@material-ui/core/Grid';
@@ -16,83 +16,96 @@ import StartButton from './buttons/StartButton';
 
 // HOC
 import withTransitions from './hoc/withTransitions';
-import withDialog from './hoc/withDialog';
+import withStartControl from './hoc/withStartControl';
+
+// menus
+import MainMenu from './menus/MainMenu';
 
 // Sections
 import Banner from './sections/Banner';
 
-// Components with Fade
-const BannerWithAnimation = withTransitions(Banner, 'fade', 1000, 500);
-
-// Open News Feed on Start Press
-const StartButtonWithNewsFeedDialog = withDialog(StartButton, 'newsFeedDialog');
+// Enhanced Components
+const EnhancedBanner = withTransitions(Banner, 'fade', 1000, 500);
+const EnhancedStartButton = withStartControl(StartButton);
 
 // Layout
-const HomePage = (props) => {
-  return (
-    <main
-      id="home"
-      style={{...styles.vp100, ...props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
-    >
-      <Version {...props} />
-      <A2HSButton />
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        style={{
-          ...styles.dim100,
-          ...styles.margin0
-        }}
+class HomePage extends Component {
+  
+  componentWillUnmount () {
+    this.props.update({start: false})
+  }
+  
+  render () {
+    return (
+      <main
+        id="home"
+        style={{...styles.vp100, ...this.props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
       >
+        <Version {...this.props} />
+        <A2HSButton />
         <Grid
-          item
-          xs={12}
-          sm={8}
+          container
+          direction="column"
+          alignItems="center"
           style={{
-            ...styles.width100,
-            ...styles.flex1
+            ...styles.dim100,
+            ...styles.margin0
           }}
         >
-          <div
+          <Grid
+            item
+            xs={12}
+            sm={8}
             style={{
-              ...styles.displayFlex,
-              ...styles.alignCenter,
-              ...styles.dim100
-            }}
-          >
-            <BannerWithAnimation {...props} />
-          </div>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          style={{
-            ...styles.width100,
-            ...styles.flex1
-          }}
-        >
-          <div
-            style={{
-              ...styles.displayFlex,
-              ...styles.justifyCenter,
-              ...styles.alignCenter,
               ...styles.width100,
-              ...styles.height100
+              ...styles.flex1
             }}
           >
-            <StartButtonWithNewsFeedDialog
-              {...props}
-            />
-          </div>
+            <div
+              style={{
+                ...styles.displayFlex,
+                ...styles.alignCenter,
+                ...styles.dim100
+              }}
+            >
+              <EnhancedBanner {...this.props} />
+            </div>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            style={{
+              ...styles.width100,
+              ...styles.flex1
+            }}
+          >
+            <div
+              style={{
+                ...styles.displayFlex,
+                ...styles.justifyCenter,
+                ...styles.alignCenter,
+                ...styles.width100,
+                ...styles.height100
+              }}
+            >
+              {!this.props.start &&
+                <EnhancedStartButton
+                  {...this.props}
+                />
+              }
+              {this.props.start &&
+                <MainMenu {...this.props} />
+              }
+            </div> 
+          </Grid>
         </Grid>
-      </Grid>
-      <Copyright
-        copyright={props.text.copyRight}
-      />
-    </main>
-  )
+        <Copyright
+          copyright={this.props.text.copyRight}
+        />
+      </main>
+    )
+  }
 }
 
 export default withTransitions(HomePage, 'fade', 500);

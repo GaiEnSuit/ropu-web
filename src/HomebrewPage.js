@@ -14,9 +14,9 @@ import Typography from '@material-ui/core/Typography';
 import BackButton from './buttons/BackButton';
 
 // HOC
-import withDialog from './hoc/withDialog';
+import withNavigation from './hoc/withNavigation';
 
-const BackButtonWithDialog = withDialog(BackButton, 'homeDialog');
+const BackButtonWithNavigation = withNavigation(BackButton, '/');
 
 // Footer
 const HomebrewPageActionBar = (props) => {
@@ -24,7 +24,7 @@ const HomebrewPageActionBar = (props) => {
     <Toolbar
       style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
     >
-      <BackButtonWithDialog
+      <BackButtonWithNavigation
         {...props}
       />
     </Toolbar>

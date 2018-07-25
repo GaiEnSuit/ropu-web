@@ -12,12 +12,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import BackButton from './buttons/BackButton';
 
 // HOC
-import withDialog from './hoc/withDialog';
+import withNavigation from './hoc/withNavigation';
 
 // Headers
 import TitleBar from './headers/TitleBar';
 
-const BackButtonWithDialog = withDialog(BackButton, 'homeDialog')
+const BackButtonWithNavigation = withNavigation(BackButton, '/');
 
 // Story List
 // const StorySelectionList = (props) => {
@@ -50,7 +50,7 @@ const StorySelectionActionBar = (props) => {
     <Toolbar
       style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
     >
-      <BackButtonWithDialog
+      <BackButtonWithNavigation
         {...props}
       />
     </Toolbar>

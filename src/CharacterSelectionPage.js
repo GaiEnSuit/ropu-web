@@ -19,6 +19,7 @@ import Typography from '@material-ui/core/Typography';
 import withTransitions from './hoc/withTransitions';
 import withDialog from './hoc/withDialog';
 import withCharacterDataControl from './hoc/withCharacterDataControl';
+import withNavigation from './hoc/withNavigation';
 
 // Buttons
 import CreatePlayerCharacterButton from './buttons/CreatePlayerCharacterButton';
@@ -26,7 +27,9 @@ import BackButton from './buttons/BackButton';
 
 //Character Selection Cards Slide
 const CharacterSelectionCardSlide = withCharacterDataControl(withDialog(withTransitions(CharacterSelectionCard, 'slide', 500, 500, 'up'), 'deleteCharacterDialog'));
-const BackButtonWithDialog = withDialog(BackButton, 'homeDialog');
+
+// Back BUtton to HOme screen
+const EnhancedBackButton = withNavigation(BackButton, '/');
 
 // Character Selection List
 const CharacterSelectionList = (props) => {
@@ -91,7 +94,7 @@ const CharacterSelectionActionBar = (props) => {
     <Toolbar
       style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
     >
-      <BackButtonWithDialog
+      <EnhancedBackButton
         {...props}
       />
       <CreatePlayerCharacterButton />

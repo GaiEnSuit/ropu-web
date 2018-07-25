@@ -20,6 +20,7 @@ class AppState extends Component {
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
+      start: false,
 
       // Temporary Data
       selectedCharacter: null,
