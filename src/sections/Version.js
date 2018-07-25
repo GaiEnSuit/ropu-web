@@ -4,9 +4,6 @@ import React from 'react';
 import styles from '../styles/styles';
 import Typography from '@material-ui/core/Typography';
 
-// Meta Data
-import packageJSON from '../package.json';
-
 // Footer
 const Version = (props) => {
   return(
@@ -18,7 +15,7 @@ const Version = (props) => {
         variant="body1"
         style={styles.colorWhite}
       >
-        {props.text.version} {packageJSON.version}
+        {props.text.version}
       </Typography>
     </div>
   )

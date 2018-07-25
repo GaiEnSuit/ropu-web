@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { View } from 'react-native';
+
 // Routing
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -18,7 +20,7 @@ import ErrorPage from './ErrorPage';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <View className="App">
         {/* Material-Ui CSS Baseline */}
         <CssBaseline />
         {/* Main Section */}
@@ -122,7 +124,7 @@ class App extends Component {
             }
           />
         </Switch>
-      </div>
+      </View>
     );
   }
 }

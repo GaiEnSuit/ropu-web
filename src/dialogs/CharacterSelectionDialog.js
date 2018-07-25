@@ -43,7 +43,7 @@ const CancelCreateCharacterDialog = (props) => {
         <Link 
           to='/characterselection'
           onClick={()=>{
-            props.updateDialog(false)
+            props.updateDialog(false);
           }}
         >
           <IconButton
@@ -57,7 +57,7 @@ const CancelCreateCharacterDialog = (props) => {
         <IconButton
           aria-label="Close"
           onClick={()=>{
-            props.updateDialog(false)
+            props.updateDialog(false);
           }}
           style={{...styles.colorWhite}}
         >

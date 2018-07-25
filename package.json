@@ -3,12 +3,17 @@
   "version": "0.2.12",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.4.0",
+    "@material-ui/core": "^1.4.1",
     "@material-ui/icons": "^1.1.0",
-    "firebase": "^5.2.0",
+    "babel-plugin-react-native-web": "^0.8.9",
+    "expo": "^25.1.0",
+    "firebase": "^5.3.0",
     "react": "^16.4.1",
+    "react-art": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-lazy-load": "^3.0.13",
+    "react-native": "^0.56.0",
+    "react-native-web": "^0.8.9",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
@@ -16,10 +21,29 @@
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start-web": "react-scripts start",
+    "build-web": "react-scripts build",
+    "test-web": "react-scripts test --env=jsdom",
+    "eject-web": "react-scripts eject",
+    "start-native": "react-native-scripts start",
+    "eject-native": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test-native": "node node_modules/jest/bin/jest.js --watch",
+    "test": "npm run test-web && npm run test-native",
     "deploy": "firebase deploy"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-preset-expo": "^4.0.0",
+    "flow-bin": "^0.77.0",
+    "jest-expo": "^28.0.0",
+    "react-native-scripts": "^1.14.1",
+    "react-test-renderer": "^16.2.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "jest": {
+    "preset": "jest-expo"
   }
 }
