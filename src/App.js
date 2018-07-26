@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 
 // Routing
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from './routing/Routing';
 
-// CSS Baseline Styles
-import CssBaseline from '@material-ui/core/CssBaseline';
+// Layout Handling
+import LayoutHandler from './modules/LayoutHandler';
 
 // Pages
 import HomePage from './HomePage';
@@ -20,9 +20,8 @@ import ErrorPage from './ErrorPage';
 class App extends Component {
   render() {
     return (
-      <View className="App">
-        {/* Material-Ui CSS Baseline */}
-        <CssBaseline />
+      <View>
+        <LayoutHandler update={this.props.setAppState} />
         {/* Main Section */}
         <Switch>
           {/* Home Page*/}
@@ -36,6 +35,7 @@ class App extends Component {
                 update={this.props.setAppState}
                 guideDialogData={this.props.appState.guideDialogData}
                 start={this.props.appState.start}
+                orientation={this.props.appState.orientation}
               />
             }
           />

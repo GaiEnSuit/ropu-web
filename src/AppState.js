@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Dimensions } from 'react-native';
+
 class AppState extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +9,10 @@ class AppState extends Component {
 
       // Account Control
       loggedIn: false,
-
+      
+      // Orientation
+      orientation: Dimensions.get('window').width < Dimensions.get('window').height ? 'portrait' : 'landscape',
+      
       // Paths
       paths: {
         home: '/',
