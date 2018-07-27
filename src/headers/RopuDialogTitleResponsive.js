@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 
 // Icons
-import closeIcon from '../images/baseline-close-24px.svg';
+import closeIcon from '../images/closeIcon.png';
 
 // Style Classes
 import styles from '../styles/styles';
@@ -15,7 +15,7 @@ const RopuDialogTitleResponsive = (props) => {
         styles.directionRow,
         styles.justifyBetween,
         styles.alignCenter,
-        styles.bgColorTransparentMediumRed,
+        styles.bgColorTransparentMediumRed
       ]}
     >
       <Text
@@ -24,8 +24,8 @@ const RopuDialogTitleResponsive = (props) => {
         {props.title}
       </Text>
       <View
-        onPress={()=>{
-          props.updateDialog(false)
+        onClick={()=>{
+          props.updateDialog(false, 'Dialog Closed')
         }}
         style={[
           styles.icon48,

@@ -3,7 +3,7 @@ import React from 'react';
 //Routing
 import { Link } from 'react-router-dom';
 
-import { Text } from 'react-native';
+import { Text, View, Image } from 'react-native';
 
 // Dialogs
 import GuideDialog from '../dialogs/GuideDialog';
@@ -13,13 +13,6 @@ import sword from '../images/sword_01b.png';
 import book from '../images/book_05g.png';
 import potion from '../images/potion_03g.png';
 import tome from '../images/book_05f.png';
-
-// Material-UI
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 
 //styles
 import styles from '../styles/styles';
@@ -33,21 +26,34 @@ const Play = (props) => {
     <Link
       to={props.paths.characterSelection}
     >
-      <ListItem>
-        <ListItemIcon>
-          <img
-            src={sword}
-            alt="sword"
+      <View
+        style={
+          styles.directionRow
+        }
+      >
+        <View
+          style={[
+            styles.icon48,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          <Image
+            source={sword}
+            style={styles.icon36}
           />
-        </ListItemIcon>
-        <ListItemText>
-          <Text
-            style={styles.colorWhite}
-          >
-            {props.text.play}
-          </Text>
-        </ListItemText>
-      </ListItem>
+        </View>
+        <Text
+          style={[
+            styles.displayFlex,
+            styles.colorWhite,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          {props.text.play}
+        </Text>
+      </View>
     </Link>
   )
 }
@@ -58,21 +64,34 @@ const Direct = (props) => {
     <Link
       to={props.paths.storySelection}
     >
-      <ListItem>
-        <ListItemIcon>
-          <img
-            src={book}
-            alt="book"
+      <View
+        style={
+          styles.directionRow
+        }
+      >
+        <View
+          style={[
+            styles.icon48,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          <Image
+            source={book}
+            style={styles.icon36}
           />
-        </ListItemIcon>
-        <ListItemText>
-          <Text
-            style={styles.colorWhite}
-          >
-            {props.text.direct}
-          </Text>
-        </ListItemText>
-      </ListItem>
+        </View>
+        <Text
+          style={[
+            styles.displayFlex,
+            styles.colorWhite,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          {props.text.direct}
+        </Text>
+      </View>
     </Link>
   )
 }
@@ -84,20 +103,34 @@ const Create = (props) => {
     <Link
       to={props.paths.homebrew}
     >
-      <ListItem>
-        <ListItemIcon>
-          <img
-            src={potion}
-            alt="Book" />
-        </ListItemIcon>
-        <ListItemText>
-          <Text
-            style={styles.colorWhite}
-          >
-            {props.text.homebrew}
-          </Text>
-        </ListItemText>
-      </ListItem>
+      <View
+        style={
+          styles.directionRow
+        }
+      >
+        <View
+          style={[
+            styles.icon48,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          <Image
+            source={potion}
+            style={styles.icon36}
+          />
+        </View>
+        <Text
+          style={[
+            styles.displayFlex,
+            styles.colorWhite,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          {props.text.homebrew}
+        </Text>
+      </View>
     </Link>
   )
 }
@@ -105,24 +138,37 @@ const Create = (props) => {
 // Create
 const Guide = (props) => {
   return (
-    <ListItem
+    <View
       onClick={()=>{
         props.updateDialog(true);
       }}
+      style={[
+        styles.directionRow
+      ]}
     >
-      <ListItemIcon>
-        <img
-          src={tome}
-          alt="Book" />
-      </ListItemIcon>
-      <ListItemText>
-        <Text
-          style={styles.colorWhite}
-        >
-          {props.text.guide}
-        </Text>
-      </ListItemText>
-    </ListItem>
+      <View
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        <Image
+          source={tome}
+          style={styles.icon36}
+        />
+      </View>
+      <Text
+        style={[
+          styles.displayFlex,
+          styles.colorWhite,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        {props.text.guide}
+      </Text>
+    </View>
   )
 }
 
@@ -132,30 +178,20 @@ const GuideWithDialog = withDialog(Guide, GuideDialog)
 // Main Menu
 const MainMenu = (props) => {
   return (
-    <List
-    >
+    <View>
       <Play
         {...props}
-      />
-      <Divider
-        style={styles.bgColorRed}
       />
       <Direct
         {...props}
       />
-      <Divider
-        style={styles.bgColorRed}
-      />
       <Create
         {...props}
-      />
-      <Divider
-        style={styles.bgColorRed}
       />
       <GuideWithDialog
         {...props}
       />
-    </List>
+    </View>
   )
 }
 

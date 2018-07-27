@@ -143,9 +143,9 @@ const styles = {
     width: '48px',
     height: '48px'
   },
-  icon32: {
-    width: '32px',
-    height: '32px'
+  icon36: {
+    width: '36px',
+    height: '36px'
   },
   icon24: {
     width: '24px',

@@ -686,10 +686,10 @@ class AppState extends Component {
         }
       },
       homePageText: {
-        play: 'Play',
-        direct: 'Direct',
-        homebrew: 'Create',
-        guide: 'Guide',
+        play: 'PLAY',
+        direct: 'DIRECT',
+        homebrew: 'CREATE',
+        guide: 'GUIDE',
         offline: 'Unable to Retrieve Data',
         credits: 'Credits',
         by: ' by ',

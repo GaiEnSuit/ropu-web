@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { Platform } from 'react-native';
+import { ScrollView } from 'react-native';
 
 // Material ui
 import Dialog from '@material-ui/core/Dialog';
 
 // headers
 import RopuDialogTitleResponsive from '../headers/RopuDialogTitleResponsive';
-
-// Style Classes
-import styles from '../styles/styles';
 
 // Sections
 import TwitterWidget from '../sections/TwitterWidget';
@@ -18,7 +15,7 @@ import TwitterWidget from '../sections/TwitterWidget';
 const NewsFeedDialog = (props) => {
   return (
     <Dialog
-      open={props.open? props.open : null}
+      open={props.open}
       onClose={()=>{
         props.updateDialog(false, 'News Feed Dialog Closed')
       }}
@@ -27,10 +24,12 @@ const NewsFeedDialog = (props) => {
         {...props}
         title={props.text.newsFeedDialogTitle}
       />
-      <TwitterWidget
-        offline={props.offline}
-        {...props}
-      />
+      <ScrollView>
+        <TwitterWidget
+          offline={props.offline}
+          {...props}
+        />
+      </ScrollView>
     </Dialog>
   )
 }
