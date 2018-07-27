@@ -81,6 +81,9 @@ const styles = {
   directionColumn: {
     flexDirection: 'column'
   },
+  directionRow: {
+    flexDirection: 'row'
+  },
   justifyCenter: {
     justifyContent: 'center'
   },
@@ -136,9 +139,17 @@ const styles = {
     width: '64px',
     height: '64px'
   },
+  icon48: {
+    width: '48px',
+    height: '48px'
+  },
   icon32: {
     width: '32px',
     height: '32px'
+  },
+  icon24: {
+    width: '24px',
+    height: '24px'
   },
   vp100: {
     width: '100vw',
@@ -206,7 +217,7 @@ const styles = {
   },
   ropuDialogTitle: {
     paddingLeft: '16px'
-  },
+  }
 };
 
 export default styles;

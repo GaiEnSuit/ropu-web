@@ -1,43 +1,46 @@
 import React from 'react';
 
-// Material-UI
-import Typography from '@material-ui/core/Typography';
-import DialogActions from '@material-ui/core/DialogActions';
-
-// Buttons
-import IconButton from '@material-ui/core/IconButton';
+import { Text, View, Image } from 'react-native';
 
 // Icons
-import CloseIcon from '@material-ui/icons/Close';
+import closeIcon from '../images/baseline-close-24px.svg';
 
 // Style Classes
 import styles from '../styles/styles';
 
 const RopuDialogTitleResponsive = (props) => {
   return (
-    <DialogActions
-      style={{
-        ...styles.displayFlex,
-        ...styles.justifyBetween,
-        ...styles.bgColorTransparentMediumRed,
-        ...styles.margin0
-      }}
+    <View
+      style={[
+        styles.directionRow,
+        styles.justifyBetween,
+        styles.alignCenter,
+        styles.bgColorTransparentMediumRed,
+      ]}
     >
-      <Typography
-        style={{...styles.colorWhite, ...styles.ropuDialogTitle}}
-        variant="title"
+      <Text
+        style={[styles.colorWhite, styles.ropuDialogTitle]}
       >
         {props.title}
-      </Typography>
-      <IconButton
-        onClick={()=>{
+      </Text>
+      <View
+        onPress={()=>{
           props.updateDialog(false)
         }}
-        style={styles.colorWhite}
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
       >
-        <CloseIcon />
-      </IconButton>
-    </DialogActions>
+        <Image
+          source={closeIcon}
+          style={
+            styles.icon24
+          }
+        />
+      </View>
+    </View>
   )
 }
 

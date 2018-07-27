@@ -11,7 +11,7 @@ class NewsFeedHandler extends Component {
   
   componentDidMount ()
   {
-    this.props.updateDialog(true);
+    this.props.updateDialog(true, 'News Feed Dialog Opened');
   }
   
   render()
