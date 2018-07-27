@@ -1,25 +1,26 @@
 import React from 'react';
 
-// Material Ui Components
-import AppBar from '@material-ui/core/AppBar';
+import { View, Text } from 'react-native';
 
 // Styles
 import styles from '../styles/styles';
-import Typography from '@material-ui/core/Typography';
 
 const TitleBar = (props) => {
   return (
-    <AppBar
-      position="fixed"
-      style={[styles.bgColorTransparentMediumRed, styles.colorWhite, styles.textCenter]}
+    <View
+      style={[
+        styles.bgColorTransparentMediumRed,
+        styles.justifyCenter,
+        styles.width100,
+        styles.alignCenter
+      ]}
     >
-      <Typography
-        variant="display1"
-        color="inherit"
+      <Text
+        style={styles.colorWhite}
       >
         {props.text.title}
-      </Typography>
-    </AppBar>
+      </Text>
+    </View>
   )
 }
 

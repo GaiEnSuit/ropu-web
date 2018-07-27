@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link } from '../routing/Routing';
 
 const withNavigation = (WrappedComponent, path) => class extends Component {
   render() {

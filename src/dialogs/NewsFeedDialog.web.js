@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native';
 import Dialog from '@material-ui/core/Dialog';
 
 // headers
-import RopuDialogTitleResponsive from '../headers/RopuDialogTitleResponsive';
+import RopuDialogTitle from '../headers/RopuDialogTitle';
 
 // Sections
 import TwitterWidget from '../sections/TwitterWidget';
@@ -20,7 +20,7 @@ const NewsFeedDialog = (props) => {
         props.updateDialog(false, 'News Feed Dialog Closed')
       }}
     >
-      <RopuDialogTitleResponsive
+      <RopuDialogTitle
         {...props}
         title={props.text.newsFeedDialogTitle}
       />

@@ -1,11 +1,7 @@
 // React
 import React from 'react';
 
-// Material-Ui
-import Toolbar from '@material-ui/core/Toolbar';
-
-// Layout
-import Grid from '@material-ui/core/Grid';
+import { View, Text, ScrollView } from 'react-native';
 
 // Custom Components
 import TitleBar from './headers/TitleBar';
@@ -13,10 +9,8 @@ import CharacterSelectionCard from './cards/CharacterSelectionCard';
 
 // Styles
 import styles from './styles/styles';
-import Typography from '@material-ui/core/Typography';
 
 // HOC
-import withTransitions from './hoc/withTransitions';
 import withDialog from './hoc/withDialog';
 import withCharacterDataControl from './hoc/withCharacterDataControl';
 import withNavigation from './hoc/withNavigation';
@@ -26,7 +20,7 @@ import CreatePlayerCharacterButton from './buttons/CreatePlayerCharacterButton';
 import BackButton from './buttons/BackButton';
 
 //Character Selection Cards Slide
-const CharacterSelectionCardSlide = withCharacterDataControl(withDialog(withTransitions(CharacterSelectionCard, 'slide', 500, 500, 'up'), 'deleteCharacterDialog'));
+const CharacterSelectionCardSlide = withCharacterDataControl(withDialog(CharacterSelectionCard, 'deleteCharacterDialog'));
 
 // Back BUtton to HOme screen
 const EnhancedBackButton = withNavigation(BackButton, '/');
@@ -35,7 +29,7 @@ const EnhancedBackButton = withNavigation(BackButton, '/');
 const CharacterSelectionList = (props) => {
   if (props.characterListData.length <= 0) {
     return (
-      <div
+      <ScrollView
         style={[
           styles.displayFlex,
           styles.justifyCenter, 
@@ -43,47 +37,29 @@ const CharacterSelectionList = (props) => {
           styles.flex1
         ]}
       >
-        <Typography
-          variant="headline"
+        <Text
           style={styles.colorWhite}
         >
           {props.text.noCharacters}
-        </Typography>
-      </div>
+        </Text>
+      </ScrollView>
     )
   } else {
     return (
-      <div
-        style={styles.appBarOffset}
-      >
-        <Grid
-          container
-          spacing={16}
-          style={[
-            styles.width100,
-            styles.margin0
-          ]}
-        >
+      <ScrollView>
           {props.characterListData.map((character) => {    
             return(
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
+              <View
                 key={character.id}
               >
                 <CharacterSelectionCardSlide
                   character={character}
                   {...props}
                 />
-              </Grid>
+              </View>
             )
           })}
-        </Grid>
-        <Toolbar />
-        <Toolbar />
-      </div>
+      </ScrollView>
     )
   }
 }
@@ -91,23 +67,33 @@ const CharacterSelectionList = (props) => {
 // Footer
 const CharacterSelectionActionBar = (props) => {
   return(
-    <Toolbar
-      style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex, styles.justifyBetween]}
+    <View
+      style={[
+        styles.bgColorTransparant,
+        styles.actionBar,
+        styles.directionRow,
+        styles.justifyBetween,
+        styles.positionFixed,
+        styles.width100,
+        styles.positionBottom
+      ]}
     >
       <EnhancedBackButton
         {...props}
       />
       <CreatePlayerCharacterButton />
-    </Toolbar>
+    </View>
   )
 }
 
 // Layout
 const CharacterSelectionPage = (props) => {
   return (
-    <main
-      id="characterselection"
-      style={[props.style, styles.bgColorWhite, styles.displayFlex, styles.directionColumn, styles.minHeight]}
+    <View
+      style={[
+        styles.bgColorWhite,
+        styles.flex1
+      ]}
     >
       <TitleBar
         {...props}
@@ -118,8 +104,8 @@ const CharacterSelectionPage = (props) => {
       <CharacterSelectionActionBar
         {...props}
       />
-    </main>
+    </View>
   )
 }
 
-export default withTransitions(CharacterSelectionPage, 'fade', 500);
+export default CharacterSelectionPage;

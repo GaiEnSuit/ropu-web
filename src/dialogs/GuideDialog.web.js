@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 
 // Material-Ui
-import DialogContent from '@material-ui/core/DialogContent';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -20,33 +19,32 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // styles
 import styles from '../styles/styles';
-import Typography from '@material-ui/core/Typography';
 
 // Guide Dialog List
 const GuideDialogContent = (props) => {
   return(
-    <DialogContent
-      style={[styles.dialogContent, styles.dim100]}
+    <ScrollView
+      style={[
+        styles.flex1
+      ]}
     >
       {props.guideDialogData.map((data, index)=> {
         return(
           <ExpansionPanel key={index}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography
-                variant="subheading"
-              >
+              <Text>
                 {data.title}
-              </Typography>
+              </Text>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <Typography>
+              <Text>
                 {data.text}
-              </Typography>
+              </Text>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         )
       })}
-    </DialogContent>
+    </ScrollView>
   )
 }
 
@@ -58,13 +56,13 @@ const GuideDialog = (props) => {
       onClose={()=>{
         props.updateDialog(false, 'Guide Dialog Closed')
       }}
+      fullScreen
     >
       <View
-        style={[styles.displayFlex, styles.directionColumn]}
+        style={styles.flex1}
       >
         <RopuDialogTitle {...props} title={props.text.guide} />
         <GuideDialogContent {...props} />
-        <DialogCardActions {...props} />
       </View>
     </Dialog>
   )

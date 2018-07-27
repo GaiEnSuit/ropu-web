@@ -1,26 +1,47 @@
 import React from 'react';
 
-// Material-UI
-import Typography from '@material-ui/core/Typography';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import { Text, View, Image } from 'react-native';
+
+// Icons
+import closeIcon from '../images/closeIcon.png';
 
 // Style Classes
 import styles from '../styles/styles';
 
-const RopuDialogTitle = (props) => {
+const RopuDialogTitleResponsive = (props) => {
   return (
-    <DialogTitle
-      style={[styles.displayFlex, styles.justifyCenter, styles.bgColorTransparentMediumRed]}
-      disableTypography
+    <View
+      style={[
+        styles.directionRow,
+        styles.justifyBetween,
+        styles.alignCenter,
+        styles.bgColorTransparentMediumRed
+      ]}
     >
-      <Typography
-        style={styles.colorWhite}
-        variant="title"
+      <Text
+        style={[styles.colorWhite, styles.ropuDialogTitle]}
       >
         {props.title}
-      </Typography>
-    </DialogTitle>
+      </Text>
+      <View
+        onClick={()=>{
+          props.updateDialog(false, 'Dialog Closed')
+        }}
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        <Image
+          source={closeIcon}
+          style={
+            styles.icon24
+          }
+        />
+      </View>
+    </View>
   )
 }
 
-export default RopuDialogTitle;
+export default RopuDialogTitleResponsive;

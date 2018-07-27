@@ -56,6 +56,9 @@ const styles = {
     padding: '0'
   },
 // Positioning
+  positionBottom: {
+    bottom: '0px'
+  },
   positionFixed: {
     position: 'fixed'
   },
@@ -188,16 +191,8 @@ const styles = {
     color: 'white',
     backgroundColor: 'rgb(255,92,92)'
   },
-  actionBar: {
-    position: 'fixed',
-    bottom: '0',
-    width: '100%'
-  },
   overflowHidden: {
     overflow: 'hidden'
-  },
-    dialogContent: {
-    paddingTop: '24px'
   },
   appBarOffset: {
     paddingTop: '40.8px'

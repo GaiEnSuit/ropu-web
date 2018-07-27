@@ -74,10 +74,7 @@ class HomePage extends Component {
         ]}
       >
         <View
-          style={[
-            styles.flex1,
-            styles.dim100
-          ]}
+          style={this.props.orientation === "portrait"? styles.flex1 : styles.flex2}
         >
           <Banner {...this.props} />
         </View>
