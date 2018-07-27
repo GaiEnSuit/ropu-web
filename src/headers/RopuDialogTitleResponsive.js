@@ -16,15 +16,15 @@ import styles from '../styles/styles';
 const RopuDialogTitleResponsive = (props) => {
   return (
     <DialogActions
-      style={{
-        ...styles.displayFlex,
-        ...styles.justifyBetween,
-        ...styles.bgColorTransparentMediumRed,
-        ...styles.margin0
-      }}
+      style={[
+        styles.displayFlex,
+        styles.justifyBetween,
+        styles.bgColorTransparentMediumRed,
+        styles.margin0
+      ]}
     >
       <Typography
-        style={{...styles.colorWhite, ...styles.ropuDialogTitle}}
+        style={[styles.colorWhite, styles.ropuDialogTitle]}
         variant="title"
       >
         {props.title}

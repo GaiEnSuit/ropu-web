@@ -1,111 +1,131 @@
 import React, { Component } from 'react';
 
-// Layout
-import Grid from '@material-ui/core/Grid';
-
-// Sections
-import Version from './sections/Version';
-import Copyright from './sections/Copyright';
+import { View, Text, Image } from 'react-native';
 
 // Styles
 import styles from './styles/styles';
 
-// Buttons
-import A2HSButton from './buttons/A2HSButton';
-import StartButton from './buttons/StartButton';
-
-// HOC
-import withTransitions from './hoc/withTransitions';
-import withStartControl from './hoc/withStartControl';
-
 // menus
 import MainMenu from './menus/MainMenu';
 
-// Sections
-import Banner from './sections/Banner';
+// Modules
+import NewsFeedHandler from './modules/NewsFeedHandler';
 
-// Enhanced Components
-const EnhancedBanner = withTransitions(Banner, 'fade', 1000, 500);
-const EnhancedStartButton = withStartControl(StartButton);
+// Images
+import banner from './images/brand_white_4x3.png';
+
+const Banner = (props) => {
+  return(
+    <Image
+      source={banner}
+      resizeMode="contain"
+      style={{flex:1, height: undefined, width: undefined}}
+    />
+  )
+}
+
+const Copyright = (props) => {
+  return(
+    <Text
+      style={styles.colorRed}
+    >
+      {props.copyright}
+    </Text>
+  )
+}
+
+const StartButton = (props) => {
+  return (
+    <Text
+      style={styles.colorRed}
+      onClick={()=>{
+        props.update({start: true});
+        console.log("Game Started")
+      }}
+    >
+      START
+    </Text>
+  )
+}
+
+const Version = (props) => {
+  return (
+    <Text
+      style={styles.colorWhite}
+    >
+      {props.text.version} 0.3.00
+    </Text>
+  )
+}
 
 // Layout
 class HomePage extends Component {
   
-  componentWillUnmount () {
+  componentWillMount () {
     this.props.update({start: false})
   }
   
   render () {
     return (
-      <main
-        id="home"
-        style={{...styles.vp100, ...this.props.style, ...styles.bgColorBlack, ...styles.overflowHidden}}
+      <View
+        style={[
+          styles.flex1,
+          styles.bgColorBlack,
+          styles.overflowHidden,
+          {flexDirection: this.props.orientation === "portrait"? "column":"row"}
+        ]}
       >
-        <Version {...this.props} />
-        <A2HSButton />
-        <Grid
-          container
-          direction="column"
-          alignItems="center"
-          style={{
-            ...styles.dim100,
-            ...styles.margin0
-          }}
+        <View
+          style={[
+            styles.flex1,
+            styles.dim100
+          ]}
         >
-          <Grid
-            item
-            xs={12}
-            sm={8}
-            style={{
-              ...styles.width100,
-              ...styles.flex1
-            }}
+          <Banner {...this.props} />
+        </View>
+        {!this.props.start &&
+          <View
+            style={[
+              styles.flex1,
+              styles.justifyCenter,
+              styles.alignCenter,
+              styles.dim100
+            ]}
           >
-            <div
-              style={{
-                ...styles.displayFlex,
-                ...styles.alignCenter,
-                ...styles.dim100
-              }}
-            >
-              <EnhancedBanner {...this.props} />
-            </div>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            style={{
-              ...styles.width100,
-              ...styles.flex1
-            }}
+            <StartButton
+              {...this.props}
+            />
+          </View>
+        }
+        {this.props.start &&
+          <View
+            style={[
+              styles.flex1,
+              styles.justifyCenter,
+              styles.alignCenter
+            ]}
           >
-            <div
-              style={{
-                ...styles.displayFlex,
-                ...styles.justifyCenter,
-                ...styles.alignCenter,
-                ...styles.width100,
-                ...styles.height100
-              }}
-            >
-              {!this.props.start &&
-                <EnhancedStartButton
-                  {...this.props}
-                />
-              }
-              {this.props.start &&
-                <MainMenu {...this.props} />
-              }
-            </div> 
-          </Grid>
-        </Grid>
-        <Copyright
-          copyright={this.props.text.copyRight}
-        />
-      </main>
+            <MainMenu {...this.props} />
+          </View>
+        }
+        <View
+          style={styles.copyRight}
+        >
+          <Copyright
+            copyright={this.props.text.copyRight}
+          />
+        </View>
+        <View
+          style={styles.version}
+        >
+          <Version {...this.props} />
+        </View>
+        {this.props.start &&
+          <NewsFeedHandler {...this.props} />
+        }
+      </View>
     )
   }
 }
 
-export default withTransitions(HomePage, 'fade', 500);
+export default HomePage;

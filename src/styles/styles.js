@@ -1,7 +1,8 @@
 // Images
 import spinner from '../images/spinner-loop.gif';
 
-// Override Classes
+import { Platform, StyleSheet } from 'react-native';
+
 const styles = {
 // Colors
   colorRed: {
@@ -104,10 +105,10 @@ const styles = {
     alignItems: 'flex-start'
   },
   flex1: {
-    flex: "1",
+    flex: 1,
   },
   flex2: {
-    flex: "2",
+    flex: 2,
   },
 // Overflow
   overflowScroll: {
@@ -162,8 +163,7 @@ const styles = {
   copyRight: {
     position: 'fixed',
     bottom: '5px',
-    left: '50%',
-    transform: 'translateX(-50%)',
+    left: '50%'
   },
   spinnerBackground: {
     backgroundColor: '#ffffff',
@@ -176,7 +176,6 @@ const styles = {
     position: 'fixed',
     bottom: '35px',
     left: '50%',
-    transform: 'translateX(-50%)',
     color: 'white',
     backgroundColor: 'rgb(255,92,92)'
   },
@@ -203,8 +202,8 @@ const styles = {
     display: 'flex',
     flexWrap: 'nowrap',
     overflowX: 'auto',
-    flexGrow: '0',
-    flexShrink: '0',
+    flexGrow: 0,
+    flexShrink: 0,
     flexBasis: 'auto'
   },
   ropuDialogTitle: {

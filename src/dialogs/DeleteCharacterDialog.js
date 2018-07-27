@@ -20,17 +20,17 @@ import styles from '../styles/styles';
 const DeleteCharacterDialog = (props) => {
   return (
     <div
-      style={{
-        ...styles.bgColorTransparentMediumRed
-      }}
+      style={[
+        styles.bgColorTransparentMediumRed
+      ]}
     >
       <RopuDialogTitle {...props} title={props.text.confirmDelete} />
       <CardActions
-        style={{
-          ...styles.displayFlex,
-          ...styles.justifyAround,
-          ...styles.bgColorTransparentMediumRed
-        }}
+        style={[
+          styles.displayFlex,
+          styles.justifyAround,
+          styles.bgColorTransparentMediumRed
+        ]}
       >
         {/* Confirm Button */}
         <IconButton
@@ -50,7 +50,7 @@ const DeleteCharacterDialog = (props) => {
             props.updateDialog(false);
             props.selectCharacter(null);
           }}
-          style={{...styles.colorWhite}}
+          style={[styles.colorWhite]}
         >
           <CloseIcon />
         </IconButton>

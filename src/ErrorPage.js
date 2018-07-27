@@ -17,7 +17,7 @@ const ErrorPage = (props) => {
   return (
     <main
       id="error"
-      style={{...styles.minHeight, ...styles.displayFlex, ...styles.justifyCenter, ...styles.alignCenter, ...styles.directionColumn}}
+      style={[styles.minHeight, styles.displayFlex, styles.justifyCenter, styles.alignCenter, styles.directionColumn]}
     >
       <Toolbar />
       <TitleBar {...props} />

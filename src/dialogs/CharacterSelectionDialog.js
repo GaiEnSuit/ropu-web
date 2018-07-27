@@ -23,21 +23,21 @@ import styles from '../styles/styles';
 const CancelCreateCharacterDialog = (props) => {
   return (
     <div
-      style={{
-        ...styles.bgColorTransparentMediumRed
-      }}
+      style={[
+        styles.bgColorTransparentMediumRed
+      ]}
     >
       <RopuDialogTitle
         {...props}
         title={props.text.characterSelectionPageDialogTitle}
       />
       <DialogActions
-        style={{
-          ...styles.displayFlex,
-          ...styles.justifyAround,
-          ...styles.bgColorTransparentMediumRed,
-          ...styles.margin0
-        }}
+        style={[
+          styles.displayFlex,
+          styles.justifyAround,
+          styles.bgColorTransparentMediumRed,
+          styles.margin0
+        ]}
       >
         {/* Confirm Button */}
         <Link 
@@ -47,7 +47,7 @@ const CancelCreateCharacterDialog = (props) => {
           }}
         >
           <IconButton
-            style={{...styles.colorWhite}}
+            style={[styles.colorWhite]}
             aria-label="Close"
           >
             <CheckIcon />
@@ -59,7 +59,7 @@ const CancelCreateCharacterDialog = (props) => {
           onClick={()=>{
             props.updateDialog(false);
           }}
-          style={{...styles.colorWhite}}
+          style={[styles.colorWhite]}
         >
           <CloseIcon />
         </IconButton>

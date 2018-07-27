@@ -23,7 +23,7 @@ import Typography from '@material-ui/core/Typography';
 const GuideDialogContent = (props) => {
   return(
     <DialogContent
-      style={{...styles.dialogContent, ...styles.dim100}}
+      style={[styles.dialogContent, styles.dim100]}
     >
       {props.guideDialogData.map((data, index)=> {
         return(
@@ -51,7 +51,7 @@ const GuideDialogContent = (props) => {
 const GuideDialog = (props) => {
   return (
     <div
-      style={{...styles.displayFlex, ...styles.directionColumn}}
+      style={[styles.displayFlex, styles.directionColumn]}
     >
       <RopuDialogTitle {...props} title={props.text.guide} />
       <GuideDialogContent {...props} />

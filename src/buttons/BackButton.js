@@ -12,7 +12,7 @@ import styles from '../styles/styles'
 const BackButton = (props) => {
   return (
     <IconButton
-      style={{...styles.colorWhite, ...styles.bgColorRed}}
+      style={[styles.colorWhite, styles.bgColorRed]}
     >
       <ArrowBackIcon />
     </IconButton>

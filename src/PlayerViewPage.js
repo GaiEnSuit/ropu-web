@@ -12,7 +12,7 @@ class PlayerViewPage extends Component {
   render() {
     return (
       <main
-        style={{...styles.minHeight}}
+        style={styles.minHeight}
       >
         <CharacterCard character={this.props.character} />
         <Roller />

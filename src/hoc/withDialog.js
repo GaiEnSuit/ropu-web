@@ -16,7 +16,7 @@ import CharacterSelectionDialog from '../dialogs/CharacterSelectionDialog';
 // Styles
 import styles from '../styles/styles';
 
-const withDialog = (WrappedComponent, selectedDialog) => class extends Component {
+export const withDialog = (WrappedComponent, selectedDialog) => class extends Component {
   
   state = {
     open: false,

@@ -36,16 +36,16 @@ const CharacterSelectionList = (props) => {
   if (props.characterListData.length <= 0) {
     return (
       <div
-        style={{
-          ...styles.displayFlex,
-          ...styles.justifyCenter, 
-          ...styles.alignCenter,
-          ...styles.flex1
-        }}
+        style={[
+          styles.displayFlex,
+          styles.justifyCenter, 
+          styles.alignCenter,
+          styles.flex1
+        ]}
       >
         <Typography
           variant="headline"
-          style={{...styles.colorWhite}}
+          style={styles.colorWhite}
         >
           {props.text.noCharacters}
         </Typography>
@@ -54,15 +54,15 @@ const CharacterSelectionList = (props) => {
   } else {
     return (
       <div
-        style={{...styles.appBarOffset}}
+        style={styles.appBarOffset}
       >
         <Grid
           container
           spacing={16}
-          style={{
-            ...styles.width100,
-            ...styles.margin0
-          }}
+          style={[
+            styles.width100,
+            styles.margin0
+          ]}
         >
           {props.characterListData.map((character) => {    
             return(
@@ -92,7 +92,7 @@ const CharacterSelectionList = (props) => {
 const CharacterSelectionActionBar = (props) => {
   return(
     <Toolbar
-      style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
+      style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex, styles.justifyBetween]}
     >
       <EnhancedBackButton
         {...props}
@@ -107,7 +107,7 @@ const CharacterSelectionPage = (props) => {
   return (
     <main
       id="characterselection"
-      style={{...props.style, ...styles.bgColorWhite, ...styles.displayFlex, ...styles.directionColumn, ...styles.minHeight}}
+      style={[props.style, styles.bgColorWhite, styles.displayFlex, styles.directionColumn, styles.minHeight]}
     >
       <TitleBar
         {...props}

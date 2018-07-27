@@ -33,11 +33,11 @@ const TwitterWidgetWithLoader = withLoader(TwitterWidget);
 const NewsFeedDialog = (props) => {
   return (
     <div
-      style={{...styles.displayFlex, ...styles.directionColumn}}
+      style={[styles.displayFlex, ...styles.directionColumn]}
     >
       <RopuDialogTitleResponsive {...props} title={props.text.newsFeedDialogTitle} />
       <DialogContent
-        style={{...styles.displayFlex}}
+        style={[styles.displayFlex]}
       >
         <TwitterWidgetWithLoader
           offline={props.offline}

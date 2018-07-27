@@ -22,7 +22,7 @@ const BackButtonWithNavigation = withNavigation(BackButton, '/');
 const HomebrewPageActionBar = (props) => {
   return(
     <Toolbar
-      style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
+      style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex, styles.justifyBetween]}
     >
       <BackButtonWithNavigation
         {...props}
@@ -36,7 +36,7 @@ const HomebrewPage = (props) => {
   return (
     <main
       id="homebrew"
-      style={{...styles.minHeight}}
+      style={[styles.minHeight]}
     >
       <TitleBar {...props} />
       <div>

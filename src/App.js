@@ -8,6 +8,9 @@ import { Switch, Route, Redirect } from './routing/Routing';
 // Layout Handling
 import LayoutHandler from './modules/LayoutHandler';
 
+// styles
+import styles from './styles/styles';
+
 // Pages
 import HomePage from './HomePage';
 import CharacterSelectionPage from './CharacterSelectionPage';
@@ -20,7 +23,12 @@ import ErrorPage from './ErrorPage';
 class App extends Component {
   render() {
     return (
-      <View>
+      <View
+        style={[
+          styles.flex1,
+          styles.vp100
+        ]}
+      >
         <LayoutHandler update={this.props.setAppState} />
         {/* Main Section */}
         <Switch>

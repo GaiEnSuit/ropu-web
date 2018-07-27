@@ -2,29 +2,25 @@ import React, { Component } from 'react';
 
 import { View } from 'react-native';
 
-import NewsFeedModal from '../modals/NewsFeedModal';
+// HOC
+import withDialog from '../hoc/withDialog';
 
 // News Feed That Opens On Mount
 class NewsFeedHandler extends Component {
   
-  state = {
-    open: false
-  }
-  
   componentDidMount ()
   {
-    this.setState({open: true});
+    this.props.updateDialog(true);
   }
   
   render()
   {
     return (
-      <NewsFeedModal
+      <View
         {...this.props}
-        open={this.state.open}
       />
     )
   }
 }
 
-export default NewsFeedHandler;
+export default withDialog(NewsFeedHandler, 'newsFeedDialog');

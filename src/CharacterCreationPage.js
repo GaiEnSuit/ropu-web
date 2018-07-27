@@ -38,7 +38,7 @@ import CharacterCreationTabSummary from './sections/CharacterCreationTabSummary'
 const CharacterCreationTab = (props) => {
   return(
     <div
-      style={{...styles.flex1}}
+      style={styles.flex1}
     >
       {props.createCharacterDialogTab === 0 && <CharacterCreationTabGame {...props} />}
       {props.createCharacterDialogTab === 1 && <CharacterCreationTabInteractables {...props} />}
@@ -56,7 +56,7 @@ const CharacterCreationTabs = (props) => {
       <Tabs
         value={props.createCharacterDialogTab}
         onChange={props.setCreateCharacterDialogTab}
-        style={{...styles.colorWhite, ...styles.bgColorRed}}
+        style={[styles.colorWhite, styles.bgColorRed]}
         indicatorColor="primary"
         scrollable
       >
@@ -75,19 +75,19 @@ const BackButtonWithDialog = withDialog(BackButton, 'characterSelectionDialog');
 const CharacterCreationPageActionBar = (props) => {
   return (
     <Toolbar
-      style={{...styles.bgColorTransparant, ...styles.actionBar, ...styles.displayFlex, ...styles.justifyBetween}}
+      style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex,styles.justifyBetween]}
     >
       <BackButtonWithDialog
         {...props}
       />
       <div
-        style={{...styles.displayFlex, ...styles.justifyBetween}}
+        style={[styles.displayFlex, styles.justifyBetween]}
       >
         {props.createCharacterDialogTab >= 1 &&
           <Button 
             variant="extendedFab"
             onClick={props.backCreateCharacterDialogTab}
-            style={{...styles.colorWhite, ...styles.bgColorRed}}
+            style={[styles.colorWhite, styles.bgColorRed]}
           >
             <ChevronLeftIcon />
             {props.text.back}
@@ -97,11 +97,11 @@ const CharacterCreationPageActionBar = (props) => {
           <Button 
             variant="extendedFab"
             onClick={props.nextCreateCharacterDialogTab}
-            style={{...styles.colorWhite, ...styles.bgColorRed}}
+            style={[styles.colorWhite, styles.bgColorRed]}
           >
             {props.text.next}
             <ChevronRightIcon
-              style={{...styles.colorWhite}}
+              style={[styles.colorWhite]}
             />
           </Button>
         }
@@ -115,11 +115,11 @@ const CharacterCreationPageActionBar = (props) => {
               props.addNewCharacter();
             }}
             variant="extendedFab"
-            style={{...styles.colorWhite, ...styles.bgColorRed}}
+            style={[styles.colorWhite, styles.bgColorRed]}
           >
             {props.text.complete}
             <ChevronRightIcon
-              style={{...styles.colorWhite}}
+              style={[styles.colorWhite]}
             />
           </Button>
         }
@@ -146,10 +146,10 @@ class CreateCharacterPage extends Component {
     return(
       <main
         id="charactercreation"
-        style={{...styles.minHeight, ...this.props.style, ...styles.displayFlex, ...styles.directionColumn}}
+        style={[styles.minHeight, this.props.style, styles.displayFlex, styles.directionColumn]}
       >
         <div
-          style={{...styles.appBarOffset, ...styles.vh100}}
+          style={[styles.appBarOffset, styles.vh100]}
         >
         <TitleBar {...this.props} />
           <CharacterCreationTabs {...this.props} />

@@ -46,7 +46,7 @@ class A2HSButton extends Component {
       <div>
         {!this.state.disabled &&
           <Button
-            style={{...styles.absoluteTopRight, ...styles.colorWhite, ...styles.bgColorTransparent}}
+            style={[styles.absoluteTopRight, styles.colorWhite, styles.bgColorTransparent]}
             onClick={()=>{
               this.showPrompt();
             }}

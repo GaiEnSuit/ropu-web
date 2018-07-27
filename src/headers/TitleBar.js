@@ -11,7 +11,7 @@ const TitleBar = (props) => {
   return (
     <AppBar
       position="fixed"
-      style={{...styles.bgColorTransparentMediumRed, ...styles.colorWhite, ...styles.textCenter}}
+      style={[styles.bgColorTransparentMediumRed, styles.colorWhite, styles.textCenter]}
     >
       <Typography
         variant="display1"

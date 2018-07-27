@@ -31,11 +31,11 @@ const CharacterListItemCardMedia = (props) => {
       >
         {!props.character.img &&
           <AccountBoxIcon
-            style={{
-              ...styles.dim100,
-              ...styles.colorWhite,
-              ...styles.bgColorTransparentBlack
-            }}
+            style={[
+              styles.dim100,
+              styles.colorWhite,
+              styles.bgColorTransparentBlack
+            ]}
           />
         }
       </CardMedia>
@@ -48,7 +48,7 @@ const CharacterListItemCardContent = (props) => {
   return(
     <Link to={`/playerview/${props.character.id}`}>
       <CardContent
-        style={{...styles.bgColorDarkRed, ...styles.colorWhite}}
+        style={[styles.bgColorDarkRed, styles.colorWhite]}
       >
         {props.character.name === ''?
           (
@@ -76,7 +76,7 @@ const CharacterListItemCardContent = (props) => {
 const CharacterListItemCardActions = (props) => {
   return(
     <CardActions
-      style={{...styles.bgColorDarkRed, ...styles.displayFlex, ...styles.justifyEnd}}
+      style={[styles.bgColorDarkRed, styles.displayFlex, styles.justifyEnd]}
     >
       <IconButton
         style={styles.colorWhite}
@@ -95,19 +95,19 @@ const CharacterSelectionCard = (props) => {
   return(
     <Card
       raised={true}
-      style={{
-        ...styles.bgColorTransparentMediumRed,
-        ...styles.dim100,
-        ...props.style
-      }}
+      style={[
+        styles.bgColorTransparentMediumRed,
+        styles.dim100,
+        props.style
+      ]}
     >
       <Grid
         container
         spacing={8}
-        style={{
-          ...styles.dim100,
-          ...styles.margin0
-        }}
+        style={[
+          styles.dim100,
+          styles.margin0
+        ]}
       >
         <Grid
           item

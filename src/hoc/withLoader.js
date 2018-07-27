@@ -14,7 +14,7 @@ const withLoader = (WrappedComponent) => class extends Component {
     if (navigator.onLine) {
       return (
         <div
-          style={{...styles.vp100, ...styles.spinnerBackground}}
+          style={[styles.vp100, styles.spinnerBackground]}
         >
           <WrappedComponent
             {...this.props}
@@ -24,7 +24,7 @@ const withLoader = (WrappedComponent) => class extends Component {
     } else {
       return(
         <div
-          style={{...styles.dim100, ...styles.displayFlex, ...styles.justifyCenter, ...styles.alignCenter, ...styles.directionColumn}}
+          style={[styles.dim100, styles.displayFlex, styles.justifyCenter, styles.alignCenter, styles.directionColumn]}
         >
           <ErrorOutlineIcon
             style={styles.icon64}

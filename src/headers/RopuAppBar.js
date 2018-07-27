@@ -42,7 +42,7 @@ class RopuAppBar extends Component {
         id="appbar"
         style={this.props.style}
       >
-        <Toolbar style={{...styles.displayFlex, ...styles.justifyEnd, ...styles.bgColorBlack, ...styles.colorRed}}>
+        <Toolbar style={[styles.displayFlex, styles.justifyEnd, styles.bgColorBlack, styles.colorRed]}>
           <div
             style={styles.marginRA}
           >

@@ -15,7 +15,7 @@ import styles from '../styles/styles';
 const DialogCardActions = (props) => {
   return (
     <DialogActions
-      style={{...styles.bgColorTransparentMediumRed, ...styles.displayFlex, ...styles.justifyEnd, ...styles.margin0}}
+      style={[styles.bgColorTransparentMediumRed, styles.displayFlex, styles.justifyEnd, styles.margin0]}
     >
       <IconButton
         onClick={()=>{

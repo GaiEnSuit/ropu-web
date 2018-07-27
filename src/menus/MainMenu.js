@@ -22,22 +22,6 @@ import Typography from '@material-ui/core/Typography';
 
 // HOC
 import withDialog from '../hoc/withDialog';
-
-// News Feed opens on render
-class NewsFeedPlaceholder extends Component {
-  
-  componentDidMount () {
-    this.props.updateDialog(true);
-  }
-  
-  render() {
-    return (
-      <div />
-    )
-  }
-}
-const EnhancedNewsFeedPlaceholder = withDialog(NewsFeedPlaceholder, 'newsFeedDialog');
-      
       
 // Play
 const Play = (props) => {
@@ -149,7 +133,6 @@ const GuideWithDialog = withDialog(Guide, 'guideDialog')
 const MainMenu = (props) => {
   return (
     <List
-      style={props.style}
     >
       <Play
         {...props}
@@ -172,7 +155,6 @@ const MainMenu = (props) => {
       <GuideWithDialog
         {...props}
       />
-      <EnhancedNewsFeedPlaceholder {...props} />
     </List>
   )
 }

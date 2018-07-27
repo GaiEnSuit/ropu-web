@@ -20,7 +20,7 @@ import styles from '../styles/styles';
 const CharacterCreationGameCard = (props) => {
   return (
     <Card
-      style={{...styles.dim100}}
+      style={styles.dim100}
     >
       {
         props.game.image === null?
@@ -40,7 +40,7 @@ const CharacterCreationGameCard = (props) => {
         )
       }
       <CardContent
-        style={{...styles.overflowHidden}}
+        style={styles.overflowHidden}
       >
         <Typography variant="title" className="text-center">{props.game.name.toUpperCase()}</Typography>
         <Typography variant="subheading" className="text-center">{props.text.tags}</Typography>
@@ -51,7 +51,7 @@ const CharacterCreationGameCard = (props) => {
         })}
       </CardContent>
       <CardContent
-        style={{...styles.overflowHidden}}
+        style={styles.overflowHidden}
       >
         <Typography variant="subheading">{props.text.description}</Typography>
         <Typography variant="body1">{props.game.description}</Typography>

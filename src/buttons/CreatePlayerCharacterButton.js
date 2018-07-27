@@ -17,7 +17,7 @@ const CreatePlayerCharacterButton = (props) => {
     <Link to="/charactercreation">
       <IconButton
         variant="extendedFab"
-        style={{...styles.colorWhite, ...styles.bgColorRed}}
+        style={[styles.colorWhite, styles.bgColorRed]}
       >
         <AddIcon />
       </IconButton>

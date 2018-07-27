@@ -19,7 +19,7 @@ const GameList = (props) => {
   return (
     <Grid
       container
-      style={{...styles.carouselContainer, ...styles.width100, ...styles.margin0}}
+      style={[styles.carouselContainer, styles.width100, styles.margin0]}
       spacing={24}
     >
       {props.gameListData.map((game, index)=>{
@@ -42,11 +42,11 @@ const EnhancedGameList = withGameDataControl(withCharacterDataControl(GameList))
 const CharacterCreationTabGame = (props) => {
   return(
     <div
-      style={{...styles.dim100}}
+      style={[styles.dim100]}
     >
       <Typography
         variant="title"
-        style={{...styles.colorRed, ...styles.textCenter}}
+        style={[styles.colorRed, styles.textCenter]}
       >
         {props.text.selectGame}
       </Typography>

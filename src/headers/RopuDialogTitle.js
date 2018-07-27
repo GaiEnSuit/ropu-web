@@ -10,11 +10,11 @@ import styles from '../styles/styles';
 const RopuDialogTitle = (props) => {
   return (
     <DialogTitle
-      style={{...styles.displayFlex, ...styles.justifyCenter, ...styles.bgColorTransparentMediumRed}}
+      style={[styles.displayFlex, styles.justifyCenter, styles.bgColorTransparentMediumRed]}
       disableTypography
     >
       <Typography
-        style={{...styles.colorWhite}}
+        style={styles.colorWhite}
         variant="title"
       >
         {props.title}
