@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 //Routing
 import { Link } from 'react-router-dom';
+
+import { Text } from 'react-native';
+
+// Dialogs
+import GuideDialog from '../dialogs/GuideDialog';
 
 // Images
 import sword from '../images/sword_01b.png';
@@ -18,7 +23,6 @@ import Divider from '@material-ui/core/Divider';
 
 //styles
 import styles from '../styles/styles';
-import Typography from '@material-ui/core/Typography';
 
 // HOC
 import withDialog from '../hoc/withDialog';
@@ -37,12 +41,11 @@ const Play = (props) => {
           />
         </ListItemIcon>
         <ListItemText>
-          <Typography
+          <Text
             style={styles.colorWhite}
-            variant="button"
           >
             {props.text.play}
-          </Typography>
+          </Text>
         </ListItemText>
       </ListItem>
     </Link>
@@ -63,12 +66,11 @@ const Direct = (props) => {
           />
         </ListItemIcon>
         <ListItemText>
-          <Typography
+          <Text
             style={styles.colorWhite}
-            variant="button"
           >
             {props.text.direct}
-          </Typography>
+          </Text>
         </ListItemText>
       </ListItem>
     </Link>
@@ -89,12 +91,11 @@ const Create = (props) => {
             alt="Book" />
         </ListItemIcon>
         <ListItemText>
-          <Typography
+          <Text
             style={styles.colorWhite}
-            variant="button"
           >
             {props.text.homebrew}
-          </Typography>
+          </Text>
         </ListItemText>
       </ListItem>
     </Link>
@@ -115,19 +116,18 @@ const Guide = (props) => {
           alt="Book" />
       </ListItemIcon>
       <ListItemText>
-        <Typography
+        <Text
           style={styles.colorWhite}
-          variant="button"
         >
           {props.text.guide}
-        </Typography>
+        </Text>
       </ListItemText>
     </ListItem>
   )
 }
 
 // Guide with Guide Dialog
-const GuideWithDialog = withDialog(Guide, 'guideDialog')
+const GuideWithDialog = withDialog(Guide, GuideDialog)
 
 // Main Menu
 const MainMenu = (props) => {

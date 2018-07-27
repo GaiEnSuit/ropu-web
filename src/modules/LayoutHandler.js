@@ -7,10 +7,10 @@ class LayoutHandler extends Component {
     super();
     // Handles Orientatino Changes
     Dimensions.addEventListener('change', () => {
-      this.props.update({
-        orientation: Dimensions.get('window').width < Dimensions.get('window').height ? 'portrait' : 'landscape'
-      });
-      console.log('Orientation Changed');
+      this.props.update(
+        {orientation: Dimensions.get('window').width < Dimensions.get('window').height ? 'portrait' : 'landscape'},
+        console.log('Orientation Changed')
+      );
     });
   }
   

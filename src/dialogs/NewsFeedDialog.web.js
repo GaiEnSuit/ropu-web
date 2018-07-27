@@ -1,7 +1,10 @@
 import React from 'react';
 
+import { View } from 'react-native';
+
 // Material ui
 import DialogContent from '@material-ui/core/DialogContent';
+import Dialog from '@material-ui/core/Dialog';
 
 // headers
 import RopuDialogTitleResponsive from '../headers/RopuDialogTitleResponsive';
@@ -32,19 +35,26 @@ const TwitterWidgetWithLoader = withLoader(TwitterWidget);
 // News Feed
 const NewsFeedDialog = (props) => {
   return (
-    <div
-      style={[styles.displayFlex, ...styles.directionColumn]}
+    <Dialog
+      open={props.open}
+      onClose={()=>{
+        props.updateDialog(false, 'News Feed Dialog Closed')
+      }}
     >
-      <RopuDialogTitleResponsive {...props} title={props.text.newsFeedDialogTitle} />
-      <DialogContent
-        style={[styles.displayFlex]}
+      <View
+        style={[styles.displayFlex, styles.directionColumn]}
       >
-        <TwitterWidgetWithLoader
-          offline={props.offline}
-          {...props}
-        />
-      </DialogContent>
-    </div>
+        <RopuDialogTitleResponsive {...props} title={props.text.newsFeedDialogTitle} />
+        <DialogContent
+          style={[styles.displayFlex]}
+        >
+          <TwitterWidgetWithLoader
+            offline={props.offline}
+            {...props}
+          />
+        </DialogContent>
+      </View>
+    </Dialog>
   )
 }
 

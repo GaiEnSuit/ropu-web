@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Material-ui
 import DialogActions from '@material-ui/core/DialogActions';
+import Dialog from '@material-ui/core/Dialog';
 
 // Buttons
 import IconButton from '@material-ui/core/IconButton';
@@ -22,6 +23,12 @@ import styles from '../styles/styles';
 // Layout
 const CancelCreateCharacterDialog = (props) => {
   return (
+        <Dialog
+      open={props.open}
+      onClose={()=>{
+        this.props.updateDialog({open: false})
+      }}
+    >
     <div
       style={[
         styles.bgColorTransparentMediumRed
@@ -65,6 +72,7 @@ const CancelCreateCharacterDialog = (props) => {
         </IconButton>
       </DialogActions>
     </div>
+  </Dialog>
   )
 }
 

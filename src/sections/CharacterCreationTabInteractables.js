@@ -12,7 +12,6 @@ import Button from '@material-ui/core/Button';
 // Higher Order Components
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
 import withGameDataControl from '../hoc/withGameDataControl';
-import withDialogControl from '../hoc/withDialogControl';
 import withTabControl from '../hoc/withTabControl';
 
 const SelectedTemplateInteractableListItem = (props) => {
@@ -119,4 +118,4 @@ const CharacterCreationTabInteractables = (props) => {
   )
 }
 
-export default withTabControl(withDialogControl(withGameDataControl(withCharacterDataControl(CharacterCreationTabInteractables))));
+export default withTabControl(withGameDataControl(withCharacterDataControl(CharacterCreationTabInteractables)));

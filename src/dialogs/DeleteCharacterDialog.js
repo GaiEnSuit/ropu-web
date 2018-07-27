@@ -3,6 +3,7 @@ import React from 'react';
 // Material-ui
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
@@ -19,6 +20,12 @@ import styles from '../styles/styles';
 
 const DeleteCharacterDialog = (props) => {
   return (
+        <Dialog
+      open={props.open}
+      onClose={()=>{
+        this.props.updateDialog({open: false})
+      }}
+    >
     <div
       style={[
         styles.bgColorTransparentMediumRed
@@ -56,6 +63,7 @@ const DeleteCharacterDialog = (props) => {
         </IconButton>
       </CardActions>
     </div>
+    </Dialog>
   )
 }
 

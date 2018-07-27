@@ -1,8 +1,6 @@
 // Images
 import spinner from '../images/spinner-loop.gif';
 
-import { Platform, StyleSheet } from 'react-native';
-
 const styles = {
 // Colors
   colorRed: {

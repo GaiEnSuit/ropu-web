@@ -37,13 +37,12 @@ const Copyright = (props) => {
 const StartButton = (props) => {
   return (
     <Text
-      style={styles.colorRed}
+      style={[styles.colorWhite, styles.dim100, styles.justifyCenter, styles.displayFlex, styles.alignCenter]}
       onClick={()=>{
-        props.update({start: true});
-        console.log("Game Started")
+        props.update({start: true}, console.log("Game Started"));
       }}
     >
-      START
+      TOUCH TO START
     </Text>
   )
 }
@@ -71,7 +70,6 @@ class HomePage extends Component {
         style={[
           styles.flex1,
           styles.bgColorBlack,
-          styles.overflowHidden,
           {flexDirection: this.props.orientation === "portrait"? "column":"row"}
         ]}
       >

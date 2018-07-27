@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { View } from 'react-native';
+
 // Material-Ui
 import DialogContent from '@material-ui/core/DialogContent';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Dialog from '@material-ui/core/Dialog';
 
 // Headers
 import RopuDialogTitle from '../headers/RopuDialogTitle';
@@ -50,13 +53,20 @@ const GuideDialogContent = (props) => {
 // Layout
 const GuideDialog = (props) => {
   return (
-    <div
-      style={[styles.displayFlex, styles.directionColumn]}
+    <Dialog
+      open={props.open}
+      onClose={()=>{
+        props.updateDialog(false, 'Guide Dialog Closed')
+      }}
     >
-      <RopuDialogTitle {...props} title={props.text.guide} />
-      <GuideDialogContent {...props} />
-      <DialogCardActions {...props} />
-    </div>
+      <View
+        style={[styles.displayFlex, styles.directionColumn]}
+      >
+        <RopuDialogTitle {...props} title={props.text.guide} />
+        <GuideDialogContent {...props} />
+        <DialogCardActions {...props} />
+      </View>
+    </Dialog>
   )
 }
 

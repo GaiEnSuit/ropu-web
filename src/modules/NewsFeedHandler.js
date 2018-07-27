@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-
-import { View } from 'react-native';
+import { Component } from 'react';
 
 // HOC
 import withDialog from '../hoc/withDialog';
+
+// Dialogs
+import NewsFeedDialog from '../dialogs/NewsFeedDialog';
 
 // News Feed That Opens On Mount
 class NewsFeedHandler extends Component {
@@ -15,12 +16,8 @@ class NewsFeedHandler extends Component {
   
   render()
   {
-    return (
-      <View
-        {...this.props}
-      />
-    )
+    return null
   }
 }
 
-export default withDialog(NewsFeedHandler, 'newsFeedDialog');
+export default withDialog(NewsFeedHandler, NewsFeedDialog);

@@ -8,7 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 
 // Higher Order Components
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
-import withDialogControl from '../hoc/withDialogControl';
 import withTabControl from '../hoc/withTabControl';
 
 // Icons
@@ -51,4 +50,4 @@ const CharacterCreationTabSummary = (props) => {
   )
 }
 
-export default withTabControl(withDialogControl(withCharacterDataControl(CharacterCreationTabSummary)));
+export default withTabControl(withCharacterDataControl(CharacterCreationTabSummary));
