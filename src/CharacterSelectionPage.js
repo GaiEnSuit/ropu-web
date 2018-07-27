@@ -15,12 +15,15 @@ import withDialog from './hoc/withDialog';
 import withCharacterDataControl from './hoc/withCharacterDataControl';
 import withNavigation from './hoc/withNavigation';
 
+// Dialogs
+import DeleteCharacterDialog from './dialogs/DeleteCharacterDialog';
+
 // Buttons
 import CreatePlayerCharacterButton from './buttons/CreatePlayerCharacterButton';
 import BackButton from './buttons/BackButton';
 
 //Character Selection Cards Slide
-const CharacterSelectionCardSlide = withCharacterDataControl(withDialog(CharacterSelectionCard, 'deleteCharacterDialog'));
+const EnhancedCharacterSelectionCard = withCharacterDataControl(withDialog(CharacterSelectionCard, DeleteCharacterDialog));
 
 // Back BUtton to HOme screen
 const EnhancedBackButton = withNavigation(BackButton, '/');
@@ -52,7 +55,7 @@ const CharacterSelectionList = (props) => {
               <View
                 key={character.id}
               >
-                <CharacterSelectionCardSlide
+                <EnhancedCharacterSelectionCard
                   character={character}
                   {...props}
                 />

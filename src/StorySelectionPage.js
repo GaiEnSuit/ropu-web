@@ -1,11 +1,10 @@
 import React from 'react';
 
+import { View, Text } from 'react-native';
+
 // styles
-import Typography from '@material-ui/core/Typography';
 import styles from './styles/styles';
 
-// Material-Ui
-import Toolbar from '@material-ui/core/Toolbar';
 // import Card from '@material-ui/core/Card';
 
 // Button
@@ -17,7 +16,7 @@ import withNavigation from './hoc/withNavigation';
 // Headers
 import TitleBar from './headers/TitleBar';
 
-const BackButtonWithNavigation = withNavigation(BackButton, '/');
+const EnhancedBackButton = withNavigation(BackButton, '/');
 
 // Story List
 // const StorySelectionList = (props) => {
@@ -47,31 +46,36 @@ const BackButtonWithNavigation = withNavigation(BackButton, '/');
 // Footer
 const StorySelectionActionBar = (props) => {
   return(
-    <Toolbar
-      style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex, styles.justifyBetween]}
+    <View
+      style={[
+        styles.bgColorTransparant,
+        styles.actionBar,
+        styles.directionRow,
+        styles.justifyBetween,
+        styles.positionFixed,
+        styles.width100,
+        styles.positionBottom
+      ]}
     >
-      <BackButtonWithNavigation
+      <EnhancedBackButton
         {...props}
       />
-    </Toolbar>
+    </View>
   )
 }
 
 // Layout
 const StorySelectionPage = (props) => {
   return (
-    <main
-      id="storySelection"
+    <View
       style={styles.minHeight}
     >
       <TitleBar {...props} />
-      <div>
-        <Toolbar />
-        <Typography variant="display1">This Feature is Currently Unavailable</Typography>
-        <Toolbar />
-      </div>
+      <View>
+        <Text>This Feature is Currently Unavailable</Text>
+      </View>
       <StorySelectionActionBar {...props} />
-    </main>
+    </View>
   )
 }
 

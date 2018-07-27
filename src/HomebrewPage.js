@@ -1,14 +1,12 @@
 import React from 'react';
 
-// Material-UI
-import Toolbar from '@material-ui/core/Toolbar';
+import { View, Text } from 'react-native';
 
 // Header
 import TitleBar from './headers/TitleBar';
 
 // Styles
 import styles from './styles/styles';
-import Typography from '@material-ui/core/Typography';
 
 // Buttons
 import BackButton from './buttons/BackButton';
@@ -16,36 +14,44 @@ import BackButton from './buttons/BackButton';
 // HOC
 import withNavigation from './hoc/withNavigation';
 
-const BackButtonWithNavigation = withNavigation(BackButton, '/');
+const EnhancedBackButton = withNavigation(BackButton, '/');
 
 // Footer
 const HomebrewPageActionBar = (props) => {
   return(
-    <Toolbar
-      style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex, styles.justifyBetween]}
+    <View
+      style={[
+        styles.bgColorTransparant,
+        styles.actionBar,
+        styles.directionRow,
+        styles.justifyBetween,
+        styles.positionFixed,
+        styles.width100,
+        styles.positionBottom
+      ]}
     >
-      <BackButtonWithNavigation
+      <EnhancedBackButton
         {...props}
       />
-    </Toolbar>
+    </View>
   )
 }
 
 // Layout
 const HomebrewPage = (props) => {
   return (
-    <main
+    <View
       id="homebrew"
       style={[styles.minHeight]}
     >
       <TitleBar {...props} />
-      <div>
-        <Toolbar />
-        <Typography variant="display1">This Feature is Currently Unavailable</Typography>
-        <Toolbar />
-      </div>
+      <View>
+        <View />
+        <Text variant="display1">This Feature is Currently Unavailable</Text>
+        <View />
+      </View>
       <HomebrewPageActionBar {...props} />
-    </main>
+    </View>
   )
 }
 

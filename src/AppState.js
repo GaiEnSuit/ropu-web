@@ -696,7 +696,7 @@ class AppState extends Component {
         license: ' is licensed under ',
         version: 'Version',
         copyright: '',
-        newsFeedDialogTitle: 'News Feed'
+        newsFeedDialogTitle: 'NEWS FEED'
       },
       characterCreationPageText: {
         title: 'Character Creation',

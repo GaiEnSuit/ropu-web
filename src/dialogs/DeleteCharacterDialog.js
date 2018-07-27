@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { View } from 'react-native';
+
 // Material-ui
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
@@ -20,13 +22,13 @@ import styles from '../styles/styles';
 
 const DeleteCharacterDialog = (props) => {
   return (
-        <Dialog
+    <Dialog
       open={props.open}
       onClose={()=>{
         this.props.updateDialog({open: false})
       }}
     >
-    <div
+    <View
       style={[
         styles.bgColorTransparentMediumRed
       ]}
@@ -62,7 +64,7 @@ const DeleteCharacterDialog = (props) => {
           <CloseIcon />
         </IconButton>
       </CardActions>
-    </div>
+    </View>
     </Dialog>
   )
 }

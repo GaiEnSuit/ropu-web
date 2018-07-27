@@ -166,6 +166,10 @@ const styles = {
   textCenter: {
     textAlign: 'center'
   },
+  // Shape
+  shapeCircle: {
+    borderRadius: '50%'
+  },
   // Component Specific
   version: {
     position: 'fixed',

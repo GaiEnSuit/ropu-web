@@ -1,21 +1,29 @@
 import React from 'react';
 
-// Material-UI Components
-import IconButton from '@material-ui/core/IconButton';
+import { View, Image } from 'react-native';
 
 // Icons
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import arrowBackIcon from '../images/arrowBackIcon.png';
 
 // styles
 import styles from '../styles/styles'
 
 const BackButton = (props) => {
   return (
-    <IconButton
-      style={[styles.colorWhite, styles.bgColorRed]}
+    <View
+      style={[
+        styles.icon48,
+        styles.alignCenter,
+        styles.justifyCenter,
+        styles.bgColorRed,
+        styles.shapeCircle,
+      ]}
     >
-      <ArrowBackIcon />
-    </IconButton>
+      <Image
+        style={styles.icon24}
+        source={arrowBackIcon}
+      />
+    </View>
   )
 }
 

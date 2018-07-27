@@ -11,9 +11,6 @@ import Dialog from '@material-ui/core/Dialog';
 // Headers
 import RopuDialogTitle from '../headers/RopuDialogTitle';
 
-// Footers
-import DialogCardActions from '../footers/DialogCardActions';
-
 // Icons
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
