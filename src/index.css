@@ -13,6 +13,7 @@
   box-sizing: border-box;
 }
 
+/* Make Web Apps behave like Native Apps */
 #root {
   display: flex;
   flex-direction: column;
@@ -21,6 +22,7 @@
   margin: 0;
 }
 
+/* Remove link styling from web apps */
 a {
   text-decoration: none
 }

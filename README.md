@@ -1,3 +1,4 @@
-RoPU - Role PLaying Unlimited
-#############################
+#RoPU - Role PLaying Unlimited#
+
+The Digital Native Role Playing Game
 

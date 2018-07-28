@@ -1,8 +1,10 @@
+// Entry to Native App
+
 import React from 'react';
-import HybridApp from './src/App';
+import App from './src/App';
 
 export default class NativeApp extends React.Component {
   render() {
-    return <HybridApp />
+    return <App />
   }
 }
