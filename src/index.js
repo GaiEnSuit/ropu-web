@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 
 import './index.css';
@@ -12,10 +11,8 @@ import AppState from './AppState';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <AppState>
-      <App />
-    </AppState>
-  </BrowserRouter>,
+  <AppState>
+    <App />
+  </AppState>,
   document.getElementById('root'));
 registerServiceWorker();
