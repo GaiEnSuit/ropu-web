@@ -58,8 +58,13 @@ const GuideDialog = (props) => {
       <View
         style={styles.flex1}
       >
-        <RopuDialogTitle {...props} title={props.text.guide} />
-        <GuideDialogContent {...props} />
+        <RopuDialogTitle
+          {...props}
+          title={props.text.guide}
+        />
+        <GuideDialogContent
+          {...props}
+        />
       </View>
     </Dialog>
   )

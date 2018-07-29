@@ -120,8 +120,9 @@ const styles = {
   },
 // Sizing
   responsiveImage: {
-    width: '100%',
-    height: 'auto'
+    flex:1,
+    height: undefined,
+    width: undefined
   },
   width100: {
     width: '100%'

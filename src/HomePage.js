@@ -19,7 +19,7 @@ const Banner = (props) => {
     <Image
       source={banner}
       resizeMode="contain"
-      style={{flex:1, height: undefined, width: undefined}}
+      style={styles.responsiveImage}
     />
   )
 }
@@ -27,7 +27,9 @@ const Banner = (props) => {
 const Copyright = (props) => {
   return(
     <Text
-      style={styles.colorRed}
+      style={[
+        styles.colorRed
+      ]}
     >
       {props.copyright}
     </Text>
@@ -37,10 +39,9 @@ const Copyright = (props) => {
 const StartButton = (props) => {
   return (
     <Text
-      style={[styles.colorWhite, styles.dim100, styles.justifyCenter, styles.displayFlex, styles.alignCenter]}
-      onClick={()=>{
-        props.update({start: true}, console.log("Game Started"));
-      }}
+      style={[
+        styles.colorWhite
+      ]}
     >
       TOUCH TO START
     </Text>
@@ -72,6 +73,9 @@ class HomePage extends Component {
           styles.bgColorBlack,
           {flexDirection: this.props.orientation === "portrait"? "column":"row"}
         ]}
+        onClick={()=>{
+          this.props.update({start: true}, console.log("Game Started"));
+        }}
       >
         <View
           style={this.props.orientation === "portrait"? styles.flex1 : styles.flex2}

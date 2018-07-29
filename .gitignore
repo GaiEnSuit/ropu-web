@@ -11,6 +11,7 @@
 
 # firebase environment
 /functions
+fire.js
 
 # misc
 .DS_Store
