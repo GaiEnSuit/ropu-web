@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 // React-Twitter-Embed
 import { TwitterTimelineEmbed } from 'react-twitter-embed';

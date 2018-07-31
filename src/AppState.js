@@ -655,7 +655,7 @@ class AppState extends Component {
           title: 'Turn Order',
           text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
         },
-        actions: {
+        staminaPoints: {
           title: 'Actions',
           text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
         },
