@@ -9,10 +9,10 @@ class AppState extends Component {
 
       // Account Control
       loggedIn: false,
-      
+
       // Orientation
       orientation: Dimensions.get('window').width < Dimensions.get('window').height ? 'portrait' : 'landscape',
-      
+
       // Paths
       paths: {
         home: '/',
@@ -21,7 +21,7 @@ class AppState extends Component {
         storySelection: '/storyselection',
         homebrew: '/homebrew'
       },
-      
+
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
@@ -55,7 +55,7 @@ class AppState extends Component {
         interactableListData: [
         ]
       },
-      
+
       // Static Data
       licenseData: [
         {
@@ -75,7 +75,7 @@ class AppState extends Component {
           licenseUrl: 'https://creativecommons.org/licenses/by/3.0/'
         }
       ],
-      
+
       // Dynamic Data
       characterListData: [
         {
@@ -604,60 +604,66 @@ class AppState extends Component {
       guideDialogText: {
         title: 'Guide'
       },
-      guideDialogData: [
-        {
+      guideDialogData: {
+        about: {
           title: 'About',
-          text: `
-                  Role Playing Unlimited (RoPU) is a collective storytelling game.\n\n
-                  During a story the Director controls the story and the Actors control\n\n
-                  the characters in the story
-                `
+          text: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`
         },
-        {
+        flow: {
           title: 'Game Flow',
-          text: `1. The Director describes the story and context\n2. Actors decide what actions their characters take\n3. Rolls are made to determine the outcome of actions\n4. Resolve conflicts if there are any`
+          step1: '1. The GM describes the events and context of the world',
+          step2: '2. Players decide what actions their characters take',
+          step3: '3. Rolls are made to determine the outcome of uncertain actions',
+          step4: '4. Resolve conflicts if there are any',
+          step5: '5. Repeat!'
         },
-        {
+        gm: {
+          title: 'How To GM',
+          step1: 'Select Direct from the home page to take the role of GM',
+          step2: 'Select a game from the game selection page.',
+          step3: 'Each game has its\' own unique setting, theme, and game type.'
+        },
+        rolling: {
           title: 'Rolling',
           text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
         },
-        {
+        actions: {
           title: 'Actions',
           text: 'Actions are when characters do something. When an action is taken and the outcome is uncertain, make a roll and add the related ability and other modifiers. Determines the best related ability and modifiers that apply. If the action has no opposition, the roll is compared against a number decided by the Director. When two or more characters are competing against each other for an outcome a conflict ensues.'
         },
-        {
+        stories: {
           title: 'Stories',
           text: 'Contains information about the name of the world, the locations that make up the world, the charcters that inhabit them, and the plots that ensues within it, and the interables that charcters can interact with. Go to direct a story for details.'
         },
-        {
+        interactables: {
           title: 'Interactables',
           text: 'Interactables are anything that a character may use to effect the outcome of an action, this includes things such as equipment, weapons, magic, skills. These are provided for in the story module or determined by the director. When using interactables follow the edscription of the interactble.'
         },
-        {
+        physicalConflicts: {
           title: 'Physical Conflicts',
           text: 'Everyone works together to keep track of the general location of involved characters and the environment'
         },
-        {
+        socialConflicts: {
           title: 'Social Conflicts',
           text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
         },
-        {
+        positioning: {
           title: 'Positioning',
           text: 'Everyone works together to keep track of the general location of involved characters and the environment'
         },
-        {
+        turnOrder: {
           title: 'Turn Order',
           text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
         },
-        {
+        actions: {
           title: 'Actions',
           text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
         },
-        {
+        reactions: {
           title: `Reactions`,
           text: `Reactions can be made in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
         }
-      ],
+      },
       logInDialogText: {
         logInTitle: 'LOG IN',
         createAccountTitle: 'CREATE ACCOUNT',
@@ -689,7 +695,7 @@ class AppState extends Component {
         play: 'PLAY',
         direct: 'DIRECT',
         homebrew: 'CREATE',
-        guide: 'GUIDE',
+        guide: 'HELP',
         offline: 'Unable to Retrieve Data',
         credits: 'Credits',
         by: ' by ',
