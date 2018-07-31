@@ -21,7 +21,7 @@ class TwitterWidget extends Component {
       return(
         <ActivityIndicator
           style={{padding: '24px'}}
-          color="blue"
+          color="red"
           size='large'
         />
       )
