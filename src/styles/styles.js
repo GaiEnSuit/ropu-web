@@ -30,10 +30,10 @@ const styles = {
   bgColorBlack: {
     backgroundColor: 'black'
   },
-  bgColorTransparentBlack: {  
+  bgColorTransparentBlack: {
     backgroundColor: 'rgba(0,0,0,.6)'
   },
-  bgColorTransparent: {  
+  bgColorTransparent: {
     backgroundColor: 'rgba(0,0,0,0)'
   },
   colorWhite: {
@@ -87,6 +87,9 @@ const styles = {
   directionRow: {
     flexDirection: 'row'
   },
+  justifyStart: {
+    justifyContent: 'flex-start'
+  },
   justifyCenter: {
     justifyContent: 'center'
   },
@@ -113,6 +116,9 @@ const styles = {
   },
   flex2: {
     flex: 2,
+  },
+  flex3: {
+    flex: 3,
   },
 // Overflow
   overflowScroll: {
@@ -167,20 +173,82 @@ const styles = {
   textCenter: {
     textAlign: 'center'
   },
+  h1: {
+    fontFamily: 'roboto',
+    fontWeight: 'lighter',
+    fontSize: 96,
+    letterSpacing: -1.5
+  },
+  h2: {
+    fontFamily: 'roboto',
+    fontWeight: 'lighter',
+    fontSize: 60,
+    letterSpacing: -0.5
+  },
+  h3: {
+    fontFamily: 'roboto',
+    fontSize: 48,
+    letterSpacing: 0
+  },
+  h4: {
+    fontFamily: 'roboto',
+    fontSize: 34,
+    letterSpacing: 0.25
+  },
+  h5: {
+    fontFamily: 'roboto',
+    fontSize: 24,
+    letterSpacing: 0
+  },
+  h6: {
+    fontFamily: 'roboto',
+    fontWeight: 'bold',
+    fontSize: 20,
+    letterSpacing: 0.15
+  },
+  subtitle1: {
+    fontFamily: 'roboto',
+    fontSize: 16,
+    letterSpacing: 0.15
+  },
+  subtitle2: {
+    fontFamily: 'roboto',
+    fontWeight: 'bold',
+    fontSize: 14,
+    letterSpacing: 0.1
+  },
+  body1: {
+    fontFamily: 'roboto',
+    fontSize: 16,
+    letterSpacing: 0.5
+  },
+  body2: {
+    fontFamily: 'roboto',
+    fontSize: 14,
+    letterSpacing: 0.25
+  },
+  button: {
+    fontFamily: 'roboto',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    fontSize: 14,
+    letterSpacing: 0.75
+  },
+  caption: {
+    fontFamily: 'roboto',
+    fontSize: 12,
+    letterSpacing: 0.4
+  },
+  overline: {
+    fontFamily: 'roboto',
+    fontWeight: 'bold',
+    fontSize: 10,
+    textTransform: 'uppercase',
+    letterSpacing: 1.5
+  },
   // Shape
   shapeCircle: {
     borderRadius: '50%'
-  },
-  // Component Specific
-  version: {
-    position: 'fixed',
-    top: '5px',
-    left: '5px'
-  },
-  copyRight: {
-    position: 'fixed',
-    bottom: '5px',
-    left: '50%'
   },
   spinnerBackground: {
     backgroundColor: '#ffffff',

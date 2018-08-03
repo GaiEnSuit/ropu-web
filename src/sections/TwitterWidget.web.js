@@ -14,7 +14,7 @@ class TwitterWidget extends Component {
         <TwitterTimelineEmbed
           sourceType="collection"
           id="1010648304001081344"
-          options={{chrome: "noheader nofooter", width: '100vw'}}
+          options={{chrome: "noheader nofooter", width: '100vw', height: '50vh'}}
         />
       )
     } else {

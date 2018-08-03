@@ -17,8 +17,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // styles
 import styles from '../styles/styles';
 
-
-
 const GuideAbout = (props) => {
   return(
     <ExpansionPanel>
