@@ -4,9 +4,6 @@ import { ScrollView } from 'react-native';
 
 import Modal from 'react-native-web-modal';
 
-// Material ui
-import Dialog from '@material-ui/core/Dialog';
-
 // headers
 import RopuDialogTitle from '../headers/RopuDialogTitle';
 

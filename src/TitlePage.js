@@ -7,12 +7,6 @@ import { Link } from './routing/Routing';
 // Styles
 import styles from './styles/styles';
 
-// menus
-import MainMenu from './menus/MainMenu';
-
-// Modules
-import NewsFeedHandler from './modules/NewsFeedHandler';
-
 const Title = (props) => {
   return(
     <Image
@@ -61,7 +55,7 @@ const Version = (props) => {
 }
 
 // Layout
-const HomePage = (props) => {
+const TitlePage = (props) => {
   return (
     <View
       style={[
@@ -106,4 +100,4 @@ const HomePage = (props) => {
   )
 }
 
-export default HomePage;
+export default TitlePage;

@@ -58,7 +58,6 @@ class App extends Component {
                   text={this.props.appState.homePageText}
                   update={this.props.setAppState}
                   guideDialogData={this.props.appState.guideDialogData}
-                  start={this.props.appState.start}
                   orientation={this.props.appState.orientation}
                 />
               }
