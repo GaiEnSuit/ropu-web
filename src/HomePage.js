@@ -11,13 +11,10 @@ import MainMenu from './menus/MainMenu';
 // Modules
 import NewsFeedHandler from './modules/NewsFeedHandler';
 
-// Images
-import banner from './images/brand_white_4x3.png';
-
-const Banner = (props) => {
+const Title = (props) => {
   return(
     <Image
-      source={banner}
+      source={require("./images/brand_white_4x3.png")}
       resizeMode="contain"
       style={styles.responsiveImage}
     />
@@ -28,7 +25,7 @@ const Copyright = (props) => {
   return(
     <Text
       style={[
-        styles.colorRed
+        styles.colorWhite
       ]}
     >
       {props.copyright}
@@ -60,11 +57,11 @@ const Version = (props) => {
 
 // Layout
 class HomePage extends Component {
-  
+
   componentWillMount () {
     this.props.update({start: false})
   }
-  
+
   render () {
     return (
       <View
@@ -73,14 +70,11 @@ class HomePage extends Component {
           styles.bgColorBlack,
           {flexDirection: this.props.orientation === "portrait"? "column":"row"}
         ]}
-        onClick={()=>{
-          this.props.update({start: true}, console.log("Game Started"));
-        }}
       >
         <View
           style={this.props.orientation === "portrait"? styles.flex1 : styles.flex2}
         >
-          <Banner {...this.props} />
+          <Title {...this.props} />
         </View>
         {!this.props.start &&
           <View
@@ -90,6 +84,9 @@ class HomePage extends Component {
               styles.alignCenter,
               styles.dim100
             ]}
+            onClick={()=>{
+              this.props.update({start: true}, console.log("Game Started"));
+            }}
           >
             <StartButton
               {...this.props}
