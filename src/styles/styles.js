@@ -145,6 +145,9 @@ const styles = {
   vh100: {
     height: '100vh'
   },
+  vh80: {
+    height: '80vh'
+  },
   icon64: {
     width: '64px',
     height: '64px'

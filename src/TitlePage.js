@@ -2,7 +2,7 @@ import React from 'react';
 
 import { View, Text, Image } from 'react-native';
 
-import { Link, withRouter } from './routing/Routing';
+import { withRouter } from './routing/Routing';
 
 // Styles
 import styles from './styles/styles';

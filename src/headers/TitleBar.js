@@ -12,8 +12,7 @@ const TitleBar = (props) => {
         styles.bgColorMediumRed,
         styles.justifyCenter,
         styles.width100,
-        styles.alignCenter,
-        {paddingTop: "10px", paddingBottom: '10px'}
+        styles.alignCenter
       ]}
     >
       <Text

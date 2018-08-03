@@ -29,19 +29,28 @@ const NewsFeedModal = (props) => {
       <View
         style={[
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
-        <TitleBar
-          title={props.text.newsFeedDialogTitle}
-        />
-        <ScrollView>
-          <TwitterWidget
-            offline={props.offline}
-            {...props}
+        <View
+          style={[
+            styles.bgColorMediumRed,
+            styles.justifyCenter,
+            styles.alignCenter
+          ]}
+        >
+          <TitleBar
+            title={props.text.newsFeedDialogTitle}
           />
-        </ScrollView>
-        <ActionBarClose {...props} />
+          <ScrollView>
+            <TwitterWidget
+              offline={props.offline}
+              {...props}
+            />
+          </ScrollView>
+          <ActionBarClose {...props} />
+        </View>
       </View>
     </Modal>
   )
