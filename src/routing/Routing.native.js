@@ -1,7 +1,8 @@
 export {
-  NativeRouter as Router, // Rename 
+  NativeRouter as Router, // Rename
   Switch,
   Route,
   Link,
-  Redirect
+  Redirect,
+  withRouter
 } from 'react-router-native'

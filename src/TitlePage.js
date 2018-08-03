@@ -2,7 +2,7 @@ import React from 'react';
 
 import { View, Text, Image } from 'react-native';
 
-import { Link } from './routing/Routing';
+import { Link, withRouter } from './routing/Routing';
 
 // Styles
 import styles from './styles/styles';
@@ -31,16 +31,14 @@ const Copyright = (props) => {
 
 const StartButton = (props) => {
   return (
-    <Link to={props.paths.home}>
-      <Text
-        style={[
-          styles.colorWhite,
-          styles.h6
-        ]}
-      >
-        {props.text.start}
-      </Text>
-    </Link>
+    <Text
+      style={[
+        styles.colorWhite,
+        styles.h6
+      ]}
+    >
+      {props.text.start}
+    </Text>
   )
 }
 
@@ -64,7 +62,7 @@ const TitlePage = (props) => {
         {flexDirection: props.orientation === "portrait"? "column":"row"}
       ]}
       onClick={()=>{
-        props.update({start: true}, console.log("Game Started"));
+        props.history.push(props.paths.home)
       }}
     >
       <View
@@ -109,4 +107,4 @@ const TitlePage = (props) => {
   )
 }
 
-export default TitlePage;
+export default withRouter(TitlePage);
