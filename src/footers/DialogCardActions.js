@@ -1,10 +1,6 @@
 import React from 'react';
 
-// Material-UI
-import DialogActions from '@material-ui/core/DialogActions';
-
-// Buttons
-import IconButton from '@material-ui/core/IconButton';
+import { View } from 'react-native';
 
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
@@ -14,18 +10,18 @@ import styles from '../styles/styles';
 
 const DialogCardActions = (props) => {
   return (
-    <DialogActions
+    <View
       style={[styles.bgColorTransparentMediumRed, styles.displayFlex, styles.justifyEnd, styles.margin0]}
     >
-      <IconButton
+      <View
         onClick={()=>{
           props.updateDialog(false)
         }}
         style={styles.colorWhite}
       >
         <CloseIcon />
-      </IconButton>
-    </DialogActions>
+      </View>
+    </View>
   )
 }
 

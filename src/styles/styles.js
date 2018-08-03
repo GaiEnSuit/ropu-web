@@ -250,18 +250,6 @@ const styles = {
   shapeCircle: {
     borderRadius: '50%'
   },
-  // Component Specific
-  version: {
-    position: 'absolute',
-    top: '10px',
-    left: '10px'
-  },
-  copyright: {
-    position: 'absolute',
-    bottom: '10px',
-    left: '50%',
-    transform: 'translateX(-50%)'
-  },
   spinnerBackground: {
     backgroundColor: '#ffffff',
     backgroundRepeat: 'no-repeat',

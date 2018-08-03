@@ -85,14 +85,23 @@ const TitlePage = (props) => {
         />
       </View>
       <View
-        style={styles.copyright}
+        style={[
+          styles.positionAbsolute,
+          styles.justifyCenter,
+          styles.alignCenter,
+          styles.width100,
+          {bottom: '10px'}
+        ]}
       >
         <Copyright
           copyright={props.text.copyright}
         />
       </View>
       <View
-        style={styles.version}
+        style={[
+          styles.positionAbsolute,
+          {left: '10px', top: '10px'}
+        ]}
       >
         <Version {...props} />
       </View>
