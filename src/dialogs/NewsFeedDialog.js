@@ -2,6 +2,8 @@ import React from 'react';
 
 import { ScrollView } from 'react-native';
 
+import Modal from 'react-native-web-modal';
+
 // Material ui
 import Dialog from '@material-ui/core/Dialog';
 
@@ -14,9 +16,9 @@ import TwitterWidget from '../sections/TwitterWidget';
 // News Feed
 const NewsFeedDialog = (props) => {
   return (
-    <Dialog
-      open={props.open}
-      onClose={()=>{
+    <Modal
+      visible={props.open}
+      onDismiss={()=>{
         props.updateDialog(false, 'News Feed Dialog Closed')
       }}
     >
@@ -30,7 +32,7 @@ const NewsFeedDialog = (props) => {
           {...props}
         />
       </ScrollView>
-    </Dialog>
+    </Modal>
   )
 }
 

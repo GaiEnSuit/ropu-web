@@ -12,6 +12,7 @@ import LayoutHandler from './modules/LayoutHandler';
 import styles from './styles/styles';
 
 // Pages
+import TitlePage from './TitlePage';
 import HomePage from './HomePage';
 import CharacterSelectionPage from './CharacterSelectionPage';
 import CharacterCreationPage from './CharacterCreationPage';
@@ -34,9 +35,23 @@ class App extends Component {
           {/* Main Section */}
           <Switch>
             {/* Home Page*/}
-            <Route 
-              exact 
+            <Route
+              exact
               path='/'
+              render={() =>
+                <TitlePage
+                  paths={this.props.appState.paths}
+                  text={this.props.appState.titlePageText}
+                  update={this.props.setAppState}
+                  orientation={this.props.appState.orientation}
+                  version={this.props.appState.version}
+                />
+              }
+            />
+            {/* Home Page*/}
+            <Route
+              exact
+              path='/home'
               render={() =>
                 <HomePage
                   paths={this.props.appState.paths}
@@ -49,9 +64,9 @@ class App extends Component {
               }
             />
             {/* Character Selection Page */}
-            <Route 
+            <Route
               exact
-              path='/characterselection' 
+              path='/characterselection'
               render={() =>
                 <CharacterSelectionPage
                   paths={this.props.appState.paths}
@@ -65,9 +80,9 @@ class App extends Component {
               }
             />
             {/* Character Creation Page */}
-            <Route 
+            <Route
               exact
-              path='/charactercreation' 
+              path='/charactercreation'
               render={() =>
                 <CharacterCreationPage
                   paths={this.props.appState.paths}
@@ -84,7 +99,7 @@ class App extends Component {
             {/* Player View Page */}
             <Route
               path='/playerview/:id?'
-              render={({match}) => 
+              render={({match}) =>
                 this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                   (
                     <Redirect to='/404' />
@@ -100,7 +115,7 @@ class App extends Component {
             {/* Story Page */}
             <Route
               exact
-              path='/storyselection' 
+              path='/storyselection'
               render={() =>
                 <StorySelectionPage
                   update={this.props.setAppState}
@@ -123,7 +138,7 @@ class App extends Component {
               }
             />
             {/* Page Not Found */}
-            <Route 
+            <Route
               render={() =>
                 <ErrorPage
                   update={this.props.setAppState}

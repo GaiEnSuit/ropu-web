@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { View, Text, Image } from 'react-native';
 
+import { Link } from './routing/Routing';
+
 // Styles
 import styles from './styles/styles';
 

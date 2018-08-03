@@ -30,10 +30,10 @@ const styles = {
   bgColorBlack: {
     backgroundColor: 'black'
   },
-  bgColorTransparentBlack: {  
+  bgColorTransparentBlack: {
     backgroundColor: 'rgba(0,0,0,.6)'
   },
-  bgColorTransparent: {  
+  bgColorTransparent: {
     backgroundColor: 'rgba(0,0,0,0)'
   },
   colorWhite: {
@@ -87,6 +87,9 @@ const styles = {
   directionRow: {
     flexDirection: 'row'
   },
+  justifyStart: {
+    justifyContent: 'flex-start'
+  },
   justifyCenter: {
     justifyContent: 'center'
   },
@@ -113,6 +116,9 @@ const styles = {
   },
   flex2: {
     flex: 2,
+  },
+  flex3: {
+    flex: 3,
   },
 // Overflow
   overflowScroll: {

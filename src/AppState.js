@@ -15,7 +15,8 @@ class AppState extends Component {
 
       // Paths
       paths: {
-        home: '/',
+        title: '/',
+        home: '/home',
         characterSelection: '/characterselection',
         characterCreation: '/charactercreation',
         storySelection: '/storyselection',
@@ -25,7 +26,6 @@ class AppState extends Component {
       // Function Control
       anchorEl: null,
       createCharacterDialogTab: 0,
-      start: false,
 
       // Temporary Data
       selectedCharacter: null,
@@ -75,6 +75,7 @@ class AppState extends Component {
           licenseUrl: 'https://creativecommons.org/licenses/by/3.0/'
         }
       ],
+      version: '0.3.00',
 
       // Dynamic Data
       characterListData: [
@@ -691,17 +692,20 @@ class AppState extends Component {
           logout: 'Log Out'
         }
       },
+      titlePageText: {
+        credits: 'Credits',
+        by: ' by ',
+        license: ' is licensed under ',
+        version: 'Version',
+        copyright: '',
+        start: 'TOUCH TO START'
+      },
       homePageText: {
         play: 'PLAY',
         direct: 'DIRECT',
         homebrew: 'CREATE',
         guide: 'HELP',
         offline: 'Unable to Retrieve Data',
-        credits: 'Credits',
-        by: ' by ',
-        license: ' is licensed under ',
-        version: 'Version',
-        copyright: '',
         newsFeedDialogTitle: 'NEWS FEED'
       },
       characterCreationPageText: {
