@@ -697,7 +697,7 @@ class AppState extends Component {
         by: ' by ',
         license: ' is licensed under ',
         version: 'Version',
-        copyright: '',
+        copyright: 'Written by K Truong',
         start: 'TOUCH TO START'
       },
       homePageText: {

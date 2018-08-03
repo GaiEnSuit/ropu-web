@@ -40,7 +40,8 @@ const StartButton = (props) => {
     <Link to={props.paths.home}>
       <Text
         style={[
-          styles.colorWhite
+          styles.colorWhite,
+          styles.h6
         ]}
       >
         {props.text.start}
@@ -90,10 +91,10 @@ const HomePage = (props) => {
         />
       </View>
       <View
-        style={styles.copyRight}
+        style={styles.copyright}
       >
         <Copyright
-          copyright={props.text.copyRight}
+          copyright={props.text.copyright}
         />
       </View>
       <View
