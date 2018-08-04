@@ -44,7 +44,7 @@ const styles = {
   },
 // Margin and Padding
   margin0: {
-    margin: '0'
+    margin: 0
   },
   marginRA: {
     marginRight: 'auto'
@@ -53,7 +53,10 @@ const styles = {
     marginLeft: 'auto'
   },
   padding0: {
-    padding: '0'
+    padding: 0
+  },
+  padding16: {
+    padding: 16
   },
 // Positioning
   positionBottom: {

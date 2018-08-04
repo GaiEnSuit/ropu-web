@@ -12,7 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 
 // Headers
-import RopuDialogTitle from '../headers/RopuDialogTitle';
+import DialogTitle from '../headers/DialogTitle';
 
 // Higher Order Components
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
@@ -33,7 +33,7 @@ const DeleteCharacterDialog = (props) => {
           styles.bgColorTransparentMediumRed
         ]}
       >
-        <RopuDialogTitle {...props} title={props.text.confirmDelete} />
+        <DialogTitle {...props} title={props.text.confirmDelete} />
         <CardActions
           style={[
             styles.displayFlex,

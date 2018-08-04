@@ -1,11 +1,8 @@
 import React from 'react';
 
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Image } from 'react-native';
 
 import Modal from 'react-native-web-modal';
-
-// headers
-import TitleBar from '../headers/TitleBar';
 
 // footer
 import ActionBarClose from '../footers/ActionBarClose';
@@ -13,16 +10,39 @@ import ActionBarClose from '../footers/ActionBarClose';
 // Sections
 import TwitterWidget from '../sections/TwitterWidget';
 
+// Images
+import announcement from '../images/announcement.png';
+
 // Styles
 import styles from '../styles/styles';
+
+const NewsFeedTitleBar = (props) => {
+  return(
+    <View
+      style={[
+        styles.bgColorTransparentMediumRed,
+        styles.justifyCenter,
+        styles.width100,
+        styles.alignCenter
+      ]}
+    >
+      <Image
+        style={[
+          styles.icon36
+        ]}
+        source={announcement}
+      />
+    </View>
+  )
+}
 
 // News Feed
 const NewsFeedModal = (props) => {
   return (
     <Modal
       visible={props.open}
-      onDismiss={()=>{
-        props.updateDialog(false, 'News Feed Dialog Closed')
+      onRequestClose={()=>{
+        props.updateModal(false, 'News Feed Modal Closed')
       }}
       transparent={true}
     >
@@ -36,12 +56,12 @@ const NewsFeedModal = (props) => {
       >
         <View
           style={[
-            styles.bgColorMediumRed,
+            styles.bgColorTransparentMediumRed,
             styles.justifyCenter,
             styles.alignCenter
           ]}
         >
-          <TitleBar
+          <NewsFeedTitleBar
             title={props.text.newsFeedDialogTitle}
           />
           <ScrollView>

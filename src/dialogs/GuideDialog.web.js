@@ -9,7 +9,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Dialog from '@material-ui/core/Dialog';
 
 // Headers
-import RopuDialogTitle from '../headers/RopuDialogTitle';
+import DialogTitle from '../headers/DialogTitle';
 
 // Icons
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -112,7 +112,7 @@ const GuideDialog = (props) => {
       <View
         style={styles.flex1}
       >
-        <RopuDialogTitle
+        <DialogTitle
           {...props}
           title={props.text.guide}
         />

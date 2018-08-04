@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 // HOC
-import withDialog from '../hoc/withDialog';
+import withModal from '../hoc/withModal';
 
 // Modals
 import NewsFeedModal from '../modals/NewsFeedModal';
@@ -11,7 +11,7 @@ class NewsFeedHandler extends Component {
 
   componentDidMount ()
   {
-    this.props.updateDialog(true, 'News Feed Dialog Opened');
+    this.props.updateModal(true, 'News Feed Opened');
   }
 
   render()
@@ -20,4 +20,4 @@ class NewsFeedHandler extends Component {
   }
 }
 
-export default withDialog(NewsFeedHandler, NewsFeedModal);
+export default withModal(NewsFeedHandler, NewsFeedModal);

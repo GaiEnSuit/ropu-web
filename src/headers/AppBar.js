@@ -1,12 +1,9 @@
 import React from 'react';
 
-import { View, Image } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 
 // Styles
 import styles from '../styles/styles';
-
-// routing
-import { withRouter } from '../routing/Routing';
 
 // Images
 import logo from '../images/circle_logo_2.svg';
@@ -15,33 +12,52 @@ import shop from '../images/shop.png';
 import help from '../images/help.png';
 import account from '../images/account.png';
 import input from '../images/input.png';
+import announcement from '../images/announcement.png';
+
+// Dialogs
+import TitleDialog from '../dialogs/TitleDialog';
+import HomeDialog from '../dialogs/HomeDialog';
+
+// hoc
+import withModal from '../hoc/withModal';
 
 const LogoButton = (props) => {
   return (
-    <Image
-      onClick={()=>{
-        props.history.push('/');
+    <TouchableOpacity
+      onPress={()=>{
+        props.updateModal(true, 'Title Dialog Opened');
       }}
-      source={logo}
-      style={[
-        styles.icon24
-      ]}
-    />
+    >
+      <Image
+        source={logo}
+        style={[
+          styles.icon24
+        ]}
+      />
+    </TouchableOpacity>
   )
 }
 
-const LogoButtonWithRouter = withRouter(LogoButton);
+const LogoButtonWithModal = withModal(LogoButton, TitleDialog);
 
 const HomeButton = (props) => {
   return (
-    <Image
-      source={home}
-      style={[
-        styles.icon24
-      ]}
-    />
+    <TouchableOpacity
+      onPress={()=>{
+        props.updateModal(true, 'Home Dialog Opened');
+      }}
+    >
+      <Image
+        source={home}
+        style={[
+          styles.icon24
+        ]}
+      />
+    </TouchableOpacity>
   )
 }
+
+const HomeButtonWithModal = withModal(HomeButton, HomeDialog);
 
 const ShopButton = (props) => {
   return (
@@ -87,7 +103,16 @@ const LogInButton = (props) => {
   )
 }
 
-
+const NewsFeedButton = (props) => {
+  return (
+    <Image
+      source={announcement}
+      style={[
+        styles.icon24
+      ]}
+    />
+  )
+}
 
 // Layout
 const AppBar = (props) => {
@@ -104,31 +129,38 @@ const AppBar = (props) => {
       >
         <View
           style={[
-            {padding: '10px'}
+            {padding: '12px'}
           ]}
         >
-          <LogoButtonWithRouter update={props.update} {...props} />
+          <LogoButtonWithModal update={props.update} {...props} />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <HomeButton update={props.update} />
+          <HomeButtonWithModal update={props.update} {...props} />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <ShopButton update={props.update} />
+          <ShopButton update={props.update} {...props} />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <HelpButton update={props.update} />
+          <NewsFeedButton update={props.update} {...props} />
+        </View>
+        <View
+          style={[
+            {padding: '10px'}
+          ]}
+        >
+          <HelpButton update={props.update} {...props} />
         </View>
         {props.loggedIn?
           (
@@ -137,7 +169,7 @@ const AppBar = (props) => {
                 {padding: '10px'}
               ]}
             >
-              <AccountButton update={props.update} />
+              <AccountButton update={props.update} {...props} />
             </View>
           ) :
           (
@@ -146,11 +178,11 @@ const AppBar = (props) => {
                 {padding: '10px'}
               ]}
             >
-              <LogInButton update={props.update} />
+              <LogInButton update={props.update} {...props} />
             </View>
           )
         }
-      </View >
+      </View>
     </View>
   )
 }

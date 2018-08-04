@@ -13,7 +13,7 @@ import DialogTitle from '../headers/DialogTitle';
 // Footers
 import ActionBarNavigate from '../footers/ActionBarNavigate';
 
-const HomeDialog = (props) => {
+const TitleDialog = (props) => {
   return (
     <Modal
       visible={props.open}
@@ -39,11 +39,11 @@ const HomeDialog = (props) => {
         >
           <DialogTitle
             {...props}
-            title={props.text.homeDialog}
+            title={props.text.titleDialog}
           />
           <ActionBarNavigate
             {...props}
-            path={props.paths.home}
+            path={props.paths.title}
           />
         </View>
       </View>
@@ -51,4 +51,4 @@ const HomeDialog = (props) => {
   )
 }
 
-export default HomeDialog;
+export default TitleDialog;

@@ -15,23 +15,19 @@ const ActionBarClose = (props) => {
         styles.bgColorMediumRed,
         styles.directionRow,
         styles.justifyCenter,
-        styles.width100,
-        {paddingTop: '10px', paddingBottom: '10px'}
+        styles.width100
       ]}
     >
       <TouchableOpacity
         activeOpacity={.5}
-        onClick={()=>{
-          props.updateDialog(false)
+        onPress={()=>{
+          props.updateModal(false, 'Modal Closed')
         }}
-        style={[
-          styles.bgColorRed
-        ]}
       >
         <Image
           source={closeIcon}
           style={[
-            styles.icon24
+            styles.icon36
           ]}
         />
       </TouchableOpacity>

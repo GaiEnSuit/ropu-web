@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 
 import { withRouter } from './routing/Routing';
 
@@ -55,54 +55,57 @@ const Version = (props) => {
 // Layout
 const TitlePage = (props) => {
   return (
-    <View
-      style={[
-        styles.flex1,
-        styles.bgColorBlack
-      ]}
-      onClick={()=>{
+    <TouchableWithoutFeedback
+      onPress={()=>{
         props.history.push(props.paths.home)
       }}
     >
       <View
-        style={{flex: props.orientation === 'portrait'? 2: 3}}
-      >
-        <Title {...props} />
-      </View>
-      <View
         style={[
           styles.flex1,
-          styles.dim100,
-          styles.alignCenter,
-          styles.justifyStart
+          styles.bgColorBlack
         ]}
       >
-        <StartButton
-          {...props}
-        />
+        <View
+          style={{flex: props.orientation === 'portrait'? 2: 3}}
+        >
+          <Title {...props} />
+        </View>
+        <View
+          style={[
+            styles.flex1,
+            styles.dim100,
+            styles.alignCenter,
+            styles.justifyStart
+          ]}
+        >
+          <StartButton
+            {...props}
+          />
+        </View>
+        <View
+          style={[
+            styles.positionAbsolute,
+            styles.justifyCenter,
+            styles.alignCenter,
+            styles.width100,
+            {bottom: '10px'}
+          ]}
+        >
+          <Copyright
+            copyright={props.text.copyright}
+          />
+        </View>
+        <View
+          style={[
+            styles.positionAbsolute,
+            {left: '10px', top: '10px'}
+          ]}
+        >
+          <Version {...props} />
+        </View>
       </View>
-      <View
-        style={[
-          styles.positionAbsolute,
-          styles.justifyCenter,
-          styles.alignCenter,
-          styles.width100,
-          {bottom: '10px'}
-        ]}
-      >
-        <Copyright
-          copyright={props.text.copyright}
-        />
-      </View>
-      <View
-        style={[
-          styles.positionAbsolute,
-          {left: '10px', top: '10px'}
-        ]}
-      >
-        <Version {...props} />
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
 //Routing
-import { Link } from 'react-router-dom';
+import { withRouter } from '../routing/Routing';
 
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 // Dialogs
 import GuideDialog from '../dialogs/GuideDialog';
@@ -18,81 +18,79 @@ import tome from '../images/book_05f.png';
 import styles from '../styles/styles';
 
 // HOC
-import withDialog from '../hoc/withDialog';
+import withModal from '../hoc/withModal';
       
 // Play
 const Play = (props) => {
   return (
-    <Link
-      to={props.paths.characterSelection}
+    <TouchableOpacity
+      style={
+        styles.directionRow
+      }
+      onPress={()=>{
+        props.history.push(props.paths.characterSelection)
+      }}
     >
       <View
-        style={
-          styles.directionRow
-        }
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
       >
-        <View
-          style={[
-            styles.icon48,
-            styles.justifyCenter,
-            styles.alignCenter
-          ]}
-        >
-          <Image
-            source={sword}
-            style={styles.icon36}
-          />
-        </View>
-        <Text
-          style={[
-            styles.displayFlex,
-            styles.colorWhite,
-            styles.justifyCenter,
-            styles.alignCenter
-          ]}
-        >
-          {props.text.play}
-        </Text>
+        <Image
+          source={sword}
+          style={styles.icon36}
+        />
       </View>
-    </Link>
+      <Text
+        style={[
+          styles.displayFlex,
+          styles.colorWhite,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        {props.text.play}
+      </Text>
+    </TouchableOpacity>
   )
 }
 
 // Direct
 const Direct = (props) => {
   return (
-    <Link
-      to={props.paths.storySelection}
+    <TouchableOpacity
+      style={
+        styles.directionRow
+      }
+      onPress={()=>{
+        props.history.push(props.paths.storySelection)
+      }}
     >
       <View
-        style={
-          styles.directionRow
-        }
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
       >
-        <View
-          style={[
-            styles.icon48,
-            styles.justifyCenter,
-            styles.alignCenter
-          ]}
-        >
-          <Image
-            source={book}
-            style={styles.icon36}
-          />
-        </View>
-        <Text
-          style={[
-            styles.displayFlex,
-            styles.colorWhite,
-            styles.justifyCenter,
-            styles.alignCenter
-          ]}
-        >
-          {props.text.direct}
-        </Text>
+        <Image
+          source={book}
+          style={styles.icon36}
+        />
       </View>
-    </Link>
+      <Text
+        style={[
+          styles.displayFlex,
+          styles.colorWhite,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        {props.text.direct}
+      </Text>
+    </TouchableOpacity>
   )
 }
 
@@ -100,47 +98,46 @@ const Direct = (props) => {
 // Create
 const Create = (props) => {
   return (
-    <Link
-      to={props.paths.homebrew}
+    <TouchableOpacity
+      style={
+        styles.directionRow
+      }
+      onPress={()=>{
+        props.history.push(props.paths.homebrew)
+      }}
     >
       <View
-        style={
-          styles.directionRow
-        }
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
       >
-        <View
-          style={[
-            styles.icon48,
-            styles.justifyCenter,
-            styles.alignCenter
-          ]}
-        >
-          <Image
-            source={potion}
-            style={styles.icon36}
-          />
-        </View>
-        <Text
-          style={[
-            styles.displayFlex,
-            styles.colorWhite,
-            styles.justifyCenter,
-            styles.alignCenter
-          ]}
-        >
-          {props.text.homebrew}
-        </Text>
+        <Image
+          source={potion}
+          style={styles.icon36}
+        />
       </View>
-    </Link>
+      <Text
+        style={[
+          styles.displayFlex,
+          styles.colorWhite,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        {props.text.homebrew}
+      </Text>
+    </TouchableOpacity>
   )
 }
 
 // Create
 const Guide = (props) => {
   return (
-    <View
-      onClick={()=>{
-        props.updateDialog(true);
+    <TouchableOpacity
+      onPress={()=>{
+        props.updateModal(true);
       }}
       style={[
         styles.directionRow
@@ -168,12 +165,12 @@ const Guide = (props) => {
       >
         {props.text.guide}
       </Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
 // Guide with Guide Dialog
-const GuideWithDialog = withDialog(Guide, GuideDialog)
+const GuideWithDialog = withModal(Guide, GuideDialog)
 
 // Main Menu
 const MainMenu = (props) => {
@@ -195,4 +192,4 @@ const MainMenu = (props) => {
   )
 }
 
-export default MainMenu;
+export default withRouter(MainMenu);

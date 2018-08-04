@@ -706,7 +706,8 @@ class AppState extends Component {
         homebrew: 'CREATE',
         guide: 'HELP',
         offline: 'Unable to Retrieve Data',
-        newsFeedDialogTitle: 'NEWS FEED'
+        titleDialog: 'Return To Title Screen?',
+        homeDialog: 'Return To Home Screen?'
       },
       characterCreationPageText: {
         title: 'Character Creation',
