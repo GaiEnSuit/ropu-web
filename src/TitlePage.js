@@ -58,15 +58,14 @@ const TitlePage = (props) => {
     <View
       style={[
         styles.flex1,
-        styles.bgColorBlack,
-        {flexDirection: props.orientation === "portrait"? "column":"row"}
+        styles.bgColorBlack
       ]}
       onClick={()=>{
         props.history.push(props.paths.home)
       }}
     >
       <View
-        style={styles.flex2}
+        style={styles.flex3}
       >
         <Title {...props} />
       </View>
@@ -74,8 +73,8 @@ const TitlePage = (props) => {
         style={[
           styles.flex1,
           styles.dim100,
-          {alignItems: props.orientation === "portrait"? "center": 'flex-start'},
-          {justifyContent: props.orientation === "portrait"? "flex-start": 'center'}
+          styles.alignCenter,
+          styles.justifyStart
         ]}
       >
         <StartButton
