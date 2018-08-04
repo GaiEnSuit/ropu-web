@@ -2,6 +2,9 @@ import React from 'react';
 
 import { View, Image, TouchableOpacity } from 'react-native';
 
+// routing
+import { withRouter } from '../routing/Routing';
+
 // Styles
 import styles from '../styles/styles';
 
@@ -43,6 +46,7 @@ const LogoButtonWithModal = withModal(LogoButton, TitleDialog);
 const HomeButton = (props) => {
   return (
     <TouchableOpacity
+      disabled={props.location.pathname === props.paths.home || props.location.pathname === props.paths.home + "/" ? true : false}
       onPress={()=>{
         props.updateModal(true, 'Home Dialog Opened');
       }}
@@ -187,4 +191,4 @@ const AppBar = (props) => {
   )
 }
 
-export default AppBar;
+export default withRouter(AppBar);
