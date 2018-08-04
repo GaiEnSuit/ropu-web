@@ -20,8 +20,7 @@ const HomePage = (props) => {
     <View
       style={[
         styles.flex1,
-        styles.bgColorDarkRed,
-        {flexDirection: props.orientation === "portrait"? "column":"row"}
+        styles.bgColorDarkRed
       ]}
     >
       <View

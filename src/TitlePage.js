@@ -65,7 +65,7 @@ const TitlePage = (props) => {
       }}
     >
       <View
-        style={styles.flex3}
+        style={styles.flex2}
       >
         <Title {...props} />
       </View>
