@@ -65,7 +65,7 @@ const TitlePage = (props) => {
       }}
     >
       <View
-        style={styles.flex2}
+        style={{flex: props.orientation === 'portrait'? 2: 3}}
       >
         <Title {...props} />
       </View>
