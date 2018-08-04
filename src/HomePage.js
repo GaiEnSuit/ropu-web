@@ -8,6 +8,9 @@ import styles from './styles/styles';
 // menus
 import MainMenu from './menus/MainMenu';
 
+// Headers
+import AppBar from './headers/AppBar';
+
 // Modules
 import NewsFeedHandler from './modules/NewsFeedHandler';
 
@@ -17,10 +20,17 @@ const HomePage = (props) => {
     <View
       style={[
         styles.flex1,
-        styles.bgColorBlack,
+        styles.bgColorDarkRed,
         {flexDirection: props.orientation === "portrait"? "column":"row"}
       ]}
     >
+      <View
+        style={[
+          styles.width100
+        ]}
+      >
+        <AppBar {...props} />
+      </View>
       <View
         style={[
           styles.flex1,
