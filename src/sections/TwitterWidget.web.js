@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { ActivityIndicator } from 'react-native';
 
@@ -6,27 +6,27 @@ import { ActivityIndicator } from 'react-native';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 //Twitter Widget
-class TwitterWidget extends Component {
-  render()
-  {
-    if(navigator.onLine) {
-      return(
-        <TwitterTimelineEmbed
-          sourceType="collection"
-          id="1010648304001081344"
-          options={{chrome: "noheader nofooter", width: '100vw', height: '50vh'}}
-        />
-      )
-    } else {
-      return(
-        <ActivityIndicator
-          style={{padding: '24px'}}
-          color="red"
-          size='large'
-        />
-      )
-    }
-
+const TwitterWidget = (props) => {
+  if(navigator.onLine) {
+    return(
+      <TwitterTimelineEmbed
+        sourceType="collection"
+        id="1010648304001081344"
+        options={{
+          chrome: "noheader nofooter",
+          width: '600px',
+          height: '70vh'
+        }}
+      />
+    )
+  } else {
+    return(
+      <ActivityIndicator
+        style={{padding: '24px'}}
+        color="red"
+        size='large'
+      />
+    )
   }
 }
 

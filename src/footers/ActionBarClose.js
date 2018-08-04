@@ -31,7 +31,7 @@ const ActionBarClose = (props) => {
         <Image
           source={closeIcon}
           style={[
-            styles.icon36
+            styles.icon24
           ]}
         />
       </TouchableOpacity>

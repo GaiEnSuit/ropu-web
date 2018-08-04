@@ -24,7 +24,7 @@ const LogoButton = (props) => {
       }}
       source={logo}
       style={[
-        styles.icon36
+        styles.icon24
       ]}
     />
   )
@@ -37,7 +37,7 @@ const HomeButton = (props) => {
     <Image
       source={home}
       style={[
-        styles.icon36
+        styles.icon24
       ]}
     />
   )
@@ -48,7 +48,7 @@ const ShopButton = (props) => {
     <Image
       source={shop}
       style={[
-        styles.icon36
+        styles.icon24
       ]}
     />
   )
@@ -59,7 +59,7 @@ const HelpButton = (props) => {
     <Image
       source={help}
       style={[
-        styles.icon36
+        styles.icon24
       ]}
     />
   )
@@ -70,7 +70,7 @@ const AccountButton = (props) => {
     <Image
       source={account}
       style={[
-        styles.icon36
+        styles.icon24
       ]}
     />
   )
@@ -81,7 +81,7 @@ const LogInButton = (props) => {
     <Image
       source={input}
       style={[
-        styles.icon36
+        styles.icon24
       ]}
     />
   )

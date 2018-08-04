@@ -30,7 +30,8 @@ const NewsFeedModal = (props) => {
         style={[
           styles.justifyCenter,
           styles.alignCenter,
-          styles.flex1
+          styles.flex1,
+          styles.bgColorTransparentBlack
         ]}
       >
         <View
