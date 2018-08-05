@@ -2,6 +2,8 @@ import React from 'react';
 
 import { View } from 'react-native';
 
+import { connect } from 'react-redux';
+
 import Modal from 'react-native-web-modal';
 
 // styles
@@ -13,7 +15,14 @@ import DialogTitle from '../headers/DialogTitle';
 // Footers
 import ActionBarNavigate from '../footers/ActionBarNavigate';
 
-const TitleDialog = (props) => {
+const mapStateToProps = state => {
+  return {
+    titleNavigateText: state.titleNavigateText,
+    titlePath: state.titlePath
+  }
+}
+
+const ConnectedTitleDialog = (props) => {
   return (
     <Modal
       visible={props.open}
@@ -39,16 +48,18 @@ const TitleDialog = (props) => {
         >
           <DialogTitle
             {...props}
-            title={props.text.titleDialog}
+            title={props.titleNavigateText}
           />
           <ActionBarNavigate
             {...props}
-            path={props.paths.title}
+            path={props.titlePath}
           />
         </View>
       </View>
     </Modal>
   )
 }
+
+const TitleDialog = connect(mapStateToProps)(ConnectedTitleDialog);
 
 export default TitleDialog;

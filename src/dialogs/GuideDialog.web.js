@@ -2,6 +2,8 @@ import React from 'react';
 
 import { View, ScrollView, Text } from 'react-native';
 
+import { connect } from 'react-redux';
+
 // Material-Ui
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -16,6 +18,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // styles
 import styles from '../styles/styles';
+
+const mapStateToProps = state => {
+  return{
+    guideDialogText: state.guideDialogText
+  }
+}
 
 const GuideAbout = (props) => {
   return(
@@ -100,7 +108,7 @@ const GuideDialogContent = (props) => {
 }
 
 // Layout
-const GuideDialog = (props) => {
+const ConnectedGuideDialog = (props) => {
   return (
     <Dialog
       open={props.open}
@@ -114,7 +122,7 @@ const GuideDialog = (props) => {
       >
         <DialogTitle
           {...props}
-          title={props.text.guide}
+          title={props.guideDialogText}
         />
         <GuideDialogContent
           {...props}
@@ -123,5 +131,7 @@ const GuideDialog = (props) => {
     </Dialog>
   )
 }
+
+const GuideDialog = connect(mapStateToProps)(ConnectedGuideDialog)
 
 export default GuideDialog;

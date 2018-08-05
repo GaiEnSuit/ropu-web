@@ -15,7 +15,7 @@ import AppBar from './headers/AppBar';
 import NewsFeedHandler from './modules/NewsFeedHandler';
 
 // Layout
-const HomePage = (props) => {
+const HomePage = () => {
   return (
     <View
       style={[
@@ -28,7 +28,7 @@ const HomePage = (props) => {
           styles.width100
         ]}
       >
-        <AppBar {...props} />
+        <AppBar />
       </View>
       <View
         style={[
@@ -37,9 +37,9 @@ const HomePage = (props) => {
           styles.alignCenter
         ]}
       >
-        <MainMenu {...props} />
+        <MainMenu />
       </View>
-      <NewsFeedHandler {...props} />
+      <NewsFeedHandler />
     </View>
   )
 }

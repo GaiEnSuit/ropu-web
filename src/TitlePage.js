@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { connect } from "react-redux";
+
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 
 import { withRouter } from './routing/Routing';
@@ -7,7 +9,17 @@ import { withRouter } from './routing/Routing';
 // Styles
 import styles from './styles/styles';
 
-const Title = (props) => {
+const mapStateToProps = state => {
+  return {
+    copyrightText: state.copyrightText,
+    startText: state.startText,
+    versionText: state.versionText,
+    version: state.version,
+    homePath: state.homePath
+  };
+};
+
+const Title = () => {
   return(
     <Image
       source={require("./images/brand_white_4x3.png")}
@@ -17,19 +29,21 @@ const Title = (props) => {
   )
 }
 
-const Copyright = (props) => {
+const ConnectedCopyright = ({copyrightText}) => {
   return(
     <Text
       style={[
         styles.colorWhite
       ]}
     >
-      {props.copyright}
+      {copyrightText}
     </Text>
   )
 }
 
-const StartButton = (props) => {
+const Copyright = connect(mapStateToProps)(ConnectedCopyright);
+
+const ConnectedStartButton = ({startText}) => {
   return (
     <Text
       style={[
@@ -37,27 +51,31 @@ const StartButton = (props) => {
         styles.h6
       ]}
     >
-      {props.text.start}
+      {startText}
     </Text>
   )
 }
 
-const Version = (props) => {
+const StartButton = connect(mapStateToProps)(ConnectedStartButton);
+
+const ConnectedVersion = ({version, versionText}) => {
   return (
     <Text
       style={styles.colorWhite}
     >
-      {props.text.version} {props.version}
+      {versionText} {version}
     </Text>
   )
 }
 
+const Version = connect(mapStateToProps)(ConnectedVersion);
+
 // Layout
-const TitlePage = (props) => {
+const ConnectedTitlePage = (props) => {
   return (
     <TouchableWithoutFeedback
       onPress={()=>{
-        props.history.push(props.paths.home)
+        props.history.push(props.homePath)
       }}
     >
       <View
@@ -67,9 +85,11 @@ const TitlePage = (props) => {
         ]}
       >
         <View
-          style={{flex: props.orientation === 'portrait'? 2: 3}}
+          style={
+            {flex: props.orientation === 'portrait'? 2: 3}
+          }
         >
-          <Title {...props} />
+          <Title />
         </View>
         <View
           style={[
@@ -79,9 +99,7 @@ const TitlePage = (props) => {
             styles.justifyStart
           ]}
         >
-          <StartButton
-            {...props}
-          />
+          <StartButton />
         </View>
         <View
           style={[
@@ -92,9 +110,7 @@ const TitlePage = (props) => {
             {bottom: '10px'}
           ]}
         >
-          <Copyright
-            copyright={props.text.copyright}
-          />
+          <Copyright />
         </View>
         <View
           style={[
@@ -102,11 +118,13 @@ const TitlePage = (props) => {
             {left: '10px', top: '10px'}
           ]}
         >
-          <Version {...props} />
+          <Version />
         </View>
       </View>
     </TouchableWithoutFeedback>
   )
 }
 
-export default withRouter(TitlePage);
+const TitlePage = withRouter(connect(mapStateToProps)(ConnectedTitlePage));
+
+export default TitlePage;

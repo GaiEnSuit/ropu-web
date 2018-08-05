@@ -2,7 +2,8 @@ import React from 'react';
 
 import { View, Image, TouchableOpacity } from 'react-native';
 
-// routing
+import { connect } from 'react-redux';
+
 import { withRouter } from '../routing/Routing';
 
 // Styles
@@ -24,7 +25,15 @@ import HomeDialog from '../dialogs/HomeDialog';
 // hoc
 import withModal from '../hoc/withModal';
 
-const LogoButton = (props) => {
+//redux
+const mapStateToProps = state => {
+  return {
+    homePath: state.homePath,
+    loggedIn: state.loggedIn
+  }
+}
+
+const LogoButtonWithModal = (props) => {
   return (
     <TouchableOpacity
       onPress={()=>{
@@ -41,12 +50,12 @@ const LogoButton = (props) => {
   )
 }
 
-const LogoButtonWithModal = withModal(LogoButton, TitleDialog);
+const LogoButton = withModal(LogoButtonWithModal, TitleDialog);
 
-const HomeButton = (props) => {
+const ConnectedHomeButton = (props) => {
   return (
     <TouchableOpacity
-      disabled={props.location.pathname === props.paths.home || props.location.pathname === props.paths.home + "/" ? true : false}
+      disabled={props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" ? true : false}
       onPress={()=>{
         props.updateModal(true, 'Home Dialog Opened');
       }}
@@ -61,7 +70,7 @@ const HomeButton = (props) => {
   )
 }
 
-const HomeButtonWithModal = withModal(HomeButton, HomeDialog);
+const HomeButton = withRouter(withModal(connect(mapStateToProps)(ConnectedHomeButton), HomeDialog));
 
 const ShopButton = (props) => {
   return (
@@ -119,11 +128,9 @@ const NewsFeedButton = (props) => {
 }
 
 // Layout
-const AppBar = (props) => {
+const ConnectedAppBar = (props) => {
   return (
-    <View
-      style={props.style}
-    >
+    <View>
       <View
         style={[
           styles.directionRow,
@@ -136,35 +143,35 @@ const AppBar = (props) => {
             {padding: '12px'}
           ]}
         >
-          <LogoButtonWithModal update={props.update} {...props} />
+          <LogoButton />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <HomeButtonWithModal update={props.update} {...props} />
+          <HomeButton {...props} />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <ShopButton update={props.update} {...props} />
+          <ShopButton />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <NewsFeedButton update={props.update} {...props} />
+          <NewsFeedButton />
         </View>
         <View
           style={[
             {padding: '10px'}
           ]}
         >
-          <HelpButton update={props.update} {...props} />
+          <HelpButton />
         </View>
         {props.loggedIn?
           (
@@ -173,7 +180,7 @@ const AppBar = (props) => {
                 {padding: '10px'}
               ]}
             >
-              <AccountButton update={props.update} {...props} />
+              <AccountButton />
             </View>
           ) :
           (
@@ -182,7 +189,7 @@ const AppBar = (props) => {
                 {padding: '10px'}
               ]}
             >
-              <LogInButton update={props.update} {...props} />
+              <LogInButton />
             </View>
           )
         }
@@ -191,4 +198,6 @@ const AppBar = (props) => {
   )
 }
 
-export default withRouter(AppBar);
+const AppBar = connect(mapStateToProps)(ConnectedAppBar);
+
+export default AppBar;

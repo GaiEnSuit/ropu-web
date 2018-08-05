@@ -61,9 +61,7 @@ const NewsFeedModal = (props) => {
             styles.alignCenter
           ]}
         >
-          <NewsFeedTitleBar
-            title={props.text.newsFeedDialogTitle}
-          />
+          <NewsFeedTitleBar />
           <ScrollView>
             <TwitterWidget
               offline={props.offline}

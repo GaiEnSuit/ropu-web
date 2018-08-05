@@ -39,13 +39,7 @@ class App extends Component {
               exact
               path='/'
               render={() =>
-                <TitlePage
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.titlePageText}
-                  update={this.props.setAppState}
-                  orientation={this.props.appState.orientation}
-                  version={this.props.appState.version}
-                />
+                <TitlePage />
               }
             />
             {/* Home Page*/}
@@ -53,97 +47,57 @@ class App extends Component {
               exact
               path='/home'
               render={() =>
-                <HomePage
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.homePageText}
-                  update={this.props.setAppState}
-                  guideDialogData={this.props.appState.guideDialogData}
-                  orientation={this.props.appState.orientation}
-                />
+                <HomePage />
               }
             />
             {/* Character Selection Page */}
-            <Route
+            {/*<Route
               exact
               path='/characterselection'
               render={() =>
-                <CharacterSelectionPage
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.characterSelectionPageText}
-                  characterListData={this.props.appState.characterListData}
-                  createCharacterData={this.props.appState.createCharacterData}
-                  selectedCharacter={this.props.appState.selectedCharacter}
-                  gameListData={this.props.appState.gameListData}
-                  update={this.props.setAppState}
-                />
+                <CharacterSelectionPage />
               }
-            />
+            />*/}
             {/* Character Creation Page */}
-            <Route
+            {/*<Route
               exact
               path='/charactercreation'
               render={() =>
-                <CharacterCreationPage
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.characterCreationPageText}
-                  createCharacterDialogTab={this.props.appState.createCharacterDialogTab}
-                  selectedGame={this.props.appState.selectedGame}
-                  update={this.props.setAppState}
-                  createCharacterData={this.props.appState.createCharacterData}
-                  gameListData={this.props.appState.gameListData}
-                  selectedTemplate={this.props.appState.selectedTemplate}
-                />
+                <CharacterCreationPage />
               }
-            />
+            />*/}
             {/* Player View Page */}
-            <Route
+            {/*<Route
               path='/playerview/:id?'
               render={({match}) =>
                 this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
                   (
                     <Redirect to='/404' />
                   ) : (
-                    <PlayerViewPage
-                      update={this.props.setAppState}
-                      paths={this.props.appState.paths}
-                      character={this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10))}
-                    />
+                    <PlayerViewPage />
                   )
               }
-            />
+            />*/}
             {/* Story Page */}
-            <Route
+            {/*<Route
               exact
               path='/storyselection'
               render={() =>
-                <StorySelectionPage
-                  update={this.props.setAppState}
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.storySelectionPageText}
-                  gameListData={this.props.appState.gameListData}
-                />
+                <StorySelectionPage />
               }
-            />
+            />*/}
             {/* Home Brew Page */}
-            <Route
+            {/*<Route
               exact
               path='/homebrew'
               render={() =>
-                <HomebrewPage
-                  update={this.props.setAppState}
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.homebrewPageText}
-                />
+                <HomebrewPage />
               }
-            />
+            />*/}
             {/* Page Not Found */}
             <Route
               render={() =>
-                <ErrorPage
-                  update={this.props.setAppState}
-                  paths={this.props.appState.paths}
-                  text={this.props.appState.errorPageText}
-                />
+                <ErrorPage />
               }
             />
           </Switch>

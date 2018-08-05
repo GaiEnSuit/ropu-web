@@ -4,6 +4,8 @@ import { View } from 'react-native';
 
 import Modal from 'react-native-web-modal';
 
+import { connect } from 'react-redux';
+
 // styles
 import styles from '../styles/styles';
 
@@ -13,7 +15,14 @@ import DialogTitle from '../headers/DialogTitle';
 // Footers
 import ActionBarNavigate from '../footers/ActionBarNavigate';
 
-const HomeDialog = (props) => {
+const mapStateToProps = state => {
+  return {
+    homePath: state.homePath,
+    homeNavigateText: state.homeNavigateText
+  }
+}
+
+const ConnectedHomeDialog = (props) => {
   return (
     <Modal
       visible={props.open}
@@ -39,16 +48,18 @@ const HomeDialog = (props) => {
         >
           <DialogTitle
             {...props}
-            title={props.text.homeDialog}
+            title={props.homeNavigateText}
           />
           <ActionBarNavigate
             {...props}
-            path={props.paths.home}
+            path={props.homePath}
           />
         </View>
       </View>
     </Modal>
   )
 }
+
+const HomeDialog = connect(mapStateToProps)(ConnectedHomeDialog);
 
 export default HomeDialog;

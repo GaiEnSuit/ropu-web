@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
 //Routing
 import { withRouter } from '../routing/Routing';
 
@@ -19,16 +21,27 @@ import styles from '../styles/styles';
 
 // HOC
 import withModal from '../hoc/withModal';
-      
+
+const mapStateToProps = state => {
+  return {
+    characterSelectionPath: state.characterSelectionPath,
+    storySelectionPath: state.storySelectionPath,
+    playText: state.playText,
+    directText: state.directText,
+    homebrewText: state.homebrewText,
+    guideText: state.guideText,
+  }
+}
+
 // Play
-const Play = (props) => {
+const ConnectedPlay = (props) => {
   return (
     <TouchableOpacity
       style={
         styles.directionRow
       }
       onPress={()=>{
-        props.history.push(props.paths.characterSelection)
+        props.history.push(props.characterSelectionPath)
       }}
     >
       <View
@@ -51,21 +64,23 @@ const Play = (props) => {
           styles.alignCenter
         ]}
       >
-        {props.text.play}
+        {props.playText}
       </Text>
     </TouchableOpacity>
   )
 }
 
+const Play = withRouter(connect(mapStateToProps)(ConnectedPlay));
+
 // Direct
-const Direct = (props) => {
+const ConnectedDirect = (props) => {
   return (
     <TouchableOpacity
       style={
         styles.directionRow
       }
       onPress={()=>{
-        props.history.push(props.paths.storySelection)
+        props.history.push(props.storySelectionPath)
       }}
     >
       <View
@@ -88,22 +103,23 @@ const Direct = (props) => {
           styles.alignCenter
         ]}
       >
-        {props.text.direct}
+        {props.directText}
       </Text>
     </TouchableOpacity>
   )
 }
 
+const Direct = withRouter(connect(mapStateToProps)(ConnectedDirect))
 
 // Create
-const Create = (props) => {
+const ConnectedCreate = (props) => {
   return (
     <TouchableOpacity
       style={
         styles.directionRow
       }
       onPress={()=>{
-        props.history.push(props.paths.homebrew)
+        props.history.push(props.homebrewPath)
       }}
     >
       <View
@@ -126,11 +142,13 @@ const Create = (props) => {
           styles.alignCenter
         ]}
       >
-        {props.text.homebrew}
+        {props.homebrewText}
       </Text>
     </TouchableOpacity>
   )
 }
+
+const Create = withRouter(connect(mapStateToProps)(ConnectedCreate));
 
 // Create
 const Guide = (props) => {
@@ -163,7 +181,7 @@ const Guide = (props) => {
           styles.alignCenter
         ]}
       >
-        {props.text.guide}
+        {props.guideText}
       </Text>
     </TouchableOpacity>
   )
@@ -176,20 +194,12 @@ const GuideWithDialog = withModal(Guide, GuideDialog)
 const MainMenu = (props) => {
   return (
     <View>
-      <Play
-        {...props}
-      />
-      <Direct
-        {...props}
-      />
-      <Create
-        {...props}
-      />
-      <GuideWithDialog
-        {...props}
-      />
+      <Play />
+      <Direct />
+      <Create />
+      <GuideWithDialog />
     </View>
   )
 }
 
-export default withRouter(MainMenu);
+export default MainMenu;

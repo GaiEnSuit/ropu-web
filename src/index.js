@@ -1,19 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Redux
+import { Provider } from "react-redux";
+import store from './state/store';
 
+// Css for web
 import './index.css';
+
+// Fonts
 import 'typeface-roboto';
 
 import App from './App';
-import AppState from './AppState';
 
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  <AppState>
+  <Provider store={store}>
     <App />
-  </AppState>,
+  </Provider>,
   document.getElementById('root')
 );
 
