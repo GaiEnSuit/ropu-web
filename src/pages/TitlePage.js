@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 
-import { withRouter } from './routing/Routing';
+import { withRouter } from '../routing/Routing';
 
 // Styles
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 const mapStateToProps = state => {
   return {
@@ -22,7 +22,7 @@ const mapStateToProps = state => {
 const Title = () => {
   return(
     <Image
-      source={require("./images/brand_white_4x3.png")}
+      source={require("../images/brand_white_4x3.png")}
       resizeMode="contain"
       style={styles.responsiveImage}
     />
@@ -86,7 +86,7 @@ const ConnectedTitlePage = (props) => {
       >
         <View
           style={
-            {flex: props.orientation === 'portrait'? 2: 3}
+            {flex: props.orientation === 'portrait'? 1: 2}
           }
         >
           <Title />

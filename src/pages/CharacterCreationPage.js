@@ -8,31 +8,31 @@ import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
 
 // Higher Order Components
-import withTabControl from './hoc/withTabControl';
-import withCharacterDataControl from './hoc/withCharacterDataControl';
-import withGameDataControl from './hoc/withGameDataControl';
-import withTransitions from './hoc/withTransitions';
-import withDialog from './hoc/withDialog';
+import withTabControl from '../hoc/withTabControl';
+import withCharacterDataControl from '../hoc/withCharacterDataControl';
+import withGameDataControl from '../hoc/withGameDataControl';
+import withTransitions from '../hoc/withTransitions';
+import withDialog from '../hoc/withDialog';
 
 // Headers
-import TitleBar from './headers/TitleBar';
+import TitleBar from '../headers/TitleBar';
 
 // Button
-import BackButton from './buttons/BackButton';
+import BackButton from '../buttons/BackButton';
 
 //Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // Style Overrides
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 // Sections
-import CharacterCreationTabGame from './sections/CharacterCreationTabGame';
-import CharacterCreationTabDescription from './sections/CharacterCreationTabDescription';
-import CharacterCreationTabAbilities from './sections/CharacterCreationTabAbilities';
-import CharacterCreationTabInteractables from './sections/CharacterCreationTabInteractables';
-import CharacterCreationTabSummary from './sections/CharacterCreationTabSummary';
+import CharacterCreationTabGame from '../sections/CharacterCreationTabGame';
+import CharacterCreationTabDescription from '../sections/CharacterCreationTabDescription';
+import CharacterCreationTabAbilities from '../sections/CharacterCreationTabAbilities';
+import CharacterCreationTabInteractables from '../sections/CharacterCreationTabInteractables';
+import CharacterCreationTabSummary from '../sections/CharacterCreationTabSummary';
 
 // Content
 const CharacterCreationTab = (props) => {
@@ -84,7 +84,7 @@ const CharacterCreationPageActionBar = (props) => {
         style={[styles.displayFlex, styles.justifyBetween]}
       >
         {props.createCharacterDialogTab >= 1 &&
-          <Button 
+          <Button
             variant="extendedFab"
             onClick={props.backCreateCharacterDialogTab}
             style={[styles.colorWhite, styles.bgColorRed]}
@@ -94,7 +94,7 @@ const CharacterCreationPageActionBar = (props) => {
           </Button>
         }
         {props.createCharacterDialogTab <= 3 &&
-          <Button 
+          <Button
             variant="extendedFab"
             onClick={props.nextCreateCharacterDialogTab}
             style={[styles.colorWhite, styles.bgColorRed]}
@@ -106,7 +106,7 @@ const CharacterCreationPageActionBar = (props) => {
           </Button>
         }
         {props.createCharacterDialogTab === 4 &&
-          <Button 
+          <Button
             disabled={
               props.createCharacterData.gameID === null? true: false
             }
@@ -130,18 +130,18 @@ const CharacterCreationPageActionBar = (props) => {
 
 // Layout
 class CreateCharacterPage extends Component {
-  
+
   componentWillMount () {
     this.props.selectGame(this.props.gameListData[0])
   }
-  
+
   componentWillUnmount () {
     this.props.resetCreateCharacter();
     this.props.resetCreateCharacterDialogTab();
     this.props.resetGameSelect();
     this.props.resetSelectedTemplate();
   }
-  
+
   render() {
     return(
       <main

@@ -3,16 +3,16 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 // Header
-import TitleBar from './headers/TitleBar';
+import TitleBar from '../headers/TitleBar';
 
 // Styles
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 // Buttons
-import BackButton from './buttons/BackButton';
+import BackButton from '../buttons/BackButton';
 
 // HOC
-import withNavigation from './hoc/withNavigation';
+import withNavigation from '../hoc/withNavigation';
 
 const EnhancedBackButton = withNavigation(BackButton, '/');
 

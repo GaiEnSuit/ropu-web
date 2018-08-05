@@ -3,18 +3,18 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 // styles
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 // import Card from '@material-ui/core/Card';
 
 // Button
-import BackButton from './buttons/BackButton';
+import BackButton from '../buttons/BackButton';
 
 // HOC
-import withNavigation from './hoc/withNavigation';
+import withNavigation from '../hoc/withNavigation';
 
 // Headers
-import TitleBar from './headers/TitleBar';
+import TitleBar from '../headers/TitleBar';
 
 const EnhancedBackButton = withNavigation(BackButton, '/');
 

@@ -1,7 +1,10 @@
 // Images
 import spinner from '../images/spinner-loop.gif';
 
-const styles = {
+// stylesheet
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
 // Colors
   colorRed: {
     color: 'rgb(255,92,92)'
@@ -292,6 +295,6 @@ const styles = {
   ropuDialogTitle: {
     paddingLeft: '16px'
   }
-};
+});
 
 export default styles;

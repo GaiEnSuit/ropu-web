@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import CharacterCard from './cards/CharacterCard';
+import CharacterCard from '../cards/CharacterCard';
 
-import Roller from './sections/Roller';
-import InventoryMenu from './sections/InventoryMenu';
+import Roller from '../sections/Roller';
+import InventoryMenu from '../sections/InventoryMenu';
 
 // styles
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 class PlayerViewPage extends Component {
   render() {

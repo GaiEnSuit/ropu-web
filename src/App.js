@@ -12,14 +12,14 @@ import LayoutHandler from './modules/LayoutHandler';
 import styles from './styles/styles';
 
 // Pages
-import TitlePage from './TitlePage';
-import HomePage from './HomePage';
-import CharacterSelectionPage from './CharacterSelectionPage';
-import CharacterCreationPage from './CharacterCreationPage';
-import StorySelectionPage from './StorySelectionPage';
-import PlayerViewPage from './PlayerViewPage';
-import HomebrewPage from './HomebrewPage';
-import ErrorPage from './ErrorPage';
+import TitlePage from './pages/TitlePage';
+import HomePage from './pages/HomePage';
+import CharacterSelectionPage from './pages/CharacterSelectionPage';
+import CharacterCreationPage from './pages/CharacterCreationPage';
+import StorySelectionPage from './pages/StorySelectionPage';
+import PlayerViewPage from './pages/PlayerViewPage';
+import HomebrewPage from './pages/HomebrewPage';
+import ErrorPage from './pages/ErrorPage';
 
 class App extends Component {
   render() {

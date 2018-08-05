@@ -4,23 +4,23 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
 // Custom Components
-import TitleBar from './headers/TitleBar';
-import CharacterSelectionCard from './cards/CharacterSelectionCard';
+import TitleBar from '../headers/TitleBar';
+import CharacterSelectionCard from '../cards/CharacterSelectionCard';
 
 // Styles
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 // HOC
-import withDialog from './hoc/withDialog';
-import withCharacterDataControl from './hoc/withCharacterDataControl';
-import withNavigation from './hoc/withNavigation';
+import withDialog from '../hoc/withDialog';
+import withCharacterDataControl from '../hoc/withCharacterDataControl';
+import withNavigation from '../hoc/withNavigation';
 
 // Dialogs
-import DeleteCharacterDialog from './dialogs/DeleteCharacterDialog';
+import DeleteCharacterDialog from '../dialogs/DeleteCharacterDialog';
 
 // Buttons
-import CreatePlayerCharacterButton from './buttons/CreatePlayerCharacterButton';
-import BackButton from './buttons/BackButton';
+import CreatePlayerCharacterButton from '../buttons/CreatePlayerCharacterButton';
+import BackButton from '../buttons/BackButton';
 
 //Character Selection Cards Slide
 const EnhancedCharacterSelectionCard = withCharacterDataControl(withDialog(CharacterSelectionCard, DeleteCharacterDialog));
@@ -35,7 +35,7 @@ const CharacterSelectionList = (props) => {
       <ScrollView
         style={[
           styles.displayFlex,
-          styles.justifyCenter, 
+          styles.justifyCenter,
           styles.alignCenter,
           styles.flex1
         ]}
@@ -50,7 +50,7 @@ const CharacterSelectionList = (props) => {
   } else {
     return (
       <ScrollView>
-          {props.characterListData.map((character) => {    
+          {props.characterListData.map((character) => {
             return(
               <View
                 key={character.id}
