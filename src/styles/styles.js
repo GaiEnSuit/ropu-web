@@ -117,6 +117,9 @@ const styles = StyleSheet.create({
   alignStart: {
     alignItems: 'flex-start'
   },
+  alignAround: {
+    alignContent: 'space-around'
+  },
   flex1: {
     flex: 1,
   },

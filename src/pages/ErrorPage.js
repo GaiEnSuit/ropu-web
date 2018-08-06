@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 
 const ConnectedErrorPage = (props) => {
 
-  setTimeout(()=>{props.history.push(props.titlePath)}, 3000);
+  setTimeout(()=>{props.history.push(props.titlePath)}, 1000);
 
   return (
     <View

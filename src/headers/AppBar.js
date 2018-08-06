@@ -130,7 +130,11 @@ const NewsFeedButton = (props) => {
 // Layout
 const ConnectedAppBar = (props) => {
   return (
-    <View>
+    <View
+      style={[
+        styles.vw100
+      ]}
+    >
       <View
         style={[
           styles.directionRow,

@@ -18,28 +18,11 @@ import NewsFeedHandler from '../modules/NewsFeedHandler';
 const HomePage = () => {
   return (
     <View
-      style={[
-        styles.flex1,
-        styles.bgColorDarkRed
-      ]}
+      style={styles.flex1}
     >
-      <View
-        style={[
-          styles.width100
-        ]}
-      >
-        <AppBar />
-      </View>
-      <View
-        style={[
-          styles.flex1,
-          styles.justifyCenter,
-          styles.alignCenter
-        ]}
-      >
-        <MainMenu />
-      </View>
       <NewsFeedHandler />
+      <AppBar />
+      <MainMenu />
     </View>
   )
 }

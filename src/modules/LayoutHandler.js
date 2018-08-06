@@ -15,12 +15,10 @@ const mapDispatchToProps = dispatch => {
 class ConnectedLayoutHandler extends Component {
   constructor () {
     super();
-    // Handles Orientatino Changes
+    // Handles Orientation Changes
     Dimensions.addEventListener('change', () => {
-      this.props.changeOrientation(
-        {orientation: Dimensions.get('window').width < Dimensions.get('window').height ? 'portrait' : 'landscape'},
-        console.log(Dimensions.get('window').width < Dimensions.get('window').height ? 'Orientation Changed to Portrait' : 'Orientation Changed to Landscape')
-      );
+      let orientation = Dimensions.get('window').width < Dimensions.get('window').height ? 'portrait' : 'landscape';
+      this.props.changeOrientation({orientation});
     });
   }
 

@@ -30,7 +30,7 @@ class App extends Component {
           styles.vp100
         ]}
       >
-        <LayoutHandler update={this.props.setAppState} />
+        <LayoutHandler />
         <Router>
           {/* Main Section */}
           <Switch>

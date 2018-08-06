@@ -30,6 +30,7 @@ const mapStateToProps = state => {
     directText: state.directText,
     homebrewText: state.homebrewText,
     guideText: state.guideText,
+    orientation: state.orientation
   }
 }
 
@@ -37,9 +38,10 @@ const mapStateToProps = state => {
 const ConnectedPlay = (props) => {
   return (
     <TouchableOpacity
-      style={
-        styles.directionRow
-      }
+      style={[
+        styles.justifyCenter,
+        styles.alignCenter
+      ]}
       onPress={()=>{
         props.history.push(props.characterSelectionPath)
       }}
@@ -56,16 +58,21 @@ const ConnectedPlay = (props) => {
           style={styles.icon36}
         />
       </View>
-      <Text
+      <View
         style={[
-          styles.displayFlex,
-          styles.colorWhite,
           styles.justifyCenter,
           styles.alignCenter
         ]}
       >
-        {props.playText}
-      </Text>
+        <Text
+          style={[
+            styles.colorRed,
+            styles.h6
+          ]}
+        >
+          {props.playText}
+        </Text>
+      </View>
     </TouchableOpacity>
   )
 }
@@ -76,9 +83,10 @@ const Play = withRouter(connect(mapStateToProps)(ConnectedPlay));
 const ConnectedDirect = (props) => {
   return (
     <TouchableOpacity
-      style={
-        styles.directionRow
-      }
+      style={[
+        styles.justifyCenter,
+        styles.alignCenter
+      ]}
       onPress={()=>{
         props.history.push(props.storySelectionPath)
       }}
@@ -87,7 +95,8 @@ const ConnectedDirect = (props) => {
         style={[
           styles.icon48,
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
         <Image
@@ -95,16 +104,22 @@ const ConnectedDirect = (props) => {
           style={styles.icon36}
         />
       </View>
-      <Text
+      <View
         style={[
-          styles.displayFlex,
-          styles.colorWhite,
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
-        {props.directText}
-      </Text>
+        <Text
+          style={[
+            styles.colorRed,
+            styles.h6
+          ]}
+        >
+          {props.directText}
+        </Text>
+      </View>
     </TouchableOpacity>
   )
 }
@@ -115,9 +130,10 @@ const Direct = withRouter(connect(mapStateToProps)(ConnectedDirect))
 const ConnectedCreate = (props) => {
   return (
     <TouchableOpacity
-      style={
-        styles.directionRow
-      }
+      style={[
+        styles.justifyCenter,
+        styles.alignCenter
+      ]}
       onPress={()=>{
         props.history.push(props.homebrewPath)
       }}
@@ -126,7 +142,8 @@ const ConnectedCreate = (props) => {
         style={[
           styles.icon48,
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
         <Image
@@ -134,16 +151,22 @@ const ConnectedCreate = (props) => {
           style={styles.icon36}
         />
       </View>
-      <Text
+      <View
         style={[
-          styles.displayFlex,
-          styles.colorWhite,
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
-        {props.homebrewText}
-      </Text>
+        <Text
+          style={[
+            styles.colorRed,
+            styles.h6
+          ]}
+        >
+          {props.homebrewText}
+        </Text>
+      </View>
     </TouchableOpacity>
   )
 }
@@ -151,21 +174,23 @@ const ConnectedCreate = (props) => {
 const Create = withRouter(connect(mapStateToProps)(ConnectedCreate));
 
 // Create
-const Guide = (props) => {
+const ConnectedGuide = (props) => {
   return (
     <TouchableOpacity
+      style={[
+        styles.justifyCenter,
+        styles.alignCenter
+      ]}
       onPress={()=>{
         props.updateModal(true);
       }}
-      style={[
-        styles.directionRow
-      ]}
     >
       <View
         style={[
           styles.icon48,
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
         <Image
@@ -173,33 +198,100 @@ const Guide = (props) => {
           style={styles.icon36}
         />
       </View>
-      <Text
+      <View
         style={[
-          styles.displayFlex,
-          styles.colorWhite,
           styles.justifyCenter,
-          styles.alignCenter
+          styles.alignCenter,
+          styles.flex1
         ]}
       >
-        {props.guideText}
-      </Text>
+        <Text
+          style={[
+            styles.colorRed,
+            styles.h6
+          ]}
+        >
+          {props.guideText}
+        </Text>
+      </View>
     </TouchableOpacity>
   )
 }
 
 // Guide with Guide Dialog
-const GuideWithDialog = withModal(Guide, GuideDialog)
+const Guide = withModal(connect(mapStateToProps)(ConnectedGuide), GuideDialog)
 
 // Main Menu
-const MainMenu = (props) => {
+const ConnectedMainMenu = (props) => {
   return (
-    <View>
-      <Play />
-      <Direct />
-      <Create />
-      <GuideWithDialog />
+    <View
+      style={[
+        styles.flex1,
+        {flexDirection: props.orientation === 'portrait'? 'column' : 'row'}
+      ]}
+    >
+      <View
+        style={[
+          styles.directionColumn,
+          styles.flex1,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        <View
+          style={[
+            styles.justifyCenter,
+            styles.alignCenter,
+            styles.flex1,
+            styles.dim100
+          ]}
+        >
+          <Play />
+        </View>
+        <View
+          style={[
+            styles.justifyCenter,
+            styles.alignCenter,
+            styles.flex1,
+            styles.dim100
+          ]}
+        >
+          <Direct />
+        </View>
+      </View>
+      <View
+        style={[
+          styles.directionColumn,
+          styles.flex1,
+          styles.justifyCenter,
+          styles.alignCenter
+        ]}
+      >
+        <View
+          style={[
+            styles.justifyCenter,
+            styles.alignCenter,
+            styles.flex1,
+            styles.dim100
+          ]}
+        >
+          <Create />
+        </View>
+        <View
+          style={[
+            styles.justifyCenter,
+            styles.alignCenter,
+            styles.flex1,
+            styles.dim100
+          ]}
+        >
+          <Guide />
+        </View>
+      </View>
     </View>
   )
 }
+
+const MainMenu = connect(mapStateToProps)(ConnectedMainMenu);
 
 export default MainMenu;
