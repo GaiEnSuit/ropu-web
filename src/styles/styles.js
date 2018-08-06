@@ -71,6 +71,9 @@ const styles = StyleSheet.create({
   positionAbsolute: {
     position: 'absolute'
   },
+  positionLeft: {
+    left: '0px'
+  },
   positionRight: {
     right: '0px'
   },

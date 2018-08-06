@@ -3,45 +3,42 @@ import React from 'react';
 
 import { View, Text, ScrollView } from 'react-native';
 
-// Custom Components
-import TitleBar from '../headers/TitleBar';
+// Cards
 import CharacterSelectionCard from '../cards/CharacterSelectionCard';
+
+// headers
+import AppBar from '../headers/AppBar';
+import TitleBar from '../headers/TitleBar';
 
 // Styles
 import styles from '../styles/styles';
 
 // HOC
-import withDialog from '../hoc/withDialog';
+import withModal from '../hoc/withModal';
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
-import withNavigation from '../hoc/withNavigation';
-
-// Dialogs
-import DeleteCharacterDialog from '../dialogs/DeleteCharacterDialog';
 
 // Buttons
 import CreatePlayerCharacterButton from '../buttons/CreatePlayerCharacterButton';
 import BackButton from '../buttons/BackButton';
 
-//Character Selection Cards Slide
-const EnhancedCharacterSelectionCard = withCharacterDataControl(withDialog(CharacterSelectionCard, DeleteCharacterDialog));
+// state
+import { connect } from 'react-redux';
 
-// Back BUtton to HOme screen
-const EnhancedBackButton = withNavigation(BackButton, '/');
+const mapStateToProps = state => {
+  return {
+    characterSelectionPageTitle: state.characterSelectionPageTitle,
+    characterListData: state.characterListData
+  }
+}
 
 // Character Selection List
-const CharacterSelectionList = (props) => {
+const ConnectedCharacterSelectionList = (props) => {
   if (props.characterListData.length <= 0) {
     return (
       <ScrollView
-        style={[
-          styles.displayFlex,
-          styles.justifyCenter,
-          styles.alignCenter,
-          styles.flex1
-        ]}
+        style={styles.flex1}
       >
         <Text
-          style={styles.colorWhite}
         >
           {props.text.noCharacters}
         </Text>
@@ -49,66 +46,63 @@ const CharacterSelectionList = (props) => {
     )
   } else {
     return (
-      <ScrollView>
-          {props.characterListData.map((character) => {
+      <ScrollView
+        style={styles.flex1}
+      >
+        {
+          props.characterListData.map((character) => {
             return(
               <View
                 key={character.id}
               >
-                <EnhancedCharacterSelectionCard
+                <CharacterSelectionCard
                   character={character}
                   {...props}
                 />
               </View>
             )
-          })}
+          })
+        }
       </ScrollView>
     )
   }
 }
 
+const CharacterSelectionList = connect(mapStateToProps)(ConnectedCharacterSelectionList);
+
 // Footer
-const CharacterSelectionActionBar = (props) => {
+const ActionBar = (props) => {
   return(
     <View
       style={[
-        styles.bgColorTransparant,
-        styles.actionBar,
+        styles.vw100,
         styles.directionRow,
         styles.justifyBetween,
-        styles.positionFixed,
-        styles.width100,
-        styles.positionBottom
+        styles.padding12
       ]}
     >
-      <EnhancedBackButton
-        {...props}
-      />
+      <BackButton />
       <CreatePlayerCharacterButton />
     </View>
   )
 }
 
 // Layout
-const CharacterSelectionPage = (props) => {
+const ConnectedCharacterSelectionPage = (props) => {
   return (
     <View
       style={[
-        styles.bgColorWhite,
         styles.flex1
       ]}
     >
-      <TitleBar
-        {...props}
-      />
-      <CharacterSelectionList
-        {...props}
-      />
-      <CharacterSelectionActionBar
-        {...props}
-      />
+      <AppBar />
+      <TitleBar title={props.characterSelectionPageTitle} />
+      <CharacterSelectionList {...props} />
+      <ActionBar {...props} />
     </View>
   )
 }
+
+const CharacterSelectionPage = connect(mapStateToProps)(ConnectedCharacterSelectionPage)
 
 export default CharacterSelectionPage;

@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { View, Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
+
+// Routing
+
+import { withRouter } from '../routing/Routing';
 
 // Icons
 import arrowBackIcon from '../images/arrowBackIcon.png';
@@ -8,9 +12,12 @@ import arrowBackIcon from '../images/arrowBackIcon.png';
 // styles
 import styles from '../styles/styles'
 
-const BackButton = (props) => {
+const BackButtonWithRouter = (props) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={()=>{
+        props.history.goBack()
+      }}
       style={[
         styles.icon48,
         styles.alignCenter,
@@ -23,8 +30,10 @@ const BackButton = (props) => {
         style={styles.icon24}
         source={arrowBackIcon}
       />
-    </View>
+    </TouchableOpacity>
   )
 }
+
+const BackButton = withRouter(BackButtonWithRouter);
 
 export default BackButton;

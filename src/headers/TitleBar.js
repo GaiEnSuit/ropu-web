@@ -18,7 +18,7 @@ const TitleBar = (props) => {
       <Text
         style={[
           styles.colorWhite,
-          styles.subtitle2
+          styles.h5
         ]}
       >
         {props.title}

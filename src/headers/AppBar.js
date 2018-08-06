@@ -140,7 +140,11 @@ const ConnectedAppBar = (props) => {
   return (
     <View
       style={[
-        styles.vw100
+        styles.vw100,
+        {
+          borderBottomColor: "black",
+          borderBottomWidth: 1
+        }
       ]}
     >
       <View

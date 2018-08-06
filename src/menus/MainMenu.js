@@ -67,7 +67,7 @@ const ConnectedPlay = (props) => {
         <Text
           style={[
             styles.colorRed,
-            styles.h6
+            styles.button
           ]}
         >
           {props.playText}
@@ -114,7 +114,7 @@ const ConnectedDirect = (props) => {
         <Text
           style={[
             styles.colorRed,
-            styles.h6
+            styles.button
           ]}
         >
           {props.directText}
@@ -161,7 +161,7 @@ const ConnectedCreate = (props) => {
         <Text
           style={[
             styles.colorRed,
-            styles.h6
+            styles.button
           ]}
         >
           {props.homebrewText}
@@ -208,7 +208,7 @@ const ConnectedNewsFeed = (props) => {
         <Text
           style={[
             styles.colorRed,
-            styles.h6
+            styles.button
           ]}
         >
           {props.newsText}

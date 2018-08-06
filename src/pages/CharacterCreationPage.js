@@ -12,7 +12,7 @@ import withTabControl from '../hoc/withTabControl';
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
 import withGameDataControl from '../hoc/withGameDataControl';
 import withTransitions from '../hoc/withTransitions';
-import withDialog from '../hoc/withDialog';
+import withModal from '../hoc/withModal';
 
 // Headers
 import TitleBar from '../headers/TitleBar';
@@ -70,14 +70,14 @@ const CharacterCreationTabs = (props) => {
   )
 }
 
-const BackButtonWithDialog = withDialog(BackButton, 'characterSelectionDialog');
+const BackButtonwithModal = withModal(BackButton, 'characterSelectionDialog');
 
 const CharacterCreationPageActionBar = (props) => {
   return (
     <Toolbar
       style={[styles.bgColorTransparant, styles.actionBar, styles.displayFlex,styles.justifyBetween]}
     >
-      <BackButtonWithDialog
+      <BackButtonwithModal
         {...props}
       />
       <div

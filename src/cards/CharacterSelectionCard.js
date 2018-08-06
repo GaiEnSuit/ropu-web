@@ -1,36 +1,18 @@
 import React from 'react';
 
-// React Router Dom
-import { Link } from 'react-router-dom';
-
-// Material-ui
-import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-
-// Icons
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { View, Text, Image } from 'react-native';
 
 // Style Classes
 import styles from '../styles/styles';
 
 // Portrait
-const CharacterListItemCardMedia = (props) => {
+const Portrait = (props) => {
   return(
-    <Link to={`/playerview/${props.character.id}`}>
-      <CardMedia
-        image={props.character.img}
-        title={props.character.img}
-        style={{...styles.dim100, ...styles.bgColorTransparentBlack}}
+    <View to={`/playerview/${props.character.id}`}>
+      <View
       >
         {!props.character.img &&
-          <AccountBoxIcon
+          <Image
             style={[
               styles.dim100,
               styles.colorWhite,
@@ -38,94 +20,85 @@ const CharacterListItemCardMedia = (props) => {
             ]}
           />
         }
-      </CardMedia>
-    </Link>
+      </View>
+    </View>
   )
 }
 
 // Character Summary
-const CharacterListItemCardContent = (props) => {
+const CharacterListItemView = (props) => {
   return(
-    <Link to={`/playerview/${props.character.id}`}>
-      <CardContent
-        style={[styles.bgColorDarkRed, styles.colorWhite]}
+    <View to={`/playerview/${props.character.id}`}>
+      <View
       >
         {props.character.name === ''?
           (
-            <Typography variant="headline" noWrap color="inherit">{props.text.noName}</Typography>
+            <Text variant="headline" >{props.text.noName}</Text>
           ) :
           (
-            <Typography variant="headline" noWrap color="inherit">{props.character.name}</Typography>
+            <Text variant="headline" >{props.character.name}</Text>
           )
         }
-        <Typography variant="body1" noWrap color="inherit">{props.character.game}</Typography>
+        <Text variant="body1" >{props.character.game}</Text>
         {props.character.story === null?
           (
-            <Typography variant="body1" noWrap color="inherit">{props.text.noStory}</Typography>
+            <Text variant="body1" >{props.text.noStory}</Text>
           ) :
           (
-            <Typography variant="body1" noWrap color="inherit">{props.character.story}</Typography>
+            <Text variant="body1" >{props.character.story}</Text>
           )
         }
-      </CardContent>
-    </Link>
+      </View>
+    </View>
   )
 }
 
-// Card Actions
-const CharacterListItemCardActions = (props) => {
+// View Actions
+const Actions = (props) => {
   return(
-    <CardActions
-      style={[styles.bgColorDarkRed, styles.displayFlex, styles.justifyEnd]}
+    <View
     >
-      <IconButton
-        style={styles.colorWhite}
+      <View
         onClick={()=>{
           props.updateDialog(true, "deleteDialog");
           props.selectCharacter(props.character);
         }}
       >
-        <DeleteIcon />
-      </IconButton>
-    </CardActions>
+        <Image />
+      </View>
+    </View>
   )
 }
 
-const CharacterSelectionCard = (props) => {
+const CharacterSelectionView = (props) => {
   return(
-    <Card
+    <View
       raised={true}
       style={[
-        styles.bgColorTransparentMediumRed,
-        styles.dim100,
-        props.style
       ]}
     >
-      <Grid
+      <View
         container
         spacing={8}
         style={[
-          styles.dim100,
-          styles.margin0
         ]}
       >
-        <Grid
+        <View
           item
           xs={4}
         >
-          <CharacterListItemCardMedia {...props} />
-        </Grid>
-        <Grid
+          <Portrait {...props} />
+        </View>
+        <View
           item
           xs={8}
         >
-          <CharacterListItemCardContent {...props} />
-          <Divider />
-          <CharacterListItemCardActions {...props} />
-        </Grid>
-      </Grid>
-    </Card>
+          <CharacterListItemView {...props} />
+          <Actions {...props} />
+        </View>
+      </View>
+    </View>
   )
 }
 
-export default CharacterSelectionCard;
+export default CharacterSelectionView;

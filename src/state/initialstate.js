@@ -595,8 +595,8 @@ const initialState = {
     }
   ],
   // Text Data
-  guideDialogText: 'Guide',
-  guideDialogData: {
+  guideModalText: 'Guide',
+  guideModalData: {
     about: {
       title: 'About',
       text: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`
@@ -748,16 +748,15 @@ const initialState = {
     title: 'Homebrew',
     homeDialogTitle: 'Return Home?'
   },
-  characterSelectionPageText: {
-    title: 'Select A Character',
+  // Character Selection Page Text
+    characterSelectionPageTitle: 'Select A Character',
     noCharacters: 'No Characters',
     noStory: 'No Story',
     noName: 'No Name',
     delete: 'Delete',
     confirmDelete: 'Delete Character?',
     homeDialogTitle: 'Return Home?',
-    offline: 'Error Unable to Retrieve Data'
-  },
+    offline: 'Error Unable to Retrieve Data',
   // Market Modal text
   marketModalTitle: 'Market',
   // Error Page Text

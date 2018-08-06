@@ -51,13 +51,13 @@ class App extends Component {
               }
             />
             {/* Character Selection Page */}
-            {/*<Route
+            <Route
               exact
               path='/characterselection'
               render={() =>
                 <CharacterSelectionPage />
               }
-            />*/}
+            />
             {/* Character Creation Page */}
             {/*<Route
               exact

@@ -3,12 +3,12 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 // images
-import closeIcon from '../images/closeIcon.png';
+import arrowBackIcon from '../images/arrowBackIcon.png';
 
 // Styles
 import styles from '../styles/styles';
 
-const ModalTitle = (props) => {
+const ModalBackBar = (props) => {
   return (
     <View
       style={[
@@ -20,18 +20,10 @@ const ModalTitle = (props) => {
         {paddingTop: 12, paddingBottom: 12}
       ]}
     >
-      <Text
-        style={[
-          styles.colorWhite,
-          styles.h5
-        ]}
-      >
-        {props.title}
-      </Text>
       <TouchableOpacity
         style={[
           styles.positionAbsolute,
-          styles.positionRight,
+          styles.positionLeft,
           styles.padding12
         ]}
         onPress={()=>{
@@ -42,11 +34,19 @@ const ModalTitle = (props) => {
           style={[
             styles.icon24
           ]}
-          source={closeIcon}
+          source={arrowBackIcon}
         />
       </TouchableOpacity>
+      <Text
+        style={[
+          styles.colorWhite,
+          styles.h6
+        ]}
+      >
+        {props.title}
+      </Text>
     </View>
   )
 }
 
-export default ModalTitle;
+export default ModalBackBar;
