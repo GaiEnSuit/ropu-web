@@ -11,8 +11,6 @@ import Dialog from '@material-ui/core/Dialog';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 
-// Headers
-import DialogTitle from '../headers/DialogTitle';
 
 // Higher Order Components
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
@@ -33,7 +31,7 @@ const DeleteCharacterDialog = (props) => {
           styles.bgColorTransparentMediumRed
         ]}
       >
-        <DialogTitle {...props} title={props.text.confirmDelete} />
+        <View {...props} title={props.text.confirmDelete} />
         <CardActions
           style={[
             styles.displayFlex,

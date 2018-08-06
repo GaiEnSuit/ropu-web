@@ -11,7 +11,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Dialog from '@material-ui/core/Dialog';
 
 // Headers
-import DialogTitle from '../headers/DialogTitle';
+import ModalTitle from '../headers/ModalTitle';
 
 // Icons
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -120,7 +120,7 @@ const ConnectedGuideDialog = (props) => {
       <View
         style={styles.flex1}
       >
-        <DialogTitle
+        <ModalTitle
           {...props}
           title={props.guideDialogText}
         />

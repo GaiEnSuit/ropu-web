@@ -10,7 +10,7 @@ import Modal from 'react-native-web-modal';
 import styles from '../styles/styles';
 
 // Headers
-import DialogTitle from '../headers/DialogTitle';
+import ModalTitle from '../headers/ModalTitle';
 
 // Footers
 import ActionBarNavigate from '../footers/ActionBarNavigate';
@@ -46,7 +46,7 @@ const ConnectedTitleDialog = (props) => {
             styles.alignCenter
           ]}
         >
-          <DialogTitle
+          <ModalTitle
             {...props}
             title={props.titleNavigateText}
           />

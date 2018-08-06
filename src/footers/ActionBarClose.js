@@ -19,7 +19,6 @@ const ActionBarClose = (props) => {
       ]}
     >
       <TouchableOpacity
-        activeOpacity={.5}
         onPress={()=>{
           props.updateModal(false, 'Modal Closed')
         }}

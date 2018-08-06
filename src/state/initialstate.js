@@ -695,7 +695,8 @@ const initialState = {
   playText: 'PLAY',
   directText: 'DIRECT',
   homebrewText: 'CREATE',
-  guideText: 'HELP',
+  guideText: 'GUIDE',
+  // User Feedback Text
   offlineText: 'Unable to Retrieve Data',
   // Dialog Navigation Text
   titleNavigateText: 'Return To Title Screen?',
@@ -757,6 +758,8 @@ const initialState = {
     homeDialogTitle: 'Return Home?',
     offline: 'Error Unable to Retrieve Data'
   },
+  // Market Modal text
+  marketModalTitle: 'Market',
   // Error Page Text
   errorPageText: 'Oops! Something Went Wrong',
   errorPageTitle: 'ERROR 404'

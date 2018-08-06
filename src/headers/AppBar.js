@@ -25,6 +25,9 @@ import HomeDialog from '../dialogs/HomeDialog';
 // hoc
 import withModal from '../hoc/withModal';
 
+// Modals
+import MarketModal from '../modals/MarketModal';
+
 //redux
 const mapStateToProps = state => {
   return {
@@ -72,27 +75,43 @@ const ConnectedHomeButton = (props) => {
 
 const HomeButton = withRouter(withModal(connect(mapStateToProps)(ConnectedHomeButton), HomeDialog));
 
-const ShopButton = (props) => {
+const ShopButtonWithModal = (props) => {
   return (
-    <Image
-      source={shop}
-      style={[
-        styles.icon24
-      ]}
-    />
+    <TouchableOpacity
+      onPress={()=>{
+        props.updateModal(true, "Market Modal Opened");
+      }}
+    >
+      <Image
+        source={shop}
+        style={[
+          styles.icon24
+        ]}
+      />
+    </TouchableOpacity>
   )
 }
 
-const HelpButton = (props) => {
+const ShopButton = withModal(ShopButtonWithModal, MarketModal);
+
+const HelpButtonWithModal = (props) => {
   return (
-    <Image
-      source={help}
-      style={[
-        styles.icon24
-      ]}
-    />
+    <TouchableOpacity
+      onPress={()=>{
+        props.updateModal(true, 'Guide Modal Opened');
+      }}
+    >
+      <Image
+        source={help}
+        style={[
+          styles.icon24
+        ]}
+      />
+    </TouchableOpacity>
   )
 }
+
+const HelpButton = withModal(HelpButtonWithModal, MarketModal);
 
 const AccountButton = (props) => {
   return (
