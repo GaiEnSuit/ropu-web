@@ -26,7 +26,7 @@ const ActionBarNavigate = (props) => {
           props.updateModal(false)
           props.history.push(props.path)
         }}
-        style={styles.padding16}
+        style={styles.padding12}
       >
         <Image
           source={checkIcon}
@@ -41,7 +41,7 @@ const ActionBarNavigate = (props) => {
         onPress={()=>{
           props.updateModal(false, 'Close Dialog')
         }}
-        style={styles.padding16}
+        style={styles.padding12}
       >
         <Image
           source={closeIcon}

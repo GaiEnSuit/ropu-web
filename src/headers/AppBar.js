@@ -16,7 +16,6 @@ import shop from '../images/shop.png';
 import help from '../images/help.png';
 import account from '../images/account.png';
 import input from '../images/input.png';
-import announcement from '../images/announcement.png';
 
 // Dialogs
 import TitleDialog from '../dialogs/TitleDialog';
@@ -27,6 +26,7 @@ import withModal from '../hoc/withModal';
 
 // Modals
 import MarketModal from '../modals/MarketModal';
+import GuideModal from '../modals/GuideModal';
 
 //redux
 const mapStateToProps = state => {
@@ -111,7 +111,7 @@ const HelpButtonWithModal = (props) => {
   )
 }
 
-const HelpButton = withModal(HelpButtonWithModal, MarketModal);
+const HelpButton = withModal(HelpButtonWithModal, GuideModal);
 
 const AccountButton = (props) => {
   return (
@@ -128,17 +128,6 @@ const LogInButton = (props) => {
   return (
     <Image
       source={input}
-      style={[
-        styles.icon24
-      ]}
-    />
-  )
-}
-
-const NewsFeedButton = (props) => {
-  return (
-    <Image
-      source={announcement}
       style={[
         styles.icon24
       ]}
@@ -170,28 +159,21 @@ const ConnectedAppBar = (props) => {
         </View>
         <View
           style={[
-            {padding: '10px'}
+            {padding: '12px'}
           ]}
         >
           <HomeButton {...props} />
         </View>
         <View
           style={[
-            {padding: '10px'}
+            {padding: '12px'}
           ]}
         >
           <ShopButton />
         </View>
         <View
           style={[
-            {padding: '10px'}
-          ]}
-        >
-          <NewsFeedButton />
-        </View>
-        <View
-          style={[
-            {padding: '10px'}
+            {padding: '12px'}
           ]}
         >
           <HelpButton />
@@ -200,7 +182,7 @@ const ConnectedAppBar = (props) => {
           (
             <View
               style={[
-                {padding: '10px'}
+                {padding: '12px'}
               ]}
             >
               <AccountButton />
@@ -209,7 +191,7 @@ const ConnectedAppBar = (props) => {
           (
             <View
               style={[
-                {padding: '10px'}
+                {padding: '12px'}
               ]}
             >
               <LogInButton />

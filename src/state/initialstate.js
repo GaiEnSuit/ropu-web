@@ -695,7 +695,7 @@ const initialState = {
   playText: 'PLAY',
   directText: 'DIRECT',
   homebrewText: 'CREATE',
-  guideText: 'GUIDE',
+  newsText: 'NEWS',
   // User Feedback Text
   offlineText: 'Unable to Retrieve Data',
   // Dialog Navigation Text

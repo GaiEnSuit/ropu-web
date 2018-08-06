@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import styles from '../styles/styles';
 
 // Headers
-import ModalTitle from '../headers/ModalTitle';
+import DialogTitle from '../headers/DialogTitle';
 
 // Footers
 import ActionBarNavigate from '../footers/ActionBarNavigate';
@@ -46,7 +46,7 @@ const ConnectedHomeDialog = (props) => {
             styles.alignCenter
           ]}
         >
-          <ModalTitle
+          <DialogTitle
             {...props}
             title={props.homeNavigateText}
           />

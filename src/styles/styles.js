@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
   padding0: {
     padding: 0
   },
-  padding16: {
-    padding: 16
+  padding12: {
+    padding: 12
   },
 // Positioning
   positionBottom: {
@@ -71,9 +71,7 @@ const styles = StyleSheet.create({
   positionAbsolute: {
     position: 'absolute'
   },
-  absoluteTopRight: {
-    position: 'absolute',
-    top: '0px',
+  positionRight: {
     right: '0px'
   },
   absoluteBottomRight: {

@@ -7,14 +7,14 @@ import { withRouter } from '../routing/Routing';
 
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 
-// Dialogs
-import GuideDialog from '../dialogs/GuideDialog';
+// Modals
+import NewsFeedModal from '../modals/NewsFeedModal';
 
 // Images
 import sword from '../images/sword_01b.png';
 import book from '../images/book_05g.png';
 import potion from '../images/potion_03g.png';
-import tome from '../images/book_05f.png';
+import scroll from '../images/scroll_01a.png';
 
 //styles
 import styles from '../styles/styles';
@@ -29,7 +29,7 @@ const mapStateToProps = state => {
     playText: state.playText,
     directText: state.directText,
     homebrewText: state.homebrewText,
-    guideText: state.guideText,
+    newsText: state.newsText,
     orientation: state.orientation
   }
 }
@@ -174,7 +174,7 @@ const ConnectedCreate = (props) => {
 const Create = withRouter(connect(mapStateToProps)(ConnectedCreate));
 
 // Create
-const ConnectedGuide = (props) => {
+const ConnectedNewsFeed = (props) => {
   return (
     <TouchableOpacity
       style={[
@@ -194,7 +194,7 @@ const ConnectedGuide = (props) => {
         ]}
       >
         <Image
-          source={tome}
+          source={scroll}
           style={styles.icon36}
         />
       </View>
@@ -211,15 +211,14 @@ const ConnectedGuide = (props) => {
             styles.h6
           ]}
         >
-          {props.guideText}
+          {props.newsText}
         </Text>
       </View>
     </TouchableOpacity>
   )
 }
 
-// Guide with Guide Dialog
-const Guide = withModal(connect(mapStateToProps)(ConnectedGuide), GuideDialog)
+const NewsFeed = withModal(connect(mapStateToProps)(ConnectedNewsFeed), NewsFeedModal)
 
 // Main Menu
 const ConnectedMainMenu = (props) => {
@@ -285,7 +284,7 @@ const ConnectedMainMenu = (props) => {
             styles.dim100
           ]}
         >
-          <Guide />
+          <NewsFeed />
         </View>
       </View>
     </View>

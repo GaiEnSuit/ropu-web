@@ -32,7 +32,7 @@ const ConnectedMarketModal = (props) => {
       <View
         style={styles.flex1}
       >
-        <ModalTitle title={props.marketModalTitle} />
+        <ModalTitle title={props.marketModalTitle} {...props} />
         <TouchableOpacity
           onPress={()=>{
             props.updateModal(false, "Market Modal Closed")
