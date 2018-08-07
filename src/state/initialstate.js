@@ -653,11 +653,11 @@ const initialState = {
     text: `Reactions can be made in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
   },
   // Log In Text
-  logInDialogText: {
-    logInTitle: 'LOG IN',
-    createAccountTitle: 'CREATE ACCOUNT',
-    submitText: 'SUBMIT'
-  },
+  logInTitle: 'LOG IN',
+  createAccountTitle: 'CREATE ACCOUNT',
+  submitText: 'SUBMIT',
+  accountText: 'ACCOUNT',
+  //Account Menu Text
   accountMenuText: {
     account: 'account',
     logout: 'logout'
@@ -700,10 +700,8 @@ const initialState = {
   game: 'Game',
   description: 'Description',
   abilities: 'Abilities',
-  interactables: 'Interactables',
   summary: 'Summary',
   selectGame: 'Select A Game',
-  selectedGame: 'Selected Game',
   continue: 'Continue',
   placeholderName: `My Character's Name`,
   name: 'Name',
@@ -713,7 +711,6 @@ const initialState = {
   selectTemplate: `Select A Character Template (Interactables)`,
   gameNotSelected: `You must select a game before continuing`,
   tags: 'Tags',
-  selectedTemplate: 'Selected Template',
   changeTemplate: 'Change Template',
   add: `Add Interactable(s)`,
   startingInteractbles: 'Starting Interactables',

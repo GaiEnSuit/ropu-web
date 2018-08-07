@@ -21,6 +21,9 @@ import input from '../images/input.png';
 import TitleDialog from '../dialogs/TitleDialog';
 import HomeDialog from '../dialogs/HomeDialog';
 
+// Modals
+import LogInModal from '../modals/LogInModal';
+
 // hoc
 import withModal from '../hoc/withModal';
 
@@ -123,16 +126,24 @@ const AccountButton = (props) => {
   )
 }
 
-const LogInButton = (props) => {
+const ConnectedLogInButton = (props) => {
   return (
-    <Image
-      source={input}
-      style={[
-        styles.icon24
-      ]}
-    />
+    <TouchableOpacity
+      onPress={()=>{
+        props.updateModal(true, "Log In Modal Opened");
+      }}
+    >
+      <Image
+        source={input}
+        style={[
+          styles.icon24
+        ]}
+      />
+    </TouchableOpacity>
   )
 }
+
+const LogInButton = withModal(ConnectedLogInButton, LogInModal);
 
 // Layout
 const ConnectedAppBar = (props) => {
