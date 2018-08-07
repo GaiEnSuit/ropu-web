@@ -58,7 +58,6 @@ const LogoButton = withModal(LogoButtonWithModal, TitleDialog);
 const ConnectedHomeButton = (props) => {
   return (
     <TouchableOpacity
-      disabled={props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" ? true : false}
       onPress={()=>{
         props.updateModal(true, 'Home Dialog Opened');
       }}
@@ -73,7 +72,7 @@ const ConnectedHomeButton = (props) => {
   )
 }
 
-const HomeButton = withRouter(withModal(connect(mapStateToProps)(ConnectedHomeButton), HomeDialog));
+const HomeButton = withModal(connect(mapStateToProps)(ConnectedHomeButton), HomeDialog);
 
 const ShopButtonWithModal = (props) => {
   return (
@@ -161,13 +160,16 @@ const ConnectedAppBar = (props) => {
         >
           <LogoButton />
         </View>
-        <View
-          style={[
-            {padding: '12px'}
-          ]}
-        >
-          <HomeButton {...props} />
-        </View>
+        {
+          props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" &&
+          <View
+            style={[
+              {padding: '12px'}
+            ]}
+          >
+            <HomeButton {...props} />
+          </View>
+        }
         <View
           style={[
             {padding: '12px'}
@@ -175,13 +177,16 @@ const ConnectedAppBar = (props) => {
         >
           <ShopButton />
         </View>
-        <View
-          style={[
-            {padding: '12px'}
-          ]}
-        >
-          <HelpButton />
-        </View>
+        {
+          props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" &&
+          <View
+            style={[
+              {padding: '12px'}
+            ]}
+          >
+            <HelpButton />
+          </View>
+        }
         {props.loggedIn?
           (
             <View
@@ -207,6 +212,6 @@ const ConnectedAppBar = (props) => {
   )
 }
 
-const AppBar = connect(mapStateToProps)(ConnectedAppBar);
+const AppBar = withRouter(connect(mapStateToProps)(ConnectedAppBar));
 
 export default AppBar;
