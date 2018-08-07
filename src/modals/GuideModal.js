@@ -19,7 +19,7 @@ import styles from '../styles/styles';
 import AboutGuide from '../guidesections/AboutGuide';
 
 // images
-import arrowRight from '../images/arrowRight.png';
+import chevronRight from '../images/chevronRight.png';
 
 const mapStateToProps = state => {
   return{
@@ -38,20 +38,17 @@ const ConnectedAboutButton = (props) => {
       <View
         style={[
           styles.justifyBetween,
-          styles.directionRow,
-          styles.bgColorRed
+          styles.directionRow
         ]}
       >
-        <Text
-          style={styles.colorWhite}
-        >
+        <Text>
           {props.aboutGuideTitle}
         </Text>
         <Image
           style={[
             styles.icon24
           ]}
-          source={arrowRight}
+          source={chevronRight}
         />
       </View>
     </TouchableHighlight>
