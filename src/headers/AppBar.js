@@ -161,14 +161,19 @@ const ConnectedAppBar = (props) => {
           <LogoButton />
         </View>
         {
-          props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" &&
-          <View
-            style={[
-              {padding: '12px'}
-            ]}
-          >
-            <HomeButton {...props} />
-          </View>
+          props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" ?
+          (
+            null
+          ) :
+          (
+            <View
+              style={[
+                {padding: '12px'}
+              ]}
+            >
+              <HomeButton {...props} />
+            </View>
+          )
         }
         <View
           style={[
@@ -178,14 +183,19 @@ const ConnectedAppBar = (props) => {
           <ShopButton />
         </View>
         {
-          props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" &&
-          <View
-            style={[
-              {padding: '12px'}
-            ]}
-          >
-            <HelpButton />
-          </View>
+          props.location.pathname === props.homePath || props.location.pathname === props.homePath + "/" ?
+          (
+            null
+          ) :
+          (
+            <View
+              style={[
+                {padding: '12px'}
+              ]}
+            >
+              <HelpButton />
+            </View>
+          )
         }
         {props.loggedIn?
           (
