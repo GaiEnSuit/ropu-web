@@ -594,68 +594,65 @@ const initialState = {
       ]
     }
   ],
-  // Text Data
+  // Guide Text
   guideModalText: 'Guide',
-  guideModalData: {
-    about: {
-      title: 'About',
-      text: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`
-    },
-    flow: {
-      title: 'Game Flow',
-      step1: '1. The GM describes the events and context of the world',
-      step2: '2. Players decide what actions their characters take',
-      step3: '3. Rolls are made to determine the outcome of uncertain actions',
-      step4: '4. Resolve conflicts if there are any',
-      step5: '5. Repeat!'
-    },
-    gm: {
-      title: 'How To GM',
-      step1: 'Select Direct from the home page to take the role of GM',
-      step2: 'Select a game from the game selection page.',
-      step3: 'Each game has its\' own unique setting, theme, and game type.'
-    },
-    rolling: {
-      title: 'Rolling',
-      text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
-    },
-    actions: {
-      title: 'Actions',
-      text: 'Actions are when characters do something. When an action is taken and the outcome is uncertain, make a roll and add the related ability and other modifiers. Determines the best related ability and modifiers that apply. If the action has no opposition, the roll is compared against a number decided by the Director. When two or more characters are competing against each other for an outcome a conflict ensues.'
-    },
-    stories: {
-      title: 'Stories',
-      text: 'Contains information about the name of the world, the locations that make up the world, the charcters that inhabit them, and the plots that ensues within it, and the interables that charcters can interact with. Go to direct a story for details.'
-    },
-    interactables: {
-      title: 'Interactables',
-      text: 'Interactables are anything that a character may use to effect the outcome of an action, this includes things such as equipment, weapons, magic, skills. These are provided for in the story module or determined by the director. When using interactables follow the edscription of the interactble.'
-    },
-    physicalConflicts: {
-      title: 'Physical Conflicts',
-      text: 'Everyone works together to keep track of the general location of involved characters and the environment'
-    },
-    socialConflicts: {
-      title: 'Social Conflicts',
-      text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
-    },
-    positioning: {
-      title: 'Positioning',
-      text: 'Everyone works together to keep track of the general location of involved characters and the environment'
-    },
-    turnOrder: {
-      title: 'Turn Order',
-      text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
-    },
-    staminaPoints: {
-      title: 'Actions',
-      text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
-    },
-    reactions: {
-      title: `Reactions`,
-      text: `Reactions can be made in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
-    }
+  aboutGuideTitle: 'About',
+  aboutGuideText: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`,
+  flow: {
+    title: 'Game Flow',
+    step1: '1. The GM describes the events and context of the world',
+    step2: '2. Players decide what actions their characters take',
+    step3: '3. Rolls are made to determine the outcome of uncertain actions',
+    step4: '4. Resolve conflicts if there are any',
+    step5: '5. Repeat!'
   },
+  gm: {
+    title: 'How To GM',
+    step1: 'Select Direct from the home page to take the role of GM',
+    step2: 'Select a game from the game selection page.',
+    step3: 'Each game has its\' own unique setting, theme, and game type.'
+  },
+  rolling: {
+    title: 'Rolling',
+    text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
+  },
+  actions: {
+    title: 'Actions',
+    text: 'Actions are when characters do something. When an action is taken and the outcome is uncertain, make a roll and add the related ability and other modifiers. Determines the best related ability and modifiers that apply. If the action has no opposition, the roll is compared against a number decided by the Director. When two or more characters are competing against each other for an outcome a conflict ensues.'
+  },
+  stories: {
+    title: 'Stories',
+    text: 'Contains information about the name of the world, the locations that make up the world, the charcters that inhabit them, and the plots that ensues within it, and the interables that charcters can interact with. Go to direct a story for details.'
+  },
+  interactables: {
+    title: 'Interactables',
+    text: 'Interactables are anything that a character may use to effect the outcome of an action, this includes things such as equipment, weapons, magic, skills. These are provided for in the story module or determined by the director. When using interactables follow the edscription of the interactble.'
+  },
+  physicalConflicts: {
+    title: 'Physical Conflicts',
+    text: 'Everyone works together to keep track of the general location of involved characters and the environment'
+  },
+  socialConflicts: {
+    title: 'Social Conflicts',
+    text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
+  },
+  positioning: {
+    title: 'Positioning',
+    text: 'Everyone works together to keep track of the general location of involved characters and the environment'
+  },
+  turnOrder: {
+    title: 'Turn Order',
+    text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
+  },
+  staminaPoints: {
+    title: 'Actions',
+    text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
+  },
+  reactions: {
+    title: `Reactions`,
+    text: `Reactions can be made in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
+  },
+  // Log In Text
   logInDialogText: {
     logInTitle: 'LOG IN',
     createAccountTitle: 'CREATE ACCOUNT',
@@ -683,85 +680,79 @@ const initialState = {
       logout: 'Log Out'
     }
   },
-  titlePageText: {
-    credits: 'Credits',
-    by: ' by ',
-    license: ' is licensed under '
-  },
+  credits: 'Credits',
+  by: ' by ',
+  license: ' is licensed under ',
+  // Section Texts
   versionText: 'Version',
   startText: 'TOUCH TO START',
   copyrightText: 'Written by K Truong',
-  // Main Menu Text
+  // Home Page Text
   playText: 'PLAY',
   directText: 'DIRECT',
   homebrewText: 'CREATE',
   newsText: 'NEWS',
+  guideText: 'GUIDE',
   // User Feedback Text
   offlineText: 'Unable to Retrieve Data',
-  // Dialog Navigation Text
+  // Character Creation Text
+  CharacterCreationPagetitle: 'Character Creation',
+  game: 'Game',
+  description: 'Description',
+  abilities: 'Abilities',
+  interactables: 'Interactables',
+  summary: 'Summary',
+  selectGame: 'Select A Game',
+  selectedGame: 'Selected Game',
+  continue: 'Continue',
+  placeholderName: `My Character's Name`,
+  name: 'Name',
+  decription: 'Description',
+  placeholderDescription: 'Input Description Here! (Age, Race, Sex, Quirks etc.)',
+  abilitiesInstructions: 'Increase and decrease the values of the abilities, the total value should equal the recommended value for your game',
+  selectTemplate: `Select A Character Template (Interactables)`,
+  gameNotSelected: `You must select a game before continuing`,
+  tags: 'Tags',
+  selectedTemplate: 'Selected Template',
+  changeTemplate: 'Change Template',
+  add: `Add Interactable(s)`,
+  startingInteractbles: 'Starting Interactables',
+  selectImage: 'Select or upload an image',
+  complete: 'Finish',
+  strength: 'Strength',
+  endurance: 'Endurance',
+  intelligence: 'Intelligence',
+  will: 'Will',
+  dexterity: 'Dexterity',
+  agility: 'Agility',
+  abilitiesTotal: 'Total Combined Score',
+  abilitiesTotalInstructions: 'Total combined score should equal to 0',
+  next: 'Next',
+  back: 'Back',
+  cancel: 'Cancel',
+  expand: 'Description',
+  // Story Selection Text
+  storySelectionPageTitle: 'Select A Story',
+  // Homebrew Text
+  homebrewPageTitle: 'Homebrew',
+  // Character Selection Text
+  characterSelectionPageTitle: 'Select A Character',
+  noCharacters: 'No Characters',
+  noStory: 'No Story',
+  noName: 'No Name',
+  // Dialog Text
+  confirmDelete: 'Delete Character?',
   titleNavigateText: 'Return To Title Screen?',
   homeNavigateText: 'Return To Home Screen?',
-  characterCreationPageText: {
-    title: 'Character Creation',
-    game: 'Game',
-    description: 'Description',
-    abilities: 'Abilities',
-    interactables: 'Interactables',
-    summary: 'Summary',
-    selectGame: 'Select A Game',
-    selectedGame: 'Selected Game',
-    continue: 'Continue',
-    placeholderName: `My Character's Name`,
-    name: 'Name',
-    decription: 'Description',
-    placeholderDescription: 'Input Description Here! (Age, Race, Sex, Quirks etc.)',
-    abilitiesInstructions: 'Increase and decrease the values of the abilities, the total value should equal the recommended value for your game',
-    selectTemplate: `Select A Character Template (Interactables)`,
-    gameNotSelected: `You must select a game before continuing`,
-    tags: 'Tags',
-    selectedTemplate: 'Selected Template',
-    changeTemplate: 'Change Template',
-    add: `Add Interactable(s)`,
-    startingInteractbles: 'Starting Interactables',
-    selectImage: 'Select or upload an image',
-    complete: 'Finish',
-    strength: 'Strength',
-    endurance: 'Endurance',
-    intelligence: 'Intelligence',
-    will: 'Will',
-    dexterity: 'Dexterity',
-    agility: 'Agility',
-    abilitiesTotal: 'Total Combined Score',
-    abilitiesTotalInstructions: 'Total combined score should equal to 0',
-    next: 'Next',
-    back: 'Back',
-    cancel: 'Cancel',
-    expand: 'Description',
-    homeDialogTitle: 'Return Home?',
-    characterSelectionPageDialogTitle: 'Cancel Character Creation'
-  },
-  storySelectionPageText: {
-    title: 'Select A Story',
-    homeDialogTitle: 'Return Home?',
-  },
-  homebrewPageText: {
-    title: 'Homebrew',
-    homeDialogTitle: 'Return Home?'
-  },
-  // Character Selection Page Text
-    characterSelectionPageTitle: 'Select A Character',
-    noCharacters: 'No Characters',
-    noStory: 'No Story',
-    noName: 'No Name',
-    delete: 'Delete',
-    confirmDelete: 'Delete Character?',
-    homeDialogTitle: 'Return Home?',
-    offline: 'Error Unable to Retrieve Data',
+  characterSelectionPageDialogTitle: 'Cancel Character Creation',
   // Market Modal text
   marketModalTitle: 'Market',
+  // Actions text
+  delete: 'Delete',
   // Error Page Text
   errorPageText: 'Oops! Something Went Wrong',
-  errorPageTitle: 'ERROR 404'
+  // Offline text
+  offline: 'Error Unable to Retrieve Data'
 }
 
 export default initialState;

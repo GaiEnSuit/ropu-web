@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, TouchableHighlight, Text, Image } from 'react-native';
 
 import { connect } from 'react-redux';
 
@@ -9,14 +9,57 @@ import Modal from 'react-native-web-modal';
 // Headers
 import ModalTitle from '../headers/ModalTitle';
 
+// Modals
+import withModal from '../hoc/withModal';
+
 // styles
 import styles from '../styles/styles';
 
+// sections
+import AboutGuide from '../guidesections/AboutGuide';
+
+// images
+import arrowRight from '../images/arrowRight.png';
+
 const mapStateToProps = state => {
   return{
-    guideModalText: state.guideModalText
+    guideModalText: state.guideModalText,
+    aboutGuideTitle: state.aboutGuideTitle
   }
 }
+
+const ConnectedAboutButton = (props) => {
+  return(
+    <TouchableHighlight
+      onPress={()=>{
+        props.updateModal(true, 'About Dialog Opened');
+      }}
+    >
+      <View
+        style={[
+          styles.justifyBetween,
+          styles.directionRow,
+          styles.bgColorRed
+        ]}
+      >
+        <Text
+          style={styles.colorWhite}
+        >
+          {props.aboutGuideTitle}
+        </Text>
+        <Image
+          style={[
+            styles.icon24
+          ]}
+          source={arrowRight}
+        />
+      </View>
+    </TouchableHighlight>
+  )
+}
+
+const AboutButton = withModal(connect(mapStateToProps)(ConnectedAboutButton), AboutGuide)
+
 
 // Layout
 const ConnectedGuideModal = (props) => {
@@ -39,6 +82,7 @@ const ConnectedGuideModal = (props) => {
             styles.flex1
           ]}
         >
+          <AboutButton />
         </ScrollView>
       </View>
     </Modal>

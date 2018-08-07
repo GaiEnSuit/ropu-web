@@ -9,12 +9,14 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 // Modals
 import NewsFeedModal from '../modals/NewsFeedModal';
+import GuideModal from '../modals/GuideModal';
 
 // Images
 import sword from '../images/sword_01b.png';
 import book from '../images/book_05g.png';
 import potion from '../images/potion_03g.png';
 import scroll from '../images/scroll_01a.png';
+import tome from '../images/book_05f.png';
 
 //styles
 import styles from '../styles/styles';
@@ -30,6 +32,7 @@ const mapStateToProps = state => {
     directText: state.directText,
     homebrewText: state.homebrewText,
     newsText: state.newsText,
+    guideText: state.guideText,
     orientation: state.orientation
   }
 }
@@ -218,20 +221,65 @@ const ConnectedNewsFeed = (props) => {
   )
 }
 
-const NewsFeed = withModal(connect(mapStateToProps)(ConnectedNewsFeed), NewsFeedModal)
+const NewsFeed = withModal(connect(mapStateToProps)(ConnectedNewsFeed), NewsFeedModal);
+
+const ConnectedGuide = (props) => {
+  return(
+    <TouchableOpacity
+      style={[
+        styles.justifyCenter,
+        styles.alignCenter
+      ]}
+      onPress={()=>{
+        props.updateModal(true);
+      }}
+    >
+      <View
+        style={[
+          styles.icon48,
+          styles.justifyCenter,
+          styles.alignCenter,
+          styles.flex1
+        ]}
+      >
+        <Image
+          source={tome}
+          style={styles.icon36}
+        />
+      </View>
+      <View
+        style={[
+          styles.justifyCenter,
+          styles.alignCenter,
+          styles.flex1
+        ]}
+      >
+        <Text
+          style={[
+            styles.colorRed,
+            styles.button
+          ]}
+        >
+          {props.guideText}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  )
+}
+
+const Guide = withModal(connect(mapStateToProps)(ConnectedGuide), GuideModal);
 
 // Main Menu
 const ConnectedMainMenu = (props) => {
   return (
     <View
       style={[
-        styles.flex1,
-        {flexDirection: props.orientation === 'portrait'? 'column' : 'row'}
+        styles.flex1
       ]}
     >
       <View
         style={[
-          styles.directionColumn,
+          styles.directionRow,
           styles.flex1,
           styles.justifyCenter,
           styles.alignCenter
@@ -257,10 +305,20 @@ const ConnectedMainMenu = (props) => {
         >
           <Direct />
         </View>
+        <View
+          style={[
+            styles.justifyCenter,
+            styles.alignCenter,
+            styles.flex1,
+            styles.dim100
+          ]}
+        >
+          <Create />
+        </View>
       </View>
       <View
         style={[
-          styles.directionColumn,
+          styles.directionRow,
           styles.flex1,
           styles.justifyCenter,
           styles.alignCenter
@@ -274,7 +332,7 @@ const ConnectedMainMenu = (props) => {
             styles.dim100
           ]}
         >
-          <Create />
+          <NewsFeed />
         </View>
         <View
           style={[
@@ -284,7 +342,7 @@ const ConnectedMainMenu = (props) => {
             styles.dim100
           ]}
         >
-          <NewsFeed />
+          <Guide />
         </View>
       </View>
     </View>

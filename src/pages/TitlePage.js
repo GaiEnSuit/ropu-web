@@ -15,7 +15,8 @@ const mapStateToProps = state => {
     startText: state.startText,
     versionText: state.versionText,
     version: state.version,
-    homePath: state.homePath
+    homePath: state.homePath,
+    orientation: state.orientation
   };
 };
 
@@ -33,7 +34,8 @@ const ConnectedCopyright = ({copyrightText}) => {
   return(
     <Text
       style={[
-        styles.colorWhite
+        styles.colorWhite,
+        styles.body1
       ]}
     >
       {copyrightText}
@@ -48,7 +50,7 @@ const ConnectedStartButton = ({startText}) => {
     <Text
       style={[
         styles.colorWhite,
-        styles.h6
+        styles.button
       ]}
     >
       {startText}
@@ -61,7 +63,10 @@ const StartButton = connect(mapStateToProps)(ConnectedStartButton);
 const ConnectedVersion = ({version, versionText}) => {
   return (
     <Text
-      style={styles.colorWhite}
+      style={[
+        styles.colorWhite,
+        styles.body1
+      ]}
     >
       {versionText} {version}
     </Text>
@@ -86,7 +91,7 @@ const ConnectedTitlePage = (props) => {
       >
         <View
           style={
-            {flex: props.orientation === 'portrait'? 1: 2}
+            {flex: props.orientation === 'portrait'? 4: 4}
           }
         >
           <Title />
@@ -94,7 +99,6 @@ const ConnectedTitlePage = (props) => {
         <View
           style={[
             styles.flex1,
-            styles.dim100,
             styles.alignCenter,
             styles.justifyStart
           ]}
