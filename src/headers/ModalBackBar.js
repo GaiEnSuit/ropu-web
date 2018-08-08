@@ -40,7 +40,7 @@ const ModalBackBar = (props) => {
       <Text
         style={[
           styles.colorWhite,
-          styles.h6
+          styles.h5
         ]}
       >
         {props.title}
