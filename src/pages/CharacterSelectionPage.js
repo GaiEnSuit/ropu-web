@@ -18,8 +18,8 @@ import withModal from '../hoc/withModal';
 import withCharacterDataControl from '../hoc/withCharacterDataControl';
 
 // Buttons
-import CreatePlayerCharacterButton from '../buttons/CreatePlayerCharacterButton';
-import BackButton from '../buttons/BackButton';
+import CreatePlayerCharacterButton from '../touchables/CreatePlayerCharacterButton';
+import BackButton from '../touchables/BackButton';
 
 // state
 import { connect } from 'react-redux';

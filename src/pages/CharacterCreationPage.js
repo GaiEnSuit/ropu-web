@@ -18,7 +18,7 @@ import withModal from '../hoc/withModal';
 import TitleBar from '../headers/TitleBar';
 
 // Button
-import BackButton from '../buttons/BackButton';
+import BackButton from '../touchables/BackButton';
 
 //Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';

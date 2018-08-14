@@ -8,7 +8,7 @@ import styles from '../styles/styles';
 // import Card from '@material-ui/core/Card';
 
 // Button
-import BackButton from '../buttons/BackButton';
+import BackButton from '../touchables/BackButton';
 
 // HOC
 import withNavigation from '../hoc/withNavigation';

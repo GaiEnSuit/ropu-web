@@ -9,7 +9,7 @@ import TitleBar from '../headers/TitleBar';
 import styles from '../styles/styles';
 
 // Buttons
-import BackButton from '../buttons/BackButton';
+import BackButton from '../touchables/BackButton';
 
 // HOC
 import withNavigation from '../hoc/withNavigation';
