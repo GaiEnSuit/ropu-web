@@ -28,9 +28,13 @@ const ConnectedAboutGuide = (props) => {
         title={props.aboutGuideTitle}
         {...props}
       />
-      <ScrollView>
+      <ScrollView
+        style={styles.padding12}
+      >
         <Text
-          style={styles.body1}
+          style={[
+            styles.body1
+          ]}
         >
           {props.aboutGuideText}
         </Text>

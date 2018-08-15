@@ -596,8 +596,8 @@ const initialState = {
   ],
   // Guide Text
   guideModalText: 'Guide',
-  aboutGuideTitle: 'About',
-  aboutGuideText: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`,
+  aboutGuideTitle: 'Overview',
+  aboutGuideText: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\n\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`,
   flow: {
     title: 'Game Flow',
     step1: '1. The GM describes the events and context of the world',

@@ -259,6 +259,15 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 1.5
   },
+  // Borders
+  borderBottom: {
+    borderBottomColor: 'grey',
+    borderBottomWidth: 1
+  },
+  borderTop: {
+    borderTopColor: 'grey',
+    borderTopWidth: 1
+  },
   // Shape
   shapeCircle: {
     borderRadius: '50%'
