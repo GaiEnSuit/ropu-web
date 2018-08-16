@@ -634,16 +634,16 @@ const initialState = {
       text: `1. The Game Master describes the world and the events around the Player Characters\n\n2. Players decide what actions their Player Characters take\n\n3. If necessary rolls are made to determine the outcome of actions\n\n4. Resolve conflicts if there are any`
     },
     {
-      key: 'How To Direct',
-      text: `The GM controls everything that is not a Player Character.\n\nIt is the GM's goal to be as neutral as possible but keep the game an enjoyable experience.\n\nThe GM is required to have a good understanding of the rules in order to enforce them.\n\nThe game is only limited by the Game Master's Imagination be ready to get creative, but reasonably realistic as Players will often do something unexpected.\n\nWith great power comes great responsibilities!`
+      key: 'Directing As GM',
+      text: `The GM controls everything that is not a Player Character.\n\nThe GM is required to have a good understanding of the rules in order to enforce them.\n\nIt is the GM's goal to be as neutral as possible but keep the game an enjoyable experience.\n\nThe game module with contain the information necessary to run the game but is not restricted to it. Be ready to get creative, but reasonably realistic as Players will often do something unexpected.`
+    },
+    {
+      key: 'Actions',
+      text: `Actions are when characters do something.\n\nWhen an action is taken where the outcome is uncertain rolls are made.\n\nIf an action conflicts with another characters action, a conflict ensues. If there is no opposing action the roll is compared to a number decided by the Game Master.`
     },
     {
       key: 'Rolling',
       text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
-    },
-    {
-      key: 'When To Roll',
-      text: 'Actions are when characters do something. When an action is taken and the outcome is uncertain, make a roll and add the related ability and other modifiers. Determines the best related ability and modifiers that apply. If the action has no opposition, the roll is compared against a number decided by the Director. When two or more characters are competing against each other for an outcome a conflict ensues.'
     },
     {
       key: 'Stories',
@@ -670,7 +670,7 @@ const initialState = {
       text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
     },
     {
-      key: 'Actions',
+      key: 'Actions During Conflict',
       text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
     },
     {

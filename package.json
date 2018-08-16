@@ -6,6 +6,7 @@
     "@material-ui/core": "^1.5.0",
     "@material-ui/icons": "^1.1.0",
     "babel-plugin-react-native-web": "^0.8.9",
+    "expo": "^29.0.0",
     "firebase": "^5.3.1",
     "react": "^16.4.2",
     "react-art": "^16.4.2",
@@ -18,6 +19,7 @@
     "react-twitter-embed": "^1.1.3",
     "typeface-roboto": "0.0.54"
   },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start-web": "react-scripts start",
     "build-web": "react-scripts build",
@@ -43,7 +45,6 @@
     "react-test-renderer": "^16.4.2",
     "redux": "^4.0.0"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "jest": {
     "preset": "jest-expo"
   }
