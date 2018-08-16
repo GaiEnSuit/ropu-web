@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, ScrollView, TouchableOpacity, Text, Image } from 'react-native';
+import { View, TouchableOpacity, Text, Image, FlatList } from 'react-native';
 
 import { connect } from 'react-redux';
 
@@ -16,7 +16,7 @@ import withModal from '../hoc/withModal';
 import styles from '../styles/styles';
 
 // sections
-import AboutGuide from './AboutGuide';
+import GuideSectionModal from './GuideSectionModal';
 
 // images
 import chevronRight from '../images/chevronRight.png';
@@ -24,11 +24,12 @@ import chevronRight from '../images/chevronRight.png';
 const mapStateToProps = state => {
   return{
     guideModalText: state.guideModalText,
+    guideTextData: state.guideTextData,
     aboutGuideTitle: state.aboutGuideTitle
   }
 }
 
-const ModalListItem = (props) => {
+const EnhancedModalListItem = (props) => {
   return(
     <TouchableOpacity
       onPress={()=>{
@@ -41,7 +42,8 @@ const ModalListItem = (props) => {
           styles.alignCenter,
           styles.directionRow,
           styles.padding12,
-          styles.borderBottom
+          styles.borderBottom,
+          styles.borderTop
         ]}
       >
         <Text
@@ -62,13 +64,7 @@ const ModalListItem = (props) => {
   )
 }
 
-const ConnectedAboutButton = (props) => {
-  return(
-    <ModalListItem title={props.aboutGuideTitle} {...props} />
-  )
-}
-
-const AboutButton = withModal(connect(mapStateToProps)(ConnectedAboutButton), AboutGuide)
+const ModalListItem = withModal(connect(mapStateToProps)(EnhancedModalListItem), GuideSectionModal)
 
 // Layout
 const ConnectedGuideModal = (props) => {
@@ -88,13 +84,12 @@ const ConnectedGuideModal = (props) => {
           {...props}
           title={props.guideModalText}
         />
-        <ScrollView
-          style={[
-            styles.flex1
-          ]}
-        >
-          <AboutButton />
-        </ScrollView>
+        <FlatList
+          data={props.guideTextData}
+          renderItem={({item}) => {
+            return <ModalListItem title={item.key} text={item.text} />
+          }}
+        />
       </View>
     </Modal>
   )

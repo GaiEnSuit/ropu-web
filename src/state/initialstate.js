@@ -594,64 +594,6 @@ const initialState = {
       ]
     }
   ],
-  // Guide Text
-  guideModalText: 'Guide',
-  aboutGuideTitle: 'Overview',
-  aboutGuideText: `Role Playing Unlimited (RoPU) is a social game where the participants tell a collective story.\n\nOne player who is designated the role of the Game Master (GM) will describe the game world, the inhabitants of that world and the events that Unfold while the other players decide the actions of their characters`,
-  flow: {
-    title: 'Game Flow',
-    step1: '1. The GM describes the events and context of the world',
-    step2: '2. Players decide what actions their characters take',
-    step3: '3. Rolls are made to determine the outcome of uncertain actions',
-    step4: '4. Resolve conflicts if there are any',
-    step5: '5. Repeat!'
-  },
-  gm: {
-    title: 'How To GM',
-    step1: 'Select Direct from the home page to take the role of GM',
-    step2: 'Select a game from the game selection page.',
-    step3: 'Each game has its\' own unique setting, theme, and game type.'
-  },
-  rolling: {
-    title: 'Rolling',
-    text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
-  },
-  actions: {
-    title: 'Actions',
-    text: 'Actions are when characters do something. When an action is taken and the outcome is uncertain, make a roll and add the related ability and other modifiers. Determines the best related ability and modifiers that apply. If the action has no opposition, the roll is compared against a number decided by the Director. When two or more characters are competing against each other for an outcome a conflict ensues.'
-  },
-  stories: {
-    title: 'Stories',
-    text: 'Contains information about the name of the world, the locations that make up the world, the charcters that inhabit them, and the plots that ensues within it, and the interables that charcters can interact with. Go to direct a story for details.'
-  },
-  interactables: {
-    title: 'Interactables',
-    text: 'Interactables are anything that a character may use to effect the outcome of an action, this includes things such as equipment, weapons, magic, skills. These are provided for in the story module or determined by the director. When using interactables follow the edscription of the interactble.'
-  },
-  physicalConflicts: {
-    title: 'Physical Conflicts',
-    text: 'Everyone works together to keep track of the general location of involved characters and the environment'
-  },
-  socialConflicts: {
-    title: 'Social Conflicts',
-    text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
-  },
-  positioning: {
-    title: 'Positioning',
-    text: 'Everyone works together to keep track of the general location of involved characters and the environment'
-  },
-  turnOrder: {
-    title: 'Turn Order',
-    text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
-  },
-  staminaPoints: {
-    title: 'Actions',
-    text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
-  },
-  reactions: {
-    title: `Reactions`,
-    text: `Reactions can be made in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
-  },
   // Log In Text
   logInTitle: 'LOG IN',
   createAccountTitle: 'CREATE ACCOUNT',
@@ -680,6 +622,63 @@ const initialState = {
       logout: 'Log Out'
     }
   },
+  // Guide Text
+  guideModalText: 'Guide',
+  guideTextData: [
+    {
+      key: 'Getting Started',
+      text: `Role Playing Unlimited is a social game of collective storytelling where the Game Master controls the game and Players control Player Characters in the game.\n\nSelect "Direct" from the Home Page to be a Game Master. \n\nSelect "Play" from the Home Page to be a Player.`
+    },
+    {
+      key: 'Game Flow',
+      text: `1. The Game Master describes the world and the events around the Player Characters\n\n2. Players decide what actions their Player Characters take\n\n3. If necessary rolls are made to determine the outcome of actions\n\n4. Resolve conflicts if there are any`
+    },
+    {
+      key: 'How To Direct',
+      text: `The GM controls everything that is not a Player Character.\n\nIt is the GM's goal to be as neutral as possible but keep the game an enjoyable experience.\n\nThe GM is required to have a good understanding of the rules in order to enforce them.\n\nThe game is only limited by the Game Master's Imagination be ready to get creative, but reasonably realistic as Players will often do something unexpected.\n\nWith great power comes great responsibilities!`
+    },
+    {
+      key: 'Rolling',
+      text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
+    },
+    {
+      key: 'When To Roll',
+      text: 'Actions are when characters do something. When an action is taken and the outcome is uncertain, make a roll and add the related ability and other modifiers. Determines the best related ability and modifiers that apply. If the action has no opposition, the roll is compared against a number decided by the Director. When two or more characters are competing against each other for an outcome a conflict ensues.'
+    },
+    {
+      key: 'Stories',
+      text: 'Contains information about the name of the world, the locations that make up the world, the charcters that inhabit them, and the plots that ensues within it, and the interables that charcters can interact with. Go to direct a story for details.'
+    },
+    {
+      key: 'Interactables',
+      text: 'Interactables are anything that a character may use to effect the outcome of an action, this includes things such as equipment, weapons, magic, skills. These are provided for in the story module or determined by the director. When using interactables follow the edscription of the interactble.'
+    },
+    {
+      key: 'Physical Conflicts',
+      text: 'Everyone works together to keep track of the general location of involved characters and the environment'
+    },
+    {
+      key: 'Social Conflicts',
+      text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
+    },
+    {
+      key: 'Positioning',
+      text: 'Everyone works together to keep track of the general location of involved characters and the environment'
+    },
+    {
+      key: 'Turn Order',
+      text: `Turn order is determined by the characters' AGI from hgihest to lowest. In the case of ties a competition roll is made and whomever succeeds goes first`
+    },
+    {
+      key: 'Actions',
+      text: 'Characters can take action by spending 1 SP on their turn Inconsequential actions cost 0 SP (breathing, closing your eyes etc.), completely replenish SP at the beggining of your turn'
+    },
+    {
+      key: `Reactions`,
+      text: `Reactions can be made in response to another character’s action Spend 1 Stamina Point (SP), this usually ends up in a competition roll.`
+    }
+  ],
+  // Credits
   credits: 'Credits',
   by: ' by ',
   license: ' is licensed under ',
