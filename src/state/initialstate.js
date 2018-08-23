@@ -595,10 +595,10 @@ const initialState = {
     }
   ],
   // Log In Text
-  logInTitle: 'LOG IN',
-  createAccountTitle: 'CREATE ACCOUNT',
-  submitText: 'SUBMIT',
-  accountText: 'ACCOUNT',
+  logInTitle: 'Log In',
+  createAccountTitle: 'Create Account',
+  submitText: 'Subit',
+  accountText: 'Account',
   //Account Menu Text
   accountMenuText: {
     account: 'account',
