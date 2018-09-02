@@ -631,35 +631,27 @@ const initialState = {
     },
     {
       key: 'Game Flow',
-      text: `1. The Game Master describes the world and the events around the Player Characters\n\n2. Players decide what actions their Player Characters take\n\n3. If necessary rolls are made to determine the outcome of actions\n\n4. Resolve conflicts if there are any`
+      text: `1. The Game Master describes the situation the Player Characters are in, then asks the Players what they want to do\n\n2. Players decide what Actions their Player Characters take\n\n3. Determine the outcome of Actions by making rolls or resolving conflicts if necessary \n\n4. Repeat!`
     },
     {
-      key: 'Directing As GM',
-      text: `The GM controls everything that is not a Player Character.\n\nThe GM is required to have a good understanding of the rules in order to enforce them.\n\nIt is the GM's goal to be as neutral as possible but keep the game an enjoyable experience.\n\nThe game module with contain the information necessary to run the game but is not restricted to it. Be ready to get creative, but reasonably realistic as Players will often do something unexpected.`
+      key: 'Direct As Game Master',
+      text: `The Game Master is responsible for enforcing the rules and controlling everything that is not a Player Character.\n\nIt is recommended that the Game Master is familer with the rules and remain as neutral as possible while keeping the game an enjoyable experience for everyone.\n\nThe game will contain information such as Locations or Non-Player Characters that the Game Master can use to build the world around players.\n\nBe ready to get creative, but reasonably realistic as Players will often do something unexpected that the game may not handle.`
     },
     {
-      key: 'Actions',
-      text: `Actions are when characters do something.\n\nWhen an action is taken where the outcome is uncertain rolls are made.\n\nIf an action conflicts with another characters action, a conflict ensues. If there is no opposing action the roll is compared to a number decided by the Game Master.`
+      key: 'Play A Character',
+      text: `Players are responsible for controlling their own Characters through actions.\n\nWhen a Player Character does something it is called an Action and depending on the context different rules apply.\n\nWhen an Action is taken against any opposition that is not a character, a Roll must be made against a target number determined by the Game Master to determine if the action is successfull (See Rolling for more detail).\n\nIf an action is taken in opposition to another character's wishes a Conflict ensues (See Conflicts for more details).\n\nCharacters can also use Interactables in tandem with Actions (See Interactables)`
     },
     {
       key: 'Rolling',
-      text: 'A roll is a random number from 1-10 inclusively.\n change the value of the roll.\n*When making calculations round down to the nearest whole number*\nIf a roll is made against another roll (Competition Roll) then the higher number is successful. The Reaction is successful in ties.'
-    },
-    {
-      key: 'Stories',
-      text: 'Contains information about the name of the world, the locations that make up the world, the charcters that inhabit them, and the plots that ensues within it, and the interables that charcters can interact with. Go to direct a story for details.'
+      text: 'Rolls are based on a 10-sided dice roll and are used through various ways by the game. The value of the roll is often modified by other aspects of the game (*When making calculations round down to the nearest whole number*).\n\nThe most common use for a roll is to determine the outcome of an action.\n\nFor example, a Player Character tries to grab onto a tree branch after falling off a cliff. The Game Master determines that the Player must Roll an 10 or higher to succeed. The Player Rolls a 7 and adds 2 (Dexterity) to the score which equals 9. The character does not succeed and falls into the ravine below...'
     },
     {
       key: 'Interactables',
-      text: 'Interactables are anything that a character may use to effect the outcome of an action, this includes things such as equipment, weapons, magic, skills. These are provided for in the story module or determined by the director. When using interactables follow the edscription of the interactble.'
+      text: 'An Interactable is anything that a Character can... well interact with and are are divided into two main categories; physical and non-physical.\n\nInteractables include (but are not limited to) things such as wearable equipment, weapons, objects, special skills, magical abilities.\n\nThe use of Interactables changes the way Actions work usually with the cost of spending Action Points (See Action Points).'
     },
     {
-      key: 'Physical Conflicts',
-      text: 'Everyone works together to keep track of the general location of involved characters and the environment'
-    },
-    {
-      key: 'Social Conflicts',
-      text: 'The character(s) must present a logical argument towards the opposing character(s). Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
+      key: 'Conflicts',
+      text: 'A Conflict begins when two or more Characters have conflicting intentions. For example, a Character wants to fight another Character. Intention being the keyword; In the previous example if one a Character is unaware that someone is trying to fight them, then a conflict has yet to begin. a Make an INT competition roll. On success reduce your opponents MP by your character’s INT. Repeat until a character’s MP is reduced to 0 or no more arguments can be made.'
     },
     {
       key: 'Positioning',
