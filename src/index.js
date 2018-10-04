@@ -1,25 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { AppRegistry } from 'react-native';
 
-// Redux
-import { Provider } from "react-redux";
-import store from './state/store';
-
-// Css for web
+// Global CSS for web
 import './index.css';
 
 // Fonts
 import 'typeface-roboto';
 
+// Root Component
 import App from './App';
 
+// Service Worker
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+// Register The App
+AppRegistry.registerComponent('App', () => App);
+
+AppRegistry.runApplication('App', {
+  initialProps: {},
+  rootTag: document.getElementById('root')
+});
 
 registerServiceWorker();

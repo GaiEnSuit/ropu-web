@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
+// React Native Components
 import { View } from 'react-native';
+
+// Redux
+import { Provider } from "react-redux";
+import store from './state/store';
 
 // Routing
 import { Switch, Route, Redirect, Router } from './routing/Routing';
@@ -24,85 +29,87 @@ import ErrorPage from './pages/ErrorPage';
 class App extends Component {
   render() {
     return (
-      <View
-        style={[
-          styles.flex1,
-          styles.vp100
-        ]}
-      >
-        <LayoutHandler />
-        <Router>
-          {/* Main Section */}
-          <Switch>
-            {/* Home Page*/}
-            <Route
-              exact
-              path='/'
-              render={() =>
-                <TitlePage />
-              }
-            />
-            {/* Home Page*/}
-            <Route
-              exact
-              path='/home'
-              render={() =>
-                <HomePage />
-              }
-            />
-            {/* Character Selection Page */}
-            <Route
-              exact
-              path='/characterselection'
-              render={() =>
-                <CharacterSelectionPage />
-              }
-            />
-            {/* Character Creation Page */}
-            {/*<Route
-              exact
-              path='/charactercreation'
-              render={() =>
-                <CharacterCreationPage />
-              }
-            />*/}
-            {/* Player View Page */}
-            {/*<Route
-              path='/playerview/:id?'
-              render={({match}) =>
-                this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
-                  (
-                    <Redirect to='/404' />
-                  ) : (
-                    <PlayerViewPage />
-                  )
-              }
-            />*/}
-            {/* Story Page */}
-            {/*<Route
-              exact
-              path='/storyselection'
-              render={() =>
-                <StorySelectionPage />
-              }
-            />*/}
-            {/* Home Brew Page */}
-            {/*<Route
-              exact
-              path='/homebrew'
-              render={() =>
-                <HomebrewPage />
-              }
-            />*/}
-            {/* Page Not Found */}
-            <Route
-              render={() =>
-                <ErrorPage />
-              }
-            />
-          </Switch>
-        </Router>
-      </View>
+      <Provider store={store}>
+        <View
+          style={[
+            styles.flex1,
+            styles.vp100
+          ]}
+        >
+          <LayoutHandler />
+          <Router>
+            {/* Main Section */}
+            <Switch>
+              {/* Home Page*/}
+              <Route
+                exact
+                path='/'
+                render={() =>
+                  <TitlePage />
+                }
+              />
+              {/* Home Page*/}
+              <Route
+                exact
+                path='/home'
+                render={() =>
+                  <HomePage />
+                }
+              />
+              {/* Character Selection Page */}
+              <Route
+                exact
+                path='/characterselection'
+                render={() =>
+                  <CharacterSelectionPage />
+                }
+              />
+              {/* Character Creation Page */}
+              {/*<Route
+                exact
+                path='/charactercreation'
+                render={() =>
+                  <CharacterCreationPage />
+                }
+              />*/}
+              {/* Player View Page */}
+              {/*<Route
+                path='/playerview/:id?'
+                render={({match}) =>
+                  this.props.appState.characterListData.find(x => x.id === parseInt(match.params.id, 10)) === undefined?
+                    (
+                      <Redirect to='/404' />
+                    ) : (
+                      <PlayerViewPage />
+                    )
+                }
+              />*/}
+              {/* Story Page */}
+              {/*<Route
+                exact
+                path='/storyselection'
+                render={() =>
+                  <StorySelectionPage />
+                }
+              />*/}
+              {/* Home Brew Page */}
+              {/*<Route
+                exact
+                path='/homebrew'
+                render={() =>
+                  <HomebrewPage />
+                }
+              />*/}
+              {/* Page Not Found */}
+              <Route
+                render={() =>
+                  <ErrorPage />
+                }
+              />
+            </Switch>
+          </Router>
+        </View>
+      </Provider>
     );
   }
 }
